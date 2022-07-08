@@ -1,4 +1,4 @@
-namespace FunctionalCSharp.Exceptions.ResultClass.Errors
+namespace FunctionalCSharp.Exceptions.ResultClass.Errors.Base
 {
     public abstract class BaseError
     {

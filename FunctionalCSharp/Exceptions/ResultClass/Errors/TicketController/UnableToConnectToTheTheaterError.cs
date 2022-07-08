@@ -1,4 +1,6 @@
-namespace FunctionalCSharp.Exceptions.ResultClass.Errors
+using FunctionalCSharp.Exceptions.ResultClass.Errors.Base;
+
+namespace FunctionalCSharp.Exceptions.ResultClass.Errors.TicketController
 {
     public class UnableToConnectToTheTheaterError : BaseError
     {

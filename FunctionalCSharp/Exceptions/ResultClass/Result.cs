@@ -1,4 +1,5 @@
 using FunctionalCSharp.Exceptions.ResultClass.Errors;
+using FunctionalCSharp.Exceptions.ResultClass.Errors.Base;
 
 namespace FunctionalCSharp.Exceptions.ResultClass
 {
@@ -23,9 +24,9 @@ namespace FunctionalCSharp.Exceptions.ResultClass
             }
         }
 
-        public static Result Fail(BaseError message) => new(false, message);
+        public static Result Fail(BaseError error) => new(false, error);
 
-        public static Result<T> Fail<T>(BaseError message) => new(default, false, message);
+        public static Result<T> Fail<T>(BaseError? error) => new(default, false, error);
 
         public static Result Ok() => new(true, null);
 
@@ -36,9 +37,9 @@ namespace FunctionalCSharp.Exceptions.ResultClass
     public class Result<T> : Result
     {
         private readonly T _value;
-        public T Value => IsSuccess ? _value : throw new InvalidOperationException();
+        public T Type => IsSuccess ? _value : throw new InvalidOperationException();
 
-        protected internal Result(T value, bool isSuccess, BaseError error)
+        protected internal Result(T value, bool isSuccess, BaseError? error)
             : base(isSuccess, error) => _value = value;
     }
 }

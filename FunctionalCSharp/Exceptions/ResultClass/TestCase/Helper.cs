@@ -1,4 +1,5 @@
 ﻿using FunctionalCSharp.Exceptions.ResultClass.Errors;
+using FunctionalCSharp.Exceptions.ResultClass.Errors.TicketController;
 
 namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
 {
