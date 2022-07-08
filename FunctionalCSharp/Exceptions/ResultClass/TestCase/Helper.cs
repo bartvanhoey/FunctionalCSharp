@@ -28,11 +28,13 @@ namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
     }
     public class Controller
     {
-        protected ActionResult View(string error, string message) 
+        protected ActionResult View(string error, string? message) 
             => new(error, message);
         
         protected ActionResult View(string redirect) 
             => new(redirect);
+        protected ActionResult HttpNotFound() 
+            => new("NotFound");
         
     }
     
@@ -81,7 +83,7 @@ namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
             IsValid = true;
         }
         
-        public ActionResult(string error, string message)
+        public ActionResult(string error, string? message)
         {
             Error = error;
             Message = message;

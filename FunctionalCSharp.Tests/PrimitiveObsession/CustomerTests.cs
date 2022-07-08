@@ -13,7 +13,7 @@ namespace FunctionalCSharp.Tests.PrimitiveObsession
 
         // string emailString = emailResult.Type;
         //
-        // var emailByString = (Email)"bartvanhoey@hotmail.com";         
+        // var emailByString = (Email)"MyUserName@hotmail.com";         
         [Fact]
         public void Test_Email_Implicit_Operator()
         {

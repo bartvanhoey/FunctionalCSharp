@@ -1,4 +1,3 @@
-using FunctionalCSharp.Exceptions.ResultClass.Errors;
 using FunctionalCSharp.Exceptions.ResultClass.Errors.Base;
 
 namespace FunctionalCSharp.Exceptions.ResultClass
@@ -8,6 +7,7 @@ namespace FunctionalCSharp.Exceptions.ResultClass
         protected bool IsSuccess { get; }
         public BaseError? Error { get; }
         public bool IsFailure => !IsSuccess;
+        public const string? DefaultNoValueExceptionMessage = "DefaultNoValueExceptionMessage";
 
         protected Result(bool isSuccess, BaseError? error = null)
         {
@@ -26,9 +26,9 @@ namespace FunctionalCSharp.Exceptions.ResultClass
 
         public static Result Fail(BaseError error) => new(false, error);
 
-        public static Result<T> Fail<T>(BaseError? error) => new(default, false, error);
+        public static Result<T> Fail<T>(BaseError? error) => new(default!, false, error);
 
-        public static Result Ok() => new(true, null);
+        public static Result Ok() => new(true);
 
         public static Result<T> Ok<T>(T value) => new(value, true, null);
     }

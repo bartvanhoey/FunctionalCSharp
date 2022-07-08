@@ -26,4 +26,13 @@
     <ProjectReference Include="..\FunctionalCSharp\FunctionalCSharp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="JetBrains.ReSharper.TestRunner.Merged">
+      <HintPath>..\..\..\..\Program Files\JetBrains\JetBrains Rider 2021.1.3\lib\ReSharperHost\TestRunner\netcoreapp3.0\JetBrains.ReSharper.TestRunner.Merged.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.TestRunner.Utilities">
+      <HintPath>..\..\..\..\Program Files\JetBrains\JetBrains Rider 2021.1.3\lib\ReSharperHost\TestRunner\netcoreapp3.0\JetBrains.ReSharper.TestRunner.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

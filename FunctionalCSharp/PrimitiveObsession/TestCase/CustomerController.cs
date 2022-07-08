@@ -1,6 +1,6 @@
 ﻿using FunctionalCSharp.Exceptions.ResultClass.TestCase;
+using FunctionalCSharp.NullOptionType;
 using FunctionalCSharp.PrimitiveObsession.ValueObjects;
-
 
 namespace FunctionalCSharp.PrimitiveObsession.TestCase
 {
@@ -35,6 +35,17 @@ namespace FunctionalCSharp.PrimitiveObsession.TestCase
             return RedirectToAction("Index");
         }
 
-        private ActionResult RedirectToAction(string redirectTo) => new ActionResult(redirectTo);
+        [HttpGet]
+        public ActionResult Index(int id)
+        {
+            var customer = _database.GetById(id);
+            return customer.HasNoValue ? HttpNotFound() : View(customer.Type.CustomerName);
+        }
+
+        private ActionResult RedirectToAction(string redirectTo) => new(redirectTo);
+    }
+
+    public class HttpGetAttribute : Attribute
+    {
     }
 }

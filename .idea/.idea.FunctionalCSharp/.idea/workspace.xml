@@ -7,20 +7,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="README added">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerControllerTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/ModelState.cs" afterDir="false" />
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/CustomerControllerTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/NullGuard/NullGuardTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/FodyInit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/NullOptionType/Option.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/Exceptions/ResultClass/TicketControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/Exceptions/ResultClass/TicketControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/FunctionalCSharp.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/FunctionalCSharp.Tests.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Base/ValueObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Base/ValueObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +33,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dda0f3c982474fcfb01b4af9e3967f508be0/24/14e24251/TraceListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23e31092363db7107ca21367adea927bccc2e7cf2075f9ee398ad1175b8e87/Nullable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ebb231c117958ac4656c73e1c1cc053d3e993dea5e30287e7c868be37642/XUnit2TestFramework.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -48,19 +52,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.FunctionalCSharp">
     <configuration name="FunctionalCSharp" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -90,7 +94,8 @@
       <option name="presentableId" value="Default" />
       <updated>1657270204473</updated>
       <workItem from="1657270215283" duration="12000" />
-      <workItem from="1657270263451" duration="13033000" />
+      <workItem from="1657270263451" duration="13600000" />
+      <workItem from="1657297441396" duration="7542000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -120,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657275733838</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Avoiding Primitive Obsession">
+      <created>1657294645868</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657294645868</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,8 +154,27 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update Project Structure" />
-    <MESSAGE value="Avoiding Primitive Obsession" />
     <MESSAGE value="README added" />
-    <option name="LAST_COMMIT_MESSAGE" value="README added" />
+    <MESSAGE value="Avoiding Primitive Obsession" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avoiding Primitive Obsession" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/CustomerControllerTests.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\NullOptionType\CustomerControllerTests.cs" initialLine="21" containingFunctionPresentation="method 'Method_Index_Should_Return_HttpNotFound_When_Id_Is_One'">
+            <startOffsets>
+              <option value="713" />
+            </startOffsets>
+            <endOffsets>
+              <option value="763" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
