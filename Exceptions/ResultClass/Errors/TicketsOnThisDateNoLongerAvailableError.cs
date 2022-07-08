@@ -1,4 +1,4 @@
-namespace FunctionalCSharp.Exceptions.ResultReturn.Errors
+namespace FunctionalCSharp.Exceptions.ResultClass.Errors
 {
     public class TicketsOnThisDateNoLongerAvailableError : BaseError
     {

@@ -1,6 +1,6 @@
-﻿using FunctionalCSharp.Exceptions.ResultReturn.Errors;
+﻿using FunctionalCSharp.Exceptions.ResultClass.Errors;
 
-namespace FunctionalCSharp.Exceptions.ResultReturn.TestCase
+namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
 {
     public class TheaterGateway
     {
