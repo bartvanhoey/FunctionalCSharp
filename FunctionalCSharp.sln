@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalCSharp", "FunctionalCSharp.csproj", "{BDD4060A-AC68-4F57-BA66-F24BBA82E746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalCSharp", ".\FunctionalCSharp\FunctionalCSharp.csproj", "{BDD4060A-AC68-4F57-BA66-F24BBA82E746}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.Tests", "..\FunctionalCSharp.Tests\FunctionalCSharp.Tests.csproj", "{AF38DAD7-34AD-4C03-A837-FDCD0880FD1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.Tests", ".\FunctionalCSharp.Tests\FunctionalCSharp.Tests.csproj", "{AF38DAD7-34AD-4C03-A837-FDCD0880FD1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
