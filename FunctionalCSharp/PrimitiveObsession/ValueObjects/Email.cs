@@ -33,7 +33,6 @@ namespace FunctionalCSharp.PrimitiveObsession.ValueObjects
         protected override int GetHashCodeCore() => _value.GetHashCode();
 
         public static explicit operator Email(string email) => Create(email).Type;
-
         public static implicit operator string (Email email) => email._value;
     }
 }

@@ -5,19 +5,12 @@
         public override bool Equals(object? obj)
         {
             var valueObject = obj as T;
-
-            if (ReferenceEquals(valueObject, null))
-                return false;
-
-            return EqualsCore(valueObject);
+            return !ReferenceEquals(valueObject, null) && EqualsCore(valueObject);
         }
 
         protected abstract bool EqualsCore(T other);
 
-        public override int GetHashCode()
-        {
-            return GetHashCodeCore();
-        }
+        public override int GetHashCode() => GetHashCodeCore();
 
         protected abstract int GetHashCodeCore();
 
@@ -32,9 +25,6 @@
             return a.Equals(b);
         }
 
-        public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
-        {
-            return !(a == b);
-        }
+        public static bool operator !=(ValueObject<T> a, ValueObject<T> b) => !(a == b);
     }
 }

@@ -10,7 +10,7 @@ namespace FunctionalCSharp.Tests.Exceptions.ResultClass
         {
             var ticketController = GetTicketController();
             var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "bart" );
-            actionResult.Error.Should().Be("Success");
+            actionResult.IsValid.Should().BeTrue();
         }
         
         [Fact]

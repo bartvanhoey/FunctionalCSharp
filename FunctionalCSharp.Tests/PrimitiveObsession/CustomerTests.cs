@@ -8,7 +8,28 @@ namespace FunctionalCSharp.Tests.PrimitiveObsession
 {
     public class CustomerTests
     {
+        private const string ValidEmailAddress = "valid_email@hotmail.com";
+        private const string InValidEmailAddress = "invalid_emailhotmail.com";
+
+        // string emailString = emailResult.Type;
+        //
+        // var emailByString = (Email)"bartvanhoey@hotmail.com";         
+        [Fact]
+        public void Test_Email_Implicit_Operator()
+        {
+            var emailResult = Email.Create(ValidEmailAddress);
+            string email = emailResult.Type;
+
+            email.Should().Be(ValidEmailAddress);
+        }
         
+        [Fact]
+        public void Test_Email_Explicit_Operator_ValidEmailAddress_Should_Return_Valid_Email()
+        {
+            var email = (Email)ValidEmailAddress;
+            email.Value.Should().Be(ValidEmailAddress);
+        }
+  
         [Fact]
         public void Create_A_Customer_With_Correct_CustomerName_And_Email_Address_Should_Be_OK()
         {
@@ -16,13 +37,12 @@ namespace FunctionalCSharp.Tests.PrimitiveObsession
             customerNameResult.IsFailure.Should().BeFalse();
             var customerName = customerNameResult.Type;
 
-            var emailResult = Email.Create("bartvanhoey@hotmail.com");
+            var emailResult = Email.Create(ValidEmailAddress);
             emailResult.IsFailure.Should().BeFalse();
             var email = emailResult.Type;
-            
             var customer = new Customer(customerName, email);
 
-            customer.Email.Value.Should().Be("bartvanhoey@hotmail.com");
+            customer.Email.Value.Should().Be(ValidEmailAddress);
             customer.CustomerName.Value.Should().Be("Bart");
         }
         
@@ -61,7 +81,7 @@ namespace FunctionalCSharp.Tests.PrimitiveObsession
         [Fact]
         public void Create_Invalid_Email_Should_Fail()
         {
-            var emailResult = Email.Create("bartvanhoeyhotmail.com");
+            var emailResult = Email.Create(InValidEmailAddress);
             emailResult.IsFailure.Should().BeTrue();
             emailResult.Error.Should().BeOfType<EmailInvalidError>();
         }
@@ -69,9 +89,9 @@ namespace FunctionalCSharp.Tests.PrimitiveObsession
         [Fact]
         public void Create_Valid_Email_Should_Be_OK()
         {
-            var emailResult = Email.Create("bartvanhoey@hotmail.com");
+            var emailResult = Email.Create(ValidEmailAddress);
             emailResult.IsFailure.Should().BeFalse();
-            emailResult.Type.Value.Should().Be("bartvanhoey@hotmail.com");
+            emailResult.Type.Value.Should().Be(ValidEmailAddress);
         }
         
         

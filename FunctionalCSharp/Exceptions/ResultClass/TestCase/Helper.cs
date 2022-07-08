@@ -1,5 +1,7 @@
-﻿using FunctionalCSharp.Exceptions.ResultClass.Errors;
-using FunctionalCSharp.Exceptions.ResultClass.Errors.TicketController;
+﻿using FunctionalCSharp.Exceptions.ResultClass.Errors.TicketController;
+using FunctionalCSharp.PrimitiveObsession.TestCase;
+
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
 {
@@ -26,7 +28,12 @@ namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
     }
     public class Controller
     {
-        protected ActionResult View(string error, string? message = null) => new(error, message);
+        protected ActionResult View(string error, string message) 
+            => new(error, message);
+        
+        protected ActionResult View(string redirect) 
+            => new(redirect);
+        
     }
     
     public class TicketRepository
@@ -38,8 +45,13 @@ namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
     
     public class Ticket
     {
+        public DateTime Date { get; }
+        public string CustomerName { get; }
+
         public Ticket(DateTime date, string customerName)
         {
+            Date = date;
+            CustomerName = customerName;
         }
     }
     public class TheaterApiClient
@@ -57,13 +69,24 @@ namespace FunctionalCSharp.Exceptions.ResultClass.TestCase
     
     public class ActionResult
     {
-        public string Error { get; }
+        public string? Error { get; }
         public string? Message { get; }
+        public string? RedirectTo { get; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+        public bool IsValid { get; }
 
-        public ActionResult(string error, string? message)
+        public ActionResult(string redirectTo)
+        {
+            RedirectTo = redirectTo;
+            IsValid = true;
+        }
+        
+        public ActionResult(string error, string message)
         {
             Error = error;
             Message = message;
+            IsValid = false;
+            RedirectTo = "ErrorPage";
         }
     }
     

@@ -7,7 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Avoiding Primitive Obsession" />
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="README added">
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerControllerTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/ModelState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/Exceptions/ResultClass/TicketControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/Exceptions/ResultClass/TicketControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Base/ValueObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Base/ValueObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +31,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df71358f7b7337a1eee3a65abe6d678dd9a065e256b8cc3fd44a2949754/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ebb231c117958ac4656c73e1c1cc053d3e993dea5e30287e7c868be37642/XUnit2TestFramework.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">
@@ -26,7 +41,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="SWEA" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2BectJ8P4Xp9xBPvXguzqVvnq7I" />
   <component name="ProjectViewState">
@@ -42,6 +57,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -74,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657270204473</updated>
       <workItem from="1657270215283" duration="12000" />
-      <workItem from="1657270263451" duration="5265000" />
+      <workItem from="1657270263451" duration="13033000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -97,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657274945326</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="README added">
+      <created>1657275733838</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657275733838</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,25 +143,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update Project Structure" />
     <MESSAGE value="Avoiding Primitive Obsession" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avoiding Primitive Obsession" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs</url>
-          <line>36</line>
-          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp\PrimitiveObsession\ValueObjects\Email.cs" initialLine="31" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="1346" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1358" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="README added" />
+    <option name="LAST_COMMIT_MESSAGE" value="README added" />
   </component>
 </project>
