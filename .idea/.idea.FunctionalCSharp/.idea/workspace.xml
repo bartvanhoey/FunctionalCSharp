@@ -7,27 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Update Project Structure">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/CustomerName/CustomerNameEmptyError.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/CustomerName/CustomerNameTooLongError.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Email/EmailEmptyError.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Email/EmailInvalidError.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Base/ValueObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/CustomerName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/BaseError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/CannotReserveOnAPastDateError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/TicketController/CannotReserveOnAPastDateError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/IncorrectCustomerNameError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/TicketController/IncorrectCustomerNameError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/TicketsOnThisDateNoLongerAvailableError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/TicketController/TicketsOnThisDateNoLongerAvailableError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/UnableToConnectToTheTheaterError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Errors/TicketController/UnableToConnectToTheTheaterError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/TicketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Avoiding Primitive Obsession" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657270204473</updated>
       <workItem from="1657270215283" duration="12000" />
-      <workItem from="1657270263451" duration="4407000" />
+      <workItem from="1657270263451" duration="5265000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -110,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657270546150</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Avoiding Primitive Obsession">
+      <created>1657274945326</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657274945326</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +119,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update Project Structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Project Structure" />
+    <MESSAGE value="Avoiding Primitive Obsession" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avoiding Primitive Obsession" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -142,26 +130,13 @@
           <line>36</line>
           <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp\PrimitiveObsession\ValueObjects\Email.cs" initialLine="31" containingFunctionPresentation="">
             <startOffsets>
-              <option value="1347" />
+              <option value="1346" />
             </startOffsets>
             <endOffsets>
-              <option value="1359" />
+              <option value="1358" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/PrimitiveObsession/CustomerTests.cs</url>
-          <line>16</line>
-          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\PrimitiveObsession\CustomerTests.cs" initialLine="15" containingFunctionPresentation="method 'Create_A_Customer_With_Correct_CustomerName_And_Email_Address_Should_Be_OK'">
-            <startOffsets>
-              <option value="612" />
-            </startOffsets>
-            <endOffsets>
-              <option value="656" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
