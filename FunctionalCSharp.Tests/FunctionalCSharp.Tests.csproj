@@ -20,6 +20,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="JetBrains.ReSharper.TestRunner" Version="2.9.1.81" />
   </ItemGroup>
 
   <ItemGroup>

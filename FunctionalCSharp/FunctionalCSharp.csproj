@@ -19,6 +19,8 @@
     <PackageReference Include="NullGuard.Fody" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+
+    <PackageReference Include="JetBrains.ReSharper.TestRunner" Version="2.9.1.81" />
   </ItemGroup>
 
 </Project>
