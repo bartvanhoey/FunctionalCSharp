@@ -7,24 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/CustomerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/Models/CreateCustomerModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/Models/Envelope.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/Models/UpdateCustomerModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Logic/BusinessException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Logic/Entity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Logic/Repository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/Customer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/CustomerMap.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/CustomerRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/CustomerStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/EmailCampaign.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/EmailGateway.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/IEmailGateway.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/Industry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/IndustryMap.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/IndustryRepository.cs" afterDir="false" />
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Start AllTogether">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/EmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/EmailGateway.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IEmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IEmailGateway.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +87,7 @@
       <workItem from="1657270215283" duration="12000" />
       <workItem from="1657270263451" duration="13600000" />
       <workItem from="1657297441396" duration="9326000" />
-      <workItem from="1657456060906" duration="837000" />
+      <workItem from="1657456060906" duration="3460000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -151,7 +138,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657456094263</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="AllTogetherStart">
+      <created>1657456951259</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657456951259</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Start AllTogether">
+      <created>1657457317345</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657457317345</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +178,9 @@
     <MESSAGE value="Avoiding Primitive Obsession" />
     <MESSAGE value="NullguardTests" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="AllTogetherStart" />
+    <MESSAGE value="Start AllTogether" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start AllTogether" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -187,10 +190,10 @@
           <line>20</line>
           <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\NullOptionType\CustomerControllerTests.cs" initialLine="21" containingFunctionPresentation="method 'Method_Index_Should_Return_HttpNotFound_When_Id_Is_One'">
             <startOffsets>
-              <option value="713" />
+              <option value="742" />
             </startOffsets>
             <endOffsets>
-              <option value="763" />
+              <option value="792" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />

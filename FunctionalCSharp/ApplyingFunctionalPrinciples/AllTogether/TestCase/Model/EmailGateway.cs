@@ -4,16 +4,21 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Mod
 {
     public class EmailGateway : IEmailGateway
     {
-        public void SendPromotionNotification(string email, CustomerStatus newStatus)
-        {
-            SendEmail(email, "Congratulations!", "You've been promoted to " + newStatus);
-        }
+        public bool SendPromotionNotification(string email, CustomerStatus newStatus) 
+            => SendEmail(email, "Congratulations!", "You've been promoted to " + newStatus);
 
-        private void SendEmail(string to, string subject, string body)
+        private bool SendEmail(string to, string subject, string body)
         {
-            var message = new MailMessage("noreply@northwind.com", to, subject, body);
-            var client = new SmtpClient();
-            client.Send(message);
+            using var client = new SmtpClient();
+            try
+            {
+                client.Send(new MailMessage("noreply@northwind.com", to, subject, body));
+                return true;
+            }
+            catch (SmtpException)
+            {
+                return false;
+            }
         }
     }
 }
