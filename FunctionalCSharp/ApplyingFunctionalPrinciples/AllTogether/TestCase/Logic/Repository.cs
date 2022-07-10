@@ -10,7 +10,7 @@
             _unitOfWork = unitOfWork;
         }
 
-        public T GetById(long id)
+        public T? GetById(long id)
         {
             return _unitOfWork.Get<T>(id);
         }

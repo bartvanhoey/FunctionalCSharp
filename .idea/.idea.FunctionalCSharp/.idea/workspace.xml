@@ -7,12 +7,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Start AllTogether">
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Update to fix build">
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/ApiController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/ControllerBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/Request.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyCustomerNameEmptyError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyCustomerNameTooLongError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailEmptyError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailInvalidError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailTooLongError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/ValueObjects/MyCustomerName.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/ValueObjects/MyEmail.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/EmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/EmailGateway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IEmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IEmailGateway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/MyCustomerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/Models/CreateCustomerModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/Models/CreateCustomerModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/CustomerMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/CustomerStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/EmailCampaign.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailCampaign.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/EmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailGateway.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IEmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IEmailGateway.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/Industry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Industry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IndustryMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IndustryMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Model/IndustryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IndustryRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +43,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp.Tests/NullOptionType/FodyNullGuard/NullGuardTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8517f607c12a4b508364c3f896f0fe6f11da8/e4/494baeb1/ThrowsException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dda0f3c982474fcfb01b4af9e3967f508be0/24/14e24251/TraceListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23e31092363db7107ca21367adea927bccc2e7cf2075f9ee398ad1175b8e87/Nullable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -87,7 +109,7 @@
       <workItem from="1657270215283" duration="12000" />
       <workItem from="1657270263451" duration="13600000" />
       <workItem from="1657297441396" duration="9326000" />
-      <workItem from="1657456060906" duration="3460000" />
+      <workItem from="1657456060906" duration="7368000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -152,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657457317345</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Exceptions refactored away">
+      <created>1657459816311</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657459816311</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update to fix build">
+      <created>1657459920373</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657459920373</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +216,9 @@
     <MESSAGE value="Update" />
     <MESSAGE value="AllTogetherStart" />
     <MESSAGE value="Start AllTogether" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start AllTogether" />
+    <MESSAGE value="Exceptions refactored away" />
+    <MESSAGE value="Update to fix build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to fix build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,27 +1,31 @@
-﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
+﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
+using MyEmail = FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects.MyEmail;
 
-namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model
+
+namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
-    public class Customer : Entity
+    public class MyCustomer : Entity
     {
-        public virtual string Name { get; protected set; }
-        public virtual string PrimaryEmail { get; protected set; }
-        public virtual string SecondaryEmail { get; protected set; }
+        public virtual MyCustomerName Name { get; protected set; }
+        public virtual MyEmail PrimaryMyEmail { get; protected set; }
+        public virtual MyEmail SecondaryEmail { get; protected set; }
         public virtual Industry Industry { get; protected set; }
         public virtual EmailCampaign EmailCampaign { get; protected set; }
         public virtual CustomerStatus Status { get; protected set; }
 
-        protected Customer()
+        protected MyCustomer()
         {
         }
 
-        public Customer(string name, string primaryEmail, string secondaryEmail, Industry industry)
+        public MyCustomer(MyCustomerName name, MyEmail primaryEmail, MyEmail secondaryEmail, Industry industry)
             : this()
         {
-            Name = name;
-            PrimaryEmail = primaryEmail;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            PrimaryMyEmail = primaryEmail ?? throw new ArgumentNullException(nameof(primaryEmail));
             SecondaryEmail = secondaryEmail;
-            Industry = industry;
+            Industry = industry ?? throw new ArgumentNullException(nameof(industry));
             EmailCampaign = GetEmailCampaign(industry);
             Status = CustomerStatus.Regular;
         }

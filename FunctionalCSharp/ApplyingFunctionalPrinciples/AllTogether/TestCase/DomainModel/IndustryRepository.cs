@@ -1,3 +1,4 @@
+using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model
@@ -9,7 +10,7 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Mod
         {
         }
 
-        public Industry GetByName(string name)
+        public Industry? GetByName(string name)
         {
             return _unitOfWork.Query<Industry>().SingleOrDefault(x => x.Name == name);
         }

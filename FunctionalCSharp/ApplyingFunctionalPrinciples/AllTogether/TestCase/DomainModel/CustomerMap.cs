@@ -1,15 +1,16 @@
 ﻿using FluentNHibernate.Mapping;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model
 {
-    public class CustomerMap : ClassMap<Customer>
+    public class CustomerMap : ClassMap<MyCustomer>
     {
         public CustomerMap()
         {
             Id(x => x.Id);
 
             Map(x => x.Name);
-            Map(x => x.PrimaryEmail);
+            Map(x => x.PrimaryMyEmail);
             Map(x => x.SecondaryEmail).Nullable();
             Map(x => x.EmailCampaign).CustomType<EmailCampaign>();
             Map(x => x.Status).CustomType<CustomerStatus>();
