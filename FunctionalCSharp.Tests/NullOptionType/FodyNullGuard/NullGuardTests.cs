@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.NullOptionType.FodyNullGuard;
-using FunctionalCSharp.PrimitiveObsession;
-using FunctionalCSharp.PrimitiveObsession.ValueObjects;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.MaybeType.FodyNullGuard;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.ValueObjects;
 using JetBrains.ReSharper.TestRunner.Logging;
 
 namespace FunctionalCSharp.Tests.NullOptionType.FodyNullGuard

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.Exceptions.ResultClass.TestCase;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase;
 
 namespace FunctionalCSharp.Tests.Exceptions.ResultClass
 {

@@ -1,4 +1,4 @@
-﻿using FunctionalCSharp.Exceptions.ResultClass.Errors.Base;
+﻿using FunctionalCSharp.Functional;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.ErrorsAndFailures.TestCase
 {

@@ -1,8 +1,4 @@
-﻿using FunctionalCSharp.Exceptions.ResultClass;
-using FunctionalCSharp.Exceptions.ResultClass.Errors.Base;
-using FunctionalCSharp.NullOptionType;
-
-namespace FunctionalCSharp.Functional
+﻿namespace FunctionalCSharp.Functional
 {
     public static class ResultExtensions
     {

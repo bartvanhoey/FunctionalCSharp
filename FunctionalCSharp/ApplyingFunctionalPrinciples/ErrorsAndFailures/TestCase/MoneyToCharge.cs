@@ -1,5 +1,4 @@
-﻿using FunctionalCSharp.Exceptions.ResultClass;
-using FunctionalCSharp.PrimitiveObsession.ValueObjects.Base;
+﻿using FunctionalCSharp.Functional;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.ErrorsAndFailures.TestCase
 {
