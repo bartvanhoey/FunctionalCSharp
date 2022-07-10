@@ -1,11 +1,10 @@
 ﻿
 using FunctionalCSharp.Exceptions.ResultClass;
-using NullGuard;
 
 namespace FunctionalCSharp.NullOptionType
 {
     [Serializable]
-    public readonly struct Option<T> : IEquatable<Option<T>>, IEquatable<object>, IOption<T>
+    public readonly struct Maybe<T> : IEquatable<Maybe<T>>, IEquatable<object>, IOption<T>
     {
         private readonly bool _isValueSet;
 
@@ -30,12 +29,12 @@ namespace FunctionalCSharp.NullOptionType
         /// </summary>
         public T Type => GetValueOrThrow();
 
-        public static Option<T> None => new();
+        public static Maybe<T> None => new();
 
         public bool HasValue => _isValueSet;
         public bool HasNoValue => !HasValue;
 
-        private Option(T? value)
+        private Maybe(T? value)
         {
             if (value == null)
             {
@@ -48,53 +47,53 @@ namespace FunctionalCSharp.NullOptionType
             _value = value;
         }
         
-        public static implicit operator Option<T>(T? value)
+        public static implicit operator Maybe<T>(T? value)
         {
-            if (value?.GetType() == typeof(Option<T>))
+            if (value?.GetType() == typeof(Maybe<T>))
             {
-                return (Option<T>)(object)value;
+                return (Maybe<T>)(object)value;
             }
 
-            return new Option<T>(value);
+            return new Maybe<T>(value);
         }
 
-        public static implicit operator Option<T>(Maybe value) => None;
+        public static implicit operator Maybe<T>(Maybe value) => None;
 
-        public static Option<T> From(T obj) => new(obj);
+        public static Maybe<T> From(T obj) => new(obj);
 
-        public static bool operator ==(Option<T> option, T value)
+        public static bool operator ==(Maybe<T> maybe, T value)
         {
-            if (value is Option<T>)
-                return option.Equals(value);
+            if (value is Maybe<T>)
+                return maybe.Equals(value);
 
-            if (option.HasNoValue)
+            if (maybe.HasNoValue)
                 return value is null;
 
-            return option._value!.Equals(value);
+            return maybe._value!.Equals(value);
         }
 
-        public static bool operator !=(Option<T> option, T value) => !(option == (value ?? throw new ArgumentNullException(nameof(value))));
+        public static bool operator !=(Maybe<T> maybe, T value) => !(maybe == (value ?? throw new ArgumentNullException(nameof(value))));
 
-        public static bool operator ==(Option<T> option, object? other) => option.Equals(other);
+        public static bool operator ==(Maybe<T> maybe, object? other) => maybe.Equals(other);
 
-        public static bool operator !=(Option<T> option, object other) => !(option == other);
+        public static bool operator !=(Maybe<T> maybe, object other) => !(maybe == other);
 
-        public static bool operator ==(Option<T> first, Option<T> second) => first.Equals(second);
+        public static bool operator ==(Maybe<T> first, Maybe<T> second) => first.Equals(second);
 
-        public static bool operator !=(Option<T> first, Option<T> second) => !(first == second);
+        public static bool operator !=(Maybe<T> first, Maybe<T> second) => !(first == second);
 
         public override bool Equals(object? obj)
         {
             return obj switch
             {
                 null => false,
-                Option<T> other => Equals(other),
+                Maybe<T> other => Equals(other),
                 T value => Equals(value),
                 _ => false
             };
         }
 
-        public bool Equals(Option<T> other)
+        public bool Equals(Maybe<T> other)
         {
             switch (HasNoValue)
             {
@@ -114,16 +113,16 @@ namespace FunctionalCSharp.NullOptionType
     }
 
     /// <summary>
-    /// Non-generic entrypoint for <see cref="Option{T}" /> members
+    /// Non-generic entrypoint for <see cref="Maybe{T}" /> members
     /// </summary>
     public readonly struct Maybe
     {
         public static Maybe None => new Maybe();
 
         /// <summary>
-        /// Creates a new <see cref="Option{T}" /> from the provided <paramref name="value"/>
+        /// Creates a new <see cref="Maybe{T}" /> from the provided <paramref name="value"/>
         /// </summary>
-        public static Option<T> From<T>(T value) => Option<T>.From(value);
+        public static Maybe<T> From<T>(T value) => Maybe<T>.From(value);
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.Exceptions.ResultClass.TestCase;
-using FunctionalCSharp.NullOptionType;
 using FunctionalCSharp.PrimitiveObsession.ValueObjects;
 
 namespace FunctionalCSharp.PrimitiveObsession.TestCase

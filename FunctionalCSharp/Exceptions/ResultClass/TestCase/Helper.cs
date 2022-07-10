@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.Exceptions.ResultClass.Errors.TicketController;
-using FunctionalCSharp.PrimitiveObsession.TestCase;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 

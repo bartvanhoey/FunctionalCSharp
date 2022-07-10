@@ -4,7 +4,7 @@ namespace FunctionalCSharp.Exceptions.ResultClass
 {
     public class Result
     {
-        protected bool IsSuccess { get; }
+        public bool IsSuccess { get; }
         public BaseError? Error { get; }
         public bool IsFailure => !IsSuccess;
         public const string? DefaultNoValueExceptionMessage = "DefaultNoValueExceptionMessage";
@@ -31,6 +31,14 @@ namespace FunctionalCSharp.Exceptions.ResultClass
         public static Result Ok() => new(true);
 
         public static Result<T> Ok<T>(T value) => new(value, true, null);
+        public static Result Combine(params Result[] results)
+        {
+            foreach (var result in results)
+                if (result.IsFailure) return result;
+
+            return Ok();
+        }
+        
     }
 
 

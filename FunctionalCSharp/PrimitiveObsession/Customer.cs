@@ -1,5 +1,4 @@
-﻿using FunctionalCSharp.NullOptionType;
-using FunctionalCSharp.PrimitiveObsession.ValueObjects;
+﻿using FunctionalCSharp.PrimitiveObsession.ValueObjects;
 
 namespace FunctionalCSharp.PrimitiveObsession
 {

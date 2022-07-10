@@ -7,8 +7,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="NullguardTests">
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/NullOptionType/Option.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/NullOptionType/Maybe.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +29,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/PrimitiveObsession/Customer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8517f607c12a4b508364c3f896f0fe6f11da8/e4/494baeb1/ThrowsException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dda0f3c982474fcfb01b4af9e3967f508be0/24/14e24251/TraceListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23e31092363db7107ca21367adea927bccc2e7cf2075f9ee398ad1175b8e87/Nullable.cs" root0="SKIP_HIGHLIGHTING" />

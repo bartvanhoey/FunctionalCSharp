@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.Exceptions.ResultClass;
-using FunctionalCSharp.Exceptions.ResultClass.Errors;
 using FunctionalCSharp.Exceptions.ResultClass.Errors.Email;
 using FunctionalCSharp.PrimitiveObsession.ValueObjects.Base;
 using static System.String;
