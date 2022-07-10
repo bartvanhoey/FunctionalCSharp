@@ -1,4 +1,6 @@
-﻿namespace FunctionalCSharp.Functional
+﻿using NullGuard;
+
+namespace FunctionalCSharp.Functional.Maybe
 {
     [Serializable]
     public readonly struct Maybe<T> : IEquatable<Maybe<T>>, IEquatable<object>, IOption<T>
@@ -134,6 +136,12 @@
         {
             return HasNoValue ? "No value" : _value?.ToString();
         }
+
+        [return:AllowNull]
+        public T Unwrap() => HasValue ? Type : default;
+
+        [return: AllowNull]
+        public K Unwrap<K>(Func<T, K> selector) => HasValue ? selector(Type) : default(K);
     }
 
     /// <summary>

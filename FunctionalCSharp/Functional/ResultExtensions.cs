@@ -1,4 +1,6 @@
-﻿namespace FunctionalCSharp.Functional
+﻿using FunctionalCSharp.Functional.Maybe;
+
+namespace FunctionalCSharp.Functional
 {
     public static class ResultExtensions
     {

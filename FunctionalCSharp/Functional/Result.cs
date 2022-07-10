@@ -1,3 +1,5 @@
+using NullGuard;
+
 namespace FunctionalCSharp.Functional
 {
     public class Result
@@ -58,7 +60,7 @@ namespace FunctionalCSharp.Functional
     {
         private readonly T _value;
 
-        protected internal Result(T value, bool isSuccess, BaseError? error)
+        protected internal Result([AllowNull]T value, bool isSuccess, BaseError? error)
             : base(isSuccess, error)
         {
             _value = value;

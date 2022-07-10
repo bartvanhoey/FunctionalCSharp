@@ -1,4 +1,5 @@
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
+using FunctionalCSharp.Functional.Maybe;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
@@ -9,7 +10,7 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
         {
         }
 
-        public Industry? GetByName(string name)
+        public Maybe<Industry> GetByName(string name)
         {
             return _unitOfWork.Query<Industry>().SingleOrDefault(x => x.Name == name);
         }

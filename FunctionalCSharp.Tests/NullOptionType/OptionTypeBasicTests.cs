@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Functional;
+using FunctionalCSharp.Functional.Maybe;
 
 namespace FunctionalCSharp.Tests.NullOptionType
 {

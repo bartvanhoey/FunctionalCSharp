@@ -26,12 +26,9 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.ErrorsAndFailures.TestCa
                 .OnSuccess(() => _database.Save(customer.Type)
                     .OnFailure(() => _paymentGateway.RollbackLastTransaction()))
                 .OnBoth(Log)
-                .OnBoth(result => result.IsSuccess ? "OK" : result.Error.Message);
+                .OnBoth(result => result.IsSuccess ? "OK" : result.Error?.Message)!;
         }
 
-        private void Log(Result result)
-        {
-            _logger.Log((result.IsFailure ? result.Error?.Message : "OK")!);
-        }
+        private void Log(Result result) => _logger.Log((result.IsFailure ? result.Error?.Message : "OK")!);
     }
 }

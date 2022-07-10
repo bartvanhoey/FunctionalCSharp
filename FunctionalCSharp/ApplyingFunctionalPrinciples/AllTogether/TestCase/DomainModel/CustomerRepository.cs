@@ -9,9 +9,6 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
         {
         }
 
-        public MyCustomer GetByName(string name)
-        {
-            return _unitOfWork.Query<MyCustomer>().SingleOrDefault(x => x.Name == name);
-        }
+        public MyCustomer? GetByName(string name) => _unitOfWork.Query<MyCustomer>().SingleOrDefault(x => x.Name == name);
     }
 }

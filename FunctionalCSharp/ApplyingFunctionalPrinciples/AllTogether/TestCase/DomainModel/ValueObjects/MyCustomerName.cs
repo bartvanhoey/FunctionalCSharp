@@ -1,5 +1,6 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.Errors;
 using FunctionalCSharp.Functional;
+using FunctionalCSharp.Functional.Maybe;
 using static System.String;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects
@@ -13,11 +14,12 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
 
         public string Value { get; }
 
-        public static Result<MyCustomerName> Create(string myCustomerName)
+        public static Result<MyCustomerName> Create(Maybe<string> customerNameOrNothing)
         {
-            if (IsNullOrWhiteSpace(myCustomerName)) return Result.Fail<MyCustomerName>(new MyCustomerNameEmptyError());
+            if (customerNameOrNothing.HasNoValue) 
+                return Result.Fail<MyCustomerName>(new MyCustomerNameEmptyError());
 
-            myCustomerName = myCustomerName.Trim();
+            var myCustomerName = customerNameOrNothing.Type.Trim();
             return myCustomerName.Length > 100
                 ? Result.Fail<MyCustomerName>(new MyCustomerNameTooLongError())
                 : Result.Ok(new MyCustomerName(myCustomerName));

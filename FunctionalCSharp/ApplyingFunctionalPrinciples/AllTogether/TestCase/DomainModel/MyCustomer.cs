@@ -1,15 +1,30 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
+using FunctionalCSharp.Functional.Maybe;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
     public class MyCustomer : Entity
     {
-        protected MyCustomer()
+        public MyCustomerName Name { get; protected set; }
+        public MyEmail PrimaryMyEmail { get; protected set; }
+
+        private readonly string _secondaryEmail;
+        public Maybe<MyEmail> SecondaryEmail
+        {
+            get => _secondaryEmail == null ? null : (MyEmail)_secondaryEmail;
+            private init { _secondaryEmail = value.Unwrap(x => x.Value); }
+        }
+
+        public EmailSettings EmailSettings { get; protected set; }
+
+        public CustomerStatus Status { get; protected set; }
+        
+        private MyCustomer()
         {
         }
 
-        public MyCustomer(MyCustomerName name, MyEmail primaryEmail, MyEmail secondaryEmail, Industry industry)
+        public MyCustomer(MyCustomerName name, MyEmail primaryEmail,Maybe<MyEmail>  secondaryEmail, Industry industry)
             : this()
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
@@ -19,13 +34,7 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
             EmailSettings = new EmailSettings(industry, false);
         }
 
-        public MyCustomerName Name { get; protected set; }
-        public MyEmail PrimaryMyEmail { get; protected set; }
-        public MyEmail SecondaryEmail { get; protected set; }
 
-        public EmailSettings EmailSettings { get; protected set; }
-
-        public CustomerStatus Status { get; protected set; }
 
         private EmailCampaign GetEmailCampaign(Industry industry)
         {
