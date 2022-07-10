@@ -1,7 +1,7 @@
 ﻿using FluentNHibernate.Mapping;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel;
+using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
 
-namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model
+namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
     public class CustomerMap : ClassMap<MyCustomer>
     {
@@ -12,10 +12,10 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Mod
             Map(x => x.Name);
             Map(x => x.PrimaryMyEmail);
             Map(x => x.SecondaryEmail).Nullable();
-            Map(x => x.EmailCampaign).CustomType<EmailCampaign>();
+            // Map(x => x.EmailCampaign).CustomType<EmailCampaign>();
             Map(x => x.Status).CustomType<CustomerStatus>();
 
-            References(x => x.Industry);
+            // References(x => x.Industry);
         }
     }
 }

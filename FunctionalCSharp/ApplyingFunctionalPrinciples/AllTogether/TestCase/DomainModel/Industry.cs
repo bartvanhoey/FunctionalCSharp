@@ -6,6 +6,7 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
     {
         public const string CarsIndustry = "Cars";
         public const string PharmacyIndustry = "Pharmacy";
+        public const string OtherIndustry = "Other";
 
         public string? Name { get; set; }
     }

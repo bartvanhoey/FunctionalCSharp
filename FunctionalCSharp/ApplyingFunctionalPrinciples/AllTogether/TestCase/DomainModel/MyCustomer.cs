@@ -8,12 +8,13 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
 {
     public class MyCustomer : Entity
     {
-        public virtual MyCustomerName Name { get; protected set; }
-        public virtual MyEmail PrimaryMyEmail { get; protected set; }
-        public virtual MyEmail SecondaryEmail { get; protected set; }
-        public virtual Industry Industry { get; protected set; }
-        public virtual EmailCampaign EmailCampaign { get; protected set; }
-        public virtual CustomerStatus Status { get; protected set; }
+        public  MyCustomerName Name { get; protected set; }
+        public  MyEmail PrimaryMyEmail { get; protected set; }
+        public  MyEmail SecondaryEmail { get; protected set; }
+        
+        public EmailSettings EmailSettings { get; protected set; }
+        
+        public  CustomerStatus Status { get; protected set; }
 
         protected MyCustomer()
         {
@@ -25,51 +26,41 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
             Name = name ?? throw new ArgumentNullException(nameof(name));
             PrimaryMyEmail = primaryEmail ?? throw new ArgumentNullException(nameof(primaryEmail));
             SecondaryEmail = secondaryEmail;
-            Industry = industry ?? throw new ArgumentNullException(nameof(industry));
-            EmailCampaign = GetEmailCampaign(industry);
             Status = CustomerStatus.Regular;
+            EmailSettings = new EmailSettings(industry, false);
         }
 
         private EmailCampaign GetEmailCampaign(Industry industry)
         {
-            if (industry.Name == Industry.CarsIndustry)
-                return EmailCampaign.LatestCarModels;
-
-            if (industry.Name == Industry.PharmacyIndustry)
-                return EmailCampaign.PharmacyNews;
-
-            return EmailCampaign.Generic;
+            return industry.Name switch
+            {
+                Industry.CarsIndustry => EmailCampaign.LatestCarModels,
+                Industry.PharmacyIndustry => EmailCampaign.PharmacyNews,
+                _ => EmailCampaign.Generic
+            };
         }
 
-        public virtual void DisableEmailing()
-        {
-            EmailCampaign = EmailCampaign.None;
-        }
+        public void DisableEmailing() =>
+            EmailSettings = EmailSettings.DisableEmailing();
 
-        public virtual void UpdateIndustry(Industry industry)
-        {
-            if (EmailCampaign == EmailCampaign.None)
-                return;
+        public void UpdateIndustry(Industry industry) 
+            => EmailSettings = EmailSettings.ChangeIndustry(industry);
 
-            EmailCampaign = GetEmailCampaign(industry);
-            Industry = industry;
-        }
-
-        public virtual bool CanBePromoted()
+        public  bool CanBePromoted()
         {
             return Status != CustomerStatus.Gold;
         }
 
-        public virtual void Promote()
+        public  void Promote()
         {
-            if (Status == CustomerStatus.Regular)
+            if (!CanBePromoted()) throw new InvalidOperationException();
+            Status = Status switch
             {
-                Status = CustomerStatus.Preferred;
-            }
-            else
-            {
-                Status = CustomerStatus.Gold;
-            }
+                CustomerStatus.Regular => CustomerStatus.Preferred,
+                CustomerStatus.Preferred => CustomerStatus.Gold,
+                CustomerStatus.Gold => throw new InvalidOperationException(),
+                _ => throw new InvalidOperationException()
+            };
         }
     }
 }

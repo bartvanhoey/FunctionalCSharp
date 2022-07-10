@@ -89,8 +89,6 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Con
                 Name = customer.Name.Value,
                 PrimaryEmail = customer.PrimaryMyEmail.Value,
                 SecondaryEmail = customer.SecondaryEmail.Value,
-                Industry = customer.Industry.Name,
-                customer.EmailCampaign,
                 customer.Status
             });
         }
