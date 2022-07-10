@@ -9,34 +9,33 @@ namespace FunctionalCSharp.Tests.Exceptions.ResultClass
         public void BuyTicket_Should_Be_Success_When_Date_In_Future_And_CustomerName_Filled_In()
         {
             var ticketController = GetTicketController();
-            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "bart" );
+            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "bart");
             actionResult.IsValid.Should().BeTrue();
         }
-        
+
         [Fact]
         public void BuyTicket_Should_Return_Error_When_Date_In_Future_And_CustomerName_Not_Filled_In()
         {
             var ticketController = GetTicketController();
-            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "" );
+            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "");
             actionResult.Error.Should().Be("Error");
         }
-        
+
         [Fact]
         public void BuyTicket_Should_Return_Error_When_Date_In_Past_And_CustomerName_Filled_In()
         {
             var ticketController = GetTicketController();
-            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(-1), "Bart" );
+            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(-1), "Bart");
             actionResult.Error.Should().Be("Error");
         }
-        
+
         [Fact]
         public void BuyTicket_Should_Return_Error_When_Date_In_Past_And_CustomerName_Not_Filled_In()
         {
             var ticketController = GetTicketController();
-            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(-1), "" );
+            var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(-1), "");
             actionResult.Error.Should().Be("Error");
         }
-        
 
 
         private static TicketController GetTicketController()

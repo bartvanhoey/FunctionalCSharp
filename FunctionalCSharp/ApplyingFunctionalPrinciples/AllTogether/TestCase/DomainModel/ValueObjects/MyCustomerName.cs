@@ -6,9 +6,13 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
 {
     public class MyCustomerName : ValueObject<MyCustomerName>
     {
-        private readonly string _value;
-        public string Value => _value;
-        private MyCustomerName(string value) => _value = value;
+        private MyCustomerName(string value)
+        {
+            Value = value;
+        }
+
+        public string Value { get; }
+
         public static Result<MyCustomerName> Create(string myCustomerName)
         {
             if (IsNullOrWhiteSpace(myCustomerName)) return Result.Fail<MyCustomerName>(new MyCustomerNameEmptyError());
@@ -19,9 +23,24 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
                 : Result.Ok(new MyCustomerName(myCustomerName));
         }
 
-        protected override bool EqualsCore(MyCustomerName other) => _value == other._value;
-        protected override int GetHashCodeCore() => _value.GetHashCode();
-        public static explicit operator MyCustomerName(string myCustomerName) => Create(myCustomerName).Type;
-        public static implicit operator string(MyCustomerName myCustomerName) => myCustomerName._value;
+        protected override bool EqualsCore(MyCustomerName other)
+        {
+            return Value == other.Value;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            return Value.GetHashCode();
+        }
+
+        public static explicit operator MyCustomerName(string myCustomerName)
+        {
+            return Create(myCustomerName).Type;
+        }
+
+        public static implicit operator string(MyCustomerName myCustomerName)
+        {
+            return myCustomerName.Value;
+        }
     }
 }

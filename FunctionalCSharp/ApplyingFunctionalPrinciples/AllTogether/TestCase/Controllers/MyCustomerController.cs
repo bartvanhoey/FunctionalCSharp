@@ -5,9 +5,6 @@ using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.ValueObjects;
-using MyEmail = FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects.MyEmail;
-
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Controllers
 {
@@ -53,11 +50,11 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Con
 
         public HttpResponseMessage Update(UpdateCustomerModel model)
         {
-            MyCustomer myCustomer = _customerRepository.GetById(model.Id);
+            var myCustomer = _customerRepository.GetById(model.Id);
             if (myCustomer == null)
                 return BadRequest("Customer with such Id is not found: " + model.Id);
 
-            Industry industry = _industryRepository.GetByName(model.Industry);
+            var industry = _industryRepository.GetByName(model.Industry);
             if (industry == null)
                 return BadRequest("Industry name is invalid: " + model.Industry);
 
@@ -68,7 +65,7 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Con
 
         public HttpResponseMessage DisableEmailing(long id)
         {
-            MyCustomer myCustomer = _customerRepository.GetById(id);
+            var myCustomer = _customerRepository.GetById(id);
             if (myCustomer == null) return BadRequest("Customer with such Id is not found: " + id);
 
             myCustomer.DisableEmailing();

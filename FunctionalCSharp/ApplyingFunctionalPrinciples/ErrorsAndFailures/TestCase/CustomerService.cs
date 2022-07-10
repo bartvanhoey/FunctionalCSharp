@@ -29,6 +29,9 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.ErrorsAndFailures.TestCa
                 .OnBoth(result => result.IsSuccess ? "OK" : result.Error.Message);
         }
 
-        private void Log(Result result) => _logger.Log((result.IsFailure ? result.Error?.Message : "OK")!);
+        private void Log(Result result)
+        {
+            _logger.Log((result.IsFailure ? result.Error?.Message : "OK")!);
+        }
     }
 }

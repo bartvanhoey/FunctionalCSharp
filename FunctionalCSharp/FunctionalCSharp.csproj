@@ -1,29 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
-    <PackageReference Include="Fody" Version="6.6.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="NullGuard.Fody" Version="3.1.0">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <ItemGroup>
+        <PackageReference Include="FluentNHibernate" Version="3.1.0"/>
+        <PackageReference Include="Fody" Version="6.6.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="NullGuard.Fody" Version="3.1.0">
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
 
-  </ItemGroup>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\CustomerName" />
-    <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\Email" />
-    <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\TicketController" />
-    <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\TestCase" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\CustomerName"/>
+        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\Email"/>
+        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\TicketController"/>
+        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\TestCase"/>
+    </ItemGroup>
 
 </Project>

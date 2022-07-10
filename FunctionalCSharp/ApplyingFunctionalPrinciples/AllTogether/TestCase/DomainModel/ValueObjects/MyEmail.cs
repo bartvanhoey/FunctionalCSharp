@@ -7,10 +7,13 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
 {
     public class MyEmail : ValueObject<MyEmail>
     {
-        private readonly string _value;
-        private MyEmail(string value) => _value = value;
-        
-        public string Value => _value;
+        private MyEmail(string value)
+        {
+            Value = value;
+        }
+
+        public string Value { get; }
+
         public static Result<MyEmail> Create(string myEmail)
         {
             if (IsNullOrWhiteSpace(myEmail))
@@ -23,9 +26,25 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
                 ? Result.Ok(new MyEmail(myEmail))
                 : Result.Fail<MyEmail>(new MyEmailInvalidError());
         }
-        protected override bool EqualsCore(MyEmail other) => _value == other._value;
-        protected override int GetHashCodeCore() => _value.GetHashCode();
-        public static explicit operator MyEmail(string myEmail) => Create(myEmail).Type;
-        public static implicit operator string (MyEmail myEmail) => myEmail._value;
+
+        protected override bool EqualsCore(MyEmail other)
+        {
+            return Value == other.Value;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            return Value.GetHashCode();
+        }
+
+        public static explicit operator MyEmail(string myEmail)
+        {
+            return Create(myEmail).Type;
+        }
+
+        public static implicit operator string(MyEmail myEmail)
+        {
+            return myEmail.Value;
+        }
     }
 }

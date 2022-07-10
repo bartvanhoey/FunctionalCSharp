@@ -10,7 +10,6 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestC
         public CustomerController(IDatabase database)
         {
             _database = database;
-            
         }
 
 
@@ -22,13 +21,13 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestC
             var email = Email.Create(customerModel.Email);
 
             if (customerName.IsFailure) ModelState.AddModelError("Name", customerName.Error);
-            
+
             if (email.IsFailure) ModelState.AddModelError("Email", email.Error);
 
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
                 return View("error", "invalid customer model");
 
-            var customer = new Customer(customerName.Type, email.Type); 
+            var customer = new Customer(customerName.Type, email.Type);
             _database.Save(customer);
 
             return RedirectToAction("Index");
@@ -41,7 +40,10 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestC
             return customer.HasNoValue ? HttpNotFound() : View(customer.Type.CustomerName);
         }
 
-        private ActionResult RedirectToAction(string redirectTo) => new(redirectTo);
+        private ActionResult RedirectToAction(string redirectTo)
+        {
+            return new(redirectTo);
+        }
     }
 
     public class HttpGetAttribute : Attribute

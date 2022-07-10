@@ -3,12 +3,11 @@
     [Serializable]
     public readonly struct Maybe<T> : IEquatable<Maybe<T>>, IEquatable<object>, IOption<T>
     {
-        private readonly bool _isValueSet;
-
         private readonly T _value;
 
         /// <summary>
-        /// Returns the inner value if there's one, otherwise throws an InvalidOperationException with <paramref name="errorMessage"/>
+        ///     Returns the inner value if there's one, otherwise throws an InvalidOperationException with
+        ///     <paramref name="errorMessage" />
         /// </summary>
         /// <exception cref="InvalidOperationException">Maybe has no value.</exception>
         public T GetValueOrThrow(string? errorMessage = null)
@@ -19,44 +18,51 @@
             return _value;
         }
 
-        public T GetValueOrDefault(T defaultValue = default!) => HasNoValue ? defaultValue : _value;
+        public T GetValueOrDefault(T defaultValue = default!)
+        {
+            return HasNoValue ? defaultValue : _value;
+        }
 
         /// <summary>
-        /// Try to use GetValueOrThrow() or GetValueOrDefault() instead for better explicitness.
+        ///     Try to use GetValueOrThrow() or GetValueOrDefault() instead for better explicitness.
         /// </summary>
         public T Type => GetValueOrThrow();
 
         public static Maybe<T> None => new();
 
-        public bool HasValue => _isValueSet;
+        public bool HasValue { get; }
+
         public bool HasNoValue => !HasValue;
 
         private Maybe(T? value)
         {
             if (value == null)
             {
-                _isValueSet = false;
+                HasValue = false;
                 _value = default!;
                 return;
             }
 
-            _isValueSet = true;
+            HasValue = true;
             _value = value;
         }
-        
+
         public static implicit operator Maybe<T>(T? value)
         {
-            if (value?.GetType() == typeof(Maybe<T>))
-            {
-                return (Maybe<T>)(object)value;
-            }
+            if (value?.GetType() == typeof(Maybe<T>)) return (Maybe<T>)(object)value;
 
             return new Maybe<T>(value);
         }
 
-        public static implicit operator Maybe<T>(Maybe value) => None;
+        public static implicit operator Maybe<T>(Maybe value)
+        {
+            return None;
+        }
 
-        public static Maybe<T> From(T obj) => new(obj);
+        public static Maybe<T> From(T obj)
+        {
+            return new(obj);
+        }
 
         public static bool operator ==(Maybe<T> maybe, T value)
         {
@@ -69,15 +75,30 @@
             return maybe._value!.Equals(value);
         }
 
-        public static bool operator !=(Maybe<T> maybe, T value) => !(maybe == (value ?? throw new ArgumentNullException(nameof(value))));
+        public static bool operator !=(Maybe<T> maybe, T value)
+        {
+            return !(maybe == (value ?? throw new ArgumentNullException(nameof(value))));
+        }
 
-        public static bool operator ==(Maybe<T> maybe, object? other) => maybe.Equals(other);
+        public static bool operator ==(Maybe<T> maybe, object? other)
+        {
+            return maybe.Equals(other);
+        }
 
-        public static bool operator !=(Maybe<T> maybe, object other) => !(maybe == other);
+        public static bool operator !=(Maybe<T> maybe, object other)
+        {
+            return !(maybe == other);
+        }
 
-        public static bool operator ==(Maybe<T> first, Maybe<T> second) => first.Equals(second);
+        public static bool operator ==(Maybe<T> first, Maybe<T> second)
+        {
+            return first.Equals(second);
+        }
 
-        public static bool operator !=(Maybe<T> first, Maybe<T> second) => !(first == second);
+        public static bool operator !=(Maybe<T> first, Maybe<T> second)
+        {
+            return !(first == second);
+        }
 
         public override bool Equals(object? obj)
         {
@@ -104,26 +125,35 @@
             return EqualityComparer<T>.Default.Equals(_value, other._value);
         }
 
-        public override int GetHashCode() => HasNoValue ? 0 : _value!.GetHashCode();
+        public override int GetHashCode()
+        {
+            return HasNoValue ? 0 : _value!.GetHashCode();
+        }
 
-        public override string? ToString() => HasNoValue ? "No value" : _value?.ToString();
+        public override string? ToString()
+        {
+            return HasNoValue ? "No value" : _value?.ToString();
+        }
     }
 
     /// <summary>
-    /// Non-generic entrypoint for <see cref="Maybe{T}" /> members
+    ///     Non-generic entrypoint for <see cref="Maybe{T}" /> members
     /// </summary>
     public readonly struct Maybe
     {
-        public static Maybe None => new Maybe();
+        public static Maybe None => new();
 
         /// <summary>
-        /// Creates a new <see cref="Maybe{T}" /> from the provided <paramref name="value"/>
+        ///     Creates a new <see cref="Maybe{T}" /> from the provided <paramref name="value" />
         /// </summary>
-        public static Maybe<T> From<T>(T value) => Maybe<T>.From(value);
+        public static Maybe<T> From<T>(T value)
+        {
+            return Maybe<T>.From(value);
+        }
     }
 
     /// <summary>
-    /// Useful in scenarios where you need to determine if a value is Maybe or not
+    ///     Useful in scenarios where you need to determine if a value is Maybe or not
     /// </summary>
     public interface IOption<out T>
     {

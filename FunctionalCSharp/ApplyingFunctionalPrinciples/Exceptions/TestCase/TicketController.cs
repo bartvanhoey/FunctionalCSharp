@@ -5,8 +5,8 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase
 {
     public class TicketController : Controller
     {
-        private readonly TicketRepository _repository;
         private readonly TheaterGateway _gateway;
+        private readonly TicketRepository _repository;
 
         public TicketController(TicketRepository repository, TheaterGateway gateway)
         {
@@ -14,20 +14,20 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase
             _repository = repository;
         }
 
-        
+
         public ActionResult BuyTicket(DateTime date, string customerName)
         {
             var validationResult = ValidateBuyTicketInput(date, customerName);
-            if (validationResult.IsFailure) 
+            if (validationResult.IsFailure)
                 return View("Error", validationResult.Error?.Message);
 
             var reserveResult = _gateway.Reserve(date, customerName);
-            if (reserveResult.IsFailure) 
+            if (reserveResult.IsFailure)
                 return View("Error", reserveResult.Error?.Message);
 
             var ticket = new Ticket(date, customerName);
             _repository.Save(ticket);
-            
+
             return View("Success");
         }
 
@@ -42,7 +42,4 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase
             return Result.Ok();
         }
     }
-
-
-   
 }

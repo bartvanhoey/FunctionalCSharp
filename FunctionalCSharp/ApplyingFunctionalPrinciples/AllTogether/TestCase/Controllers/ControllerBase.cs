@@ -8,10 +8,16 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Con
     public class ControllerBase : ApiController
     {
         private readonly UnitOfWork _uow;
-        protected ControllerBase(UnitOfWork uow) => _uow = uow;
+
+        protected ControllerBase(UnitOfWork uow)
+        {
+            _uow = uow;
+        }
 
         protected HttpResponseMessage BadRequest(string errorMessage)
-            => Request.CreateResponse(HttpStatusCode.BadRequest, Envelope.Error(errorMessage));
+        {
+            return Request.CreateResponse(HttpStatusCode.BadRequest, Envelope.Error(errorMessage));
+        }
 
         protected HttpResponseMessage Ok()
         {
@@ -19,8 +25,11 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Con
             return Request.CreateResponse(HttpStatusCode.OK, Envelope.Ok());
         }
 
-        protected HttpResponseMessage BadRequest(BaseError? error) 
-            => Request.CreateResponse(HttpStatusCode.BadRequest, Envelope.Error(error?.Message ?? "error not specified" ));
+        protected HttpResponseMessage BadRequest(BaseError? error)
+        {
+            return Request.CreateResponse(HttpStatusCode.BadRequest,
+                Envelope.Error(error?.Message ?? "error not specified"));
+        }
 
         protected HttpResponseMessage Ok<T>(T result)
         {

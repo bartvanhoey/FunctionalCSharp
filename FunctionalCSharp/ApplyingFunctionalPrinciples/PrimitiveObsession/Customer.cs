@@ -4,9 +4,6 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession
 {
     public class Customer
     {
-        public CustomerName CustomerName { get;  set; }
-        public Email Email { get; set; }
-
         public Customer(CustomerName customerName, Email email)
         {
             // if (customerName == null) throw new ArgumentNullException(nameof(customerName));
@@ -14,6 +11,9 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession
             CustomerName = customerName;
             Email = email;
         }
+
+        public CustomerName CustomerName { get; set; }
+        public Email Email { get; set; }
 
         // public void ChangeName(CustomerName name)
         // {

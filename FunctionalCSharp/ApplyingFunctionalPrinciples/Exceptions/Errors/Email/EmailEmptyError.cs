@@ -8,7 +8,7 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.Errors.Email
         {
         }
     }
-    
+
     public class EmailTooLongError : BaseError
     {
         public EmailTooLongError() : base("Email is too long")

@@ -2,8 +2,10 @@
 {
     public static class ResultExtensions
     {
-        public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseError error) where T : class 
-            => maybe.HasNoValue ? Result.Fail<T>(error) : Result.Ok(maybe.Type);
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseError error) where T : class
+        {
+            return maybe.HasNoValue ? Result.Fail<T>(error) : Result.Ok(maybe.Type);
+        }
 
         public static Result OnSuccess(this Result result, Action action)
         {
@@ -15,14 +17,14 @@
             return Result.Ok();
         }
 
-        public static Result OnSuccess(this Result result, Func<Result> func) => result.IsFailure ? result : func();
+        public static Result OnSuccess(this Result result, Func<Result> func)
+        {
+            return result.IsFailure ? result : func();
+        }
 
         public static Result OnFailure(this Result result, Action action)
         {
-            if (result.IsFailure)
-            {
-                action();
-            }
+            if (result.IsFailure) action();
 
             return result;
         }
@@ -34,6 +36,9 @@
             return result;
         }
 
-        public static T OnBoth<T>(this Result result, Func<Result, T> func) => func(result);
+        public static T OnBoth<T>(this Result result, Func<Result, T> func)
+        {
+            return func(result);
+        }
     }
 }

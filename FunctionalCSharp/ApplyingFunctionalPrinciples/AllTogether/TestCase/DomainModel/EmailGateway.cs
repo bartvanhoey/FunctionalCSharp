@@ -7,8 +7,10 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
 {
     public class EmailGateway : IEmailGateway
     {
-        public Result SendPromotionNotification(string email, CustomerStatus newStatus) 
-            => SendEmail(email, "Congratulations!", "You've been promoted to " + newStatus);
+        public Result SendPromotionNotification(string email, CustomerStatus newStatus)
+        {
+            return SendEmail(email, "Congratulations!", "You've been promoted to " + newStatus);
+        }
 
         private Result SendEmail(string to, string subject, string body)
         {

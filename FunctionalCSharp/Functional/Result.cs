@@ -2,9 +2,6 @@ namespace FunctionalCSharp.Functional
 {
     public class Result
     {
-        public bool IsSuccess { get; }
-        public BaseError? Error { get; }
-        public bool IsFailure => !IsSuccess;
         public const string? DefaultNoValueExceptionMessage = "DefaultNoValueExceptionMessage";
 
         protected Result(bool isSuccess, BaseError? error = null)
@@ -22,30 +19,51 @@ namespace FunctionalCSharp.Functional
             }
         }
 
-        public static Result Fail(BaseError error) => new(false, error);
+        public bool IsSuccess { get; }
+        public BaseError? Error { get; }
+        public bool IsFailure => !IsSuccess;
 
-        public static Result<T> Fail<T>(BaseError? error) => new(default!, false, error);
+        public static Result Fail(BaseError error)
+        {
+            return new(false, error);
+        }
 
-        public static Result Ok() => new(true);
+        public static Result<T> Fail<T>(BaseError? error)
+        {
+            return new(default!, false, error);
+        }
 
-        public static Result<T> Ok<T>(T value) => new(value, true, null);
+        public static Result Ok()
+        {
+            return new(true);
+        }
+
+        public static Result<T> Ok<T>(T value)
+        {
+            return new(value, true, null);
+        }
+
         public static Result Combine(params Result[] results)
         {
             foreach (var result in results)
-                if (result.IsFailure) return result;
+                if (result.IsFailure)
+                    return result;
 
             return Ok();
         }
-        
     }
 
 
     public class Result<T> : Result
     {
         private readonly T _value;
-        public T Type => IsSuccess ? _value : throw new InvalidOperationException();
 
         protected internal Result(T value, bool isSuccess, BaseError? error)
-            : base(isSuccess, error) => _value = value;
+            : base(isSuccess, error)
+        {
+            _value = value;
+        }
+
+        public T Type => IsSuccess ? _value : throw new InvalidOperationException();
     }
 }

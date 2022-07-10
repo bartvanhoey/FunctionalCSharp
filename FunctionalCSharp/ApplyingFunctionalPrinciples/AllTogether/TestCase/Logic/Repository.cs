@@ -25,14 +25,11 @@
     {
         public void SaveOrUpdate<T>(T entity) where T : Entity
         {
-            
-            
         }
 
         public T Get<T>(long id) where T : Entity
         {
-            
-            return  default;
+            return default;
         }
 
         public IEnumerable<T> Query<T>()

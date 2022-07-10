@@ -20,7 +20,10 @@ namespace FunctionalCSharp.Tests.NullOptionType
             var actionResult = customerController.Index(1);
             actionResult.RedirectTo.Should().Be("MyUserName");
         }
-        
-        private CustomerController GetCustomerController() => new(new Database());
+
+        private CustomerController GetCustomerController()
+        {
+            return new(new Database());
+        }
     }
 }

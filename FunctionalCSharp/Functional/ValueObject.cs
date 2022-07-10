@@ -10,7 +10,10 @@
 
         protected abstract bool EqualsCore(T other);
 
-        public override int GetHashCode() => GetHashCodeCore();
+        public override int GetHashCode()
+        {
+            return GetHashCodeCore();
+        }
 
         protected abstract int GetHashCodeCore();
 
@@ -25,6 +28,9 @@
             return a.Equals(b);
         }
 
-        public static bool operator !=(ValueObject<T> a, ValueObject<T> b) => !(a == b);
+        public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
+        {
+            return !(a == b);
+        }
     }
 }

@@ -26,63 +26,64 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase
             }
         }
     }
+
     public class Controller
     {
-        protected ActionResult View(string error, string? message) 
-            => new(error, message);
-        
-        protected ActionResult View(string redirect) 
-            => new(redirect);
-        protected ActionResult HttpNotFound() 
-            => new("NotFound");
-        
+        protected ActionResult View(string error, string? message)
+        {
+            return new(error, message);
+        }
+
+        protected ActionResult View(string redirect)
+        {
+            return new(redirect);
+        }
+
+        protected ActionResult HttpNotFound()
+        {
+            return new("NotFound");
+        }
     }
-    
+
     public class TicketRepository
     {
         public void Save(Ticket ticket)
         {
         }
     }
-    
+
     public class Ticket
     {
-        public DateTime Date { get; }
-        public string CustomerName { get; }
-
         public Ticket(DateTime date, string customerName)
         {
             Date = date;
             CustomerName = customerName;
         }
+
+        public DateTime Date { get; }
+        public string CustomerName { get; }
     }
+
     public class TheaterApiClient
     {
         /// <summary>
-        /// Throws:
-        /// HttpRequestException if unable to connect to the API;
-        /// InvalidOperationException if no tickets are available
+        ///     Throws:
+        ///     HttpRequestException if unable to connect to the API;
+        ///     InvalidOperationException if no tickets are available
         /// </summary>
         public void Reserve(DateTime date, string customerName)
         {
-            
         }
     }
-    
+
     public class ActionResult
     {
-        public string? Error { get; }
-        public string? Message { get; }
-        public string? RedirectTo { get; }
-        // ReSharper disable once UnusedAutoPropertyAccessor.Local
-        public bool IsValid { get; }
-
         public ActionResult(string redirectTo)
         {
             RedirectTo = redirectTo;
             IsValid = true;
         }
-        
+
         public ActionResult(string error, string? message)
         {
             Error = error;
@@ -90,10 +91,16 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase
             IsValid = false;
             RedirectTo = "ErrorPage";
         }
+
+        public string? Error { get; }
+        public string? Message { get; }
+        public string? RedirectTo { get; }
+
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+        public bool IsValid { get; }
     }
-    
+
     public class HttpPostAttribute : Attribute
     {
     }
-    
 }

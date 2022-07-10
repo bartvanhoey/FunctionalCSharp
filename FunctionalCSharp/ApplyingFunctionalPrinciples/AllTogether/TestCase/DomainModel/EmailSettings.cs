@@ -5,6 +5,17 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
 {
     public class EmailSettings : ValueObject<EmailSettings>
     {
+        private EmailSettings()
+        {
+        }
+
+
+        public EmailSettings(Industry industry, bool emailingIsDisabled)
+        {
+            Industry = industry;
+            EmailingIsDisabled = emailingIsDisabled;
+        }
+
         public Industry Industry { get; }
         public bool EmailingIsDisabled { get; }
         public EmailCampaign EmailCampaign => GetEmailCampaign(Industry);
@@ -22,22 +33,20 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
             };
         }
 
-        private EmailSettings()
+        public EmailSettings DisableEmailing()
         {
+            return new(Industry, false);
         }
 
-
-        public EmailSettings(Industry industry, bool emailingIsDisabled)
+        public EmailSettings ChangeIndustry(Industry industry)
         {
-            Industry = industry;
-            EmailingIsDisabled = emailingIsDisabled;
+            return new(industry, EmailingIsDisabled);
         }
 
-        public EmailSettings DisableEmailing() => new EmailSettings(Industry, false);
-        public EmailSettings ChangeIndustry(Industry industry) => new EmailSettings(industry, EmailingIsDisabled);
-
-        protected override bool EqualsCore(EmailSettings other) =>
-            Industry == other.Industry && EmailingIsDisabled == other.EmailingIsDisabled;
+        protected override bool EqualsCore(EmailSettings other)
+        {
+            return Industry == other.Industry && EmailingIsDisabled == other.EmailingIsDisabled;
+        }
 
         protected override int GetHashCodeCore()
         {

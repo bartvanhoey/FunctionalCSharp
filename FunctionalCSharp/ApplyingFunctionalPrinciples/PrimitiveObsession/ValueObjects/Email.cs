@@ -7,11 +7,13 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.Value
 {
     public class Email : ValueObject<Email>
     {
-        private readonly string _value;
-        private Email(string value) => _value = value;
-        
-        public string Value => _value;
-    
+        private Email(string value)
+        {
+            Value = value;
+        }
+
+        public string Value { get; }
+
         public static Result<Email> Create(string email)
         {
             if (IsNullOrWhiteSpace(email))
@@ -25,12 +27,25 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.Value
                 : Result.Fail<Email>(new EmailInvalidError());
         }
 
-       
 
-        protected override bool EqualsCore(Email other) => _value == other._value;
-        protected override int GetHashCodeCore() => _value.GetHashCode();
+        protected override bool EqualsCore(Email other)
+        {
+            return Value == other.Value;
+        }
 
-        public static explicit operator Email(string email) => Create(email).Type;
-        public static implicit operator string (Email email) => email._value;
+        protected override int GetHashCodeCore()
+        {
+            return Value.GetHashCode();
+        }
+
+        public static explicit operator Email(string email)
+        {
+            return Create(email).Type;
+        }
+
+        public static implicit operator string(Email email)
+        {
+            return email.Value;
+        }
     }
 }

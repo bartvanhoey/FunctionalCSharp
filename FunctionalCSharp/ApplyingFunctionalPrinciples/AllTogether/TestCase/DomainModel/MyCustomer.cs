@@ -1,21 +1,11 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
-using MyEmail = FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects.MyEmail;
-
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
     public class MyCustomer : Entity
     {
-        public  MyCustomerName Name { get; protected set; }
-        public  MyEmail PrimaryMyEmail { get; protected set; }
-        public  MyEmail SecondaryEmail { get; protected set; }
-        
-        public EmailSettings EmailSettings { get; protected set; }
-        
-        public  CustomerStatus Status { get; protected set; }
-
         protected MyCustomer()
         {
         }
@@ -30,6 +20,14 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
             EmailSettings = new EmailSettings(industry, false);
         }
 
+        public MyCustomerName Name { get; protected set; }
+        public MyEmail PrimaryMyEmail { get; protected set; }
+        public MyEmail SecondaryEmail { get; protected set; }
+
+        public EmailSettings EmailSettings { get; protected set; }
+
+        public CustomerStatus Status { get; protected set; }
+
         private EmailCampaign GetEmailCampaign(Industry industry)
         {
             return industry.Name switch
@@ -40,18 +38,22 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Dom
             };
         }
 
-        public void DisableEmailing() =>
+        public void DisableEmailing()
+        {
             EmailSettings = EmailSettings.DisableEmailing();
+        }
 
-        public void UpdateIndustry(Industry industry) 
-            => EmailSettings = EmailSettings.ChangeIndustry(industry);
+        public void UpdateIndustry(Industry industry)
+        {
+            EmailSettings = EmailSettings.ChangeIndustry(industry);
+        }
 
-        public  bool CanBePromoted()
+        public bool CanBePromoted()
         {
             return Status != CustomerStatus.Gold;
         }
 
-        public  void Promote()
+        public void Promote()
         {
             if (!CanBePromoted()) throw new InvalidOperationException();
             Status = Status switch

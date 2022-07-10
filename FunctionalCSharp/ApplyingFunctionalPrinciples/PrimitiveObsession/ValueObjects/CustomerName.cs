@@ -6,10 +6,12 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.Value
 {
     public class CustomerName : ValueObject<CustomerName>
     {
-        private readonly string _value;
-        public string Value => _value;
+        private CustomerName(string value)
+        {
+            Value = value;
+        }
 
-        private CustomerName(string value) => _value = value;
+        public string Value { get; }
 
         public static Result<CustomerName> Create(string customerName)
         {
@@ -22,11 +24,24 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.Value
                 : Result.Ok(new CustomerName(customerName));
         }
 
-        protected override bool EqualsCore(CustomerName other) => _value == other._value;
-        protected override int GetHashCodeCore() => _value.GetHashCode();
+        protected override bool EqualsCore(CustomerName other)
+        {
+            return Value == other.Value;
+        }
 
-        public static explicit operator CustomerName(string customerName) => Create(customerName).Type;
+        protected override int GetHashCodeCore()
+        {
+            return Value.GetHashCode();
+        }
 
-        public static implicit operator string(CustomerName customerName) => customerName._value;
+        public static explicit operator CustomerName(string customerName)
+        {
+            return Create(customerName).Type;
+        }
+
+        public static implicit operator string(CustomerName customerName)
+        {
+            return customerName.Value;
+        }
     }
 }

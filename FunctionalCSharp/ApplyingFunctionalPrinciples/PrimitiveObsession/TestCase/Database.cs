@@ -7,7 +7,8 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestC
     {
         public void Save(Customer customer)
         {
-            Console.WriteLine($"Saving customer {customer.CustomerName.Value} with email {customer.Email.Value} to database");
+            Console.WriteLine(
+                $"Saving customer {customer.CustomerName.Value} with email {customer.Email.Value} to database");
         }
 
         public Maybe<Customer> GetById(int id)
@@ -18,9 +19,8 @@ namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestC
             var email = Email.Create("MyUserName@hotmail.com");
             var customerName = CustomerName.Create("MyUserName");
 
-            var customer = new Customer(customerName.Type,email.Type);
+            var customer = new Customer(customerName.Type, email.Type);
             return Maybe<Customer>.From(customer);
-
         }
     }
 }

@@ -17,7 +17,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
         [Fact]
         public void Can_create_a_maybe_none()
         {
-            Maybe<MyClass> maybe = Maybe<MyClass>.None;
+            var maybe = Maybe<MyClass>.None;
 
             maybe.HasValue.Should().BeFalse();
             maybe.HasNoValue.Should().BeTrue();
@@ -39,7 +39,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
 
             var action = () =>
             {
-                MyClass myClass = maybe.Type;
+                var myClass = maybe.Type;
             };
 
             action.Should().Throw<InvalidOperationException>();
@@ -120,7 +120,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
             var withoutTypeParam = Maybe.From("test");
             var withTypeParam = Maybe<string>.From("test");
             var differentValueTypeParam = Maybe<string>.From("tests");
-            
+
             withoutTypeParam.Should().Be(withTypeParam);
             withoutTypeParam.Should().NotBe(differentValueTypeParam);
         }
@@ -139,10 +139,10 @@ namespace FunctionalCSharp.Tests.NullOptionType
         {
             const string errorMessage = "Maybe is none";
 
-            Action action = () =>
+            var action = () =>
             {
                 var maybe = Maybe<int>.None;
-                int _ = maybe.GetValueOrThrow(errorMessage);
+                var _ = maybe.GetValueOrThrow(errorMessage);
             };
 
             action.Should().Throw<InvalidOperationException>().WithMessage(errorMessage);
@@ -159,7 +159,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
 
             result.Should().Be(value);
         }
-      
+
         // [Fact]
         // public void Maybe_None_doesnt_throw_on_Deconstruct()
         // {
@@ -172,7 +172,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
         //     
         //     act.Should().NotThrow();
         // }
-        
+
         [Fact]
         public void Maybe_struct_default_is_none()
         {
@@ -181,7 +181,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
             maybe.HasValue.Should().BeFalse();
             maybe.HasNoValue.Should().BeTrue();
         }
-        
+
         [Fact]
         public void Maybe_struct_value_is_some()
         {
@@ -190,7 +190,7 @@ namespace FunctionalCSharp.Tests.NullOptionType
             maybe.HasValue.Should().BeTrue();
             maybe.HasNoValue.Should().BeFalse();
         }
-        
+
         [Fact]
         public void Maybe_class_null_is_none()
         {
