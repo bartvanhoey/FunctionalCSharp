@@ -8,17 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/Result.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Exceptions/ResultClass/TestCase/TicketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/NullOptionType/Option.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/NullOptionType/Maybe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/Customer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/CustomerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/PrimitiveObsession/ValueObjects/Email.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/CustomerController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/Models/CreateCustomerModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/Models/Envelope.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Controllers/Models/UpdateCustomerModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Logic/BusinessException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Logic/Entity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Logic/Repository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/Customer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/CustomerMap.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/CustomerRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/CustomerStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/EmailCampaign.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/EmailGateway.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/IEmailGateway.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/Industry.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/IndustryMap.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/Model/IndustryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +36,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/Exceptions/ResultClass/Errors/Base/BaseError.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8517f607c12a4b508364c3f896f0fe6f11da8/e4/494baeb1/ThrowsException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dda0f3c982474fcfb01b4af9e3967f508be0/24/14e24251/TraceListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23e31092363db7107ca21367adea927bccc2e7cf2075f9ee398ad1175b8e87/Nullable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -94,6 +100,7 @@
       <workItem from="1657270215283" duration="12000" />
       <workItem from="1657270263451" duration="13600000" />
       <workItem from="1657297441396" duration="9326000" />
+      <workItem from="1657456060906" duration="837000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -137,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657307976598</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update">
+      <created>1657456094263</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657456094263</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +176,8 @@
     <MESSAGE value="README added" />
     <MESSAGE value="Avoiding Primitive Obsession" />
     <MESSAGE value="NullguardTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="NullguardTests" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
