@@ -1,4 +1,4 @@
-namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model
+namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
     public enum CustomerStatus
     {

@@ -1,7 +1,6 @@
-using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
 
-namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model
+namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {
     public class CustomerRepository : Repository<MyCustomer>
     {

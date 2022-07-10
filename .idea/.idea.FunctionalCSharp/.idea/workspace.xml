@@ -7,14 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Refactoring Away Primitive Obsession">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/MyCustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/MyCustomerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Industry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Industry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="fix build" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +19,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp.Tests/NullOptionType/FodyNullGuard/NullGuardTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerMap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/Functional/BaseError.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8517f607c12a4b508364c3f896f0fe6f11da8/e4/494baeb1/ThrowsException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dda0f3c982474fcfb01b4af9e3967f508be0/24/14e24251/TraceListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23e31092363db7107ca21367adea927bccc2e7cf2075f9ee398ad1175b8e87/Nullable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -39,7 +34,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="SWEA" />
   </component>
   <component name="ProjectId" id="2BectJ8P4Xp9xBPvXguzqVvnq7I" />
   <component name="ProjectViewState">
@@ -90,7 +85,7 @@
       <workItem from="1657270215283" duration="12000" />
       <workItem from="1657270263451" duration="13600000" />
       <workItem from="1657297441396" duration="9326000" />
-      <workItem from="1657456060906" duration="10281000" />
+      <workItem from="1657456060906" duration="10640000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -176,7 +171,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657463967852</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactoring to more explicit code">
+      <created>1657477095706</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657477095706</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix build">
+      <created>1657477285705</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657477285705</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +216,9 @@
     <MESSAGE value="Exceptions refactored away" />
     <MESSAGE value="Update to fix build" />
     <MESSAGE value="Refactoring Away Primitive Obsession" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring Away Primitive Obsession" />
+    <MESSAGE value="Refactoring to more explicit code" />
+    <MESSAGE value="fix build" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,5 @@
 ﻿using System.Net.Mail;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.Errors;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
 using FunctionalCSharp.Functional;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel

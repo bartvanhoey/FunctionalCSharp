@@ -1,5 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {

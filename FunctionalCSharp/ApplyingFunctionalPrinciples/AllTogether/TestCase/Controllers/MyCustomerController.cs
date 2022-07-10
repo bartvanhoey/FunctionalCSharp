@@ -2,7 +2,6 @@
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Model;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.TestCase;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase;
 
