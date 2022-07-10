@@ -7,28 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.sln.DotSettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/Maybe/MaybeExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/MyCustomerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/MyCustomerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IndustryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IndustryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/CustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/CustomerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/IDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FodyWeavers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FodyWeavers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/Maybe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/Maybe/Maybe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/Result.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/ResultExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ResultExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="Making Nulls Explicit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +21,7 @@
     <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/CustomerController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerMap.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerMap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/CustomerRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Data/MyGitHubRepos/FunctionalCSharpSolution/FunctionalCSharp/Functional/BaseError.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8517f607c12a4b508364c3f896f0fe6f11da8/e4/494baeb1/ThrowsException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/dda0f3c982474fcfb01b4af9e3967f508be0/24/14e24251/TraceListener.cs" root0="SKIP_HIGHLIGHTING" />
@@ -112,7 +92,7 @@
       <workItem from="1657270215283" duration="12000" />
       <workItem from="1657270263451" duration="13600000" />
       <workItem from="1657297441396" duration="9326000" />
-      <workItem from="1657456060906" duration="13401000" />
+      <workItem from="1657456060906" duration="13773000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -219,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657478456767</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Making Nulls Explicit">
+      <created>1657480935584</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1657480935584</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +239,8 @@
     <MESSAGE value="Refactoring to more explicit code" />
     <MESSAGE value="fix build" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Making Nulls Explicit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making Nulls Explicit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

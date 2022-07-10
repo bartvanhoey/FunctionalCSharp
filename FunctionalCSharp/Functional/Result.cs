@@ -60,7 +60,7 @@ namespace FunctionalCSharp.Functional
     {
         private readonly T _value;
 
-        protected internal Result([AllowNull]T value, bool isSuccess, BaseError? error)
+        protected internal Result(T? value, bool isSuccess, BaseError? error)
             : base(isSuccess, error)
         {
             _value = value;
