@@ -1,5 +1,7 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.Errors.CustomerName;
 using FunctionalCSharp.Functional;
+using FunctionalCSharp.Functional.PrimitiveObsession;
+using FunctionalCSharp.Functional.ResultType;
 using static System.String;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.ValueObjects

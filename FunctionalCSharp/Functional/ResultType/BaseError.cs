@@ -1,4 +1,4 @@
-namespace FunctionalCSharp.Functional
+namespace FunctionalCSharp.Functional.ResultType
 {
     public abstract class BaseError
     {

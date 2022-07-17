@@ -1,5 +1,6 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.Errors.TicketController;
 using FunctionalCSharp.Functional;
+using FunctionalCSharp.Functional.ResultType;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 

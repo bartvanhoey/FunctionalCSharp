@@ -1,4 +1,4 @@
-﻿using FunctionalCSharp.Functional.Maybe;
+﻿using FunctionalCSharp.Functional.MaybeType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic
 {

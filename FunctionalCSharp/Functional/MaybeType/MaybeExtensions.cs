@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.Maybe
+﻿namespace FunctionalCSharp.Functional.MaybeType
 {
     public class MaybeExtensions
     {

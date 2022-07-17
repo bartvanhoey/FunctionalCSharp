@@ -1,5 +1,5 @@
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
-using FunctionalCSharp.Functional.Maybe;
+using FunctionalCSharp.Functional.MaybeType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {

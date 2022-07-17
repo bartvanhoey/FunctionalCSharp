@@ -1,8 +1,7 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.Functional;
-using FunctionalCSharp.Functional.Maybe;
+using FunctionalCSharp.Functional.MaybeType;
 
-namespace FunctionalCSharp.Tests.NullOptionType
+namespace FunctionalCSharp.Tests.MaybeType
 {
     public class OptionTypeBasicTests
     {

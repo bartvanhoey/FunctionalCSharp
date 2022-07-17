@@ -1,4 +1,5 @@
 ﻿using FunctionalCSharp.Functional;
+using FunctionalCSharp.Functional.ResultType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel
 {

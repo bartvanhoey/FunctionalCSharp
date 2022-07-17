@@ -1,6 +1,7 @@
-﻿using NullGuard;
+﻿using FunctionalCSharp.Functional.ResultType;
+using NullGuard;
 
-namespace FunctionalCSharp.Functional.Maybe
+namespace FunctionalCSharp.Functional.MaybeType
 {
     [Serializable]
     public readonly struct Maybe<T> : IEquatable<Maybe<T>>, IEquatable<object>, IOption<T>

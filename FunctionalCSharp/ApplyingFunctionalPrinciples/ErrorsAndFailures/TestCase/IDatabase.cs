@@ -1,5 +1,6 @@
 ﻿using FunctionalCSharp.Functional;
-using FunctionalCSharp.Functional.Maybe;
+using FunctionalCSharp.Functional.MaybeType;
+using FunctionalCSharp.Functional.ResultType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.ErrorsAndFailures.TestCase
 {

@@ -1,6 +1,8 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.Errors;
 using FunctionalCSharp.Functional;
-using FunctionalCSharp.Functional.Maybe;
+using FunctionalCSharp.Functional.MaybeType;
+using FunctionalCSharp.Functional.PrimitiveObsession;
+using FunctionalCSharp.Functional.ResultType;
 using static System.String;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.ValueObjects

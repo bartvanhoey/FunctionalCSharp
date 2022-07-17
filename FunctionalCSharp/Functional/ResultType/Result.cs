@@ -1,6 +1,4 @@
-using NullGuard;
-
-namespace FunctionalCSharp.Functional
+namespace FunctionalCSharp.Functional.ResultType
 {
     public class Result
     {

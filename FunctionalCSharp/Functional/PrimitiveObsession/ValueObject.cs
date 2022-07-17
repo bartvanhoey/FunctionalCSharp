@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional
+﻿namespace FunctionalCSharp.Functional.PrimitiveObsession
 {
     public abstract class ValueObject<T> where T : ValueObject<T>
     {

@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase;
 
-namespace FunctionalCSharp.Tests.NullOptionType
+namespace FunctionalCSharp.Tests.MaybeType
 {
     public class CustomerControllerTests
     {
