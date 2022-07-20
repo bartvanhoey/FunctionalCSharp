@@ -8,8 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/Aggregate/AggregateMethodTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/Aggregate/Employee.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +96,7 @@
       <workItem from="1658091308406" duration="1258000" />
       <workItem from="1658171568847" duration="2118000" />
       <workItem from="1658234563731" duration="6085000" />
+      <workItem from="1658331645573" duration="2268000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
