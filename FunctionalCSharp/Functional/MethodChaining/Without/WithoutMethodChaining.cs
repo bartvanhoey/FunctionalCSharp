@@ -12,6 +12,7 @@ namespace FunctionalCSharp.Functional.MethodChaining.Without
             using (var stream = StreamFactory.GetStream())
             {
                 buffer = new byte[stream.Length];
+                // ReSharper disable once MustUseReturnValue
                 stream.Read(buffer, 0, (int)stream.Length);
             }
 

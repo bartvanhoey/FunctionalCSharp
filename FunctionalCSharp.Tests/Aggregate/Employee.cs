@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
 namespace FunctionalCSharp.Tests.Aggregate
 {
     public class Employee
@@ -9,7 +8,7 @@ namespace FunctionalCSharp.Tests.Aggregate
         public int Salary { get; set; }
         public string? Department { get; set; }
 
-        public static List<Employee> GetAllEmployees()
+        public static IEnumerable<Employee> GetAllEmployees()
         {
             return new List<Employee>
             {

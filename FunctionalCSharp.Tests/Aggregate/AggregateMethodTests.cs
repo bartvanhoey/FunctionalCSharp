@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using JetBrains.Core;
 
 namespace FunctionalCSharp.Tests.Aggregate
 {

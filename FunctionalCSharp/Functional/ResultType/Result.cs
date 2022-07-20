@@ -23,25 +23,13 @@ namespace FunctionalCSharp.Functional.ResultType
         public BaseError? Error { get; }
         public bool IsFailure => !IsSuccess;
 
-        public static Result Fail(BaseError error)
-        {
-            return new(false, error);
-        }
+        public static Result Fail(BaseError error) => new(false, error);
 
-        public static Result<T> Fail<T>(BaseError? error)
-        {
-            return new(default!, false, error);
-        }
+        public static Result<T> Fail<T>(BaseError? error) => new(default!, false, error);
 
-        public static Result Ok()
-        {
-            return new(true);
-        }
+        public static Result Ok() => new(true);
 
-        public static Result<T> Ok<T>(T value)
-        {
-            return new(value, true, null);
-        }
+        public static Result<T> Ok<T>(T value) => new(value, true, null);
 
         public static Result Combine(params Result[] results)
         {
@@ -58,12 +46,10 @@ namespace FunctionalCSharp.Functional.ResultType
     {
         private readonly T _value;
 
-        protected internal Result(T? value, bool isSuccess, BaseError? error)
-            : base(isSuccess, error)
-        {
-            _value = value;
-        }
+        protected internal Result(T value, bool isSuccess, BaseError? error)
+            : base(isSuccess, error) 
+            => _value = value;
 
-        public T Type => IsSuccess ? _value : throw new InvalidOperationException();
+        public T Type => IsSuccess  ? _value : throw new InvalidOperationException();
     }
 }

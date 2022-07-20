@@ -1,4 +1,5 @@
-﻿using FunctionalCSharp.Functional.ObjectFilters;
+﻿using FluentAssertions;
+using FunctionalCSharp.Functional.ObjectFilters;
 
 namespace FunctionalCSharp.Tests.ObjectFilters
 {
@@ -8,18 +9,18 @@ namespace FunctionalCSharp.Tests.ObjectFilters
         public void GetAvailableAmount_Method_Should_Return_Correct_Value()
         {
             var bankCard = new BankCard(DateTime.Now.AddSeconds(2), 100);
-
-
             var dateTimeNow = DateTime.Now;
                 
                 
             var availableAmount1 = bankCard.GetAvailableAmount(20, dateTimeNow);
-            
+            availableAmount1.Should().Be(20);
 
             var availableAmount2 = bankCard.GetAvailableAmount(20, dateTimeNow);
+            availableAmount2.Should().Be(20);
             
             Thread.Sleep(3000);
             var availableAmount3 = bankCard.GetAvailableAmount(20,dateTimeNow);
+            availableAmount3.Should().Be(20);
             
             
         }

@@ -1,4 +1,5 @@
-﻿namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Controllers.Models
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Controllers.Models
 {
     public class CreateCustomerModel
     {
