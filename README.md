@@ -14,6 +14,8 @@
 
 ## Tee
 
+## Aggregate
+
 ## Pipelining
 
 ## Method chaining
