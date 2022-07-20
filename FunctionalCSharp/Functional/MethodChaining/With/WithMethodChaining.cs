@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using FunctionalCSharp.Functional.Extensions;
 using FunctionalCSharp.Functional.UsingStatement;
 
 namespace FunctionalCSharp.Functional.MethodChaining.With
