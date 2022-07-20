@@ -1,5 +1,4 @@
-﻿using FunctionalCSharp.Functional;
-using FunctionalCSharp.Functional.MaybeType;
+﻿using FunctionalCSharp.Functional.MaybeType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase
 {

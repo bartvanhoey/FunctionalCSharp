@@ -1,0 +1,27 @@
+﻿using FunctionalCSharp.Functional.ObjectFilters;
+
+namespace FunctionalCSharp.Tests.ObjectFilters
+{
+    public class BankCardTests
+    {
+        [Fact]
+        public void GetAvailableAmount_Method_Should_Return_Correct_Value()
+        {
+            var bankCard = new BankCard(DateTime.Now.AddSeconds(2), 100);
+
+
+            var dateTimeNow = DateTime.Now;
+                
+                
+            var availableAmount1 = bankCard.GetAvailableAmount(20, dateTimeNow);
+            
+
+            var availableAmount2 = bankCard.GetAvailableAmount(20, dateTimeNow);
+            
+            Thread.Sleep(3000);
+            var availableAmount3 = bankCard.GetAvailableAmount(20,dateTimeNow);
+            
+            
+        }
+    }
+}

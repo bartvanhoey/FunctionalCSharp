@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Xml.Linq;
 using FluentAssertions;
-using FunctionalCSharp.Functional.UsingStatement;
 using static System.Xml.Linq.XDocument;
 using static FunctionalCSharp.Functional.UsingStatement.Disposable;
 
@@ -17,7 +16,7 @@ namespace FunctionalCSharp.Tests.UsingStatement
             XDocument xDocument;
             using (var client = new HttpClient())
             {
-                xDocument = XDocument.Parse( await (client.GetStringAsync(travelApiUrl)));
+                xDocument = Parse( await (client.GetStringAsync(travelApiUrl)));
             }
 
             var totalPages = xDocument.Root?.Element("total_pages")?.Value;

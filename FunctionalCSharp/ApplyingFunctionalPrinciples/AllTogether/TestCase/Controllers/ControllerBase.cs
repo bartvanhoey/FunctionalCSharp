@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Controllers.Models;
 using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Logic;
-using FunctionalCSharp.Functional;
 using FunctionalCSharp.Functional.ResultType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.Controllers

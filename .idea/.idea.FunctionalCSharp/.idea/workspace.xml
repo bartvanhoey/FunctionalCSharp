@@ -8,61 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/MethodChaining/Before/BeforeMethodChainingTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/UsingStatement/UsingTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/FunctionalExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/MethodChaining/StreamFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/MethodChaining/With/StringBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/MethodChaining/With/WithMethodChaining.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/MethodChaining/Without/WithoutMethodChaining.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/UsingStatement/Disposable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/BankCardTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/MoneyDemo/MoneyDemoTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Amount.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/BankCard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Currency.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Date.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/EmptyMoney.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Money.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/MoneyEnumerableExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Month.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/SpecificMoney.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Timestamp.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Wallet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/FunctionalCSharp.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/FunctionalCSharp.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/CustomerControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/MaybeType/CustomerControllerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/FodyNullGuard/NullGuardTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/MaybeType/FodyNullGuard/NullGuardTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/NullOptionType/OptionTypeBasicTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/MaybeType/OptionTypeBasicTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/ControllerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Controllers/ControllerBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailGateway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/EmailSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyCustomerNameEmptyError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyCustomerNameEmptyError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyCustomerNameTooLongError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyCustomerNameTooLongError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailEmptyError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailEmptyError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailInvalidError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailInvalidError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailTooLongError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/MyEmailTooLongError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/UnableToSendEmailError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/Errors/UnableToSendEmailError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IEmailGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IEmailGateway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IndustryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/IndustryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/MyCustomer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/ValueObjects/MyCustomerName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/ValueObjects/MyCustomerName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/ValueObjects/MyEmail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/DomainModel/ValueObjects/MyEmail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/AllTogether/TestCase/Logic/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/CustomerNotFoundError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/CustomerNotFoundError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/CustomerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/CustomerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/IDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/IPaymentGateway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/IPaymentGateway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/MoneyAmountInvalidError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/MoneyAmountInvalidError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/MoneyToCharge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/ErrorsAndFailures/TestCase/MoneyToCharge.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/CustomerName/CustomerNameEmptyError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/CustomerName/CustomerNameEmptyError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/CustomerName/CustomerNameTooLongError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/CustomerName/CustomerNameTooLongError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/Email/EmailEmptyError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/Email/EmailEmptyError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/Email/EmailInvalidError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/Email/EmailInvalidError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/CannotReserveOnAPastDateError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/CannotReserveOnAPastDateError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/IncorrectCustomerNameError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/IncorrectCustomerNameError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/TicketsOnThisDateNoLongerAvailableError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/TicketsOnThisDateNoLongerAvailableError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/UnableToConnectToTheTheaterError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/Errors/TicketController/UnableToConnectToTheTheaterError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/TestCase/Helper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/TestCase/Helper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/TestCase/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/Exceptions/TestCase/TicketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/IDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/IDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/ModelState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/TestCase/ModelState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/ValueObjects/CustomerName.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/ValueObjects/CustomerName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/ValueObjects/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/ApplyingFunctionalPrinciples/PrimitiveObsession/ValueObjects/Email.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/BaseError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ResultType/BaseError.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/Maybe/Maybe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/MaybeType/Maybe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/Maybe/MaybeExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/MaybeType/MaybeExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ResultType/Result.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/ResultExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ResultType/ResultExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/Functional/ValueObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/PrimitiveObsession/ValueObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/UsingStatement/UsingTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/UsingStatement/UsingTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +105,10 @@
       <workItem from="1657270263451" duration="13600000" />
       <workItem from="1657297441396" duration="9326000" />
       <workItem from="1657456060906" duration="13996000" />
-      <workItem from="1658000386050" duration="12464000" />
+      <workItem from="1658000386050" duration="13283000" />
+      <workItem from="1658091308406" duration="1258000" />
+      <workItem from="1658171568847" duration="2118000" />
+      <workItem from="1658234563731" duration="4952000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -265,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657481155203</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update">
+      <created>1658084991756</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1658084991756</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,10 +268,10 @@
     <MESSAGE value="Refactoring Away Primitive Obsession" />
     <MESSAGE value="Refactoring to more explicit code" />
     <MESSAGE value="fix build" />
-    <MESSAGE value="Update" />
     <MESSAGE value="Making Nulls Explicit" />
     <MESSAGE value="use NRT instead of AllowNull" />
-    <option name="LAST_COMMIT_MESSAGE" value="use NRT instead of AllowNull" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -308,14 +279,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/MaybeType/CustomerControllerTests.cs</url>
           <line>20</line>
-          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\NullOptionType\CustomerControllerTests.cs" initialLine="21" containingFunctionPresentation="method 'Method_Index_Should_Return_HttpNotFound_When_Id_Is_One'">
-            <startOffsets>
-              <option value="737" />
-            </startOffsets>
-            <endOffsets>
-              <option value="787" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\NullOptionType\CustomerControllerTests.cs" initialLine="21" containingFunctionPresentation="method 'Method_Index_Should_Return_HttpNotFound_When_Id_Is_One'" />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
@@ -323,10 +287,10 @@
           <line>50</line>
           <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\UsingStatement\UsingTests.cs" initialLine="32" containingFunctionPresentation="method 'Method_Using_Should_Return_A_Correct_Value'">
             <startOffsets>
-              <option value="1741" />
+              <option value="1731" />
             </startOffsets>
             <endOffsets>
-              <option value="1774" />
+              <option value="1764" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="45" />
@@ -343,6 +307,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/BankCardTests.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\ObjectFilters\BankCardTests.cs" initialLine="11" containingFunctionPresentation="method 'GetAvailableAmount_Method_Should_Return_Correct_Value'">
+            <startOffsets>
+              <option value="726" />
+            </startOffsets>
+            <endOffsets>
+              <option value="727" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/MoneyDemo/MoneyDemoTests.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\ObjectFilters\MoneyDemo\MoneyDemoTests.cs" initialLine="23" containingFunctionPresentation="method 'TestWalletClass'">
+            <startOffsets>
+              <option value="807" />
+            </startOffsets>
+            <endOffsets>
+              <option value="837" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

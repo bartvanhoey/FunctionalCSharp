@@ -1,5 +1,4 @@
 using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.ValueObjects;
-using FunctionalCSharp.Functional;
 using FunctionalCSharp.Functional.MaybeType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase

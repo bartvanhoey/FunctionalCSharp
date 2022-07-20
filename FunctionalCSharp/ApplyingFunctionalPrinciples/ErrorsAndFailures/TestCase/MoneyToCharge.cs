@@ -1,5 +1,4 @@
-﻿using FunctionalCSharp.Functional;
-using FunctionalCSharp.Functional.PrimitiveObsession;
+﻿using FunctionalCSharp.Functional.PrimitiveObsession;
 using FunctionalCSharp.Functional.ResultType;
 
 namespace FunctionalCSharp.ApplyingFunctionalPrinciples.ErrorsAndFailures.TestCase

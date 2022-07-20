@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.ApplyingFunctionalPrinciples.AllTogether.TestCase.DomainModel.Errors;
-using FunctionalCSharp.Functional;
 using FunctionalCSharp.Functional.PrimitiveObsession;
 using FunctionalCSharp.Functional.ResultType;
 using static System.String;
