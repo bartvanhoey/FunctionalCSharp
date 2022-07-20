@@ -24,6 +24,7 @@
         <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\Email" />
         <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\TicketController" />
         <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\TestCase" />
+        <Folder Include="FunctionalProgrammingInCSharp" />
         <Folder Include="Functional\RailwayOrientedProgramming" />
     </ItemGroup>
 
