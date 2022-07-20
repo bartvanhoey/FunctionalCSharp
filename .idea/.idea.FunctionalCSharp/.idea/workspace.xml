@@ -8,22 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cf98a62-2853-469a-8d50-0070f672d3a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/BankCardTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/MoneyDemo/MoneyDemoTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Amount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/BankCard.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Currency.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Date.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/EmptyMoney.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Money.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/MoneyEnumerableExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Month.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/SpecificMoney.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Timestamp.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FunctionalCSharp/Functional/ObjectFilters/MoneyDemo/Wallet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FunctionalCSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp.Tests/UsingStatement/UsingTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp.Tests/UsingStatement/UsingTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FunctionalCSharp/FunctionalCSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +94,7 @@
       <workItem from="1658000386050" duration="13283000" />
       <workItem from="1658091308406" duration="1258000" />
       <workItem from="1658171568847" duration="2118000" />
-      <workItem from="1658234563731" duration="4952000" />
+      <workItem from="1658234563731" duration="6085000" />
     </task>
     <task id="LOCAL-00001" summary="Update Project Structure">
       <created>1657270444402</created>
@@ -236,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658084991756</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Functional-style filters">
+      <created>1658281617373</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658281617373</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +264,8 @@
     <MESSAGE value="Making Nulls Explicit" />
     <MESSAGE value="use NRT instead of AllowNull" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Functional-style filters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functional-style filters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -284,13 +278,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/UsingStatement/UsingTests.cs</url>
-          <line>50</line>
+          <line>49</line>
           <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\UsingStatement\UsingTests.cs" initialLine="32" containingFunctionPresentation="method 'Method_Using_Should_Return_A_Correct_Value'">
             <startOffsets>
-              <option value="1731" />
+              <option value="1681" />
             </startOffsets>
             <endOffsets>
-              <option value="1764" />
+              <option value="1714" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="45" />
@@ -323,13 +317,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/FunctionalCSharp.Tests/ObjectFilters/MoneyDemo/MoneyDemoTests.cs</url>
-          <line>23</line>
+          <line>22</line>
           <properties documentPath="C:\Data\MyGitHubRepos\FunctionalCSharpSolution\FunctionalCSharp.Tests\ObjectFilters\MoneyDemo\MoneyDemoTests.cs" initialLine="23" containingFunctionPresentation="method 'TestWalletClass'">
             <startOffsets>
-              <option value="807" />
+              <option value="777" />
             </startOffsets>
             <endOffsets>
-              <option value="837" />
+              <option value="807" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="48" />
