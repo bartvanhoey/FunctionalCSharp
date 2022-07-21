@@ -2,14 +2,19 @@
 
 ## What is functional programming
 
+?
+
 ## Imperative vs Functional programming
 
 
 ## Immutability / Immutable types
 
+
 ## Side effects
 
+
 ## Purity/Pure functions // mathematical functions
+
 
 ## Map
 
