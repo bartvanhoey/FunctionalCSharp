@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.ObjectFilters.MoneyDemo
+﻿namespace FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo
 {
     public abstract class SpecificMoney : Money
     {
@@ -8,6 +8,6 @@
         public override SpecificMoney Of(Currency currency) 
             => currency.Equals(Currency) ? this : new EmptyMoney(currency);
         
-        public abstract Tuple<Amount, Money> Take(decimal amount);
+        public abstract (Amount taken, Money remaining) Take(decimal amount);
     }
 }

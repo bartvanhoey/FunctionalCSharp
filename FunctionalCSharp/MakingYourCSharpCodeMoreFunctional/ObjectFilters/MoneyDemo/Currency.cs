@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.ObjectFilters.MoneyDemo
+﻿namespace FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo
 {
     public sealed class Currency : IEquatable<Currency>
     {

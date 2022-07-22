@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.ObjectFilters.MoneyDemo
+﻿namespace FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo
 {
     public class Timestamp : IComparable<DateTime>, IComparable<Timestamp>, IComparable<Date>, IComparable<Month>
     {

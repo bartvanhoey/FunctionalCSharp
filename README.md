@@ -67,12 +67,20 @@ Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 ## Currying
 
 ## Referential Transparency
+An expression is said to be referential transparent if it can be replaced with its corresponding value 
+without changing the program's behavior.
 
-## Higher-order functions(HOF)
+## Referentially Opaque
+
+## Higher-order functions (HOF)
+HOFs are functions that take other functions as inputs or return a function as output, or both
+
 
 ## Functions are first-class citizens
 
 ## Memoization
+Cache results to avoid repeated function evaluations
+
 
 ## Lambda Expressions
 

@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.ObjectFilters.MoneyDemo
+﻿namespace FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo
 {
     public class Wallet
     {
@@ -8,16 +8,17 @@
 
         public Amount Charge(Currency currency, Amount toCharge)
         {
-            IEnumerable<Tuple<Amount, Money>> split =
+            IEnumerable<(Amount taken, Money remaining)> split =
                 Content
                     .On(Timestamp.Now)
                     .Of(toCharge.Currency)
                     .Take(toCharge.Value)
                     .ToList();
 
-            Content = split.Select(tuple => tuple.Item2).ToList();
+            Content = split.Select(tuple => tuple.remaining).ToList();
 
-            var total = split.Sum(tuple => tuple.Item1.Value);
+            var total = split.Sum(tuple => tuple.taken.Value);
+            
             return new Amount(toCharge.Currency, total);
         }
     }

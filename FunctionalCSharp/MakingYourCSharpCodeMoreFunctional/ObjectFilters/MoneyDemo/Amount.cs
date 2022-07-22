@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.ObjectFilters.MoneyDemo
+﻿namespace FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo
 {
     public class Amount : SpecificMoney
     {
@@ -13,14 +13,12 @@
 
         public override Money On(Timestamp time) => this;
 
-        public override Tuple<Amount, Money> Take(decimal amount)
+        public override (Amount taken, Money remaining) Take(decimal amount)
         {
             var taken = Math.Min(Value, amount);
             var remaining = Value - taken;
 
-            return Tuple.Create(
-                new Amount(Currency, taken), 
-                (Money)new Amount(Currency, remaining));
+            return (new Amount(Currency, taken), new Amount(Currency, remaining));
         }
 
         public static Amount Zero(Currency currency) => new(currency, 0);

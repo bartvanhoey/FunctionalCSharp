@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Functional.ObjectFilters.MoneyDemo
+﻿namespace FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo
 {
     public static class MoneyEnumerableExtensions
     {
@@ -8,7 +8,7 @@
         public static IEnumerable<SpecificMoney> Of(this IEnumerable<Money> moneys, Currency currency) 
             => moneys.Select(money => money.Of(currency));
 
-        public static IEnumerable<Tuple<Amount, Money>> Take(this IEnumerable<SpecificMoney> moneys, decimal amount)
+        public static IEnumerable<(Amount, Money)> Take(this IEnumerable<SpecificMoney> moneys, decimal amount)
         {
             var rest = amount;
             foreach (var money in moneys)
