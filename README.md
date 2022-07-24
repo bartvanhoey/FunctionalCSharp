@@ -130,3 +130,8 @@ It’s a specific way of chaining operations together. In essence, you’re writ
 
 ## Pattern matching
 
+## Dynamic Programming
+Dynamic Programming (a.k.a dynamic optimization) is a method for solving a complex problem
+by breaking it down into a collection of simpler sub problems, solving each of those just once,
+and storing their solutions. 
+

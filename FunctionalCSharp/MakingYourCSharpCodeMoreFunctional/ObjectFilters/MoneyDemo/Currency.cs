@@ -27,7 +27,7 @@
             return obj.GetType() == GetType() && Equals((Currency)obj);
         }
 
-        public override int GetHashCode() => Symbol == null ? 0 : Symbol.GetHashCode();
+        public override int GetHashCode() => Symbol?.GetHashCode() ?? 0;
 
         public static bool operator ==(Currency? a, Currency? b)
         {
