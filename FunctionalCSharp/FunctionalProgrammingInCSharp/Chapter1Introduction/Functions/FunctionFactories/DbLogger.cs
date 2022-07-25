@@ -1,8 +1,8 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
-using static FunctionalCSharp.FunctionalProgrammingInCSharp.Functions.FunctionFactories.ConnectionHelper;
+using static FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.FunctionFactories.ConnectionHelper;
 
-namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Functions.FunctionFactories
+namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.FunctionFactories
 {
     public class DbLogger
     {

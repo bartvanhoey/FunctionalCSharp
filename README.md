@@ -61,7 +61,6 @@ Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 
 ## Expressions instead of Statements
 
-## Lazy evaluation
 
 ## Stateful computations
 
@@ -83,8 +82,15 @@ HOFs are functions that take other functions as inputs or return a function as o
 
 ## Functions are first-class citizens
 
+## Parallelization
+Different threads carry out tasks in parallel
+
 ## Memoization
 Cache results to avoid repeated function evaluations
+
+## Lazy evaluation
+Only evaluate values as needed
+
 
 
 ## Lambda Expressions

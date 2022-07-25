@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.FunctionalProgrammingInCSharp.Functions.HigherOrderFunctions;
+using FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.HigherOrderFunctions;
 
 namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Functions.HigherOrderFunctions
 {

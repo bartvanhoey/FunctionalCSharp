@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Functions.HigherOrderFunctions
+﻿namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.HigherOrderFunctions
 {
     public static class AdapterFunctions
     {

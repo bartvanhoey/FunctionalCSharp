@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Functions.FunctionFactories
+﻿namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.FunctionFactories
 {
     public static class FunctionFactory
     {

@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 using static FunctionalCSharp.FunctionalProgrammingInCSharp.LaYumba.Functional.F;
 
-namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Functions.FunctionFactories
+namespace FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.FunctionFactories
 {
     public static class ConnectionHelper
     {
