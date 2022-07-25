@@ -7,7 +7,7 @@ namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Chapter3PurityMat
     public class EnumerableZipTests
     {
         [Fact]
-        public void EnumrableZip_Should_Return_Correct_Result()
+        public void EnumerableZip_Should_Return_Correct_Result()
         {
             var ints = new[] { 1, 2, 3 };
             var strings = new[] { "one", "two", "tree" };
@@ -16,5 +16,8 @@ namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Chapter3PurityMat
 
             items.Should().Contain("In English, 1 is: one");
         }
+
+        
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using static FunctionalCSharp.Tests.Aggregate.Employee;
 
 namespace FunctionalCSharp.Tests.Aggregate
 {
@@ -70,7 +71,7 @@ namespace FunctionalCSharp.Tests.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_The_Total_Salary_Of_All()
         {
-            var employees = Employee.GetAllEmployees();
+            var employees = GetAllEmployees();
 
             var result = employees.Aggregate(0, (totalSalary, emp) => totalSalary + emp.Salary);
             result.Should().Be(125000);
@@ -79,10 +80,21 @@ namespace FunctionalCSharp.Tests.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_All_The_Employee_Names()
         {
-            var employees = Employee.GetAllEmployees();
+            var employees = GetAllEmployees();
 
             var result = employees.Aggregate("Employee Names: ", (names, emp) => names + emp.Name  + ", ");
             result.Should().Be("Employee Names: Preety, Priyanka, James, Hina, Anurag, ");
+        }
+        
+        [Fact]
+        public void Method_Aggregate_Should_Calculate_Correct_Album_Duration()
+        {
+            var albumDuration = "2:54,3:48,4:51,3:32,6:15,4:08,5:17,3:13,4:16,3:55,4:53,5:35,4:24"
+                .Split(',')
+                .Select(t => TimeSpan.Parse("0:" + t))
+                .Aggregate((t1, t2) => t1 + t2);
+
+            albumDuration.Should().Be(new TimeSpan(0, 57, 01));
         }
         
     }
