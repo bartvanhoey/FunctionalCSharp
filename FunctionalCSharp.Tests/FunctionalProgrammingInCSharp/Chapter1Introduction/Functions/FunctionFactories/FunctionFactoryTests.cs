@@ -2,7 +2,7 @@
 using static System.Linq.Enumerable;
 using static FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.FunctionFactories.FunctionFactory;
 
-namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Functions.FunctionFactories
+namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.FunctionFactories
 {
     public class FunctionFactoryTests
     {

@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.HigherOrderFunctions;
 
-namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Functions.HigherOrderFunctions
+namespace FunctionalCSharp.Tests.FunctionalProgrammingInCSharp.Chapter1Introduction.Functions.HigherOrderFunctions
 {
     public class AdapterFunctionTests
     {
