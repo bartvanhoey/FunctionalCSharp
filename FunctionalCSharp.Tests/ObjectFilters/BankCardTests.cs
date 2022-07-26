@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo;
+using FunctionalCSharp.Courses.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo;
 
 namespace FunctionalCSharp.Tests.ObjectFilters
 {

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.PrimitiveObsession.TestCase;
 
 namespace FunctionalCSharp.Tests.MaybeType
 {

@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.Errors.CustomerName;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.Exceptions.Errors.Email;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession;
-using FunctionalCSharp.ApplyingFunctionalPrinciples.PrimitiveObsession.ValueObjects;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Exceptions.Errors.CustomerName;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Exceptions.Errors.Email;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.PrimitiveObsession;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.PrimitiveObsession.ValueObjects;
 
 namespace FunctionalCSharp.Tests.PrimitiveObsession
 {

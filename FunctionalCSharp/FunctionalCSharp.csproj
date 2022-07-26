@@ -22,11 +22,17 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\CustomerName" />
-        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\Email" />
-        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\Errors\TicketController" />
-        <Folder Include="ApplyingFunctionalPrinciples\Exceptions\ResultClass\TestCase" />
         <Folder Include="Functional\RailwayOrientedProgramming" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="MoreEffectiveLinq\Chapter4PowerOfPipelines\NOTICE.csv" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Courses\MoreEffectiveLinq\Module3PowerOfPipelines\NOTICE.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>
