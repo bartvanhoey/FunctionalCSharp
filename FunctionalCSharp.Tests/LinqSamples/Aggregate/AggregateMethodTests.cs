@@ -71,20 +71,24 @@ namespace FunctionalCSharp.Tests.LinqSamples.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_The_Total_Salary_Of_All()
         {
-            var employees = GetAllEmployees();
-
-            var result = employees.Aggregate(0, (totalSalary, emp) => totalSalary + emp.Salary);
+            var result = GetEmployees().Aggregate(0, (totalSalary, emp) => totalSalary + emp.Salary);
             result.Should().Be(125000);
         }
         
         [Fact]
         public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_All_The_Employee_Names()
         {
-            var employees = GetAllEmployees();
-
-            var result = employees.Aggregate("Employee Names: ", (names, emp) => names + emp.Name  + ", ");
+            var result = GetEmployees().Aggregate("Employee Names: ", (names, emp) => names + emp.Name  + ", ");
             result.Should().Be("Employee Names: Preety, Priyanka, James, Hina, Anurag, ");
         }
+        
+        [Fact]
+        public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_Employee_With_Highest_Salary()
+        {
+            var result = GetEmployees().Aggregate((agg, next) => next.Salary > agg.Salary ? next : agg);
+            result.Name.Should().Be("James");
+        }
+        
         
         [Fact]
         public void Method_Aggregate_Should_Calculate_Correct_Album_Duration()

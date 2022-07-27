@@ -8,7 +8,7 @@ namespace FunctionalCSharp.Tests.LinqSamples.Aggregate
         public int Salary { get; set; }
         public string? Department { get; set; }
 
-        public static IEnumerable<Employee> GetAllEmployees()
+        public static IEnumerable<Employee> GetEmployees()
         {
             return new List<Employee>
             {
