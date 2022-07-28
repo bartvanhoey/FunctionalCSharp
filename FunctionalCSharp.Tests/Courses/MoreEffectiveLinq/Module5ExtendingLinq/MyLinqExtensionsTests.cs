@@ -58,6 +58,26 @@ namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module5ExtendingLinq
             result.Where(x => x.Key == "Other").Select(x => x.Value).First().Should().Be(4);
         }
 
+        [Fact]
+        public void Calculate_Time_SwimLength()
+        {
+            const string splitTimes = "00:45,01:32,02:18,03:01,03:44,04:31,05:19,06:01,06:47,07:35";
+
+            var swimLengthTimes = ("00:00," + splitTimes)
+                .Split(",")
+                .Zip(splitTimes.Split(","),
+                    (s, f) => new
+                    {
+                        Start = TimeSpan.Parse("00:" + s),
+                        End = TimeSpan.Parse("00:" + f)
+                    }
+                ).ToList();
+
+             swimLengthTimes.LastOrDefault()?.Start.Should().Be(new TimeSpan(0, 6, 47));
+             swimLengthTimes.LastOrDefault()?.End.Should().Be(new TimeSpan(0, 7, 35));
+        }
+        
+        
         
         
         

@@ -1,6 +1,4 @@
-﻿using NHibernate.Engine;
-
-namespace FunctionalCSharp.Courses.MoreEffectiveLinq.Module5ExtendingLinq
+﻿namespace FunctionalCSharp.Courses.MoreEffectiveLinq.Module5ExtendingLinq
 {
     public static class MyLinqExtensions
     {
