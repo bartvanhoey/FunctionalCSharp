@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>11</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.0.123" />
+        <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+        <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="MoreEffectiveLinq\Chapter4PowerOfPipelines\NOTICE.csv" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Courses\MoreEffectiveLinq\Module3PowerOfPipelines\NOTICE.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Books" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part1_CoreConcepts\Chap4_PatternsInFunctionalProgramming" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part1_CoreConcepts\Chap5_DesigningProgramsWithFunctionComposition" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap10_EventSourcing" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap6_FunctionalErrorHandling" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap7_ApplicationStructuringWithFunctions" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap8_MultiArgumentFunctions" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap9_ThinkAboutDataFunctionally" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap11_MonadicComposition" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap12_StatefulProgramsAndComputations" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap13_AsynchronousComputations" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap14_DataStreamsAndReactiveExtensions" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap15_MessagePassingConcurrency" />
+      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1WhatIsFunctionalProgramming" />
+      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module3FunctionalThinking" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LaYumba\LaYumba.csproj" />
+    </ItemGroup>
+
+</Project>
