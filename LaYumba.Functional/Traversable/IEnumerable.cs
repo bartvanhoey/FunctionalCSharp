@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace LaYumba.Functional
+namespace LaYumba.Functional.Traversable
 {
-   using System.Threading.Tasks;
    using static F;
 
    public static class IEnumerableTraversable
@@ -23,7 +18,7 @@ namespace LaYumba.Functional
       public static Exceptional<IEnumerable<R>> Traverse<T, R>(this IEnumerable<T> list
          , Func<T, Exceptional<R>> func)
          => list.Aggregate(
-            seed: Exceptional.Of(Enumerable.Empty<R>()),
+            seed: Functional.Exceptional.Of(Enumerable.Empty<R>()),
             // Exceptional<[R]> -> T -> Exceptional<[R]>
             func: (optRs, t) => from rs in optRs
                                 from r in func(t)

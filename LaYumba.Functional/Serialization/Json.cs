@@ -1,9 +1,8 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace LaYumba.Functional.Serialization.Json
+namespace LaYumba.Functional.Serialization
 {
    using static F;
 

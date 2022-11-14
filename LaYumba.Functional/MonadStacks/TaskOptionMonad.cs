@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using LaYumba.Functional.Traversable;
 
-namespace LaYumba.Functional
+namespace LaYumba.Functional.MonadStacks
 {
    using static F;
 

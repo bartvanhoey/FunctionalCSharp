@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace LaYumba.Functional
+﻿namespace LaYumba.Functional.Traversable
 {
    using static F;
 
