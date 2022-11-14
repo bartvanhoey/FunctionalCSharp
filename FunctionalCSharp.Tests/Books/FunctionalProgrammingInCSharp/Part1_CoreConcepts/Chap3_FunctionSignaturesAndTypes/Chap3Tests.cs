@@ -1,8 +1,6 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionSignaturesAndTypes;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionSignaturesAndTypes.ValueObjects;
-using LaYumba;
-using LaYumba.Option;
 using static System.IO.File;
 using static System.IO.Path;
 using static System.Reflection.Assembly;
@@ -44,7 +42,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         public void Method_OptionTestMethod_ShouldReturn(string value, bool expected)
         {
             var result = new Chap3().OptionTestMethod(value);
-            result.IsSome().Should().Be(expected);
+            result.IsSome.Should().Be(expected);
         }
         
 

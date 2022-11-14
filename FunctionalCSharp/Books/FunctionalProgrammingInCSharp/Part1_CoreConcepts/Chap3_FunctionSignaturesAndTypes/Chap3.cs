@@ -1,7 +1,6 @@
 ﻿using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionSignaturesAndTypes.ValueObjects;
 using FunctionalCSharp.Extensions;
-using LaYumba;
-using LaYumba.Option;
+using LaYumba.Functional;
 using static System.Console;
 using static System.Diagnostics.Stopwatch;
 using Unit = System.ValueTuple;

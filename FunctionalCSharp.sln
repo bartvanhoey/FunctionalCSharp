@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalCSharp", ".\Funct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.Tests", ".\FunctionalCSharp.Tests\FunctionalCSharp.Tests.csproj", "{AF38DAD7-34AD-4C03-A837-FDCD0880FD1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaYumba", "LaYumba\LaYumba.csproj", "{2C4A051A-4379-497B-A46B-D96FD795EAA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaYumba.Functional", "LaYumba.Functional\LaYumba.Functional.csproj", "{FF8F0D7A-D078-44B1-8171-257729962849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{AF38DAD7-34AD-4C03-A837-FDCD0880FD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF38DAD7-34AD-4C03-A837-FDCD0880FD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF38DAD7-34AD-4C03-A837-FDCD0880FD1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C4A051A-4379-497B-A46B-D96FD795EAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C4A051A-4379-497B-A46B-D96FD795EAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C4A051A-4379-497B-A46B-D96FD795EAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C4A051A-4379-497B-A46B-D96FD795EAA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8F0D7A-D078-44B1-8171-257729962849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8F0D7A-D078-44B1-8171-257729962849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8F0D7A-D078-44B1-8171-257729962849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8F0D7A-D078-44B1-8171-257729962849}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
