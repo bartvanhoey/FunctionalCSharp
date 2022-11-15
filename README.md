@@ -184,9 +184,21 @@ Refers to the number of arguments that a function accepts:
 
 ## Monad
 
-It’s a specific way of chaining operations together. 
-In essence, you’re writing execution steps and linking them together with the “bind function”. (In Haskell, it’s named >>=.) 
+It’s a specific way of chaining operations together. In essence, you’re writing execution steps and linking them together with the “Bind function”. (In Haskell, it’s named >>=.) 
 You can write the calls to the bind operator yourself, or you can use syntax sugar which makes the compiler insert those function calls for you.
+
+## Monads vs Functors
+
+Monads are types for which a Bind function is defined. In addition to the Bind function, 
+monads must also have a Return function that lifts a normal value T into a monadic value C<T>
+
+A Monad is a type C<T> for which the following functions are defined:
+* Return: T -> C<T>
+* Bind: (C<T>, (T -> C<R>)) -> C<R>
+
+Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
+
+Functors are types for which a suitable Map function is defined.
 
 ## Recursion
 
@@ -205,14 +217,14 @@ and storing their solutions.
 * avoid side effects
 * function should accept no more than 3 parameters
 
-## Functional methods
+## Core Methods in Functional Programming
 
 ### Fold (=Aggregate in Linq) 
 var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : age)
 
 ### Map (=Select in Linq) 
 
-(C<T>, (T -> R)) -> C(R)
+Map: (C<T>, (T -> R)) -> C(R)
 
 Map can be defined as a function that takes a container C<T> and a function f of type (T -> R),
 and returns a container C<R> wrapping the value(s) resulting from applying f to the container's inner value(s).
@@ -220,6 +232,11 @@ and returns a container C<R> wrapping the value(s) resulting from applying f to 
 ### Filter (=Where in Linq) 
 
 ### Bind (=SelectMany in Linq) 
+
+Bind: (C<T>, (T -> C<R>)) -> C<R>
+
+Bind is a function that takes a container C<T> and a function f with signature (T -> R) and returns a container C<R>
+
 
 ### Reduce = is a Fold function that has no initial state, takes its initial state from the first item in the sequence
 
