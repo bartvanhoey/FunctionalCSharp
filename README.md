@@ -61,11 +61,6 @@ Side effects : Mutates global state/Mutates its input arguments/throws exception
 * A command is a method that performs an action but does not return a value. Has Side effects.
 * A query is a method that returns a value but does not perform an action. Has no Side effects.
 
-## Map
-
-map is the name of a higher-order function that applies a given function to each element of a collection, e.g. a list or set, returning the results in a collection of the same type. 
-It is often called apply-to-all when considered in functional form
-
 ## Mapping
 Given a sequence and a function, mapping yields a new sequence
 with the elements obtained by applying the given function to each element in
@@ -87,16 +82,6 @@ sequence ordered according to the key (in LINQ, OrderBy and OrderByDescending).
 Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 
 
-
-
-
-
-
-## Reduce
-
-## Tee
-
-## Aggregate
 
 ## Pipelining // Railway-oriented approach
 Pipelining allows data to flow between functions
@@ -221,12 +206,25 @@ and storing their solutions.
 * function should accept no more than 3 parameters
 
 ## Functional methods
+
 ### Fold (=Aggregate in Linq) 
 var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : age)
+
 ### Map (=Select in Linq) 
+
+(C<T>, (T -> R)) -> C(R)
+
+Map can be defined as a function that takes a container C<T> and a function f of type (T -> R),
+and returns a container C<R> wrapping the value(s) resulting from applying f to the container's inner value(s).
+
 ### Filter (=Where in Linq) 
+
 ### Bind (=SelectMany in Linq) 
+
 ### Reduce = is a Fold function that has no initial state, takes its initial state from the first item in the sequence
+
+### Tee
+
 
 
 ## Predicate functions (aka boolean functions)
