@@ -17,7 +17,7 @@ rather than on performing actions
 Biggest problem in software development is complexity. Complexity affects Development Speed, Number of Bugs, Agility, Maintainability, etc.
 The more complex the software, the more difficult it is to maintain. 
 
-A developer team can only deal with a certain amount of complexity. 
+A developer team can only deal with a certain amount of complexity! 
 If the complexity exceeds this limit, it will be difficult/impossible to maintain the software/to develop new features. Slows downs the development process or even introduces new bugs.
 
 Functional programming helps to reduce code complexity.
