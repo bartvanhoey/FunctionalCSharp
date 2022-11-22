@@ -29,7 +29,6 @@
     <ItemGroup>
       <Folder Include="Books" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part1_CoreConcepts\Chap4_PatternsInFunctionalProgramming" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part1_CoreConcepts\Chap5_DesigningProgramsWithFunctionComposition" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap10_EventSourcing" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap6_FunctionalErrorHandling" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap7_ApplicationStructuringWithFunctions" />
