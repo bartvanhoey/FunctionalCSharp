@@ -160,9 +160,13 @@ list // => [12, 15, 18, 21, 24, 27, 3, 30, 6, 9]
 
 ## Function composition
 
+Combining 2 or more functions into a new function. The output from one function is used as input for another function. 
+Start to look at your program in terms of data flow. Your program is a pipeline of functions.
+
 ## Closure
 
-Closures are inline anonymous methods that have the ability to use Parent method variables and other anonymous methods which are defined in the parent's scope.
+Closures are inline anonymous methods that have the ability to use Parent 
+method variables and other anonymous methods which are defined in the parent's scope.
 
 ## Function Arity
 
@@ -171,14 +175,18 @@ Refers to the number of arguments that a function accepts:
 * A unary function takes one argument.
 * A binary function takes two arguments.
 * A ternary function takes three arguments.
-
  
-
 ## Elvis operator // null coalescing operator
 
 ## Yield keyword
 
-## Declarative programming vs imperative programming
+## Declarative (functional) programming vs imperative programming
+
+The difference between the functional and imperative style is that
+imperative code relies on statements; functional code relies on expressions
+
+By preferring expressions to statements, your code becomes more declarative, and hence more readable.
+
 
 ## Partial Function Application
 
@@ -198,7 +206,8 @@ A Monad is a type C<T> for which the following functions are defined:
 
 Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
 
-Functors are types for which a suitable Map function is defined.
+Functors are types for which a suitable Map function is defined. 
+Map should apply a function to the functor's inner value and do nothing else.
 
 ## Recursion
 

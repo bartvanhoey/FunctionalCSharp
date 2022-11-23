@@ -8,5 +8,6 @@ Console.WriteLine("Hello, World!");
 // ExpressionsVsStatements.Go();
 
 var chap05 = new Chap05();
-
-chap05.MethodChaining();
+// chap05.MethodChaining();
+// chap05.CompositionInElevatedWorld();
+chap05.CalculateAverage();
