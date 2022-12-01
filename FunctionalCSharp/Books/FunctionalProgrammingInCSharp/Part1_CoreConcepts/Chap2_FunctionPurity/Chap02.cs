@@ -9,7 +9,7 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
     // It would be ideal to enforce this by always using immutable types for input arguments.
     
     
-    public class Chap2
+    public class Chap02
     {
         // the method below has a side effect as it changes the linesToDelete argument
         public decimal ComputeOrderTotal(Order order, List<OrderLine> linesToDelete)

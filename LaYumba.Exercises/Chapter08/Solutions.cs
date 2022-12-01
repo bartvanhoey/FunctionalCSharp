@@ -42,8 +42,8 @@ namespace Exercises.Chapter8.Solutions
 
       public static Option<RR> Bind<L, R, RR>(this Either<L, R> @this, Func<R, Option<RR>> func)
           => @this.Match(
-             Left: _ => None,
-             Right: r => func(r));
+             left: _ => None,
+             right: r => func(r));
 
       public static Option<RR> Bind<L, R, RR>(this Option<R> @this, Func<R, Either<L, RR>> func)
           => @this.Match(

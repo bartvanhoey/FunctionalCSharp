@@ -3,7 +3,7 @@ using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Ch
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland.Validators;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Orders;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Chap2;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Chap02;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity
 {
@@ -16,7 +16,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         [Fact]
         public void Method_ComputeOrderTotal_Should_Calculate_Correct_Result()
         {
-            var chap2 = new Chap2();
+            var chap2 = new Chap02();
 
             var linesToDelete = new List<OrderLine>();
             var result = chap2.ComputeOrderTotal(GetOrder(), linesToDelete);
@@ -27,7 +27,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         [Fact]
         public void Method_ComputeOrderTotalFunctional_Should_Calculate_Correct_Result()
         {
-            var chap2 = new Chap2();
+            var chap2 = new Chap02();
 
             var result = chap2.ComputeOrderTotalFunctional(GetOrder());
             

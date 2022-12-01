@@ -35,8 +35,8 @@ namespace Exercises.Chapter10.Solutions
       static void ConsumeFavoriteDish()
          => PrepareFavoriteDish.Match
          (
-            Left: ComplainAbout,
-            Right: Enjoy
+            left: ComplainAbout,
+            right: Enjoy
          );
 
       static Either<Reason, Unit> WakeUpEarly() => throw new NotImplementedException();
