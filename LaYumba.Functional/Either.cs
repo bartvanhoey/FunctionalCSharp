@@ -68,9 +68,11 @@ namespace LaYumba.Functional
 
    public static class EitherExt
    {
-      public static Either<L, Rr> Map<L, R, Rr>
-         (this Either<L, R> @this, Func<R, Rr> f)
-         => @this.Match<Either<L, Rr>>(Left, r => Right(f(r)));
+      public static Either<L, RR> Map<L, R, RR>
+         (this Either<L, R> @this, Func<R, RR> f)
+         => @this.Match<Either<L, RR>>(
+            l => Left(l),
+            r => Right(f(r)));
 
       public static Either<Ll, Rr> Map<L, Ll, R, Rr>(this Either<L, R> @this, Func<L, Ll> left, Func<R, Rr> right)
          => @this.Match<Either<Ll, Rr>>
@@ -82,8 +84,11 @@ namespace LaYumba.Functional
       public static Either<L, Unit> ForEach<L, R>(this Either<L, R> @this, Action<R> act)
          => Map(@this, act.ToFunc());
 
-      public static Either<L, Rr> Bind<L, R, Rr>(this Either<L, R> @this, Func<R, Either<L, Rr>> f)
-         => @this.Match(Left, f);
+      public static Either<L, RR> Bind<L, R, RR>
+         (this Either<L, R> @this, Func<R, Either<L, RR>> f)
+         => @this.Match(
+            l => Left(l),
+            r => f(r));
 
       // Applicative
 

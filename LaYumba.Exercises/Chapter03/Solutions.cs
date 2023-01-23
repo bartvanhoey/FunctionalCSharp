@@ -1,19 +1,15 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace Exercises.Chapter3.Solutions
+namespace LaYumba.Exercises.Chapter03
 {
    using static Console;
    using static Math;
 
    public enum BmiRange { Underweight, Healthy, Overweight }
 
-   static class Bmi
+   static class BmiSolution
    {
-      public static void Run()
-      {
-         Run(Read, Write);
-      }
+      public static void StartBmiProgramSolution() => Run(Read, Write);
 
       internal static void Run(Func<string, double> read, Action<BmiRange> write)
       {
@@ -39,7 +35,7 @@ namespace Exercises.Chapter3.Solutions
       private static double Read(string field)
       {
          WriteLine($"Please enter your {field}");
-         return double.Parse(ReadLine());
+         return double.Parse(ReadLine() ?? string.Empty);
       }
 
       private static void Write(BmiRange bmiRange)
@@ -51,7 +47,7 @@ namespace Exercises.Chapter3.Solutions
       [TestCase(1.80, 77, ExpectedResult = 23.77)]
       [TestCase(1.60, 77, ExpectedResult = 30.08)]
       public double CalculateBmi(double height, double weight)
-         => Bmi.CalculateBmi(height, weight);
+         => BmiSolution.CalculateBmi(height, weight);
 
       [TestCase(23.77, ExpectedResult = BmiRange.Healthy)]
       [TestCase(30.08, ExpectedResult = BmiRange.Overweight)]
@@ -65,7 +61,7 @@ namespace Exercises.Chapter3.Solutions
          Func<string, double> read = s => s == "height" ? height : weight;
          Action<BmiRange> write = r => result = r;
 
-         Bmi.Run(read, write);
+         BmiSolution.Run(read, write);
          return result;
       }
    }
