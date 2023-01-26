@@ -4,11 +4,10 @@ namespace FunctionalCSharp.Extensions
 {
     public static class YumbaFunctionalExtensions
     {
-        public static TR Using<TDisposable, TR>(TDisposable disposable, Func<TDisposable, TR> func)
+        public static Tr Using<TDisposable, Tr>(TDisposable disposable, Func<TDisposable, Tr> func)
             where TDisposable : IDisposable
         {
-            using (disposable)
-                return func(disposable);
+            using (disposable) return func(disposable);
         }
 
         public static Unit Unit() => default;

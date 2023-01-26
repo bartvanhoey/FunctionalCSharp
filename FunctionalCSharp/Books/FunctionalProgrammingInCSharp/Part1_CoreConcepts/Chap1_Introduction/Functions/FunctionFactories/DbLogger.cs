@@ -19,6 +19,14 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             conn.Execute("sp_create_Log", message, commandType: StoredProcedure);
         }
         
+        
+        public int LogFp(LogMessage message) 
+            => Connect(ConnectionString, conn => conn.Execute("sp_create_log", message, commandType: StoredProcedure) );
+        
+        public IEnumerable<LogMessage> GetLogsFp(DateTime since) 
+            => Connect(ConnectionString, conn => conn.Query<LogMessage>(SelectFromLogsSinceSql, new {since = since}) );
+
+
         // functional implementation
         public void LogFunctional(LogMessage message) 
             => Connect(ConnectionString, conn => conn.Execute("sp_create_log", message, commandType: StoredProcedure));

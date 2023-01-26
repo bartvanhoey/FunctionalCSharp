@@ -1,6 +1,7 @@
 ﻿using System.Drawing.Text;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap5_DesigningProgramsWithFunctionComposition;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.BookTransfers;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.Instruments;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Models;
 using FunctionalCSharp.Courses.BeginningFunctionalProgramming;
@@ -34,12 +35,16 @@ var chap06 = new Chap06();
 //
 // var recruitEither = chap06.RecruitByEither(candidateBart);
 
-// var controller = new Chapter06BookTransferController();
+var bookTransferController = new Chapter06BookTransferController();
 // var either = controller.Handle(new BookTransfer("OSDDDEBBXXX", DateTime.Now.AddDays(5)));
+// var exceptional = bookTransferController.SaveBookTransfer(new BookTransfer("ddd", DateTime.Now));
 
+// var controller = new Chapter06Controller(new InstrumentService());
+// var instrumentDetails = controller.GetInstrumentDetails("AAPOP");
 
-var controller = new Chapter06Controller(new InstrumentService());
-var instrumentDetails = controller.GetInstrumentDetails("AAPOP");
+var bookTransfer = new BookTransfer("OSDDDEBBXXX", DateTime.Now.AddDays(5));
+
+var validation = bookTransferController.BookTransfer1()
 
 
 ReadKey();

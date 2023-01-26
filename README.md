@@ -22,6 +22,17 @@ If the complexity exceeds this limit, it will be difficult/impossible to maintai
 
 Functional programming helps to reduce code complexity.
 
+## Benefits of Functional Programming
+
+FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more maintainable, more testable and concurrency-friendly.
+
+If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
+Conversely, the more angles from which you can approach a problem, the more likely you are to find an optimal solution. - Alan Perlis
+
+FP can be seen as a collection of techniques that are based on 2 fundamental principles:
+* Functions are first-class citizens
+* In-place updates should be avoided
+
 ### Taming Side effects
 ### Emphasis expressions
 ### Treating functions as data
@@ -120,6 +131,8 @@ Expression
 
 ## Primitive Obsession
 Primitive obsession stands for the use of primitive types instead for domain modeling.
+Primitives are often use too liberally. If you need to constrain the inputs of a function, 
+it's usually better to use a custom type. (int age vs Age age)
 
 ## Railway-oriented programming
 
@@ -187,6 +200,20 @@ imperative code relies on statements; functional code relies on expressions
 
 By preferring expressions to statements, your code becomes more declarative, and hence more readable.
 
+## Arrow Notation
+
+f: int -> string  = Func<int, string>
+
+|Function signature | C# type|Example           | Example                                       |
+|int -> string       | Func<int, string>         | (int i) => i.ToString()                       |
+|() -> string        | Func<string>              | () => "Hello"                                 | 
+|int -> ()           | Action<int>               | (int i) => Console.WriteLine($"gimme "{i}")   |
+|()  -> ()           | Action                    | () => Console.WriteLine("Hello world")        |
+|(int,int) -> int    | Func<int, int, int>       | (int i, int j) => i + j                       |
+
+IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
+(IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
+
 
 ## Partial Function Application
 
@@ -195,10 +222,10 @@ By preferring expressions to statements, your code becomes more declarative, and
 It’s a specific way of chaining operations together. In essence, you’re writing execution steps and linking them together with the “Bind function”. (In Haskell, it’s named >>=.) 
 You can write the calls to the bind operator yourself, or you can use syntax sugar which makes the compiler insert those function calls for you.
 
-## Monads vs Functors
+## Monads 
 
-Monads are types for which a Bind function is defined. In addition to the Bind function, 
-monads must also have a Return function that lifts a normal value T into a monadic value C<T>
+Monads are types for which a **Bind function** is defined. In addition to the Bind function, 
+monads must also have a **Return function** that lifts a normal value T into a monadic value C<T>
 
 A Monad is a type C<T> for which the following functions are defined:
 * Return: T -> C<T>
@@ -206,7 +233,9 @@ A Monad is a type C<T> for which the following functions are defined:
 
 Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
 
-Functors are types for which a suitable Map function is defined. 
+## Functors
+
+Functors are types for which a suitable **Map function** is defined. 
 Map should apply a function to the functor's inner value and do nothing else.
 
 ## Recursion
@@ -231,12 +260,22 @@ and storing their solutions.
 ### Fold (=Aggregate in Linq) 
 var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : age)
 
-### Map (=Select in Linq) 
+### Map (=Select in Linq)  
+
+Map should apply function that takes a container C<T> and a function f of type (T -> R),
+and returns a container C<R> wrapping the value(s) resulting from applying f to the container's inner value(s).
+Map should apply a function to the container’s inner value(s) and should do nothing else. Map should have no side effects.
+
+or
+
+Map takes a structure and a function and applies the function to every element in the structure, returning a new structure with the results.
+
+#### Signature  
 
 Map: (C<T>, (T -> R)) -> C(R)
 
-Map can be defined as a function that takes a container C<T> and a function f of type (T -> R),
-and returns a container C<R> wrapping the value(s) resulting from applying f to the container's inner value(s).
+(IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
+(Option<T>, (T -> R)) -> Option<R>)
 
 ### Filter (=Where in Linq) 
 
@@ -251,7 +290,45 @@ Bind is a function that takes a container C<T> and a function f with signature (
 
 ### Tee
 
+### ForEach
+
 
 
 ## Predicate functions (aka boolean functions)
 A predicate function is a function that returns True or False
+
+## General Guidelines for Pure Functions
+
+* Make pure functions static
+* Avoid mutable static fields
+* avoid direct calls to static methods that perfom I/O
+
+As you code more functionally, more of your functions will be pure, so more of your code will be in static classes. 
+
+## Guarding againts NullReferenceExceptions
+Never write a function that explicitly returns null, and always check that the inputs aren't null before using them. [Fody NullGuard]
+
+
+## Smart constructors
+Is a function that takes a primitive type as input and returns Some or None to indicate the succesful creation of a custom type.
+By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always created with valid data.
+
+
+## Option type
+An Option can be in one of two states:
+* None: the absence of a value
+* Some: a simple container wrapping a a non-null value
+
+
+#### Separate pure logic from side effects
+
+You should aim to separate pure logic from side effects =>  use Map for logic and ForEach for side effects
+
+Option<string> optJohn = Some("John");
+optJohn.ForEach(name => WriteLine($"Hello {name}"))
+
+becomes (logic separated from side effects
+
+optJohn.Map(name => $"Hello {name}".ForEach(WriteLine)
+
+

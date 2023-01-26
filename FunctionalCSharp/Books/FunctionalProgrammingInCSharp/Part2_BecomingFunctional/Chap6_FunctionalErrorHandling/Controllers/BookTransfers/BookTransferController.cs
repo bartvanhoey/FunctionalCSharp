@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices.JavaScript;
 using System.Text.RegularExpressions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.BookTransfers.Errors;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.Infrastructure;
@@ -21,23 +20,46 @@ public partial class Chapter06BookTransferController : Chapter06ControllerBase
 
     public ResultDto<Unit> BookTransfer1(BookTransfer bookTransfer) => _transfers.Handle(bookTransfer).ToResultDto();
     
-    public Either<BaseError, Unit> Handle(BookTransfer bookTransfer)
-        => Right(bookTransfer).Bind(ValidateBic).Bind(ValidateDate).Bind(SaveBook);
+    public Either<Error, Unit> Handle1(BookTransfer bookTransfer)
+        => Right(bookTransfer).Bind(ValidateBic1).Bind(ValidateDate1).Bind(SaveBook);
+
+    public Validation<Exceptional<Unit>> Handle2(BookTransfer bookTransfer) => Validate(bookTransfer).Map(SaveBookTransfer);
     
-    private Either<BaseError, Unit> SaveBook(BookTransfer bookTransfer)
+
+    private Validation<BookTransfer> Validate(BookTransfer bookTransfer) => ValidateBic2(bookTransfer).Bind(ValidateDate2);
+
+    private Either<Error, Unit> SaveBook(BookTransfer bookTransfer)
     {
         Console.WriteLine("booktransfer saved");
         return default;
     }
 
     private Validation<BookTransfer> ValidateDateBookTransfer(BookTransfer bookTransfer) 
-        => bookTransfer.TransferDate.Date <= DateTime.Now.Date ? Invalid(TransferDateInPastBaseError) : Valid(bookTransfer);
-
-    public Error[] TransferDateInPastBaseError { get; set; }
+        => bookTransfer.TransferDate.Date <= DateTime.Now.Date ? Invalid(Chap06BaseErrors.TransferDateIsInPastBaseError) : Valid(bookTransfer);
 
 
-    private Either<BaseError, BookTransfer> ValidateBic(BookTransfer bookTransfer) => BicRegex().IsMatch(bookTransfer.Bic) ? bookTransfer : Chap06BaseErrors.InvalidBic;
-    private Either<BaseError, BookTransfer> ValidateDate(BookTransfer bookTransfer) => bookTransfer.TransferDate > DateTime.Now ? bookTransfer : Chap06BaseErrors.TransferDateIsInPastBaseError;
+    public Exceptional<Unit> SaveBookTransfer(BookTransfer transfer)
+    {
+        try
+        {
+            
+        }
+        catch (Exception exception)
+        {
+            return exception;
+        }
+
+        return Unit();
+    }
+
+
+
+
+    private Either<Error, BookTransfer> ValidateBic1(BookTransfer bookTransfer) => BicRegex().IsMatch(bookTransfer.Bic) ? bookTransfer : Chap06BaseErrors.InvalidBic;
+    private Validation<BookTransfer> ValidateBic2(BookTransfer bookTransfer) => BicRegex().IsMatch(bookTransfer.Bic) ? bookTransfer : Invalid(Chap06BaseErrors.InvalidBic);
+    private Either<Error, BookTransfer> ValidateDate1(BookTransfer bookTransfer) => bookTransfer.TransferDate > DateTime.Now ? bookTransfer : Chap06BaseErrors.TransferDateIsInPastBaseError;
+    private Validation<BookTransfer> ValidateDate2(BookTransfer bookTransfer) => bookTransfer.TransferDate > DateTime.Now ? bookTransfer : Chap06BaseErrors.TransferDateIsInPastBaseError;
 
     [GeneratedRegex("[A-Z]{11}")] private static partial Regex BicRegex();
 }
+
