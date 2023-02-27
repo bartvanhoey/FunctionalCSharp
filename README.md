@@ -92,15 +92,36 @@ sequence ordered according to the key (in LINQ, OrderBy and OrderByDescending).
 
 Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 
+## Function composition
+
+Combining 2 or more functions into a new function. The output from one function is used as input for another function.
+Start to look at your program in terms of data flow (workflow). Your program is a pipeline of functions.
 
 
 ## Pipelining // Railway-oriented approach
 Pipelining allows data to flow between functions
 
 ## Method chaining
-Method chaining is the OO version of pipelining
+Method chaining is the OO version of pipelining.
+Extension methods appear in the order in which they will be executed and significantly improves readability.
+
+var joe = new Person("Joe", "Bloggs");
+var email = joe.AbbreviateName().AppendDomain();
+// => jobl@manning.com
+
+Properties that make functions easier to compose:
+* Pure: no side effects
+* Chainable: (this in extension methods)
+* General: the more specific a method, the less likely it is to be reusable
+* Shape-preserving: the output type should be the same as the input type
+* functions are more composable actions. An action has no output, it is a dead end. A function has an output, it is a pipeline.
+
 
 ## Extension methods
+
+## Programming workflows
+A workflow is a meaningful sequence of operations leading to a desired result.
+Each operation in the workflow can be a function. These functions can be chained together to form a pipeline that perform the workflow.
 
 ## Expressions vs Statements (Expression Composition)
 Expressions return a value. Statements do not return a value.
@@ -171,10 +192,6 @@ list // => [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
 list.Sort((l, r) => l.ToString().CompareTo(r.ToString()));
 list // => [12, 15, 18, 21, 24, 27, 3, 30, 6, 9]
 
-## Function composition
-
-Combining 2 or more functions into a new function. The output from one function is used as input for another function. 
-Start to look at your program in terms of data flow. Your program is a pipeline of functions.
 
 ## Closure
 
@@ -204,7 +221,7 @@ By preferring expressions to statements, your code becomes more declarative, and
 
 f: int -> string  = Func<int, string>
 
-|Function signature | C# type|Example           | Example                                       |
+|Function signature  | C# type|Example           | Example                                       |
 |int -> string       | Func<int, string>         | (int i) => i.ToString()                       |
 |() -> string        | Func<string>              | () => "Hello"                                 | 
 |int -> ()           | Action<int>               | (int i) => Console.WriteLine($"gimme "{i}")   |
@@ -214,15 +231,11 @@ f: int -> string  = Func<int, string>
 IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 (IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
 
-
 ## Partial Function Application
 
-## Monad
+## Monads and Functors
 
-It’s a specific way of chaining operations together. In essence, you’re writing execution steps and linking them together with the “Bind function”. (In Haskell, it’s named >>=.) 
-You can write the calls to the bind operator yourself, or you can use syntax sugar which makes the compiler insert those function calls for you.
-
-## Monads 
+### Monads (have Bind and Return functions defined)
 
 Monads are types for which a **Bind function** is defined. In addition to the Bind function, 
 monads must also have a **Return function** that lifts a normal value T into a monadic value C<T>
@@ -233,10 +246,26 @@ A Monad is a type C<T> for which the following functions are defined:
 
 Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
 
-## Functors
+In LaYumba, the Return function for Option is the Some function
+In LaYumba, the Return function for List is the List function
+
+### Functors (have a Map function defined)
 
 Functors are types for which a suitable **Map function** is defined. 
 Map should apply a function to the functor's inner value and do nothing else.
+
+Map: (C<T>, (T -> R)) -> C(R)
+Map: (IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
+Map: (Option<T>, (T -> R)) -> Option<R>)
+
+When using functors and monads, try to use function that stay within the abstraction, like Map and Bind. 
+Use the downward-crossing Match function as little or as late as possible
+
+### Monad Laws
+
+### Relation between Monads and Functors
+
+## Higher-kinded types
 
 ## Recursion
 
@@ -269,29 +298,46 @@ Map should apply a function to the container’s inner value(s) and should do no
 or
 
 Map takes a structure and a function and applies the function to every element in the structure, returning a new structure with the results.
-
-#### Signature  
-
 Map: (C<T>, (T -> R)) -> C(R)
+Map: (IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
+Map: (Option<T>, (T -> R)) -> Option<R>)
 
-(IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
-(Option<T>, (T -> R)) -> Option<R>)
+
+**MAP : (Option<T>, (T -> R)) -> Option<T>)**
+
+When you call Map on an Option<T> ,
+a Func<T, R> (a method with parameter type T, with return value R) is executed on the internal value (type T) of the Option
+and you get a new option of type R as a result.
+
+(Option<Person>, (Person -> string)) -> Option<string>)
+
+Func<Person, string> generateEmailAddress = person => $"{person.FirstName}{person.LastName}@mycompany.com";
+
+Option<Person> optionPerson = F.Some(new Person("Joe", "Smith"));
+
+Option<string> optionEmailAddress = optionPerson.Map(generateEmailAddress);
+
 
 ### Filter (=Where in Linq) 
 
 ### Bind (=SelectMany in Linq) 
 
+Bind is a function that takes a container C<T> and a function f with signature (T -> R) and returns a container C<R>
 Bind: (C<T>, (T -> C<R>)) -> C<R>
 
-Bind is a function that takes a container C<T> and a function f with signature (T -> R) and returns a container C<R>
-
+Option.Bind : (Option<T>, (T -> Option<R>)) -> Option<R>
+Bind takes and Option and an Option-returning function. Applies the function to the inner value if the Option is Some, otherwise returns None.
+Flattens the result to avoid producing a nested Option
 
 ### Reduce = is a Fold function that has no initial state, takes its initial state from the first item in the sequence
 
 ### Tee
 
 ### ForEach
+ForEach is similar to Map, but it takes an Action rather than a Function, which it performs for each of the container's inner values, so it’s used to perform side effects.
 
+### Return
+Return is a function that takes a regular value and lifts it into an elevated value
 
 
 ## Predicate functions (aka boolean functions)
@@ -331,4 +377,16 @@ becomes (logic separated from side effects
 
 optJohn.Map(name => $"Hello {name}".ForEach(WriteLine)
 
+## Validation vs Exception
+* Validation indicates that some business rule has been violated.
+* Exception denotes an unexpected technical error
 
+
+## Either type
+to represent a value that can have 2 possible outcomes: success or failure
+Left: represents a failure
+Right: represents a success
+
+Either is rather abstract, so it's often more useful tos use a more specific type, such as Exceptional or Validation
+
+## Try type
