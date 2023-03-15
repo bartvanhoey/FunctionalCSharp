@@ -158,6 +158,9 @@ it's usually better to use a custom type. (int age vs Age age)
 ## Railway-oriented programming
 
 ## Currying
+Named after Haskell Curry, curry is a technique of transforming a function that takes multiple arguments 
+into a function that takes a single argument and returns another function that takes the next argument, and so on.
+
 
 ## Higher-order extensions methods
 
@@ -197,6 +200,21 @@ list // => [12, 15, 18, 21, 24, 27, 3, 30, 6, 9]
 
 Closures are inline anonymous methods that have the ability to use Parent 
 method variables and other anonymous methods which are defined in the parent's scope.
+
+greetWith : Greeting -> (Name -> PersonalizedGreeting) or Greeting -> Name -> PersonalizedGreeting
+
+Func<Greeting, Func<Name, PersonalizedGreeting>> greetWith = gr => name => $"{gr}, {name}";
+
+The function, greetWith, takes a single argument, the general greeting, and returns a new function of type Name -> Greeting. 
+
+Notice that when the function is called with its first argument, gr, this is captured in a closure 
+and is therefore “remembered” until the returned function is called with the second argument, name.
+
+var greetFormally = greetWith("Good evening");
+
+names.Map(greetFormally).ForEach(WriteLine);
+// prints: Good evening, Tristan
+
 
 ## Function Arity
 
@@ -286,7 +304,14 @@ and storing their solutions.
 
 ## Core Methods in Functional Programming
 
-### Fold (=Aggregate in Linq) 
+### Fold/Reduce (=Aggregate in Linq) 
+
+Reducing a list of values into a single value. Reduce/Fold/Aggregate Takes a list of n things and returns exactly one thing.
+
+(IEnumerable<T>, Acc, ((Acc, T) -> Acc)) -> Acc
+
+
+
 var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : age)
 
 ### Map (=Select in Linq)  
@@ -390,3 +415,7 @@ Right: represents a success
 Either is rather abstract, so it's often more useful tos use a more specific type, such as Exceptional or Validation
 
 ## Try type
+
+## Partial Application
+
+Partial application is the process of fixing a number of arguments to a function, producing another function of smaller arity.
