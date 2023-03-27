@@ -44,7 +44,7 @@ var bookTransferController = new Chapter06BookTransferController();
 
 var bookTransfer = new BookTransfer("OSDDDEBBXXX", DateTime.Now.AddDays(5));
 
-var validation = bookTransferController.BookTransfer1()
+// var validation = bookTransferController.BookTransfer1();
 
 
 ReadKey();

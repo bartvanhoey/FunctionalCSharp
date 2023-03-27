@@ -157,10 +157,27 @@ it's usually better to use a custom type. (int age vs Age age)
 
 ## Railway-oriented programming
 
+## Partial Application
+
+You give a function some arguments and it returns a new function that takes the remaining arguments.
+Partial Application allows you to fix a function's arguments.This lets you derive new function with specific behavior
+from other, more general functions.
+
 ## Currying
 Named after Haskell Curry, curry is a technique of transforming a function that takes multiple arguments 
 into a function that takes a single argument and returns another function that takes the next argument, and so on.
 
+Currying transforms a function that accepts multiple arguments “all at once” into a series of function calls, 
+each of which involves only one argument at a time.
+
+
+´´´csharp
+    // n-ary function wth signature
+    (T1, T2, ..., Tn) -> R 
+    
+    // Curried function
+    T1 -> T2 -> ... -> Tn -> R
+´´´
 
 ## Higher-order extensions methods
 
@@ -248,8 +265,6 @@ f: int -> string  = Func<int, string>
 
 IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 (IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
-
-## Partial Function Application
 
 ## Monads and Functors
 

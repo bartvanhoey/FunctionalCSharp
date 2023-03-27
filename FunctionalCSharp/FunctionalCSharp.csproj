@@ -39,8 +39,6 @@
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap13_AsynchronousComputations" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap14_DataStreamsAndReactiveExtensions" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap15_MessagePassingConcurrency" />
-      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1WhatIsFunctionalProgramming" />
-      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module3FunctionalThinking" />
     </ItemGroup>
 
     <ItemGroup>
