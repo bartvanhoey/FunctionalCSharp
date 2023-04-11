@@ -1,14 +1,15 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.BookTransfers;
-
-public class BookTransfer : IHaveTransferDate
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.BookTransfers
 {
-    public BookTransfer(string bic, DateTime transferDate)
+    public class BookTransfer : IHaveTransferDate
     {
-        Bic = bic;
-        TransferDate = transferDate;
+        public BookTransfer(string bic, DateTime transferDate)
+        {
+            Bic = bic;
+            TransferDate = transferDate;
+        }
+
+        public string Bic { get; set; }
+        public DateTime TransferDate { get; set; }
+
     }
-
-    public string Bic { get; set; }
-    public DateTime TransferDate { get; set; }
-
 }

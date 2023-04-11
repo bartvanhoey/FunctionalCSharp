@@ -1,11 +1,12 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.Infrastructure;
-
-public class ActionResult : IActionResult
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.Infrastructure
 {
-    public string? TickerName { get; }
-
-    public ActionResult(string? tickerName = null)
+    public class ActionResult : IActionResult
     {
-        TickerName = tickerName;
+        public string? TickerName { get; }
+
+        public ActionResult(string? tickerName = null)
+        {
+            TickerName = tickerName;
+        }
     }
 }

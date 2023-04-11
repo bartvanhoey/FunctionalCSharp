@@ -1,13 +1,14 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.Instruments;
-
-public class InstrumentDetails
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Controllers.Instruments
 {
-    public InstrumentDetails(string tickerName, string ticker)
+    public class InstrumentDetails
     {
-        TickerName = tickerName;
-        Ticker = ticker;
-    }
+        public InstrumentDetails(string tickerName, string ticker)
+        {
+            TickerName = tickerName;
+            Ticker = ticker;
+        }
 
-    public string TickerName { get; set; }
-    public string Ticker { get; set; }
+        public string TickerName { get; set; }
+        public string Ticker { get; set; }
+    }
 }
