@@ -33,11 +33,19 @@ FP can be seen as a collection of techniques that are based on 2 fundamental pri
 * Functions are first-class citizens
 * In-place updates should be avoided
 
+Results in code that is more Predictable, Reliable and Maintainable and easier to test
+
 ### Taming Side effects
 ### Emphasis expressions
 ### Treating functions as data
- 
-Results in code that is more Predictable, Reliable and Maintainable and easier to test
+
+## Honest vs Dishonest Functions
+
+* An honest function always does what its signature says, and given an input of the expected type, it yields an output of the expected
+type—no Exceptions, no nulls
+
+* a Dishonest function doesn't abide by its signature
+
 
 ## Difference between OO Programming and FP Programming
 
@@ -59,7 +67,6 @@ Inability to change data after it has been created. Once created, an immutable o
 ## State
 Data that changes over time. An immutable class doesn't have any state.
 
-## (Taming) Side effects  => Functional Purity
 
 ## Purity/Pure functions // mathematical functions
 
@@ -67,6 +74,8 @@ A function is pure if it has no side effects and always returns the same output/
 Increases the readability and predictability of a program.
 
 Side effects : Mutates global state/Mutates its input arguments/throws exception/performs any I/O operations
+
+A function should never mutate its input arguments. (you can use immutable objects)
 
 ## Command-Query Separation
 * A command is a method that performs an action but does not return a value. Has Side effects.
@@ -152,7 +161,7 @@ Expression
 
 ## Primitive Obsession
 Primitive obsession stands for the use of primitive types instead for domain modeling.
-Primitives are often use too liberally. If you need to constrain the inputs of a function, 
+Primitives types are often used too liberally. If you need to constrain the inputs of a function, 
 it's usually better to use a custom type. (int age vs Age age)
 
 ## Railway-oriented programming
@@ -391,7 +400,7 @@ A predicate function is a function that returns True or False
 
 As you code more functionally, more of your functions will be pure, so more of your code will be in static classes. 
 
-## Guarding againts NullReferenceExceptions
+## Guarding against NullReferenceExceptions
 Never write a function that explicitly returns null, and always check that the inputs aren't null before using them. [Fody NullGuard]
 
 
@@ -401,9 +410,14 @@ By providing a smart constructor, you can make the constructor private and you c
 
 
 ## Option type
+
+Option<T> = None | Some(T)
+
+When coding functionally, you never use null—ever. Instead, FP uses the Option type to represent optionality.
+
 An Option can be in one of two states:
-* None: the absence of a value
-* Some: a simple container wrapping a a non-null value
+* None: the absence of a value. The Option is None.
+* Some(T): a simple container wrapping a a non-null value. The Option is Some.
 
 
 #### Separate pure logic from side effects
@@ -434,3 +448,6 @@ Either is rather abstract, so it's often more useful tos use a more specific typ
 ## Partial Application
 
 Partial application is the process of fixing a number of arguments to a function, producing another function of smaller arity.
+
+### Zip
+Zip in FP is the operation of paring up the elements of two parallel lists into a single list.
