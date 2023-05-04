@@ -4,8 +4,8 @@ Using a functional programming language like Erlang will cut your code size by 7
 
 On average, 40% of a code base is clutter!
 
-Code on average is read 15-20 times more often than it's written. 
-    => deleting unnecessary code now, will give you 15-20 extra time in the future)
+Code on average is read 15-20 times more often than it's written.
+=> deleting unnecessary code now, will give you 15-20 extra time in the future)
 
 ## What is Functional Programming
 
@@ -14,59 +14,70 @@ rather than on performing actions
 
 ## Why Functional Programming
 
-Biggest problem in software development is complexity. Complexity affects Development Speed, Number of Bugs, Agility, Maintainability, etc.
-The more complex the software, the more difficult it is to maintain. 
+Biggest problem in software development is complexity. Complexity affects Development Speed, Number of Bugs, Agility,
+Maintainability, etc.
+The more complex the software, the more difficult it is to maintain.
 
-A developer team can only deal with a certain amount of complexity! 
-If the complexity exceeds this limit, it will be difficult/impossible to maintain the software/to develop new features. Slows downs the development process or even introduces new bugs.
-
-Functional programming helps to reduce code complexity.
-
-## Benefits of Functional Programming
-
-FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more maintainable, more testable and concurrency-friendly.
-
-If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
-Conversely, the more angles from which you can approach a problem, the more likely you are to find an optimal solution. - Alan Perlis
+A developer team can only deal with a certain amount of complexity!
+If the complexity exceeds this limit, it will be difficult/impossible to maintain the software/to develop new features.
+Slows downs the development process or even introduces new bugs.
 
 FP can be seen as a collection of techniques that are based on 2 fundamental principles:
+
 * Functions are first-class citizens
 * In-place updates should be avoided
 
-Results in code that is more Predictable, Reliable and Maintainable and easier to test
+## Benefits of Functional Programming
+
+Functional programming helps to reduce code complexity and results in code that is more Predictable, Reliable and
+Maintainable and easier to test.
+FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
+maintainable, more testable and concurrency-friendly.
+
+If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
+Conversely, the more angles from which you can approach a problem, the more likely you are to find an optimal
+solution. - Alan Perlis
 
 ### Taming Side effects
+
 ### Emphasis expressions
+
 ### Treating functions as data
 
 ## Honest vs Dishonest Functions
 
-* An honest function always does what its signature says, and given an input of the expected type, it yields an output of the expected
-type—no Exceptions, no nulls
+* An honest function always does what its signature says, and given an input of the expected type, it yields an output
+  of the expected
+  type—no Exceptions, no nulls
 
 * a Dishonest function doesn't abide by its signature
 
-
 ## Difference between OO Programming and FP Programming
 
-OO makes code understandable by encapsulating moving parts. 
+OO makes code understandable by encapsulating moving parts.
 FP makes code understandable by minimizing moving parts. - Michael Feathers
 
-## Imperative vs Functional (Declarative) programming 
+## Imperative vs Functional (Declarative) programming
 
 ## Software rot
-Software rot, also known as bit rot, code rot, software erosion, software decay, or software entropy is either a slow deterioration of software quality over time or its diminishing responsiveness that will eventually lead to software becoming faulty, unusable, or in need of upgrade. This is not a physical phenomenon: the software does not actually decay, but rather suffers from a lack of being responsive and updated with respect to the changing environment in which it resides. (Wikipedia)
+
+Software rot, also known as bit rot, code rot, software erosion, software decay, or software entropy is either a slow
+deterioration of software quality over time or its diminishing responsiveness that will eventually lead to software
+becoming faulty, unusable, or in need of upgrade. This is not a physical phenomenon: the software does not actually
+decay, but rather suffers from a lack of being responsive and updated with respect to the changing environment in which
+it resides. (Wikipedia)
 
 ## Lambda operator => "goes to" operator
+
 (l, r) => l + r; // l and r go to an expression
 
 ## Immutability / Immutable types
+
 Inability to change data after it has been created. Once created, an immutable object cannot be modified later on.
 
-
 ## State
-Data that changes over time. An immutable class doesn't have any state.
 
+Data that changes over time. An immutable class doesn't have any state.
 
 ## Purity/Pure functions // mathematical functions
 
@@ -78,17 +89,20 @@ Side effects : Mutates global state/Mutates its input arguments/throws exception
 A function should never mutate its input arguments. (you can use immutable objects)
 
 ## Command-Query Separation
+
 * A command is a method that performs an action but does not return a value. Has Side effects.
 * A query is a method that returns a value but does not perform an action. Has no Side effects.
 
 ## Mapping
+
 Given a sequence and a function, mapping yields a new sequence
 with the elements obtained by applying the given function to each element in
 the given sequence (in LINQ, this is done with the Select method).
 
 Enumerable.Range(1, 3).Select(i => i * 3) // => [3, 6, 9]
 
-## Filtering 
+## Filtering
+
 Given a sequence and a predicate, filtering yields a new sequence
 consisting of the elements from the given sequence that pass the predicate
 (in LINQ, Where).
@@ -96,6 +110,7 @@ consisting of the elements from the given sequence that pass the predicate
 Enumerable.Range(1, 10).Where(i => i % 3 == 0) // => [3, 6, 9]
 
 ## Sorting
+
 Given a sequence and a key-selector function, sorting yields a new
 sequence ordered according to the key (in LINQ, OrderBy and OrderByDescending).
 
@@ -106,11 +121,12 @@ Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 Combining 2 or more functions into a new function. The output from one function is used as input for another function.
 Start to look at your program in terms of data flow (workflow). Your program is a pipeline of functions.
 
-
 ## Pipelining // Railway-oriented approach
+
 Pipelining allows data to flow between functions
 
 ## Method chaining
+
 Method chaining is the OO version of pipelining.
 Extension methods appear in the order in which they will be executed and significantly improves readability.
 
@@ -119,30 +135,34 @@ var email = joe.AbbreviateName().AppendDomain();
 // => jobl@manning.com
 
 Properties that make functions easier to compose:
+
 * Pure: no side effects
 * Chainable: (this in extension methods)
 * General: the more specific a method, the less likely it is to be reusable
 * Shape-preserving: the output type should be the same as the input type
-* functions are more composable actions. An action has no output, it is a dead end. A function has an output, it is a pipeline.
-
+* functions are more composable actions. An action has no output, it is a dead end. A function has an output, it is a
+  pipeline.
 
 ## Extension methods
 
 ## Programming workflows
+
 A workflow is a meaningful sequence of operations leading to a desired result.
-Each operation in the workflow can be a function. These functions can be chained together to form a pipeline that perform the workflow.
+Each operation in the workflow can be a function. These functions can be chained together to form a pipeline that
+perform the workflow.
 
 ## Expressions vs Statements (Expression Composition)
+
 Expressions return a value. Statements do not return a value.
 
 Statement
 
 ´´´csharp
-    string posOrNeg;
-    if (value > 0)
-        posOrNeg = "positive"
-    else
-        posOrNeg = "negative"
+string posOrNeg;
+if (value > 0)
+posOrNeg = "positive"
+else
+posOrNeg = "negative"
 
     var message = §"{value} is {posOrNeg}"
 
@@ -151,17 +171,19 @@ Statement
 Expression
 
 ´´´csharp
-    // var posOrNeg = (value > 0) ? "positive" : "negative"
+// var posOrNeg = (value > 0) ? "positive" : "negative"
 
     // Expression Composition
     var message = $"{value} is {(value > 0 ? "Positivie" :"negative")}"
+
 ´´´
 
 ## Stateful computations
 
 ## Primitive Obsession
+
 Primitive obsession stands for the use of primitive types instead for domain modeling.
-Primitives types are often used too liberally. If you need to constrain the inputs of a function, 
+Primitives types are often used too liberally. If you need to constrain the inputs of a function,
 it's usually better to use a custom type. (int age vs Age age)
 
 ## Railway-oriented programming
@@ -173,25 +195,27 @@ Partial Application allows you to fix a function's arguments.This lets you deriv
 from other, more general functions.
 
 ## Currying
-Named after Haskell Curry, curry is a technique of transforming a function that takes multiple arguments 
+
+Named after Haskell Curry, curry is a technique of transforming a function that takes multiple arguments
 into a function that takes a single argument and returns another function that takes the next argument, and so on.
 
-Currying transforms a function that accepts multiple arguments “all at once” into a series of function calls, 
+Currying transforms a function that accepts multiple arguments “all at once” into a series of function calls,
 each of which involves only one argument at a time.
 
-
 ´´´csharp
-    // n-ary function wth signature
-    (T1, T2, ..., Tn) -> R 
-    
+// n-ary function wth signature
+(T1, T2, ..., Tn) -> R
+
     // Curried function
     T1 -> T2 -> ... -> Tn -> R
+
 ´´´
 
 ## Higher-order extensions methods
 
 ## Referential Transparency
-An expression is said to be referential transparent if it can be replaced with its corresponding value 
+
+An expression is said to be referential transparent if it can be replaced with its corresponding value
 without changing the program's behavior.
 
 ## Referentially Opaque
@@ -199,21 +223,25 @@ without changing the program's behavior.
 ## Functions are first-class citizens
 
 ## Higher-order functions (HOFs)
-HOFs are functions that take other functions as inputs, 
+
+HOFs are functions that take other functions as inputs,
 or return other functions as output, or both
 
 ## Parallelization
+
 Different threads carry out tasks in parallel
 
 ## Memoization
+
 Cache results to avoid repeated function evaluations
 
 ## Lazy evaluation
+
 Only evaluate values as needed
 
 ## Lambda Expressions
 
-Lambdas are used to declare a function inline. 
+Lambdas are used to declare a function inline.
 
 var list = Enumerable.Range(1, 10).Select(i => i * 3).ToList();
 list // => [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
@@ -221,19 +249,19 @@ list // => [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
 list.Sort((l, r) => l.ToString().CompareTo(r.ToString()));
 list // => [12, 15, 18, 21, 24, 27, 3, 30, 6, 9]
 
-
 ## Closure
 
-Closures are inline anonymous methods that have the ability to use Parent 
+Closures are inline anonymous methods that have the ability to use Parent
 method variables and other anonymous methods which are defined in the parent's scope.
 
 greetWith : Greeting -> (Name -> PersonalizedGreeting) or Greeting -> Name -> PersonalizedGreeting
 
 Func<Greeting, Func<Name, PersonalizedGreeting>> greetWith = gr => name => $"{gr}, {name}";
 
-The function, greetWith, takes a single argument, the general greeting, and returns a new function of type Name -> Greeting. 
+The function, greetWith, takes a single argument, the general greeting, and returns a new function of type Name ->
+Greeting.
 
-Notice that when the function is called with its first argument, gr, this is captured in a closure 
+Notice that when the function is called with its first argument, gr, this is captured in a closure
 and is therefore “remembered” until the returned function is called with the second argument, name.
 
 var greetFormally = greetWith("Good evening");
@@ -241,15 +269,15 @@ var greetFormally = greetWith("Good evening");
 names.Map(greetFormally).ForEach(WriteLine);
 // prints: Good evening, Tristan
 
-
 ## Function Arity
 
 Refers to the number of arguments that a function accepts:
+
 * A nullary function takes no arguments.
 * A unary function takes one argument.
 * A binary function takes two arguments.
 * A ternary function takes three arguments.
- 
+
 ## Elvis operator // null coalescing operator
 
 ## Yield keyword
@@ -263,14 +291,14 @@ By preferring expressions to statements, your code becomes more declarative, and
 
 ## Arrow Notation
 
-f: int -> string  = Func<int, string>
+f: int -> string = Func<int, string>
 
-|Function signature  | C# type|Example           | Example                                       |
-|int -> string       | Func<int, string>         | (int i) => i.ToString()                       |
-|() -> string        | Func<string>              | () => "Hello"                                 | 
+|Function signature | C# type|Example | Example |
+|int -> string | Func<int, string>         | (int i) => i.ToString()                       |
+|() -> string | Func<string>              | () => "Hello"                                 |
 |int -> ()           | Action<int>               | (int i) => Console.WriteLine($"gimme "{i}")   |
-|()  -> ()           | Action                    | () => Console.WriteLine("Hello world")        |
-|(int,int) -> int    | Func<int, int, int>       | (int i, int j) => i + j                       |
+|()  -> ()           | Action | () => Console.WriteLine("Hello world")        |
+|(int,int) -> int | Func<int, int, int>       | (int i, int j) => i + j |
 
 IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 (IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
@@ -279,10 +307,11 @@ IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 
 ### Monads (have Bind and Return functions defined)
 
-Monads are types for which a **Bind function** is defined. In addition to the Bind function, 
+Monads are types for which a **Bind function** is defined. In addition to the Bind function,
 monads must also have a **Return function** that lifts a normal value T into a monadic value C<T>
 
 A Monad is a type C<T> for which the following functions are defined:
+
 * Return: T -> C<T>
 * Bind: (C<T>, (T -> C<R>)) -> C<R>
 
@@ -293,14 +322,14 @@ In LaYumba, the Return function for List is the List function
 
 ### Functors (have a Map function defined)
 
-Functors are types for which a suitable **Map function** is defined. 
+Functors are types for which a suitable **Map function** is defined.
 Map should apply a function to the functor's inner value and do nothing else.
 
 Map: (C<T>, (T -> R)) -> C(R)
 Map: (IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
 Map: (Option<T>, (T -> R)) -> Option<R>)
 
-When using functors and monads, try to use function that stay within the abstraction, like Map and Bind. 
+When using functors and monads, try to use function that stay within the abstraction, like Map and Bind.
 Use the downward-crossing Match function as little or as late as possible
 
 ### Monad Laws
@@ -314,9 +343,10 @@ Use the downward-crossing Match function as little or as late as possible
 ## Pattern matching
 
 ## Dynamic Programming
+
 Dynamic Programming (a.k.a dynamic optimization) is a method for solving a complex problem
 by breaking it down into a collection of simpler sub problems, solving each of those just once,
-and storing their solutions. 
+and storing their solutions.
 
 ## Clean Code Function Rules ()
 
@@ -328,34 +358,40 @@ and storing their solutions.
 
 ## Core Methods in Functional Programming
 
-### Fold/Reduce (=Aggregate in Linq) 
+### Fold/Reduce (=Aggregate in Linq)
 
-Reducing a list of values into a single value. Reduce/Fold/Aggregate Takes a list of n things and returns exactly one thing.
+Reducing a list of values into a single value. Reduce/Fold/Aggregate Takes a list of n things and returns exactly one
+thing.
 
 (IEnumerable<T>, Acc, ((Acc, T) -> Acc)) -> Acc
 
-
-
 var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : age)
 
-### Map (=Select in Linq)  
+### Map (=Select in Linq) : Takes a regular function
 
-Map should apply function that takes a container C<T> and a function f of type (T -> R),
-and returns a container C<R> wrapping the value(s) resulting from applying f to the container's inner value(s).
-Map should apply a function to the container’s inner value(s) and should do nothing else. Map should have no side effects.
+Map takes a structure and a function and applies the function to the inner value of the structure.
+
+It takes a container C<T> and a function f of type (T -> R) and returns a container C<R> 
+wrapping the value(s) resulting from applying f to the container's inner value(s).
+
+Map should apply a function to the container’s inner value(s) and should do nothing else. 
+Map should have no side effects.
+
+A type for which a Map function is defined is called a Functor
 
 or
 
-Map takes a structure and a function and applies the function to every element in the structure, returning a new structure with the results.
+Map takes a structure and a function and applies the function to every element in the structure, returning a new
+structure with the results.
 Map: (C<T>, (T -> R)) -> C(R)
 Map: (IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
 Map: (Option<T>, (T -> R)) -> Option<R>)
 
-
 **MAP : (Option<T>, (T -> R)) -> Option<T>)**
 
 When you call Map on an Option<T> ,
-a Func<T, R> (a method with parameter type T, with return value R) is executed on the internal value (type T) of the Option
+a Func<T, R> (a method with parameter type T, with return value R) is executed on the internal value (type T) of the
+Option
 and you get a new option of type R as a result.
 
 (Option<Person>, (Person -> string)) -> Option<string>)
@@ -366,16 +402,16 @@ Option<Person> optionPerson = F.Some(new Person("Joe", "Smith"));
 
 Option<string> optionEmailAddress = optionPerson.Map(generateEmailAddress);
 
+### Filter (=Where in Linq)
 
-### Filter (=Where in Linq) 
-
-### Bind (=SelectMany in Linq) 
+### Bind (=SelectMany in Linq) : Takes an Option-returning function
 
 Bind is a function that takes a container C<T> and a function f with signature (T -> R) and returns a container C<R>
 Bind: (C<T>, (T -> C<R>)) -> C<R>
 
 Option.Bind : (Option<T>, (T -> Option<R>)) -> Option<R>
-Bind takes and Option and an Option-returning function. Applies the function to the inner value if the Option is Some, otherwise returns None.
+Bind takes and Option and an Option-returning function. Applies the function to the inner value if the Option is Some,
+otherwise returns None.
 Flattens the result to avoid producing a nested Option
 
 ### Reduce = is a Fold function that has no initial state, takes its initial state from the first item in the sequence
@@ -383,13 +419,16 @@ Flattens the result to avoid producing a nested Option
 ### Tee
 
 ### ForEach
-ForEach is similar to Map, but it takes an Action rather than a Function, which it performs for each of the container's inner values, so it’s used to perform side effects.
+
+ForEach is similar to Map, but it takes an Action rather than a Function, 
+which it performs for each of the container's inner values, so it’s used to perform side effects.
 
 ### Return
+
 Return is a function that takes a regular value and lifts it into an elevated value
 
-
 ## Predicate functions (aka boolean functions)
+
 A predicate function is a function that returns True or False
 
 ## General Guidelines for Pure Functions
@@ -398,16 +437,19 @@ A predicate function is a function that returns True or False
 * Avoid mutable static fields
 * avoid direct calls to static methods that perfom I/O
 
-As you code more functionally, more of your functions will be pure, so more of your code will be in static classes. 
+As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
 
 ## Guarding against NullReferenceExceptions
-Never write a function that explicitly returns null, and always check that the inputs aren't null before using them. [Fody NullGuard]
 
+Never write a function that explicitly returns null, and always check that the inputs aren't null before using
+them. [Fody NullGuard]
 
 ## Smart constructors
-Is a function that takes a primitive type as input and returns Some or None to indicate the succesful creation of a custom type.
-By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always created with valid data.
 
+Is a function that takes a primitive type as input and returns Some or None to indicate the succesful creation of a
+custom type.
+By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
+created with valid data.
 
 ## Option type
 
@@ -416,9 +458,13 @@ Option<T> = None | Some(T)
 When coding functionally, you never use null—ever. Instead, FP uses the Option type to represent optionality.
 
 An Option can be in one of two states:
+
 * None: the absence of a value. The Option is None.
 * Some(T): a simple container wrapping a a non-null value. The Option is Some.
 
+An important thing to realize is that Option abstracts away the question of
+whether a value is present or not. If you Map a function onto an Option, 
+you don't care whether the value is there or not.
 
 #### Separate pure logic from side effects
 
@@ -432,11 +478,12 @@ becomes (logic separated from side effects
 optJohn.Map(name => $"Hello {name}".ForEach(WriteLine)
 
 ## Validation vs Exception
+
 * Validation indicates that some business rule has been violated.
 * Exception denotes an unexpected technical error
 
-
 ## Either type
+
 to represent a value that can have 2 possible outcomes: success or failure
 Left: represents a failure
 Right: represents a success
@@ -447,7 +494,9 @@ Either is rather abstract, so it's often more useful tos use a more specific typ
 
 ## Partial Application
 
-Partial application is the process of fixing a number of arguments to a function, producing another function of smaller arity.
+Partial application is the process of fixing a number of arguments to a function, producing another function of smaller
+arity.
 
 ### Zip
+
 Zip in FP is the operation of paring up the elements of two parallel lists into a single list.
