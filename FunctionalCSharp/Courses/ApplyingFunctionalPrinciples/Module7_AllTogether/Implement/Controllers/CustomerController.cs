@@ -35,7 +35,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             var industry = GetIndustry(model.Industry);
 
             var combinedResult = Combine(customerName, primaryEmail, secondaryEmail, industry);
-            if (combinedResult.IsFailure) return BadRequestResponse(combinedResult.Error?.Message);
+            if (combinedResult.IsFailure) return ErrorResponse(combinedResult.Error?.Message);
 
             var customer = new Customer(customerName.Type, primaryEmail.Type, secondaryEmail.Type, industry.Type);
 
@@ -54,7 +54,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
 
             return Combine(customer, industry)
                 .OnSuccess(() => customer.Type.UpdateIndustry(industry.Type))
-                .OnBoth(result => result.IsSuccess ? OkResponse() : BadRequestResponse(result.Error?.Message));
+                .OnBoth(result => result.IsSuccess ? OkResponse() : ErrorResponse(result.Error?.Message));
         }
 
         [HttpDelete]
@@ -62,7 +62,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         public HttpResponseMessage DisableEmailing(long id)
         {
             var maybeCustomer = _repo.GetById(id);
-            if (maybeCustomer.HasNoValue) return BadRequestResponse($"Customer with such Id is not found: {id}");
+            if (maybeCustomer.HasNoValue) return ErrorResponse($"Customer with such Id is not found: {id}");
 
             maybeCustomer.Type.DisableEmailing();
 
@@ -75,7 +75,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         public HttpResponseMessage Get(long id)
         {
             var maybeCustomer = _repo.GetById(id);
-            if (maybeCustomer.HasNoValue) return BadRequestResponse($"Customer with such Id is not found: {id}");
+            if (maybeCustomer.HasNoValue) return ErrorResponse($"Customer with such Id is not found: {id}");
 
             var customerDto = new
             {
@@ -101,7 +101,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
                 .Ensure(customer => customer.CanBePromoted(), new CustomerCannotBePromotedError())
                 .OnSuccess(customer => customer.Promote())
                 .OnSuccess(customer => _emailGateway.SendPromotionNotification(customer.PrimaryEmail, customer.Status))
-                .OnBoth(result => result.IsSuccess ? OkResponse() : BadRequestResponse(result.Error?.Message));
+                .OnBoth(result => result.IsSuccess ? OkResponse() : ErrorResponse(result.Error?.Message));
 
 
         private Result<Maybe<Email>> GetSecondaryEmail(string? secondaryEmail) =>
@@ -109,4 +109,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
                 ? Ok<Maybe<Email>>(null)
                 : CreateEmail(secondaryEmail).Map(email => (Maybe<Email>) email);
     }
+    
+
+    
 }

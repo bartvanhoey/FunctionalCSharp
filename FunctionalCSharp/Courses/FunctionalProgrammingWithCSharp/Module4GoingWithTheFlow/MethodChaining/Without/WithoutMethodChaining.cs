@@ -9,7 +9,7 @@ namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module4GoingW
         {
             byte[] buffer;
 
-            using (var stream = StreamFactory.GetStream())
+            using (var stream = StreamFactory.GetDoctors())
             {
                 buffer = new byte[stream.Length];
                 // ReSharper disable once MustUseReturnValue

@@ -14,28 +14,22 @@ rather than on performing actions
 
 ## Why Functional Programming
 
-Biggest problem in software development is complexity. Complexity affects Development Speed, Number of Bugs, Agility,
-Maintainability, etc.
-The more complex the software, the more difficult it is to maintain.
+Biggest problem in software development is complexity. Complexity of  the code base affects Development Speed, Number of Bugs, Agility,
+Maintainability, etc. The more complex the software, the more difficult it is to maintain!
 
-A developer team can only deal with a certain amount of complexity!
+A developer/developer team can only deal with a certain amount of complexity!
 If the complexity exceeds this limit, it will be difficult/impossible to maintain the software/to develop new features.
-Slows downs the development process or even introduces new bugs.
+Complexity slows downs the development process or even introduces new bugs or can even lead to a project failure.
 
-FP can be seen as a collection of techniques that are based on 2 fundamental principles:
+Applying **Functional Programming Principles** helps reducing Code Complexity and results in more Predictable, Reliable and
+Maintainable and Testable code. 
 
-* Functions are first-class citizens
-* In-place updates should be avoided
-
-## Benefits of Functional Programming
-
-Functional programming helps to reduce code complexity and results in code that is more Predictable, Reliable and
-Maintainable and easier to test.
 FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
 maintainable, more testable and concurrency-friendly.
 
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
-Conversely, the more angles from which you can approach a problem, the more likely you are to find an optimal
+
+The more angles from which you can approach a problem, the more likely you are to find an optimal
 solution. - Alan Perlis
 
 ### Taming Side effects
@@ -47,8 +41,7 @@ solution. - Alan Perlis
 ## Honest vs Dishonest Functions
 
 * An honest function always does what its signature says, and given an input of the expected type, it yields an output
-  of the expected
-  type—no Exceptions, no nulls
+  of the expected type—no Exceptions, no nulls
 
 * a Dishonest function doesn't abide by its signature
 
@@ -85,13 +78,13 @@ A function is pure if it has no side effects and always returns the same output/
 Increases the readability and predictability of a program.
 
 Side effects : Mutates global state/Mutates its input arguments/throws exception/performs any I/O operations
-
 A function should never mutate its input arguments. (you can use immutable objects)
 
-## Command-Query Separation
+## Command-Query Separation Principle
 
-* A command is a method that performs an action but does not return a value. Has Side effects.
-* A query is a method that returns a value but does not perform an action. Has no Side effects.
+
+* A **command** is a method that **performs an action but does not return a value**. Has Side effects.
+* A **query** is a method that **returns a value but does not perform an action**. Has no Side effects.
 
 ## Mapping
 
@@ -101,12 +94,16 @@ the given sequence (in LINQ, this is done with the Select method).
 
 Enumerable.Range(1, 3).Select(i => i * 3) // => [3, 6, 9]
 
+## Fail Fast Principle
+- Shortening the feedback loop
+- Confidence in the working of the code
+- Protects the persistence state
+
 ## Filtering
 
 Given a sequence and a predicate, filtering yields a new sequence
 consisting of the elements from the given sequence that pass the predicate
 (in LINQ, Where).
-
 Enumerable.Range(1, 10).Where(i => i % 3 == 0) // => [3, 6, 9]
 
 ## Sorting
@@ -114,12 +111,14 @@ Enumerable.Range(1, 10).Where(i => i % 3 == 0) // => [3, 6, 9]
 Given a sequence and a key-selector function, sorting yields a new
 sequence ordered according to the key (in LINQ, OrderBy and OrderByDescending).
 
+
 Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 
 ## Function composition
 
 Combining 2 or more functions into a new function. The output from one function is used as input for another function.
-Start to look at your program in terms of data flow (workflow). Your program is a pipeline of functions.
+Start to look at your program in terms of data flow (workflow). 
+Your program is a pipeline of functions and data flows through one function into the next.
 
 ## Pipelining // Railway-oriented approach
 
@@ -216,7 +215,7 @@ each of which involves only one argument at a time.
 ## Referential Transparency
 
 An expression is said to be referential transparent if it can be replaced with its corresponding value
-without changing the program's behavior.
+without changing the program's behavior, or Replace a function with its return value.
 
 ## Referentially Opaque
 
@@ -305,11 +304,9 @@ IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 
 ## Monads and Functors
 
-### Monads (have Bind and Return functions defined)
+### Monads (have Bind and Return functions defined, every monad is also a functor)
 
-Monads are types for which a **Bind function** is defined. In addition to the Bind function,
-monads must also have a **Return function** that lifts a normal value T into a monadic value C<T>
-
+Monads are types for which a **Bind function** and a **Return function** is defined. that lifts a normal value T into a monadic value C<T>
 A Monad is a type C<T> for which the following functions are defined:
 
 * Return: T -> C<T>
@@ -326,7 +323,7 @@ Functors are types for which a suitable **Map function** is defined.
 Map should apply a function to the functor's inner value and do nothing else.
 
 Map: (C<T>, (T -> R)) -> C(R)
-Map: (IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
+Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
 Map: (Option<T>, (T -> R)) -> Option<R>)
 
 When using functors and monads, try to use function that stay within the abstraction, like Map and Bind.
@@ -348,7 +345,7 @@ Dynamic Programming (a.k.a dynamic optimization) is a method for solving a compl
 by breaking it down into a collection of simpler sub problems, solving each of those just once,
 and storing their solutions.
 
-## Clean Code Function Rules ()
+## Clean Code Function Rules
 
 * Keep functions small
 * don't repeat yourself
@@ -384,15 +381,13 @@ or
 Map takes a structure and a function and applies the function to every element in the structure, returning a new
 structure with the results.
 Map: (C<T>, (T -> R)) -> C(R)
-Map: (IEnummrable<T>, (T -> R)) -> IEnumerable<R>)
+Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
 Map: (Option<T>, (T -> R)) -> Option<R>)
 
-**MAP : (Option<T>, (T -> R)) -> Option<T>)**
+**Option.Map : (Option<T>, (T -> R)) -> Option<T>)**
 
-When you call Map on an Option<T> ,
-a Func<T, R> (a method with parameter type T, with return value R) is executed on the internal value (type T) of the
-Option
-and you get a new option of type R as a result.
+When you call Map on an Option<T>, a Func<T, R> (a method with parameter type T, with return value R) is executed 
+on the internal value (type T) of the Option and you get a new option of type R as a result.
 
 (Option<Person>, (Person -> string)) -> Option<string>)
 
@@ -404,19 +399,25 @@ Option<string> optionEmailAddress = optionPerson.Map(generateEmailAddress);
 
 ### Filter (=Where in Linq)
 
-### Bind (=SelectMany in Linq) : Takes an Option-returning function
+### Bind (=SelectMany in Linq) 
 
-Bind is a function that takes a container C<T> and a function f with signature (T -> R) and returns a container C<R>
+Bind is a function that takes a container C<T> and a function f with signature (T -> R) 
+and returns a container C<R>
+
 Bind: (C<T>, (T -> C<R>)) -> C<R>
 
-Option.Bind : (Option<T>, (T -> Option<R>)) -> Option<R>
-Bind takes and Option and an Option-returning function. Applies the function to the inner value if the Option is Some,
-otherwise returns None.
-Flattens the result to avoid producing a nested Option
+**Option.Bind : (Option<T>, (T -> Option<R>)) -> Option<R>**
+vs Option.Map : (Option<T>, (T -> R)) -> Option<R>)
+
+Bind takes and **Option** and an **Option-returning function** and applies the function to the inner value if the Option is Some,
+otherwise returns None and flattens the result to avoid producing a nested Option.
 
 ### Reduce = is a Fold function that has no initial state, takes its initial state from the first item in the sequence
 
-### Tee
+### Tee Command
+
+The Tee command in UNIX is a command line utility for copying standard input to standard output. 
+It supports writing whatever it is given from standard input to standard output and optional writing to one or more files.
 
 ### ForEach
 
@@ -435,7 +436,7 @@ A predicate function is a function that returns True or False
 
 * Make pure functions static
 * Avoid mutable static fields
-* avoid direct calls to static methods that perfom I/O
+* avoid direct calls to static methods that perform I/O
 
 As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
 
@@ -446,9 +447,8 @@ them. [Fody NullGuard]
 
 ## Smart constructors
 
-Is a function that takes a primitive type as input and returns Some or None to indicate the succesful creation of a
-custom type.
-By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
+Is a function that takes a primitive type as input and returns Some or None to indicate the successful creation of a
+custom type. By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
 created with valid data.
 
 ## Option type

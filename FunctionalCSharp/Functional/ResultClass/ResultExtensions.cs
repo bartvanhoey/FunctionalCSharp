@@ -50,8 +50,8 @@ namespace FunctionalCSharp.Functional.ResultClass
         public static void LogResult(this Result result, Logger logger)
             => logger.Log(result.IsFailure ? result.Error?.Message! : "OK");
         
-        public static Result<TK> Map<T, TK>(this Result<T> result, Func<T, TK> func) 
-            => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Type));
+        public static Result<R> Map<T, R>(this Result<T> result, Func<T, R> func) 
+            => result.IsFailure ? Fail<R>(result.Error) : Ok(func(result.Type));
         
         public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> func, BaseError baseError)
         {

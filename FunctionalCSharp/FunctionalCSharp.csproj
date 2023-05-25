@@ -29,16 +29,8 @@
 
     <ItemGroup>
       <Folder Include="Books" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part1_CoreConcepts\Chap4_PatternsInFunctionalProgramming" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap10_EventSourcing" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap7_ApplicationStructuringWithFunctions" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap8_MultiArgumentFunctions" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_BecomingFunctional\Chap9_ThinkAboutDataFunctionally" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap11_MonadicComposition" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap12_StatefulProgramsAndComputations" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap13_AsynchronousComputations" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap14_DataStreamsAndReactiveExtensions" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_AdvancedTechniques\Chap15_MessagePassingConcurrency" />
+      <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_FunctionalDesigns\" />
+      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1WhatIsFunctionalProgramming\" />
     </ItemGroup>
 
     <ItemGroup>
