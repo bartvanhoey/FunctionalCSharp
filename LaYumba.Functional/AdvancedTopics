@@ -1,0 +1,9 @@
+# Advanced Topics
+
+## CQRS
+Command Query Responsibility Segregation (CQRS) is a pattern that separates the read and write operations of a data store. 
+This is done by having separate models for reading and writing. 
+
+The read model is optimized for reading and the write model is optimized for writing. 
+This allows for the read model to be scaled independently of the write model. 
+This is useful for applications that have a high read to write ratio.

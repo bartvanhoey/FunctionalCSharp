@@ -15,7 +15,7 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
     public static class Instrumentation
     {
         public static void WriteTimeTakenToConsole(string operation, Action action) 
-            => WriteTimeTakenToConsole(operation, ActionExtensions.ToFunc(action));
+            => WriteTimeTakenToConsole(operation, action.ToFunc());
 
         public static T WriteTimeTakenToConsole<T>(string operation, Func<T> func)
         {

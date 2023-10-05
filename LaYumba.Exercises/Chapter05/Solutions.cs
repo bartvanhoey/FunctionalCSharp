@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Text.RegularExpressions;
 using LaYumba.Functional;
-using System.Text.RegularExpressions;
 
-namespace Exercises.Chapter5
+namespace LaYumba.Exercises.Chapter05
 {
    using static F;
 

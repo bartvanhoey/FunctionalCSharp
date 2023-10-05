@@ -5,7 +5,7 @@ namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module4GoingW
 {
     public static class StreamFactory
     {
-        public static Stream GetStream()
+        public static Stream GetDoctors()
         {
             var doctors = string.Join( NewLine, "Hartnell", "Troughton", "Pertwee", "T. Baker", "Davison", "C. Baker", "McCoy",
                 "McGann", "Hurt", "Eccleston", "Tennant", "Smith", "Capaldi");

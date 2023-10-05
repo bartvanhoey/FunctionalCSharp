@@ -8,11 +8,8 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         protected readonly UnitOfWork UnitOfWork;
         protected BaseController(UnitOfWork unitOfWork) => UnitOfWork = unitOfWork;
 
-        protected static HttpResponseMessage BadRequestResponse(string? errorMessage) 
+        protected static HttpResponseMessage ErrorResponse(string? errorMessage) 
             => Request.CreateResponse(BadRequest, Envelope.Error(errorMessage ?? "No error message provided"));
-
-        protected static HttpResponseMessage InternalServerErrorResponse(string? errorMessage)
-            => Request.CreateResponse(InternalServerError, Envelope.Error(errorMessage ?? "No error message provided"));
 
         protected HttpResponseMessage OkResponse()
         {

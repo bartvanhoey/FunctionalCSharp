@@ -1,21 +1,26 @@
-﻿namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+﻿namespace FunctionalCSharp.Extensions
 {
-    public static class DisposableUsing
+    public static class UsingExtended
     {
-        public static TResult Using<TDisposable, TResult>(Func<TDisposable> factory, Func<TDisposable, TResult> map)
+       
+        
+        
+        
+        
+        public static TResult Using<TDisposable, TResult>(Func<TDisposable> factory, Func<TDisposable, TResult> f)
             where TDisposable : IDisposable
         {
             using var disposable = factory();
-                return map(disposable);
+                return f(disposable);
         }
         
         public static async Task<TResult> UsingAsync<TDisposable, TResult>(
             Func<TDisposable> factory,
-            Func<TDisposable, TResult> map)
+            Func<TDisposable, TResult> f)
             where TDisposable : IDisposable
         {
             using var disposable = Task.FromResult(factory()) ;
-            return map(await disposable); 
+            return f(await disposable); 
         }
     }
 }

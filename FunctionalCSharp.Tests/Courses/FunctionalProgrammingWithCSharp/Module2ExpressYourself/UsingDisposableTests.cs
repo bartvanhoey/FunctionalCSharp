@@ -2,7 +2,7 @@
 using System.Xml.Linq;
 using FluentAssertions;
 using static System.Xml.Linq.XDocument;
-using static FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself.DisposableUsing;
+using static FunctionalCSharp.Extensions.UsingExtended;
 
 namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
 {
@@ -39,6 +39,12 @@ namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2
         [Obsolete("Obsolete")]
         public void Method_Using_Should_Return_A_Correct_Value()
         {
+            
+            string? result = null;
+            using var client  = new WebClient();
+            result = GetTotalPages(client);
+
+
             var totalPages = Using(
                 () => new WebClient(),
                 client => Parse(client.DownloadString(TravelApiUrl)).Root?.Element("total_pages")?.Value);
@@ -50,7 +56,9 @@ namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2
         [Obsolete("Obsolete")]
         public void Method_Using_GetTotalPages_Should_Return_A_Correct_Value()
         {
-            var totalPages = Using(() => new WebClient(), GetTotalPages);
+            var totalPages = Using(
+                () => new WebClient(), 
+                GetTotalPages);
             totalPages.Should().NotBeEmpty();
         }
 

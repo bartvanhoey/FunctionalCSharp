@@ -9,7 +9,7 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_Integers_Should_Return_Correct_Sum()
         {
-            IEnumerable<int> ints = new List<int> { 2, 4, 1, 6 };
+            var ints = new List<int> { 2, 4, 1, 6 };
 
             var result = ints.Aggregate((sum, val) => sum + val);
             result.Should().Be(13);
@@ -18,7 +18,7 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_Integers_Should_Return_Correct_Product()
         {
-            IEnumerable<int> ints = new List<int> { 2, 4, 1, 6 };
+            var ints = new List<int> { 2, 4, 1, 6 };
 
             var result = ints.Aggregate((sum, val) => sum * val);
             result.Should().Be(48);
@@ -27,7 +27,7 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_String_Should_Return_Correct_Concatenated()
         {
-            IEnumerable<string> strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
+            var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
             var result = strings.Aggregate((concat, str) => $"{concat}&{str}");
             result.Should().Be("a&ab&abc&abcd&z");
@@ -45,7 +45,7 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_String_Should_Return_Correct_Count_Of_Strings()
         {
-            IEnumerable<string> strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
+            var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
             var result = strings.Aggregate(0, (count, _) => count+1);
             result.Should().Be(5);
@@ -54,7 +54,7 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_String_Should_Return_Correct_Total_Characters()
         {
-            IEnumerable<string> strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
+            var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
             var result = strings.Aggregate(0, (count, val) => count + val.Length);
             result.Should().Be(11);
@@ -63,7 +63,7 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
         [Fact]
         public void Method_Aggregate_On_A_List_Of_String_Should_Return_True_When_Check_Length_Greater_Then_3()
         {
-            IEnumerable<string> strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
+            var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
             var result = strings.Aggregate(false, (any, val) => any || val.Length > 3);
             result.Should().BeTrue();
@@ -101,6 +101,8 @@ namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate
 
             albumDuration.Should().Be(new TimeSpan(0, 57, 01));
         }
+        
+        
         
     }
 }
