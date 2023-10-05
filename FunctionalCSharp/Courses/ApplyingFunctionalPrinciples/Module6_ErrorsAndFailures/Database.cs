@@ -21,7 +21,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             }
             catch (Exception exception)
             {
-                return Result.Fail(new SqlSaveError("Unable to connect to the database"));
+                return Result.Fail(new SqlSaveResultError("Unable to connect to the database"));
             }
 
             Console.WriteLine($"Customer {customer.Balance} saved");
@@ -30,9 +30,9 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
         }
     }
 
-    public class SqlSaveError : BaseError
+    public class SqlSaveResultError : BaseResultError
     {
-        public SqlSaveError(string message) : base(message)
+        public SqlSaveResultError(string message) : base(message)
         {
         }
     }

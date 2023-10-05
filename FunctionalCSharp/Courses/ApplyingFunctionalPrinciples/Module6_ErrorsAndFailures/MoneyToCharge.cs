@@ -10,7 +10,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
         private MoneyToCharge(decimal value) => Value = value;
         public static Result<MoneyToCharge> CreateMoneyToCharge(decimal moneyAmount) =>
             moneyAmount is <= 0 or > 100 
-                ? Fail<MoneyToCharge>(new MoneyAmountInvalidError()) 
+                ? Fail<MoneyToCharge>(new MoneyAmountInvalidResultError()) 
                 : Ok(new MoneyToCharge(moneyAmount));
 
         protected override bool EqualsCore(MoneyToCharge other) 

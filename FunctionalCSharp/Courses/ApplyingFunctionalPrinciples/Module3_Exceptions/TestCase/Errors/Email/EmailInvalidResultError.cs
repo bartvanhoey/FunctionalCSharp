@@ -2,9 +2,9 @@ using FunctionalCSharp.Functional.ResultClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase.Errors.Email
 {
-    public class EmailInvalidError : BaseError
+    public class EmailInvalidResultError : BaseResultError
     {
-        public EmailInvalidError() : base("Email is invalid")
+        public EmailInvalidResultError() : base("Email is invalid")
         {
         }
     }

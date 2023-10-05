@@ -14,14 +14,14 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
 
         public static Result<Email> CreateEmail(string? email)
         {
-            if (IsNullOrWhiteSpace(email)) return Result.Fail<Email>(new EmailEmptyError());
+            if (IsNullOrWhiteSpace(email)) return Result.Fail<Email>(new EmailEmptyResultError());
 
             email = email.Trim();
-            if (email.Length > 256) return Result.Fail<Email>(new EmailTooLongError());
+            if (email.Length > 256) return Result.Fail<Email>(new EmailTooLongResultError());
 
             return email.IsValidEmailAddress()
                 ? Result.Ok(new Email(email))
-                : Result.Fail<Email>(new EmailInvalidError());
+                : Result.Fail<Email>(new EmailInvalidResultError());
         }
 
         protected override bool EqualsCore(Email other) => Value == other.Value;

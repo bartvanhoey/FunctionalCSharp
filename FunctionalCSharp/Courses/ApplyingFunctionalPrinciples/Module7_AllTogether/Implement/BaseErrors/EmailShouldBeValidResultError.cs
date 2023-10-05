@@ -2,8 +2,8 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class EmailShouldBeValidError : BaseError
+    public class EmailShouldBeValidResultError : BaseResultError
     {
-        public EmailShouldBeValidError() : base("Email should be valid") { }
+        public EmailShouldBeValidResultError() : base("Email should be valid") { }
     }
 }

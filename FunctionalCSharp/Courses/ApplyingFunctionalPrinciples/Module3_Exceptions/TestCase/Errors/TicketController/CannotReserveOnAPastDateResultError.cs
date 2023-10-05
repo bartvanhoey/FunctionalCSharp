@@ -2,9 +2,9 @@ using FunctionalCSharp.Functional.ResultClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase.Errors.TicketController
 {
-    public class TicketsOnThisDateNoLongerAvailableError : BaseError
+    public class CannotReserveOnAPastDateResultError : BaseResultError
     {
-        public TicketsOnThisDateNoLongerAvailableError() : base("Tickets on this date are no longer available")
+        public CannotReserveOnAPastDateResultError() : base("cannot reserve on a past date")
         {
         }
     }

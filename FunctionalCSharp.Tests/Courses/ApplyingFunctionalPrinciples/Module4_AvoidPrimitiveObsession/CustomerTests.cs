@@ -51,7 +51,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var customerNameResult = CustomerName.Create("");
             customerNameResult.IsFailure.Should().BeTrue();
-            customerNameResult.Error.Should().BeOfType<CustomerNameEmptyError>();
+            customerNameResult.Error.Should().BeOfType<CustomerNameEmptyResultError>();
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
             var customerNameResult = CustomerName.Create(
                 "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
             customerNameResult.IsFailure.Should().BeTrue();
-            customerNameResult.Error.Should().BeOfType<CustomerNameTooLongError>();
+            customerNameResult.Error.Should().BeOfType<CustomerNameTooLongResultError>();
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
             var emailResult = Email.CreateEmail(
                 "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
             emailResult.IsFailure.Should().BeTrue();
-            emailResult.Error.Should().BeOfType<EmailTooLongError>();
+            emailResult.Error.Should().BeOfType<EmailTooLongResultError>();
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var emailResult = Email.CreateEmail("");
             emailResult.IsFailure.Should().BeTrue();
-            emailResult.Error.Should().BeOfType<EmailEmptyError>();
+            emailResult.Error.Should().BeOfType<EmailEmptyResultError>();
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var emailResult = Email.CreateEmail(InValidEmailAddress);
             emailResult.IsFailure.Should().BeTrue();
-            emailResult.Error.Should().BeOfType<EmailInvalidError>();
+            emailResult.Error.Should().BeOfType<EmailInvalidResultError>();
         }
 
         [Fact]

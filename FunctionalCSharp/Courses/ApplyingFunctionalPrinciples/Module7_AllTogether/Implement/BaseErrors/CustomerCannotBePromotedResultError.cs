@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class EmailShouldNotBeNullOrWhiteSpaceError : BaseError
+    public class CustomerCannotBePromotedResultError : BaseResultError
     {
-        public EmailShouldNotBeNullOrWhiteSpaceError() : base("Email should not be null or white space")
+        public CustomerCannotBePromotedResultError() : base("The customer has the highest status possible")
         {
         }
     }

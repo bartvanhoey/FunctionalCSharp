@@ -22,7 +22,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             }
             catch (SmtpException)
             {
-                return Result.Fail(new UnableToSendEmailError());
+                return Result.Fail(new UnableToSendEmailResultError());
             }
         }
     }

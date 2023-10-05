@@ -2,9 +2,9 @@ using FunctionalCSharp.Functional.ResultClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase.Errors.CustomerName
 {
-    public class CustomerNameTooLongError : BaseError
+    public class CustomerNameEmptyResultError : BaseResultError
     {
-        public CustomerNameTooLongError() : base("Customer name is too long")
+        public CustomerNameEmptyResultError() : base("Customer name should not be empty")
         {
         }
     }

@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class IndustryNameIsInvalidError : BaseError
+    public class IndustryNameIsRequiredResultError : BaseResultError
     {
-        public IndustryNameIsInvalidError(string industryName) : base($"Industry name {industryName} is invalid")
+        public IndustryNameIsRequiredResultError() : base("Industry name is required")
         {
         }
     }

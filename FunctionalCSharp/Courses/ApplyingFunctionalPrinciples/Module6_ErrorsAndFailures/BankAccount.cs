@@ -20,7 +20,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
         public string? RefillBalance(int customerId, decimal moneyAmount)
         {
             var money = CreateMoneyToCharge(moneyAmount);
-            var customer = _database.GetCustomer(customerId).ToResult(new ToResultError("Customer not found"));
+            var customer = _database.GetCustomer(customerId).ToResult(new ToResultResultError("Customer not found"));
 
            return Combine(money, customer)
                 .OnSuccess(() => customer.Type.AddBalance(money.Type))

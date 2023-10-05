@@ -197,16 +197,16 @@ You can write the calls to the bind operator yourself, or you can use syntax sug
 
 ## Monads vs Functors
 
-Monads are types for which a Bind function is defined. In addition to the Bind function, 
-monads must also have a Return function that lifts a normal value T into a monadic value C<T>
+**Monads** are types for which a **Bind** function is defined. In addition to the Bind function, 
+monads must also have a **Return** function that lifts a normal value T into a monadic value C<T>
 
-A Monad is a type C<T> for which the following functions are defined:
-* Return: T -> C<T>
-* Bind: (C<T>, (T -> C<R>)) -> C<R>
+A **Monad** is a type C<T> for which the following functions are defined:
+* Return: T -> M<T>
+* Bind: (M<T>, (T -> C<R>)) -> C<R>
 
 Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
 
-Functors are types for which a suitable Map function is defined. 
+**Functors** are types for which a suitable **Map** function is defined. 
 Map should apply a function to the functor's inner value and do nothing else.
 
 ## Recursion
@@ -251,7 +251,52 @@ Bind is a function that takes a container C<T> and a function f with signature (
 
 ### Tee
 
+## 
+
 
 
 ## Predicate functions (aka boolean functions)
 A predicate function is a function that returns True or False
+
+
+
+## Operators & Expressions
+
+Arithmetic operators
+Boolean logical operators
+Bitwise and shift operators
+Equality operators
+Comparison operators
+Member access operators and expressions
+Type-testing operators and cast expression
+User-defined conversion operators
+Pointer-related operators
+Assignment operators
+Lambda expressions
+Patterns
++ and += operators
+- and -= operators
+
+?: (ternary conditional operator or Elvis operator)
+! (null-forgiving) operator
+
+??  (The null-coalescing operator ?? returns the value of its left-hand operand if it isn't null;  
+    otherwise, it evaluates the right-hand operand and returns its result. )
+
+??= (The null-coalescing assignment operator ??= assigns the value of its right-hand operand to its left-hand operand 
+    only if the left-hand operand evaluates to null. )
+  
+=> operator
+  :: operator
+  await operator
+  default value expressions
+  delegate operator
+  is operator
+  nameof expression
+  new operator
+  sizeof operator
+  stackalloc expression
+  switch expression
+  true and false operators
+  with expression
+  Operator overloading

@@ -20,7 +20,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var result = Email.CreateEmail("");
             result.IsFailure.Should().BeTrue();
-            result.Error.Should().BeOfType<EmailEmptyError>();
+            result.Error.Should().BeOfType<EmailEmptyResultError>();
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var result = Email.CreateEmail(null);
             result.IsFailure.Should().BeTrue();
-            result.Error.Should().BeOfType<EmailEmptyError>();
+            result.Error.Should().BeOfType<EmailEmptyResultError>();
         }
         
         [Fact]
@@ -36,7 +36,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var result = Email.CreateEmail("emailtoolongddkdkdkkdkdkdkkdkdkkdkkdkdkkdkdkkdkdkdkdkdkkkkdkkdkdkdkkdkdkkdkddkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkddkdkdkkddkkdkdkdkkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk@hotmail.com");
             result.IsFailure.Should().BeTrue();
-            result.Error.Should().BeOfType<EmailTooLongError>();
+            result.Error.Should().BeOfType<EmailTooLongResultError>();
         }
 
         [Fact]

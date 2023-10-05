@@ -18,11 +18,11 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptio
             }
             catch (HttpRequestException)
             {
-                return Fail(new UnableToConnectToTheTheaterError());
+                return Fail(new UnableToConnectToTheTheaterResultError());
             }
             catch (InvalidOperationException)
             {
-                return Fail(new TicketsOnThisDateNoLongerAvailableError());
+                return Fail(new TicketsOnThisDateNoLongerAvailableResultError());
             }
         }
     }

@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class CustomerNameShouldNotBeEmptyError : BaseError
+    public class IndustryNameIsInvalidResultError : BaseResultError
     {
-        public CustomerNameShouldNotBeEmptyError() : base("Customer name should not be empty")
+        public IndustryNameIsInvalidResultError(string industryName) : base($"Industry name {industryName} is invalid")
         {
         }
     }

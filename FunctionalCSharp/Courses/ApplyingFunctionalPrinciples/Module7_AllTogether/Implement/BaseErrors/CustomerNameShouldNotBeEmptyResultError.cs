@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class CustomerWithIdNotFoundError : BaseError
+    public class CustomerNameShouldNotBeEmptyResultError : BaseResultError
     {
-        public CustomerWithIdNotFoundError(long id) : base( $"Customer with such Id is not found: {id}")
+        public CustomerNameShouldNotBeEmptyResultError() : base("Customer name should not be empty")
         {
         }
     }

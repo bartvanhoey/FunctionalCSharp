@@ -6,7 +6,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
     {
         public static bool IsValid { get; private set; } = true;
 
-        public static void AddModelError(string name, BaseError? error)
+        public static void AddModelError(string name, BaseResultError? error)
         {
             IsValid = false;
         }

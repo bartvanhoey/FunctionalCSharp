@@ -2,10 +2,10 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures
 {
-    public class MoneyAmountInvalidError : BaseError
+    public class MoneyAmountInvalidResultError : BaseResultError
 
     {
-        public MoneyAmountInvalidError() : base("Money amount is invalid")
+        public MoneyAmountInvalidResultError() : base("Money amount is invalid")
         {
         }
     }

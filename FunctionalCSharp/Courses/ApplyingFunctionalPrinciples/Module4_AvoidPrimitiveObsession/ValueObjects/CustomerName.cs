@@ -17,11 +17,11 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         public static Result<CustomerName> Create(string customerName)
         {
             if (IsNullOrWhiteSpace(customerName))
-                return Result.Fail<CustomerName>(new CustomerNameEmptyError());
+                return Result.Fail<CustomerName>(new CustomerNameEmptyResultError());
 
             customerName = customerName.Trim();
             return customerName.Length > 100
-                ? Result.Fail<CustomerName>(new CustomerNameTooLongError())
+                ? Result.Fail<CustomerName>(new CustomerNameTooLongResultError())
                 : Result.Ok(new CustomerName(customerName));
         }
 

@@ -18,7 +18,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             }
             catch (ChargedFailedException exception)
             {
-                return Result.Fail(new ChargedFailedError(exception.Message));
+                return Result.Fail(new ChargedFailedResultError(exception.Message));
             }
         }
 
@@ -26,9 +26,9 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             => WriteLine("Rollback to last transaction executed");
     }
 
-    public class ChargedFailedError : BaseError
+    public class ChargedFailedResultError : BaseResultError
     {
-        public ChargedFailedError(string message) : base(message)
+        public ChargedFailedResultError(string message) : base(message)
         {
         }
     }

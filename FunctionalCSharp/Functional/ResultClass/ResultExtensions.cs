@@ -6,8 +6,8 @@ namespace FunctionalCSharp.Functional.ResultClass
 {
     public static class ResultExtensions
     {
-        public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseError error) where T : class 
-            => maybe.HasNoValue ? Fail<T>(error) : Ok(maybe.Type);
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class 
+            => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Type);
 
         public static Result OnSuccess(this Result result, Action action)
         {
@@ -53,10 +53,10 @@ namespace FunctionalCSharp.Functional.ResultClass
         public static Result<TK> Map<T, TK>(this Result<T> result, Func<T, TK> func) 
             => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Type));
         
-        public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> func, BaseError baseError)
+        public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> func, BaseResultError baseResultError)
         {
             if (result.IsFailure) return result;
-            return func(result.Type) ? result : Fail<T>(baseError);
+            return func(result.Type) ? result : Fail<T>(baseResultError);
         }
 
         

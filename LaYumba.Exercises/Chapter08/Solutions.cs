@@ -1,11 +1,10 @@
 ﻿using LaYumba.Functional;
 using static LaYumba.Functional.F;
-using System;
 using Age = LaYumba.Exercises.Examples.Age;
 
-namespace Exercises.Chapter8.Solutions
+namespace LaYumba.Exercises.Chapter08
 {
-   static class Exercises
+   static class Chap08Solutions
    {
       // 1. Write a `ToOption` extension method to convert an `Either` into an
       // `Option`. Then write a `ToEither` method to convert an `Option` into an
@@ -41,9 +40,8 @@ namespace Exercises.Chapter8.Solutions
       // yielding an `Option`.
 
       public static Option<RR> Bind<L, R, RR>(this Either<L, R> @this, Func<R, Option<RR>> func)
-          => @this.Match(
-             left: _ => None,
-             right: r => func(r));
+          => @this.Match(_ => None,
+              r => func(r));
 
       public static Option<RR> Bind<L, R, RR>(this Option<R> @this, Func<R, Either<L, RR>> func)
           => @this.Match(

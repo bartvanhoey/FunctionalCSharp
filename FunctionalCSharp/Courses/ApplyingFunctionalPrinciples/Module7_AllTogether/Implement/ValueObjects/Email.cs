@@ -14,11 +14,11 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         private Email(string email) => Value = email;
         public static Result<Email> CreateEmail(Maybe<string> maybeEmail) =>
             maybeEmail
-                .ToResult(new EmailShouldNotBeNullOrWhiteSpaceError())
+                .ToResult(new EmailShouldNotBeNullOrWhiteSpaceResultError())
                 .OnSuccess(email => email.Trim())
-                .Ensure(email => email.Length > 0, new EmailShouldNotBeEmptyError())
+                .Ensure(email => email.Length > 0, new EmailShouldNotBeEmptyResultError())
                 .Ensure(email => email.Length < 256, new EmailShouldNotBeLongerThen256Characters())
-                .Ensure(email => email.IsValidEmailAddress(), new EmailInvalidError())
+                .Ensure(email => email.IsValidEmailAddress(), new EmailInvalidResultError())
                 .Map(email => new Email(email));
 
         protected override bool EqualsCore(Email other) => Value == other.Value;

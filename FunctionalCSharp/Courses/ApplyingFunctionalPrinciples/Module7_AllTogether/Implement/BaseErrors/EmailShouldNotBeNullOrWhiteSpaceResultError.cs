@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class IndustryNameIsRequiredError : BaseError
+    public class EmailShouldNotBeNullOrWhiteSpaceResultError : BaseResultError
     {
-        public IndustryNameIsRequiredError() : base("Industry name is required")
+        public EmailShouldNotBeNullOrWhiteSpaceResultError() : base("Email should not be null or white space")
         {
         }
     }

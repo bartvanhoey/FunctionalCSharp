@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class UnableToSendEmailError : BaseError
+    public class UnableToSendEmailResultError : BaseResultError
     {
-        public UnableToSendEmailError() : base("Unable to send email")
+        public UnableToSendEmailResultError() : base("Unable to send email")
         {
         }
     }

@@ -34,10 +34,10 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptio
         private Result ValidateBuyTicketInput(DateTime date, string customerName)
         {
             if (date.Date < DateTime.Now.Date)
-                return Result.Fail(new CannotReserveOnAPastDateError());
+                return Result.Fail(new CannotReserveOnAPastDateResultError());
 
             if (string.IsNullOrWhiteSpace(customerName) || customerName.Length > 200)
-                return Result.Fail(new IncorrectCustomerNameError());
+                return Result.Fail(new IncorrectCustomerNameResultError());
 
             return Result.Ok();
         }

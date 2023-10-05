@@ -14,10 +14,10 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
 
 
         public static Result<CustomerName> CreateCustomerName(Maybe<string> maybeCustomerName) =>
-            maybeCustomerName.ToResult(new CustomerNameShouldNotBeEmptyError())
+            maybeCustomerName.ToResult(new CustomerNameShouldNotBeEmptyResultError())
                 .OnSuccess(n => n.Trim())
-                .Ensure(n => n.Length > 2, new CustomerNameShouldBeAtLeastTwoCharactersError())
-                .Ensure(n => n.Length < 100, new CustomerNameShouldBeLessThan100CharactersError())
+                .Ensure(n => n.Length > 2, new CustomerNameShouldBeAtLeastTwoCharactersResultError())
+                .Ensure(n => n.Length < 100, new CustomerNameShouldBeLessThan100CharactersResultError())
                 .Map(n => new CustomerName(n));
 
         protected override bool EqualsCore(CustomerName other) => Value == other.Value;

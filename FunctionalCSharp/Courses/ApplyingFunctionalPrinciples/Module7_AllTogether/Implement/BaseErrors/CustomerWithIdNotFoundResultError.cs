@@ -2,9 +2,9 @@
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Implement.BaseErrors
 {
-    public class CustomerCannotBePromotedError : BaseError
+    public class CustomerWithIdNotFoundResultError : BaseResultError
     {
-        public CustomerCannotBePromotedError() : base("The customer has the highest status possible")
+        public CustomerWithIdNotFoundResultError(long id) : base( $"Customer with such Id is not found: {id}")
         {
         }
     }

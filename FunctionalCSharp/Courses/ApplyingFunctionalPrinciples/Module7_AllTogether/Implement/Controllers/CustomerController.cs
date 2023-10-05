@@ -49,7 +49,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         [Route("customers/{id}")]
         public HttpResponseMessage Update(UpdateCustomerModel model)
         {
-            var customer = _repo.GetById(model.Id).ToResult(new CustomerWithIdNotFoundError(model.Id));
+            var customer = _repo.GetById(model.Id).ToResult(new CustomerWithIdNotFoundResultError(model.Id));
             var industry = GetIndustry(model.Industry);
 
             return Combine(customer, industry)
@@ -97,8 +97,8 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         [Route("customers/{id}/promotion")]
         public HttpResponseMessage Promote(long id) =>
             _repo.GetById(id)
-                .ToResult(new CustomerWithIdNotFoundError(id))
-                .Ensure(customer => customer.CanBePromoted(), new CustomerCannotBePromotedError())
+                .ToResult(new CustomerWithIdNotFoundResultError(id))
+                .Ensure(customer => customer.CanBePromoted(), new CustomerCannotBePromotedResultError())
                 .OnSuccess(customer => customer.Promote())
                 .OnSuccess(customer => _emailGateway.SendPromotionNotification(customer.PrimaryEmail, customer.Status))
                 .OnBoth(result => result.IsSuccess ? OkResponse() : BadRequestResponse(result.Error?.Message));
