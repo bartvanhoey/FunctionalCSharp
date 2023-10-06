@@ -1,4 +1,4 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase.Errors.CustomerName;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After.Errors.CustomerName;
 using FunctionalCSharp.Functional.ResultClass;
 using FunctionalCSharp.Functional.ValueObjectClass;
 using static System.String;

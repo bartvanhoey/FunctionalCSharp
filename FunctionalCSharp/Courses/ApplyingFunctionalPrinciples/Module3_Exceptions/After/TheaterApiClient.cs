@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After
 {
     public class TheaterApiClient
     {

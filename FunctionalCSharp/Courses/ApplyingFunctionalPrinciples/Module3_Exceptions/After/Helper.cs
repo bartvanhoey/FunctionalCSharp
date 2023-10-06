@@ -1,10 +1,10 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase.Errors.TicketController;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After.Errors.TicketController;
 using FunctionalCSharp.Functional.ResultClass;
 using static FunctionalCSharp.Functional.ResultClass.Result;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.TestCase
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After
 {
     public class TheaterGateway
     {
