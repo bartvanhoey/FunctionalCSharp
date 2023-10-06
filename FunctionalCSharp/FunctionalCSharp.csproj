@@ -32,7 +32,6 @@
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_FunctionalDesigns\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module1_Introduction\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module2_ImmutableArchitecture\" />
-      <Folder Include="Courses\ApplyingFunctionalPrinciples\Module3_Exceptions\Before\" />
       <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1WhatIsFunctionalProgramming\" />
     </ItemGroup>
 
