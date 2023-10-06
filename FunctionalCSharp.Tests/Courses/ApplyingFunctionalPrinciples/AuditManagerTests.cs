@@ -1,5 +1,6 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Immutability;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Immutability.ActionType;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
+using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models.ActionType;
 using static Xunit.Assert;
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
@@ -18,13 +19,13 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
              
              var action = manager.AddRecord(file, "Jane Doe", new DateTime(2016, 4, 6, 17, 0, 0));
 
-             Equal(Update, action.Type);
+             Equal(Update, action.ActionType);
              Equal("Audit_1.txt", action.FileName);
              Equal(new[]
              {
                  "1;Peter Peterson;4/6/2016 4:30:00 PM",
                  "2;Jane Doe;4/6/2016 5:00:00 PM"
-             }, action.Content);
+             }, action.Lines);
          }
 
          [Fact]
@@ -40,12 +41,12 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
 
              var action = manager.AddRecord(file, "Tom Tomson", new DateTime(2016, 4, 6, 17, 30, 0));
 
-             Equal(Create, action.Type);
+             Equal(Create, action.ActionType);
              Equal("Audit_2.txt", action.FileName);
              Equal(new[]
              {
                  "1;Tom Tomson;4/6/2016 5:30:00 PM"
-             }, action.Content);
+             }, action.Lines);
          }
 
          [Fact]
@@ -63,12 +64,12 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
 
              Equal(1, actions.Count);
              Equal("Audit_1.txt", actions[0].FileName);
-             Equal(Update, actions[0].Type);
+             Equal(Update, actions[0].ActionType);
              Equal(new[]
              {
                  "1;Jane Doe;4/6/2016 4:40:00 PM",
                  "2;Jack Rich;4/6/2016 5:00:00 PM"
-             }, actions[0].Content);
+             }, actions[0].Lines);
          }
 
          [Fact]
@@ -84,7 +85,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
 
              Equal(1, actions.Count);
              Equal("Audit_1.txt", actions[0].FileName);
-             Equal(Delete, actions[0].Type);
+             Equal(Delete, actions[0].ActionType);
          }
 
          [Fact]

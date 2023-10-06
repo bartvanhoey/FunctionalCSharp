@@ -1,10 +1,10 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture
+﻿namespace ApplyFuPrinciples.Immutability.Before
 {
-    public class AuditManagerOld
+    public class AuditManagerBeforeRefactoring
     {
         private readonly int _maxEntriesPerFile;
 
-        public AuditManagerOld(int maxEntriesPerFile)
+        public AuditManagerBeforeRefactoring(int maxEntriesPerFile)
         {
             _maxEntriesPerFile = maxEntriesPerFile;
         }
