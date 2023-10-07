@@ -7,7 +7,7 @@ namespace FunctionalCSharp.Functional.ResultClass
     public static class ResultExtensions
     {
         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class 
-            => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Type);
+            => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value);
 
         public static Result OnSuccess(this Result result, Action action)
         {

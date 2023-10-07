@@ -39,7 +39,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module5_Av
 
             var action = () =>
             {
-                var myClass = maybe.Type;
+                var myClass = maybe.Value;
             };
 
             action.Should().Throw<InvalidOperationException>();
@@ -54,7 +54,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module5_Av
 
             maybe.HasValue.Should().BeTrue();
             maybe.HasNoValue.Should().BeFalse();
-            maybe.Type.Should().Be(instance);
+            maybe.Value.Should().Be(instance);
         }
 
         [Fact]

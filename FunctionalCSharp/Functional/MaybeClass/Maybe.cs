@@ -28,7 +28,7 @@ namespace FunctionalCSharp.Functional.MaybeClass
         /// <summary>
         ///     Try to use GetValueOrThrow() or GetValueOrDefault() instead for better explicitness.
         /// </summary>
-        public T Type => GetValueOrThrow();
+        public T Value => GetValueOrThrow();
 
         public static Maybe<T> None => new();
 
@@ -138,9 +138,9 @@ namespace FunctionalCSharp.Functional.MaybeClass
         }
 
         
-        public T? Unwrap() => HasValue ? Type : default;
+        public T? Unwrap() => HasValue ? Value : default;
 
-        public TK? Unwrap<TK>(Func<T, TK> selector) => HasValue ? selector(Type) : default;
+        public TK? Unwrap<TK>(Func<T, TK> selector) => HasValue ? selector(Value) : default;
     }
 
     /// <summary>
@@ -161,7 +161,7 @@ namespace FunctionalCSharp.Functional.MaybeClass
     /// </summary>
     public interface IOption<out T>
     {
-        T Type { get; }
+        T Value { get; }
         bool HasValue { get; }
         bool HasNoValue { get; }
     }

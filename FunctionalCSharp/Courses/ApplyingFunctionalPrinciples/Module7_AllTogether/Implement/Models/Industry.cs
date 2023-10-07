@@ -21,11 +21,11 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         public static Result<Industry> GetIndustry(Maybe<string> industryName)
         {
             if (industryName.HasNoValue) return Fail<Industry>(new IndustryNameIsRequiredResultError());
-            if (industryName.Type == Cars.Name) return Ok(Cars);
-            if (industryName.Type == Pharmacy.Name) return Ok(Pharmacy);
-            return industryName.Type == Other.Name 
+            if (industryName.Value == Cars.Name) return Ok(Cars);
+            if (industryName.Value == Pharmacy.Name) return Ok(Pharmacy);
+            return industryName.Value == Other.Name 
                 ? Ok(Other) 
-                : Fail<Industry>(new IndustryNameIsInvalidResultError(industryName.Type));
+                : Fail<Industry>(new IndustryNameIsInvalidResultError(industryName.Value));
         }
     }
 

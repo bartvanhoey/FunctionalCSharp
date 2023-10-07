@@ -64,7 +64,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             var maybeCustomer = _repo.GetById(id);
             if (maybeCustomer.HasNoValue) return ErrorResponse($"Customer with such Id is not found: {id}");
 
-            maybeCustomer.Type.DisableEmailing();
+            maybeCustomer.Value.DisableEmailing();
 
             return OkResponse();
         }
@@ -79,14 +79,14 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
 
             var customerDto = new
             {
-                maybeCustomer.Type.Id,
-                maybeCustomer.Type.Name,
-                maybeCustomer.Type.PrimaryEmail,
-                SecondaryEmail = maybeCustomer.Type.SecondaryEmail.HasValue
-                    ? maybeCustomer.Type.SecondaryEmail.Type.Value
+                maybeCustomer.Value.Id,
+                maybeCustomer.Value.Name,
+                maybeCustomer.Value.PrimaryEmail,
+                SecondaryEmail = maybeCustomer.Value.SecondaryEmail.HasValue
+                    ? maybeCustomer.Value.SecondaryEmail.Value.Value
                     : null,
-                Industry = maybeCustomer.Type.EmailSettings.Industry.Name,
-                maybeCustomer.Type.EmailSettings.EmailCampaign
+                Industry = maybeCustomer.Value.EmailSettings.Industry.Name,
+                maybeCustomer.Value.EmailSettings.EmailCampaign
             };
 
             return OkResponse(customerDto);
