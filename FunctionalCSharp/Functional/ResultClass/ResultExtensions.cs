@@ -1,4 +1,4 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After;
 using FunctionalCSharp.Functional.MaybeClass;
 using static FunctionalCSharp.Functional.ResultClass.Result;
 

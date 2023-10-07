@@ -2,7 +2,7 @@
 using FunctionalCSharp.Functional.ValueObjectClass;
 using static FunctionalCSharp.Functional.ResultClass.Result;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
     public class MoneyToCharge : ValueObject<MoneyToCharge>
     {

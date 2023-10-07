@@ -1,7 +1,7 @@
 using FunctionalCSharp.Functional.MaybeClass;
 using FunctionalCSharp.Functional.ResultClass;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
     public class Database
     {

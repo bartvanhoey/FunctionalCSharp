@@ -1,7 +1,7 @@
 using FunctionalCSharp.Functional.ResultClass;
 using static System.Console;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
     public class PaymentGateway
     {
