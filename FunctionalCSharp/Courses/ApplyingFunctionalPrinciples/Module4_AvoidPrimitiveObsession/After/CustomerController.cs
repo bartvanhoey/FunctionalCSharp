@@ -1,7 +1,6 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.ValueObjects;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.TestCase
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After
 {
     public class CustomerController : Controller
     {
@@ -46,7 +45,5 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         }
     }
 
-    public class HttpGetAttribute : Attribute
-    {
-    }
+  
 }

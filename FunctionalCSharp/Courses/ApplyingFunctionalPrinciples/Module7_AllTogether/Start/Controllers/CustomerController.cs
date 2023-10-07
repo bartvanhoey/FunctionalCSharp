@@ -1,8 +1,9 @@
 ﻿using System.Net;
 using System.Text.RegularExpressions;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.TestCase;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Start.Models;
+using Customer = FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Start.Models.Customer;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Start.Controllers
 {
@@ -21,7 +22,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             _emailGateway = emailGateway;
         }
 
-        [HttpPost]
+        [Module3_Exceptions.After.HttpPost]
         [Route("customers")]
         public HttpResponseMessage Create(CreateCustomerModel model)
         {
@@ -148,7 +149,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             }
         }
 
-        [HttpPost]
+        [Module3_Exceptions.After.HttpPost]
         [Route("customers/{id}/promotion")]
         public HttpResponseMessage Promote(long id)
         {

@@ -4,7 +4,7 @@ using FunctionalCSharp.Functional.ResultClass;
 using FunctionalCSharp.Functional.ValueObjectClass;
 using static System.String;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.ValueObjects
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After
 {
     public class Email : ValueObject<Email>
     {

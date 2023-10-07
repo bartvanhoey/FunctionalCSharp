@@ -1,6 +1,6 @@
 using FunctionalCSharp.Functional.ResultClass;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup
 {
     public class ModelState
     {
@@ -11,7 +11,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
             IsValid = false;
         }
 
-        public static void SetIsValidToTrue()
+        public static void Init()
         {
             IsValid = true;
         }

@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.ValueObjects;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before
 {
@@ -9,8 +8,8 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         public string Email { get; private set; }
         public Customer(string name, string email)
         {
-            Name = name;
-            Email = email;
+            ChangeName(name);
+            ChangeEmail(email);
         }
 
         public void ChangeName(string name)
