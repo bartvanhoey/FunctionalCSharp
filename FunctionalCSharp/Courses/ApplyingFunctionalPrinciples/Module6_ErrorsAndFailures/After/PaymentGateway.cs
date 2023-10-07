@@ -3,9 +3,9 @@ using static System.Console;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
-    public class PaymentGateway
+    public class PaymentGateway : IPaymentGateway
     {
-        public Result ChargePayment(string billingInfo, MoneyToCharge amount) 
+        public Result ChargePayment(string billingInfo, decimal amount)
         {
             try
             {
@@ -24,12 +24,5 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
 
         public void RollbackLastTransaction() 
             => WriteLine("Rollback to last transaction executed");
-    }
-
-    public class ChargedFailedResultError : BaseResultError
-    {
-        public ChargedFailedResultError(string message) : base(message)
-        {
-        }
     }
 }
