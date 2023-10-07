@@ -16,7 +16,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         public Maybe<Email> SecondaryEmail
         {
             get => _secondaryEmail == null ? null : (Email) _secondaryEmail;
-            private init { _secondaryEmail = value.Unwrap(x => x.Value); }
+            private init { _secondaryEmail = value.Value; }
         }
 
         public EmailSettings EmailSettings { get; private set; }

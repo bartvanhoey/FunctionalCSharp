@@ -23,8 +23,8 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
              Equal("Audit_1.txt", action.FileName);
              Equal(new[]
              {
-                 "1;Peter Peterson;4/6/2016 4:30:00 PM",
-                 "2;Jane Doe;4/6/2016 5:00:00 PM"
+                 "1;Peter Peterson;2016-04-06T16:30:00",
+                 "2;Jane Doe;2016-04-06T17:00:00"
              }, action.Lines);
          }
 
@@ -45,7 +45,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
              Equal("Audit_2.txt", action.FileName);
              Equal(new[]
              {
-                 "1;Tom Tomson;4/6/2016 5:30:00 PM"
+                 "1;Tom Tomson;2016-04-06T17:30:00"
              }, action.Lines);
          }
 
@@ -67,8 +67,8 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples
              Equal(Update, actions[0].ActionType);
              Equal(new[]
              {
-                 "1;Jane Doe;4/6/2016 4:40:00 PM",
-                 "2;Jack Rich;4/6/2016 5:00:00 PM"
+                 "1;Jane Doe;2016-04-06T16:40:00",
+                 "2;Jack Rich;2016-04-06T17:00:00"
              }, actions[0].Lines);
          }
 

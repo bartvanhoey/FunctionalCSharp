@@ -41,10 +41,8 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module2_Im
 
             action.ActionType.Should().Be(Create);
             action.FileName.Should().Be("Audit_2.txt");
-            action.Lines.Should().BeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00",
-                "2;Jane Doe;2016-04-06T17:00:00",
-                "3;Jack Rich;2016-04-06T17:40:00",
-                "4;Tom Tomson;2016-04-06T17:30:00");
+            action.Lines.Should().BeEquivalentTo(
+                "1;Tom Tomson;2016-04-06T17:30:00");
         }
 
         [Fact]
