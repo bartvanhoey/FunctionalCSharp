@@ -37,7 +37,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             var combinedResult = Combine(customerName, primaryEmail, secondaryEmail, industry);
             if (combinedResult.IsFailure) return ErrorResponse(combinedResult.Error?.Message);
 
-            var customer = new Customer(customerName.Type, primaryEmail.Type, secondaryEmail.Type, industry.Type);
+            var customer = new Customer(customerName.Value, primaryEmail.Value, secondaryEmail.Value, industry.Value);
 
             _repo.Save(customer);
 
@@ -53,7 +53,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             var industry = GetIndustry(model.Industry);
 
             return Combine(customer, industry)
-                .OnSuccess(() => customer.Type.UpdateIndustry(industry.Type))
+                .OnSuccess(() => customer.Value.UpdateIndustry(industry.Value))
                 .OnBoth(result => result.IsSuccess ? OkResponse() : ErrorResponse(result.Error?.Message));
         }
 

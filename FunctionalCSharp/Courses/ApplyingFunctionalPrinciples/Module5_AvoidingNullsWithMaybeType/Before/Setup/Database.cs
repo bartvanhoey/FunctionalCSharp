@@ -1,6 +1,6 @@
 using FunctionalCSharp.Functional.MaybeClass;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType.Before.Setup
 {
     public class Database : IDatabase
     {
@@ -10,16 +10,17 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
                 $"Saving customer {customer.CustomerName.Value} with email {customer.Email.Value} to database");
         }
 
-        public Maybe<Customer> GetById(int id)
+        public Customer GetById(int id)
         {
-            if (id == -1)
-                return Maybe<Customer>.None;
+            if (id == -1) return null;
 
+            
+            
             var email = Email.CreateEmail("MyUserName@hotmail.com");
             var customerName = CustomerName.Create("MyUserName");
 
             var customer = new Customer(customerName.Value, email.Value);
-            return Maybe<Customer>.From(customer);
+            return customer;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType.Before.Setup;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType.Before
 {
     public class CustomerController : Controller
     {
@@ -35,13 +35,11 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         [HttpGet]
         public ActionResult Index(int id)
         {
-            var customer = _database.GetById(id);
-            return customer.HasNoValue ? HttpNotFound() : View(customer.Type.CustomerName);
-        }
+            Customer? customer = _database.GetById(id);
 
-        private ActionResult RedirectToAction(string redirectTo)
-        {
-            return new(redirectTo);
+            if (customer == null) return HttpNotFound();
+
+            return View(customer);
         }
     }
 

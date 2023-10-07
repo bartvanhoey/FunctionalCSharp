@@ -21,12 +21,12 @@ namespace FunctionalCSharp.Functional.ResultClass
         
         public static Result<T> OnSuccess<T>(this Result<T> result, Action<T> action)
         {
-            if (result.IsSuccess) action(result.Type);
+            if (result.IsSuccess) action(result.Value);
             return result;
         }
 
         public static Result<TK> OnSuccess<T,TK>(this Result<T> result, Func<T,TK> func) 
-            => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Type));
+            => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Value));
 
 
         public static Result OnSuccess(this Result result, Func<Result> func) 
@@ -51,12 +51,12 @@ namespace FunctionalCSharp.Functional.ResultClass
             => logger.Log(result.IsFailure ? result.Error?.Message! : "OK");
         
         public static Result<R> Map<T, R>(this Result<T> result, Func<T, R> func) 
-            => result.IsFailure ? Fail<R>(result.Error) : Ok(func(result.Type));
+            => result.IsFailure ? Fail<R>(result.Error) : Ok(func(result.Value));
         
         public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> func, BaseResultError baseResultError)
         {
             if (result.IsFailure) return result;
-            return func(result.Type) ? result : Fail<T>(baseResultError);
+            return func(result.Value) ? result : Fail<T>(baseResultError);
         }
 
         

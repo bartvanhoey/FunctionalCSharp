@@ -23,9 +23,9 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             var customer = _database.GetCustomer(customerId).ToResult(new ToResultResultError("Customer not found"));
 
            return Combine(money, customer)
-                .OnSuccess(() => customer.Type.AddBalance(money.Type))
-                .OnSuccess(() => _paymentGateway.ChargePayment(customer.Type.BillingInfo, money.Type))
-                .OnSuccess(() => _database.Save(customer.Type)
+                .OnSuccess(() => customer.Value.AddBalance(money.Value))
+                .OnSuccess(() => _paymentGateway.ChargePayment(customer.Value.BillingInfo, money.Value))
+                .OnSuccess(() => _database.Save(customer.Value)
                     .OnFailure(() => _paymentGateway.RollbackLastTransaction()))
                 .OnBoth(result =>  result.LogResult(_logger))
                 .OnBoth(result => result.IsSuccess ? "OK" : result.Error?.Message);

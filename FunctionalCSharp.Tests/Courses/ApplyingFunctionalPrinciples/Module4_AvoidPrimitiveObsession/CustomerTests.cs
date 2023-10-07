@@ -18,7 +18,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         public void Test_Email_Implicit_Operator()
         {
             var emailResult = Email.CreateEmail(ValidEmailAddress);
-            string email = emailResult.Type;
+            string email = emailResult.Value;
 
             email.Should().Be(ValidEmailAddress);
         }
@@ -35,11 +35,11 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var customerNameResult = CustomerName.Create("Bart");
             customerNameResult.IsFailure.Should().BeFalse();
-            var customerName = customerNameResult.Type;
+            var customerName = customerNameResult.Value;
 
             var emailResult = Email.CreateEmail(ValidEmailAddress);
             emailResult.IsFailure.Should().BeFalse();
-            var email = emailResult.Type;
+            var email = emailResult.Value;
             var customer = new Customer(customerName, email);
 
             customer.Email.Value.Should().Be(ValidEmailAddress);
@@ -93,7 +93,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var emailResult = Email.CreateEmail(ValidEmailAddress);
             emailResult.IsFailure.Should().BeFalse();
-            emailResult.Type.Value.Should().Be(ValidEmailAddress);
+            emailResult.Value.Value.Should().Be(ValidEmailAddress);
         }
     }
 }

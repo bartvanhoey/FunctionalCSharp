@@ -69,8 +69,8 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         public string ProcessEmailWithValueObjects(Result<Email> oldEmailResult, Result<Email> newEmailResult)
         {
             if (oldEmailResult.IsFailure || newEmailResult.IsFailure) return Empty;
-            var customer = GetCustomerByEmail(oldEmailResult.Type);
-            customer.Email = newEmailResult.Type;
+            var customer = GetCustomerByEmail(oldEmailResult.Value);
+            customer.Email = newEmailResult.Value;
             return customer.Email;
         }
         
@@ -82,9 +82,9 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
 
             if (oldEmailResult.IsFailure || newEmailResult.IsFailure) return Empty;
 
-            var oldEmailValue = oldEmailResult.Type.Value;
+            var oldEmailValue = oldEmailResult.Value.Value;
             var customer = GetCustomerByEmail(oldEmailValue);
-            customer.Email = newEmailResult.Type.Value;
+            customer.Email = newEmailResult.Value.Value;
 
             return customer.Email;
         }

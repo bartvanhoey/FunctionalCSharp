@@ -3,7 +3,7 @@ using FunctionalCSharp.Functional.ResultClass;
 using FunctionalCSharp.Functional.ValueObjectClass;
 using static System.String;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType.Before
 {
     public class CustomerName : ValueObject<CustomerName>
     {

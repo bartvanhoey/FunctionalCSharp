@@ -25,6 +25,6 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
         protected override int GetHashCodeCore() => Value.GetHashCode();
         
         public static implicit operator string(Email? email) => email.Value;
-        public static explicit operator Email(string email) => CreateEmail(email).Type; 
+        public static explicit operator Email(string email) => CreateEmail(email).Value; 
     }
 }

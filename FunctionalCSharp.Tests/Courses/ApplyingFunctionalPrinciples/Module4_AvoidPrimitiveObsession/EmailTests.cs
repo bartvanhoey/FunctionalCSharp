@@ -44,7 +44,7 @@ namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_Av
         {
             var result = Email.CreateEmail(ValidEmailAddress);
             result.IsSuccess.Should().BeTrue();
-            result.Type.Value.Should().Be(ValidEmailAddress);
+            result.Value.Value.Should().Be(ValidEmailAddress);
         }
         
         [Fact]

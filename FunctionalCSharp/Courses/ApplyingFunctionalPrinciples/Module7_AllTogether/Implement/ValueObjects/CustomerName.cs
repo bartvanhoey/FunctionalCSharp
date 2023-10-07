@@ -25,6 +25,6 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
 
         public static implicit operator string(CustomerName customerName) => customerName.Value;
 
-        public static explicit operator CustomerName(string customerName) => CreateCustomerName(customerName).Type;
+        public static explicit operator CustomerName(string customerName) => CreateCustomerName(customerName).Value;
     }
 }

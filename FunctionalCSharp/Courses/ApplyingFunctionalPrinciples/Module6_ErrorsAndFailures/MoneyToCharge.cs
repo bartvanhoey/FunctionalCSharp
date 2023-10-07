@@ -22,6 +22,6 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             => moneyToCharge.Value;
 
         public static explicit operator MoneyToCharge(decimal moneyToCharge) 
-            => CreateMoneyToCharge(moneyToCharge).Type;
+            => CreateMoneyToCharge(moneyToCharge).Value;
     }
 }

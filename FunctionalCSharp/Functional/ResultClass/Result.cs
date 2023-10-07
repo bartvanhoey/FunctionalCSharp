@@ -50,6 +50,6 @@ namespace FunctionalCSharp.Functional.ResultClass
             : base(isSuccess, error) 
             => _value = value;
 
-        public T Type => IsSuccess  ? _value : throw new InvalidOperationException();
+        public T Value => IsSuccess  ? _value : throw new InvalidOperationException();
     }
 }
