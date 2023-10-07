@@ -2,7 +2,7 @@
 {
     public class Customer
     {
-        public Customer(CustomerName customerName, Email email)
+        public Customer( CustomerName customerName, Email email)
         {
             // if (customerName == null) throw new ArgumentNullException(nameof(customerName));
             // if (email == null) throw new ArgumentNullException(nameof(email));

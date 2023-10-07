@@ -33,7 +33,7 @@
             return new(redirectTo);
         }
 
-        protected ActionResult View(Customer customerModel)
+        protected ActionResult View(Customer? customerModel)
         {
             return new("customerModel");
         }
