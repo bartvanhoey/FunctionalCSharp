@@ -5,4 +5,11 @@ namespace FunctionalCSharp.Functional.ResultClass
         protected BaseResultError(string message) => Message = message;
         public string Message { get; }
     }
+
+    public class ResultError : BaseResultError
+    {
+        public ResultError(string message) : base(message)
+        {
+        }
+    }
 }

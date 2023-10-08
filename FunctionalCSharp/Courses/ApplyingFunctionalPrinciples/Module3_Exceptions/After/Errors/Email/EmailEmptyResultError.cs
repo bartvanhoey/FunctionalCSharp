@@ -8,11 +8,4 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptio
         {
         }
     }
-
-    public class EmailTooLongResultError : BaseResultError
-    {
-        public EmailTooLongResultError() : base("Email is too long")
-        {
-        }
-    }
 }

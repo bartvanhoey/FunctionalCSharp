@@ -2,9 +2,9 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
 {
     public class BankAccount
     {
-        private readonly Database _database;
-        private readonly PaymentGateway _paymentGateway;
-        private readonly Logger _logger;
+        private readonly Database _database =new();
+        private readonly PaymentGateway _paymentGateway = new();
+        private readonly Logger _logger = new();
         
         public string? RefillBalance(int customerId, decimal moneyAmount)
         {

@@ -4,7 +4,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
 {
     public interface IPaymentGateway
     {
-        Result ChargePayment(string billingInfo, decimal amount);
+        Result ChargePayment(string billingInfo, MoneyToCharge amount);
         void RollbackLastTransaction();
     }
 }

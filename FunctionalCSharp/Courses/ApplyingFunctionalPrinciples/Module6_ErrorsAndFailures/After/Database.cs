@@ -1,14 +1,24 @@
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After.Errors;
 using FunctionalCSharp.Functional.MaybeClass;
 using FunctionalCSharp.Functional.ResultClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
-    public class Database
+    public interface IDatabase
     {
-        public Maybe<Customer> GetCustomer(int customerId)
+        Maybe<Customer?> GetById(int customerId);
+        Result Save(Customer customer);
+    }
+
+    public class Database : IDatabase
+    {
+        public Maybe<Customer?> GetById(int customerId)
         {
-            var customer = new Customer {BillingInfo = "1234", Id = customerId};
-            return Maybe.From(customer);
+            var random = new Random();
+            var randomValue = random.Next(0, 1);
+            return randomValue == 1
+                ? null
+                : Maybe.From(new Customer { BillingInfo = "1234", Id = customerId });
         }
 
         public Result Save(Customer customer)
@@ -16,24 +26,15 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             try
             {
                 var random = new Random();
-                var randomValue = random.Next(0, 2);
+                var randomValue = random.Next(0, 1);
                 if (randomValue == 1) throw new SqlException();
             }
-            catch (Exception exception)
+            catch (Exception e)
             {
-                return Result.Fail(new SqlSaveResultError("Unable to connect to the database"));
+                return Result.Fail(new UnableToConnectToDatabaseResultError());
             }
-
-            Console.WriteLine($"Customer {customer.Balance} saved");
-
             return Result.Ok();
-        }
-    }
-
-    public class SqlSaveResultError : BaseResultError
-    {
-        public SqlSaveResultError(string message) : base(message)
-        {
+            
         }
     }
 }

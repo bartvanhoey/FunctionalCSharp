@@ -1,36 +1,29 @@
+using FunctionalCSharp.Extensions;
 using FunctionalCSharp.Functional.ResultClass;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After.MoneyToCharge;
-using static FunctionalCSharp.Functional.ResultClass.Result;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
     public class BankAccount
     {
-        private readonly Database _database;
-        private readonly PaymentGateway _paymentGateway;
+        private readonly IDatabase _database;
+        private readonly IPaymentGateway _paymentGateway;
         private readonly Logger _logger;
-
-        public BankAccount()
-        {
-            _database = new Database();
-            _paymentGateway = new PaymentGateway();
-            _logger = new Logger();
-        }
 
         public string? RefillBalance(int customerId, decimal moneyAmount)
         {
-            var money = CreateMoneyToCharge(moneyAmount);
-            var customer = _database.GetCustomer(customerId).ToResult(new ToResultResultError("Customer not found"));
+            var moneyToCharge = Create(moneyAmount);
+            var customer = _database.GetById(customerId).ToResult();
 
-           return Combine(money, customer)
-                .OnSuccess(() => customer.Value.AddBalance(money.Value))
-                .OnSuccess(() => _paymentGateway.ChargePayment(customer.Value.BillingInfo, money.Value))
-                .OnSuccess(() => _database.Save(customer.Value)
-                    .OnFailure(() => _paymentGateway.RollbackLastTransaction()))
-                .OnBoth(result =>  result.LogResult(_logger))
-                .OnBoth(result => result.IsSuccess ? "OK" : result.Error?.Message);
+            return Result.Combine(moneyToCharge, customer)
+                .Tap(() => customer.Value?.AddBalance(moneyToCharge.Value))
+                .Tap(() => _paymentGateway.ChargePayment(customer.Value?.BillingInfo!, moneyToCharge.Value))
+                .Tap(() => _database.Save(customer.Value!).TapError(()=> _paymentGateway.RollbackLastTransaction()))
+                .Tee(LogMessage)
+                .Finally(x => x.IsSuccess ? "OK" : x.Error?.Message);
         }
 
-        
+        private void LogMessage(Result result) =>
+            _logger.Log(result.IsFailure ? result.Error?.Message! : "OK");
     }
 }

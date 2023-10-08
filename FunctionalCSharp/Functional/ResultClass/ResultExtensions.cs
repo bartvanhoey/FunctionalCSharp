@@ -1,14 +1,19 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before;
 using FunctionalCSharp.Functional.MaybeClass;
 using static FunctionalCSharp.Functional.ResultClass.Result;
 
 namespace FunctionalCSharp.Functional.ResultClass
 {
-    public static class ResultExtensions
+    public static partial class ResultExtensions
     {
         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class 
             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value);
 
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, string? errorMessage = null) where T : class?
+            => maybe.HasNoValue
+                ? Fail<T>(new ResultError(errorMessage ?? "No error message provided"))
+                : Ok(maybe.Value)!;
+        
         public static Result OnSuccess(this Result result, Action action)
         {
             if (result.IsFailure)
