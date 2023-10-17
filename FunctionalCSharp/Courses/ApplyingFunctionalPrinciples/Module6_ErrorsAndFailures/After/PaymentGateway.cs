@@ -1,5 +1,5 @@
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After.Errors;
-using FunctionalCSharp.Functional.ResultClass;
+using Fupr.Functional.ResultClass;
+using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
@@ -17,7 +17,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             }
             catch (ChargedFailedException exception)
             {
-                return Result.Fail(new ChargedFailedResultError());
+                return Result.Fail(ChargedFailed);
             }
         }
 

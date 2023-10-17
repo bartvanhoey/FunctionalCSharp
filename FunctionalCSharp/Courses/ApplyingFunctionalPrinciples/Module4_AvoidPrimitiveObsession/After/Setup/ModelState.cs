@@ -1,4 +1,4 @@
-using FunctionalCSharp.Functional.ResultClass;
+using Fupr.Functional.ResultClass.Errors;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup
 {
@@ -11,7 +11,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
             IsValid = false;
         }
 
-        public static void Init()
+        public static void SetIsValidToTrue()
         {
             IsValid = true;
         }

@@ -1,6 +1,7 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After.Errors;
-using FunctionalCSharp.Functional.ResultClass;
-using FunctionalCSharp.Functional.ValueObjectClass;
+﻿using Fupr.Functional.ResultClass;
+using Fupr.Functional.ValueObjectClass;
+using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
+using static Fupr.Functional.ResultClass.Result;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
@@ -11,8 +12,8 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
 
         public static Result<MoneyToCharge> Create(decimal moneyToCharge) =>
             moneyToCharge is <= 0 or > 1000
-                ? Result.Fail<MoneyToCharge>(new MoneyAmountIsInvalidResultError())
-                : Result.Ok(new MoneyToCharge(moneyToCharge));
+                ? Fail<MoneyToCharge>(MoneyAmountIsInvalid)
+                : Ok(new MoneyToCharge(moneyToCharge));
 
         protected override bool EqualsCore(MoneyToCharge other) => Value == other.Value;
 

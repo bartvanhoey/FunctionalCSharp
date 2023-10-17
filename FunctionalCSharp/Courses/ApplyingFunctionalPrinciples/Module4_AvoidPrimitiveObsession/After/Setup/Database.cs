@@ -1,4 +1,4 @@
-using FunctionalCSharp.Functional.MaybeClass;
+using Fupr.Functional.MaybeClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup
 {
@@ -7,15 +7,16 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         public void Save(Customer customer)
         {
             Console.WriteLine(
-                $"Saving customer {customer.CustomerName.Value} with email {customer.Email.Value} to database");
+                $"Saving customer {customer.Name} with email {customer.Email} to database");
         }
 
-        public Maybe<Customer> GetById(int id)
+        public Maybe<Customer?> GetById(int id)
         {
-            if (id == -1)
-                return Maybe<Customer>.None;
+            if (id == -1) return null;
 
-            var email = Email.CreateEmail("MyUserName@hotmail.com");
+            
+            
+            var email = Email.Create("MyUserName@hotmail.com");
             var customerName = CustomerName.Create("MyUserName");
 
             var customer = new Customer(customerName.Value, email.Value);

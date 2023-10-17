@@ -1,6 +1,7 @@
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After.Errors;
-using FunctionalCSharp.Functional.MaybeClass;
-using FunctionalCSharp.Functional.ResultClass;
+using Fupr.Functional.MaybeClass;
+using Fupr.Functional.ResultClass;
+using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
+using static Fupr.Functional.ResultClass.Result;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After
 {
@@ -31,9 +32,9 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAn
             }
             catch (Exception e)
             {
-                return Result.Fail(new UnableToConnectToDatabaseResultError());
+                return Fail(UnableToConnectToDatabase);
             }
-            return Result.Ok();
+            return Ok();
             
         }
     }

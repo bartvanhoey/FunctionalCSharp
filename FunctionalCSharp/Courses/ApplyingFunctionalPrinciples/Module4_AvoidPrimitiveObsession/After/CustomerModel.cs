@@ -8,7 +8,8 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
             Email = email;
         }
 
-        public string Name { get; }
-        public string Email { get; }
+        public string Name { get; set; }
+        
+        public string Email { get; set; }
     }
 }

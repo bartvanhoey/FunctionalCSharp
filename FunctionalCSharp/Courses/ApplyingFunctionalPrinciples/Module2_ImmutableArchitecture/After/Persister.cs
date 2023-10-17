@@ -17,11 +17,11 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_Immutabl
         {
             foreach (var action in fileActions)
             {
-                switch (action.ActionType)
+                switch (action.Type)
                 {
                     case ActionType.Create:
                     case ActionType.Update:
-                        WriteAllLines(action.FileName, action.Lines);
+                        WriteAllLines(action.FileName, action.Content);
                         continue;
                     case ActionType.Delete:
                         File.Delete(action.FileName);

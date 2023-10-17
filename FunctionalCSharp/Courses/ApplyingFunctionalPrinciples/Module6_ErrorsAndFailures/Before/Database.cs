@@ -1,6 +1,6 @@
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before
 {
-    public class Database : IDatabase
+    public class Database
     {
         public Customer? GetById(int customerId)
         {

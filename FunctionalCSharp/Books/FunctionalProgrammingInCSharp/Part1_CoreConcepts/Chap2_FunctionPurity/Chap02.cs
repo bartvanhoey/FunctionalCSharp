@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Orders;
+﻿using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Orders;
 using FunctionalCSharp.Extensions;
 using static System.Linq.Enumerable;
 

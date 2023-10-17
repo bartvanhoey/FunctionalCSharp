@@ -1,7 +1,3 @@
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland.
-    Validators;
-using FunctionalCSharp.Extensions;
 using LaYumba.Functional;
 using static LaYumba.Functional.F;
 

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.Functional.MaybeClass;
+using Fupr.Functional.MaybeClass;
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType
 {
