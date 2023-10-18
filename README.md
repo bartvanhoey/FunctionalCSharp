@@ -32,11 +32,35 @@ If the only tool you have is a hammer, every problem looks like a nail. - Abraha
 The more angles from which you can approach a problem, the more likely you are to find an optimal
 solution. - Alan Perlis
 
-### Taming Side effects
+### Taming Side Effects
+### Favoring Expressions over Statements
 
-### Emphasis expressions
+```csharp
+// Statement
+string  posOrNeg;
+if(value >0)
+{
+    posOrNeg = "positive";
+}
+else
+{
+    posOrNeg = "negative"
+}
+var message = $"{value} is {posOrNeg}"
 
-### Treating functions as data
+// Expression
+    
+var message = $"{value} is {(value > 0 ? "positive" : "negative")}";
+    
+```
+### Treating Functions as Data
+
+Functions are first-class citizens
+
+#### Higher-order functions (HOFs)
+
+HOFs are functions that take other functions as inputs,
+or return other functions as output, or both
 
 ## Honest vs Dishonest Functions
 
@@ -221,12 +245,6 @@ without changing the program's behavior, or Replace a function with its return v
 
 ## Referentially Opaque
 
-## Functions are first-class citizens
-
-## Higher-order functions (HOFs)
-
-HOFs are functions that take other functions as inputs,
-or return other functions as output, or both
 
 ## Parallelization
 
@@ -301,8 +319,11 @@ f: int -> string = Func<int, string>
 |()  -> ()           | Action | () => Console.WriteLine("Hello world")        |
 |(int,int) -> int | Func<int, int, int>       | (int i, int j) => i + j |
 
-IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
-(IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
+[//]: # (IEnumerable<T>, &#40;T -> bool&#41;&#41; -> IEnumerable<T> // Could be Enumerable.Where)
+
+[//]: # (&#40;IEnumerable<A>, IEnumerable<B>, &#40;&#40;A, B&#41; -> C&#41;&#41; -> IEnumerable<C> Could be Enumerable.Zip)
+
+
 
 ## Monads and Functors
 
@@ -502,3 +523,11 @@ arity.
 ### Zip
 
 Zip in FP is the operation of paring up the elements of two parallel lists into a single list.
+
+## Clean Code
+
+Keep functions small
+Don't repeat yourself
+Do one thing
+Avoid side-effects
+Functions should not accept more than 3 parameters
