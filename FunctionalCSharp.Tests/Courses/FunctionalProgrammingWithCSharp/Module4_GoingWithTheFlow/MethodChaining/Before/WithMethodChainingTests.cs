@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module4GoingWithTheFlow.MethodChaining.With;
 
-namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module4GoingWithTheFlow.MethodChaining.Before
+namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module4_GoingWithTheFlow.MethodChaining.Before
 {
     public class WithMethodChainingTests
     {

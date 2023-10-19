@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using static FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself.MySingleton;
 
-namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {
     public class MySingletonTests
     {

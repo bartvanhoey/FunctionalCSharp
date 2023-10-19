@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself;
 
-namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {
     public class EnforcingImmutabilityTests
     {

@@ -1,10 +1,10 @@
 ﻿using System.Net;
-using System.Xml.Linq;
 using FluentAssertions;
+using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself;
 using static System.Xml.Linq.XDocument;
 using static FunctionalCSharp.Extensions.UsingExtended;
 
-namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {
     public class UsingDisposableTests
     {
@@ -13,13 +13,7 @@ namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2
         [Fact]
         public async Task UsingTheOldWay_Should_Return_A_Correct_Value()
         {
-            XDocument xDocument;
-            using (var client = new HttpClient())
-            {
-                xDocument = Parse(await client.GetStringAsync(TravelApiUrl));
-            }
-
-            var totalPages = xDocument.Root?.Element("total_pages")?.Value;
+            var totalPages = await ConvertingStatementsToExpressions.GetTotalPages_NonFunctional();
             totalPages.Should().NotBeEmpty();
         }
 
@@ -27,11 +21,7 @@ namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2
         [Fact]
         public async Task Method_UsingAsync_Should_Return_A_Correct_Value()
         {
-            var totalPages = (await await UsingAsync(
-                    () => new HttpClient(),
-                    async client => Parse(await client.GetStringAsync(TravelApiUrl))))
-                .Root?.Element("total_pages")?.Value;
-
+            var totalPages = await ConvertingStatementsToExpressions.GetTotalPages_Functional();
             totalPages.Should().NotBeEmpty();
         }
 

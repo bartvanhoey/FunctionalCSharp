@@ -2,7 +2,7 @@
 using static FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module4GoingWithTheFlow.MethodChaining.Without.
     WithoutMethodChaining;
 
-namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module4GoingWithTheFlow.MethodChaining.Before
+namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module4_GoingWithTheFlow.MethodChaining.Before
 {
     public class WithoutMethodChainingTests
     {
