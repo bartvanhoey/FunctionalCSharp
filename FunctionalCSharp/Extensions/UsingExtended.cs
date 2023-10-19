@@ -2,11 +2,6 @@
 {
     public static class UsingExtended
     {
-       
-        
-        
-        
-        
         public static TResult Using<TDisposable, TResult>(Func<TDisposable> factory, Func<TDisposable, TResult> f)
             where TDisposable : IDisposable
         {
