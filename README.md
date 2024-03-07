@@ -9,8 +9,9 @@ Code on average is read 15-20 times more often than it's written.
 
 ## What is Functional Programming
 
-... a paradigm which concentrates on computing results
-rather than on performing actions
+Functional programming (FP) is a powerful paradigm that can help you make
+your code more concise, maintainable, expressive, robust, testable, and
+concurrency-friendly.
 
 ## Why Functional Programming
 
@@ -24,8 +25,6 @@ Complexity slows downs the development process or even introduces new bugs or ca
 Applying **Functional Programming Principles** helps reducing Code Complexity and results in more Predictable, Reliable and
 Maintainable and Testable code. 
 
-FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
-maintainable, more testable and concurrency-friendly.
 
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
 

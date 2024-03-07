@@ -88,11 +88,22 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         }
         
         [Fact]
-        public void CalculateVat_Should_Return_The_Correct_Value()
+        public void CalculateVat_Should_Return_The_Correct_Values()
         {
             var chap1 = new Chap1();
-            var result = chap1.CalculateVat(new Address("jp"), new Order(new Product("auto", 100, false), 5));
-            result.Should().Be(40);
+            var japanAddress = new Address("jp");
+            var germanAddress = new Address("de");
+            var auto = new Product("auto", 100, false);
+            var potato = new Product("potato", 10, true);
+            
+            var japanAutoResult = chap1.CalculateVat(japanAddress, new Order(auto, 5));
+            japanAutoResult.Should().Be(40);
+            
+            var germanAutoResult = chap1.CalculateVat(germanAddress, new Order(auto, 5));
+            germanAutoResult.Should().Be(100);
+            
+            var germanPotatoResult = chap1.CalculateVat(germanAddress, new Order(potato, 5));
+            germanPotatoResult.Should().Be(4);
         }
         
         

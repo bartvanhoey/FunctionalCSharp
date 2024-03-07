@@ -1,13 +1,13 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland.Validators;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Orders;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.Chap02;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Orders;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Chap03;
 
-namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity
+namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity
 {
-    public class Chap2Tests
+    public class Chap3Tests
     {
         private const string FunctionalProgrammingInCSharp = "2. Functional programming in c#"; 
         private const string CSharpForDummies = "1. C# for dummies";
@@ -16,10 +16,10 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         [Fact]
         public void Method_ComputeOrderTotal_Should_Calculate_Correct_Result()
         {
-            var chap2 = new Chap02();
+            var chap3 = new Chap03();
 
             var linesToDelete = new List<OrderLine>();
-            var result = chap2.ComputeOrderTotal(GetOrder(), linesToDelete);
+            var result = chap3.ComputeOrderTotal(GetOrder(), linesToDelete);
             
             result.Should().Be(30);
         }
@@ -27,9 +27,9 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         [Fact]
         public void Method_ComputeOrderTotalFunctional_Should_Calculate_Correct_Result()
         {
-            var chap2 = new Chap02();
+            var chap3 = new Chap03();
 
-            var result = chap2.ComputeOrderTotalFunctional(GetOrder());
+            var result = chap3.ComputeOrderTotalFunctional(GetOrder());
             
             result.total.Should().Be(30);
             result.linesToDelete.Count().Should().Be(1);

@@ -1,4 +1,4 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_FunctionPurity.BankOfCodeland.Validators
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators
 {
     
     // A function signature is an interface. BicExistsValidator depends on Func<IEnumerable<string>> getValidCodes

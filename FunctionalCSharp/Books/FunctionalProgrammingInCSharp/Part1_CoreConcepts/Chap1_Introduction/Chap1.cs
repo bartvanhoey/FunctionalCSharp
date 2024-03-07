@@ -1,4 +1,5 @@
-﻿using LaYumba.Functional;
+﻿using System.ComponentModel;
+using LaYumba.Functional;
 using static System.Enum;
 using static System.Linq.Enumerable;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.
@@ -83,7 +84,16 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
         }
 
 
-        public decimal CalculateVat(Address address, Order order) => Vat(RateByCountry(address.Country), order);
+        public decimal CalculateVat(Address address, Order order) =>
+            address switch
+            {
+                UsAddress(var state) => Vat(RateByState(state), order),
+                ("de") _ => DeVat(order),
+                (var country) _ => Vat(RateByCountry(country), order)
+            };
+
+        private static decimal DeVat(Order order) 
+            => order.NetPrice * (order.Product.IsFood ? 0.08m : 0.2m);
 
         private decimal Vat(decimal rate, Order order) => order.NetPrice * rate;
 
@@ -95,9 +105,20 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
                     "jp" => 0.08m,
                     _ => throw new ArgumentException($"missing rage for {country}")
                 };
+        
+        private static decimal RateByState(string state)
+            =>
+                state switch
+                {
+                    "ca" => 0.1m,
+                    "ma" => 0.0625m,
+                    "ny" => 0.085m,
+                    _ => throw new ArgumentException($"missing rage for {state}")
+                };
     }
 
     public record Address(string Country);
+    public record UsAddress(string State) : Address("us");
     public record Product(string Name, decimal Price, bool IsFood);
 
     public record Order(Product Product, int Quantity)
