@@ -1,4 +1,4 @@
-using FunctionalCSharp.Functional.ResultClass;
+using Fupr.Functional.ResultClass.Errors;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup
 {

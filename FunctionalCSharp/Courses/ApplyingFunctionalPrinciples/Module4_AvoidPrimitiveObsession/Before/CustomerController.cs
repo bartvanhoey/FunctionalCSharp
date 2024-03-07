@@ -1,7 +1,4 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup;
-using ActionResult = FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup.ActionResult;
-using Controller = FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup.Controller;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before
 {
@@ -15,7 +12,7 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         }
 
 
-        [Setup.HttpPost]
+        [HttpPost]
         public ActionResult CreateCustomer(CustomerModel customerModel)
         {
             ModelState.SetIsValidToTrue();

@@ -1,4 +1,4 @@
-﻿namespace ApplyFuPrinciples.Immutability.Before
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.Before
 {
     public class AuditManagerBeforeRefactoring
     {

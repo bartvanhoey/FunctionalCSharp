@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionSignaturesAndTypes.ValueObjects;
-using FunctionalCSharp.Extensions;
 using LaYumba.Functional;
 using static System.Console;
 using static System.Diagnostics.Stopwatch;

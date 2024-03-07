@@ -27,9 +27,6 @@ Maintainable and Testable code.
 FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
 maintainable, more testable and concurrency-friendly.
 
-A functional library in C# consists mainly of static method
-
-
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
 
 The more angles from which you can approach a problem, the more likely you are to find an optimal
@@ -62,6 +59,21 @@ In FP, you write a lot of simple functions, many of them one-liners
 
 
 ### Taming Side effects
+### Taming Side Effects
+### Favoring Expressions over Statements
+
+```csharp
+// Statement
+string  posOrNeg;
+if(value >0)
+{
+    posOrNeg = "positive";
+}
+else
+{
+    posOrNeg = "negative"
+}
+var message = $"{value} is {posOrNeg}"
 
 ### Emphasis expressions
 
@@ -112,6 +124,7 @@ Side effects : Mutates global state/Mutates its input arguments/throws exception
 A function should never mutate its input arguments. (you can use immutable objects)
 
 ## Command-Query Separation Principle
+
 
 * A **command** is a method that **performs an action but does not return a value**. Has Side effects.
 * A **query** is a method that **returns a value but does not perform an action**. Has no Side effects.
@@ -478,8 +491,7 @@ them. [Fody NullGuard]
 ## Smart constructors
 
 Is a function that takes a primitive type as input and returns Some or None to indicate the successful creation of a
-custom type. 
-By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
+custom type. By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
 created with valid data.
 
 ## Option type
@@ -531,3 +543,11 @@ arity.
 ### Zip
 
 Zip in FP is the operation of paring up the elements of two parallel lists into a single list.
+
+## Clean Code
+
+Keep functions small
+Don't repeat yourself
+Do one thing
+Avoid side-effects
+Functions should not accept more than 3 parameters

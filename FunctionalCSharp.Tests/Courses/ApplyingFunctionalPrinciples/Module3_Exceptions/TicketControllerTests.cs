@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After;
+
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions
 {

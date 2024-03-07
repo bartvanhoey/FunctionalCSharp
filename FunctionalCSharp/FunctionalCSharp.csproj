@@ -9,11 +9,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dapper" Version="2.0.123" />
-        <PackageReference Include="FluentAssertions" Version="6.7.0" />
-        <PackageReference Include="FluentNHibernate" Version="3.1.0" />
-        <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+        <PackageReference Include="Dapper" Version="2.1.11" />
+        <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.2" />
+        <PackageReference Include="FluentNHibernate" Version="3.3.0" />
+        <PackageReference Include="Fupr" Version="1.0.4-preview29" />
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0-preview3.23201.1" />
 
     </ItemGroup>
 
@@ -32,7 +33,7 @@
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_FunctionalDesigns\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module1_Introduction\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module2_ImmutableArchitecture\" />
-      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1WhatIsFunctionalProgramming\" />
+      <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1_WhatIsFunctionalProgramming\" />
     </ItemGroup>
 
     <ItemGroup>

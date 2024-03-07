@@ -8,8 +8,8 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         public string Email { get; private set; }
         public Customer(string name, string email)
         {
-            ChangeName(name);
-            ChangeEmail(email);
+            Name = name;
+            Email = email;
         }
 
         public void ChangeName(string name)

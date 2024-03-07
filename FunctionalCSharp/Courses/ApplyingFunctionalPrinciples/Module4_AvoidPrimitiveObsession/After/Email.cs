@@ -1,32 +1,35 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_Exceptions.After.Errors.Email;
+﻿using System.Text.RegularExpressions;
 using FunctionalCSharp.Extensions;
-using FunctionalCSharp.Functional.ResultClass;
-using FunctionalCSharp.Functional.ValueObjectClass;
-using static System.String;
+using Fupr.Functional.ResultClass;
+using Fupr.Functional.ValueObjectClass;
+using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.ResultErrors.Factory.ResultErrorFactory;
+using static Fupr.Functional.ResultClass.Result;
+
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After
 {
     public class Email : ValueObject<Email>
     {
+        private string Value { get; }
+
         private Email(string value) => Value = value;
 
-        public string Value { get; }
-
-        public static Result<Email> CreateEmail(string? email)
+        public static Result<Email> Create(string email)
         {
-            if (IsNullOrWhiteSpace(email)) return Result.Fail<Email>(new EmailEmptyResultError());
-
+            if (email.IsNullOrWhiteSpace()) return Fail<Email>(EmailEmpty);
             email = email.Trim();
-            if (email.Length > 256) return Result.Fail<Email>(new EmailTooLongResultError());
-
-            return email.IsValidEmailAddress()
-                ? Result.Ok(new Email(email))
-                : Result.Fail<Email>(new EmailInvalidResultError());
+            if (email.Length>256) return Fail<Email>(EmailTooLong);
+            return Regex.IsMatch(email, @"^(.+)@(.+)$") ?  Ok(new Email(email)) : Fail<Email>(EmailInvalid);
         }
 
         protected override bool EqualsCore(Email other) => Value == other.Value;
+
         protected override int GetHashCodeCore() => Value.GetHashCode();
-        public static explicit operator Email(string email) => CreateEmail(email).Value;
+        
+        public static explicit operator Email(string email) => Create(email).Value;
+
         public static implicit operator string(Email email) => email.Value;
+        
+        
     }
 }

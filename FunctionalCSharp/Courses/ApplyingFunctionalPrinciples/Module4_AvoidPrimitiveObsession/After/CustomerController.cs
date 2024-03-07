@@ -15,19 +15,18 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         [HttpPost]
         public ActionResult CreateCustomer(CustomerModel customerModel)
         {
-            ModelState.Init();
-            var customerName = CustomerName.Create(customerModel.Name);
-            var email = Email.CreateEmail(customerModel.Email);
+            ModelState.SetIsValidToTrue();
 
-            if (customerName.IsFailure) ModelState.AddModelError("Name", customerName.Error);
+            var customerNameResult = CustomerName.Create(customerModel.Name);
+            var emailResult = Email.Create(customerModel.Email);
+            
+            if (customerNameResult.IsFailure) ModelState.AddModelError("Name", customerNameResult.Error);
+            if (emailResult.IsFailure) ModelState.AddModelError("Name", emailResult.Error);
 
-            if (email.IsFailure) ModelState.AddModelError("Email", email.Error);
+            if (!ModelState.IsValid) return View("ErrorPage", "");
 
-            if (!ModelState.IsValid)
-                return View("error", "invalid customer model");
-
-            var customer = new Customer(customerName.Value, email.Value);
-            _database.Save(customer);
+            var customer = new Customer(customerNameResult.Value, emailResult.Value);
+           _database.Save(customer);
 
             return RedirectToAction("Index");
         }
@@ -35,15 +34,12 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPri
         [HttpGet]
         public ActionResult Index(int id)
         {
-            var customer = _database.GetById(id);
-            return customer.HasNoValue ? HttpNotFound() : View(customer.Value.CustomerName);
-        }
-
-        private ActionResult RedirectToAction(string redirectTo)
-        {
-            return new(redirectTo);
+            return id switch
+            {
+                1 => View("MyUserName"),
+                -1 => View("NotFound"),
+                _ => View()
+            };
         }
     }
-
-  
 }

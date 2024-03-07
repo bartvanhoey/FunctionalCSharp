@@ -1,6 +1,6 @@
 using LaYumba.Functional;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling
 {
     public static class MyEitherExtensions
     {

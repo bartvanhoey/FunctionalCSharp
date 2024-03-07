@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using NHibernate.SqlCommand;
-using static System.Console;
-using static System.Diagnostics.Debug;
-using static FunctionalCSharp.Courses.BeginningFunctionalProgramming.FunctionExtensions;
+﻿using static FunctionalCSharp.Courses.BeginningFunctionalProgramming.FunctionExtensions;
 
 namespace FunctionalCSharp.Courses.BeginningFunctionalProgramming
 {
