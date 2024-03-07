@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.Chap1;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction
 {
@@ -31,11 +32,29 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         }
         
         [Fact]
+        public void ExtensionMethodAsPairShouldReturnCorrectValues()
+        {
+            var (baseCurrency, quoteCurrency) = "EURUSD".AsPair();
+            baseCurrency.Should().Be("EUR");
+            quoteCurrency.Should().Be("USD");
+        }
+        
+        [Fact]
         public void Method_GetNamesOfDaysStartWithS_Should_Return_Correct_Items()
         {
             var chap1 = new Chap1();
+            // var result = chap1.GetNamesOfDaysStartWithS();
             var result = chap1.GetNamesOfDaysStartWithS();
             result.Should().BeEquivalentTo("Sunday", "Saturday");
+        }
+        
+        [Fact]
+        public void Method_GetEvensAndOdds_Should_Return_Correct_Items()
+        {
+            var chap1 = new Chap1();
+            var (even, odd) = chap1.GetEvensAndOdds();
+            even.Should().ContainInOrder(0, 2, 4, 6, 8);
+            odd.Should().ContainInOrder(1, 3, 5, 7, 9);
         }
         
         [Fact]

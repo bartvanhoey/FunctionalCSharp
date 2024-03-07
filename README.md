@@ -27,10 +27,39 @@ Maintainable and Testable code.
 FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
 maintainable, more testable and concurrency-friendly.
 
+A functional library in C# consists mainly of static method
+
+
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
 
 The more angles from which you can approach a problem, the more likely you are to find an optimal
 solution. - Alan Perlis
+
+
+### Importing Static Members with the Using static Directive
+
+```csharp
+    using static System.Math;
+
+    public double Circumference => PI * 2 * Radius;
+```
+
+### More Concise Functions with Expression-Bodied Members 
+
+In FP, you write a lot of simple functions, many of them one-liners
+
+```csharp
+    public double Circumference => PI * 2 * Radius;
+```
+
+### Language Support for tuples
+```csharp
+    public static (string BaseCurrency, string QuoteCurrency) AsPair(this string currencyPair) 
+        => currencyPair.SplitAt(3);
+
+```
+
+
 
 ### Taming Side effects
 
@@ -83,7 +112,6 @@ Side effects : Mutates global state/Mutates its input arguments/throws exception
 A function should never mutate its input arguments. (you can use immutable objects)
 
 ## Command-Query Separation Principle
-
 
 * A **command** is a method that **performs an action but does not return a value**. Has Side effects.
 * A **query** is a method that **returns a value but does not perform an action**. Has no Side effects.
@@ -450,7 +478,8 @@ them. [Fody NullGuard]
 ## Smart constructors
 
 Is a function that takes a primitive type as input and returns Some or None to indicate the successful creation of a
-custom type. By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
+custom type. 
+By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
 created with valid data.
 
 ## Option type

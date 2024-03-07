@@ -1,4 +1,5 @@
 ﻿
+using LaYumba.Functional;
 using static System.Enum;
 using static System.Linq.Enumerable;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.Chap1HigherOrderFunctions;
@@ -10,8 +11,8 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
         // Functions are first-class values
         public IEnumerable<int> GetNumbersMultipliedByThree()
         {
-            Func<int, int> multiplyInputByThree = x => x * 3;
-            return Range(1, 10).Select(multiplyInputByThree).ToList();
+            int MultiplyInputByThree(int x) => x * 3;
+            return Range(1, 10).Select(MultiplyInputByThree).ToList();
         }
 
         public IEnumerable<int> GetNumbersMultipliedByThreeWithLocalFunction()
@@ -30,6 +31,13 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             var filtered = original.Where(IsOdd).ToList();
 
             return original;
+        }
+
+        public static (string, string) SplitAtTupleExample()
+        {
+            var currencyPair = "EURUSD";
+            var (baseCurr, quoteCurr) = currencyPair.SplitAt(3);
+            return (baseCurr, quoteCurr);
         }
 
 
@@ -67,31 +75,13 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             var divideByWithSwappedArgs = DivideBy.SwapArgs();
             return divideByWithSwappedArgs(2, 10);
         }
-    }
 
-    public static class Chap1HigherOrderFunctions
-    {
-        public static Func<T2, T1, TR> SwapArgs<T2, T1, TR>(this Func<T1, T2, TR> func)
-            => (t2, t1) => func(t1, t2); // return same function (new function) with the arguments swapped
-
-        public static readonly Func<int, int, int> DivideBy = (x, y) => x / y;
-
-        // HOF that takes a function xIsTrueOrFalse as input (callback or continuation) 
-        public static IEnumerable<T> MyWhereFunctional<T>(this IEnumerable<T> sequence, Func<T, bool> xIsTrueOrFalse)
-            => sequence.Where(xIsTrueOrFalse);
-
-        public static IEnumerable<T> MyWhere<T>(this IEnumerable<T> sequence, Func<T, bool> xIsTrueOrFalse)
+        public (IEnumerable<int> Even, IEnumerable<int> Odd) GetEvensAndOdds()
         {
-            foreach (var t in sequence)
-            {
-                if (xIsTrueOrFalse(t))
-                {
-                    yield return t;
-                }
-            }
+            var nums = Enumerable.Range(0, 10);
+            return nums.Partition(i => i % 2 == 0);
         }
-
-        public static int MultiplyByThree(int x) => x * 3;
-        public static bool IsOdd(int x) => x % 2 == 1;
+        
+        
     }
 }
