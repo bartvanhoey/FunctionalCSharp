@@ -1,17 +1,20 @@
 ﻿using LaYumba.Functional;
 using static LaYumba.Functional.F;
-using System;
 
-namespace Exercises.Chapter8
+namespace LaYumba.Exercises.Chapter08
 {
-   static class Exercises
+   static class Chap08Exercises
    {
       // 1. Write a `ToOption` extension method to convert an `Either` into an
       // `Option`. Then write a `ToEither` method to convert an `Option` into an
       // `Either`, with a suitable parameter that can be invoked to obtain the
       // appropriate `Left` value, if the `Option` is `None`. (Tip: start by writing
       // the function signatures in arrow notation)
-      
+
+      static Option<R> MyToOption<L, R>(this Either<L, R> @this) 
+         => @this.Match(_ => None, Some);
+
+
       // 2. Take a workflow where 2 or more functions that return an `Option`
       // are chained using `Bind`.
 

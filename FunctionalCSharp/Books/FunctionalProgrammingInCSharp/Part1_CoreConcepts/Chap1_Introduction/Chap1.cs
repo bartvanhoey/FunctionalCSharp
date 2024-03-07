@@ -1,7 +1,9 @@
-﻿
+﻿using System.ComponentModel;
+using LaYumba.Functional;
 using static System.Enum;
 using static System.Linq.Enumerable;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.Chap1HigherOrderFunctions;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.
+    Chap1HigherOrderFunctions;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction
 {
@@ -10,8 +12,8 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
         // Functions are first-class values
         public IEnumerable<int> GetNumbersMultipliedByThree()
         {
-            Func<int, int> multiplyInputByThree = x => x * 3;
-            return Range(1, 10).Select(multiplyInputByThree).ToList();
+            int MultiplyInputByThree(int x) => x * 3;
+            return Range(1, 10).Select(MultiplyInputByThree).ToList();
         }
 
         public IEnumerable<int> GetNumbersMultipliedByThreeWithLocalFunction()
@@ -24,12 +26,19 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             // Func<int, bool> isOdd = x => x % 2 == 1;
             // bool IsOdd(int x) => x % 2 == 1; local function 
 
-            int[] original = {7, 6, 1};
+            int[] original = { 7, 6, 1 };
 
             var sorted = original.OrderBy(x => x).ToList();
             var filtered = original.Where(IsOdd).ToList();
 
             return original;
+        }
+
+        public static (string, string) SplitAtTupleExample()
+        {
+            var currencyPair = "EURUSD";
+            var (baseCurr, quoteCurr) = currencyPair.SplitAt(3);
+            return (baseCurr, quoteCurr);
         }
 
 
@@ -60,38 +69,62 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             // Func<int, int, int> divideBy = (x, y) => x / y;
             return DivideBy(10, 2);
         }
-        
+
         public int DivideSwappedArgs()
         {
             // Func<int, int, int> divideBy = (x, y) => x / y;
             var divideByWithSwappedArgs = DivideBy.SwapArgs();
             return divideByWithSwappedArgs(2, 10);
         }
-    }
 
-    public static class Chap1HigherOrderFunctions
-    {
-        public static Func<T2, T1, TR> SwapArgs<T2, T1, TR>(this Func<T1, T2, TR> func)
-            => (t2, t1) => func(t1, t2); // return same function (new function) with the arguments swapped
-
-        public static readonly Func<int, int, int> DivideBy = (x, y) => x / y;
-
-        // HOF that takes a function xIsTrueOrFalse as input (callback or continuation) 
-        public static IEnumerable<T> MyWhereFunctional<T>(this IEnumerable<T> sequence, Func<T, bool> xIsTrueOrFalse)
-            => sequence.Where(xIsTrueOrFalse);
-
-        public static IEnumerable<T> MyWhere<T>(this IEnumerable<T> sequence, Func<T, bool> xIsTrueOrFalse)
+        public (IEnumerable<int> Even, IEnumerable<int> Odd) GetEvensAndOdds()
         {
-            foreach (var t in sequence)
-            {
-                if (xIsTrueOrFalse(t))
-                {
-                    yield return t;
-                }
-            }
+            var nums = Enumerable.Range(0, 10);
+            return nums.Partition(i => i % 2 == 0);
         }
 
-        public static int MultiplyByThree(int x) => x * 3;
-        public static bool IsOdd(int x) => x % 2 == 1;
+
+        public decimal CalculateVat(Address address, Order order) =>
+            address switch
+            {
+                UsAddress(var state) => Vat(RateByState(state), order),
+                ("de") _ => DeVat(order),
+                (var country) _ => Vat(RateByCountry(country), order)
+            };
+
+        private static decimal DeVat(Order order) 
+            => order.NetPrice * (order.Product.IsFood ? 0.08m : 0.2m);
+
+        private decimal Vat(decimal rate, Order order) => order.NetPrice * rate;
+
+        private static decimal RateByCountry(string country)
+            =>
+                country switch
+                {
+                    "it" => 0.22m,
+                    "jp" => 0.08m,
+                    _ => throw new ArgumentException($"missing rage for {country}")
+                };
+        
+        private static decimal RateByState(string state)
+            =>
+                state switch
+                {
+                    "ca" => 0.1m,
+                    "ma" => 0.0625m,
+                    "ny" => 0.085m,
+                    _ => throw new ArgumentException($"missing rage for {state}")
+                };
     }
+
+    public record Address(string Country);
+    public record UsAddress(string State) : Address("us");
+    public record Product(string Name, decimal Price, bool IsFood);
+
+    public record Order(Product Product, int Quantity)
+    {
+        public decimal NetPrice => Product.Price * Quantity;
+    }
+
+
 }

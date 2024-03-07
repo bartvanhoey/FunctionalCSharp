@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FluentAssertions;
 using NUnit.Framework;
 
 namespace Exercises.Chapter2
@@ -17,12 +15,13 @@ namespace Exercises.Chapter2
             Func<int, bool> isEven = x => x % 2 == 0;
             
             var isEvenResult = isEven(10);
-            Assert.IsTrue(isEvenResult);
+            isEvenResult.Should().BeTrue();
+            
 
             var myNegate = isEven.MyNegate();
             
             var isNegateResult = myNegate(10);
-            Assert.IsFalse(isNegateResult);
+            isNegateResult.Should().BeFalse();
         }
 
 

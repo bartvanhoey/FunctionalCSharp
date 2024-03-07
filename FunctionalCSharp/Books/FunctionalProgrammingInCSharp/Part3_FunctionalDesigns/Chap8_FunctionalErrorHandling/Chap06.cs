@@ -1,10 +1,10 @@
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling.Models;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Models;
 using LaYumba.Functional;
 using static System.Math;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling
 {
-    public class Chap06
+    public class Chap08
     {
         // Recruit Candidate Option Style
         public Option<Candidate> Recruit(Candidate candidate) 

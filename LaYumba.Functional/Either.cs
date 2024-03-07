@@ -1,4 +1,6 @@
-﻿using Unit = System.ValueTuple;
+﻿using System;
+using System.Collections.Generic;
+using Unit = System.ValueTuple;
 
 namespace LaYumba.Functional
 {
@@ -18,23 +20,25 @@ namespace LaYumba.Functional
       private bool IsRight { get; }
       private bool IsLeft => !IsRight;
 
-      private Either(L left)
+      internal Either(L left)
          => (IsRight, Left, Right)
          = (false, left ?? throw new ArgumentNullException(nameof(left)), default);
 
-      private Either(R right)
+      internal Either(R right)
          => (IsRight, Left, Right)
          = (true, default, right ?? throw new ArgumentNullException(nameof(right)));
 
-      public static implicit operator Either<L, R>(L left) => new(left);
-      public static implicit operator Either<L, R>(R right) => new(right);
-      public static implicit operator Either<L, R>(Either.Left<L> left) => new(left.Value);
-      public static implicit operator Either<L, R>(Either.Right<R> right) => new(right.Value);
+      public static implicit operator Either<L, R>(L left) => new Either<L, R>(left);
+      public static implicit operator Either<L, R>(R right) => new Either<L, R>(right);
 
-      public Tr Match<Tr>(Func<L, Tr> left, Func<R, Tr> right) 
-         => IsLeft ? left(Left!) : right(Right!);
+      public static implicit operator Either<L, R>(Either.Left<L> left) => new Either<L, R>(left.Value);
+      public static implicit operator Either<L, R>(Either.Right<R> right) => new Either<L, R>(right.Value);
 
-      public Unit Match(Action<L> left, Action<R> right) => Match(left.ToFunc(), right.ToFunc());
+      public TR Match<TR>(Func<L, TR> Left, Func<R, TR> Right)
+         => IsLeft ? Left(this.Left!) : Right(this.Right!);
+
+      public Unit Match(Action<L> Left, Action<R> Right)
+         => Match(Left.ToFunc(), Right.ToFunc());
 
       public IEnumerator<R> AsEnumerable()
       {
@@ -61,8 +65,8 @@ namespace LaYumba.Functional
 
          public override string ToString() => $"Right({Value})";
 
-         public Right<Rr> Map<L, Rr>(Func<R, Rr> f) => Right(f(Value));
-         public Either<L, Rr> Bind<L, Rr>(Func<R, Either<L, Rr>> f) => f(Value);
+         public Right<RR> Map<L, RR>(Func<R, RR> f) => Right(f(Value));
+         public Either<L, RR> Bind<L, RR>(Func<R, Either<L, RR>> f) => f(Value);
       }
    }
 
@@ -74,14 +78,16 @@ namespace LaYumba.Functional
             l => Left(l),
             r => Right(f(r)));
 
-      public static Either<Ll, Rr> Map<L, Ll, R, Rr>(this Either<L, R> @this, Func<L, Ll> left, Func<R, Rr> right)
-         => @this.Match<Either<Ll, Rr>>
+      public static Either<LL, RR> Map<L, LL, R, RR>
+         (this Either<L, R> @this, Func<L, LL> Left, Func<R, RR> Right)
+         => @this.Match<Either<LL, RR>>
             (
-               l => F.Left(left(l)),
-               r => F.Right(right(r))
+               l => F.Left(Left(l)),
+               r => F.Right(Right(r))
             );
 
-      public static Either<L, Unit> ForEach<L, R>(this Either<L, R> @this, Action<R> act)
+      public static Either<L, Unit> ForEach<L, R>
+         (this Either<L, R> @this, Action<R> act)
          => Map(@this, act.ToFunc());
 
       public static Either<L, RR> Bind<L, R, RR>
@@ -92,18 +98,18 @@ namespace LaYumba.Functional
 
       // Applicative
 
-      public static Either<L, Rr> Apply<L, R, Rr>
+      public static Either<L, RR> Apply<L, R, RR>
       (
-         this Either<L, Func<R, Rr>> @this,
+         this Either<L, Func<R, RR>> @this,
          Either<L, R> valT
       )
       => @this.Match
       (
-         left: (errF) => Left(errF),
-         right: (f) => valT.Match<Either<L, Rr>>
+         Left: (errF) => Left(errF),
+         Right: (f) => valT.Match<Either<L, RR>>
          (
-            right: (t) => Right(f(t)),
-            left: (err) => Left(err)
+            Right: (t) => Right(f(t)),
+            Left: (err) => Left(err)
          )
       );
 
@@ -149,19 +155,19 @@ namespace LaYumba.Functional
       )
       => @this.Map(f);
 
-      public static Either<L, Rr> SelectMany<L, T, R, Rr>
+      public static Either<L, RR> SelectMany<L, T, R, RR>
       (
          this Either<L, T> @this,
          Func<T, Either<L, R>> bind,
-         Func<T, R, Rr> project
+         Func<T, R, RR> project
       )
       => @this.Match
       (
-         left: l => Left(l),
-         right: t => bind(t).Match<Either<L, Rr>>
+         Left: l => Left(l),
+         Right: t => bind(t).Match<Either<L, RR>>
          (
-            left: l => Left(l),
-            right: r => project(t, r)
+            Left: l => Left(l),
+            Right: r => project(t, r)
          )
       );
    }

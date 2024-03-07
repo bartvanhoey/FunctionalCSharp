@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before;
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures
 {

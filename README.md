@@ -9,8 +9,9 @@ Code on average is read 15-20 times more often than it's written.
 
 ## What is Functional Programming
 
-... a paradigm which concentrates on computing results
-rather than on performing actions
+Functional programming (FP) is a powerful paradigm that can help you make
+your code more concise, maintainable, expressive, robust, testable, and
+concurrency-friendly.
 
 ## Why Functional Programming
 
@@ -24,15 +25,58 @@ Complexity slows downs the development process or even introduces new bugs or ca
 Applying **Functional Programming Principles** helps reducing Code Complexity and results in more Predictable, Reliable and
 Maintainable and Testable code. 
 
-FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
-maintainable, more testable and concurrency-friendly.
 
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
 
 The more angles from which you can approach a problem, the more likely you are to find an optimal
 solution. - Alan Perlis
 
+
+## C# Functional
+
+### LINQ
+
+### Importing Static Members with the Using static Directive
+
+```csharp
+    using static System.Math;
+
+    public double Circumference => PI * 2 * Radius;
+```
+
+### More Concise Functions with Expression-Bodied Members 
+
+In FP, you write a lot of simple functions, many of them one-liners
+
+```csharp
+    public double Circumference => PI * 2 * Radius;
+```
+
+### Language Support for tuples
+```csharp
+    public static (string BaseCurrency, string QuoteCurrency) AsPair(this string currencyPair) 
+        => currencyPair.SplitAt(3);
+
+```
+
+
+
 ### Taming Side effects
+### Taming Side Effects
+### Favoring Expressions over Statements
+
+```csharp
+// Statement
+string  posOrNeg;
+if(value >0)
+{
+    posOrNeg = "positive";
+}
+else
+{
+    posOrNeg = "negative"
+}
+var message = $"{value} is {posOrNeg}"
 
 ### Emphasis expressions
 
@@ -71,6 +115,8 @@ Inability to change data after it has been created. Once created, an immutable o
 ## State
 
 Data that changes over time. An immutable class doesn't have any state.
+
+## (Taming) Side effects  => Functional Purity
 
 ## Purity/Pure functions // mathematical functions
 
@@ -500,3 +546,11 @@ arity.
 ### Zip
 
 Zip in FP is the operation of paring up the elements of two parallel lists into a single list.
+
+## Clean Code
+
+Keep functions small
+Don't repeat yourself
+Do one thing
+Avoid side-effects
+Functions should not accept more than 3 parameters
