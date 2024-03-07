@@ -1,8 +1,8 @@
-﻿
-using LaYumba.Functional;
+﻿using LaYumba.Functional;
 using static System.Enum;
 using static System.Linq.Enumerable;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.Chap1HigherOrderFunctions;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.
+    Chap1HigherOrderFunctions;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction
 {
@@ -25,7 +25,7 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             // Func<int, bool> isOdd = x => x % 2 == 1;
             // bool IsOdd(int x) => x % 2 == 1; local function 
 
-            int[] original = {7, 6, 1};
+            int[] original = { 7, 6, 1 };
 
             var sorted = original.OrderBy(x => x).ToList();
             var filtered = original.Where(IsOdd).ToList();
@@ -68,7 +68,7 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             // Func<int, int, int> divideBy = (x, y) => x / y;
             return DivideBy(10, 2);
         }
-        
+
         public int DivideSwappedArgs()
         {
             // Func<int, int, int> divideBy = (x, y) => x / y;
@@ -81,7 +81,29 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             var nums = Enumerable.Range(0, 10);
             return nums.Partition(i => i % 2 == 0);
         }
-        
-        
+
+
+        public decimal CalculateVat(Address address, Order order) => Vat(RateByCountry(address.Country), order);
+
+        private decimal Vat(decimal rate, Order order) => order.NetPrice * rate;
+
+        private static decimal RateByCountry(string country)
+            =>
+                country switch
+                {
+                    "it" => 0.22m,
+                    "jp" => 0.08m,
+                    _ => throw new ArgumentException($"missing rage for {country}")
+                };
     }
+
+    public record Address(string Country);
+    public record Product(string Name, decimal Price, bool IsFood);
+
+    public record Order(Product Product, int Quantity)
+    {
+        public decimal NetPrice => Product.Price * Quantity;
+    }
+
+
 }

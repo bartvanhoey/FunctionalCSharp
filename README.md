@@ -33,6 +33,10 @@ The more angles from which you can approach a problem, the more likely you are t
 solution. - Alan Perlis
 
 
+## C# Functional
+
+### LINQ
+
 ### Importing Static Members with the Using static Directive
 
 ```csharp

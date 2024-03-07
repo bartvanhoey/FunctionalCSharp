@@ -10,11 +10,12 @@
 
     <ItemGroup>
         <PackageReference Include="Dapper" Version="2.1.35" />
-        <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.2" />
+        <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" />
         <PackageReference Include="FluentNHibernate" Version="3.3.0" />
         <PackageReference Include="Fupr" Version="1.0.4-preview29" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
         <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+        <PackageReference Include="xunit" Version="2.7.0" />
 
     </ItemGroup>
 
