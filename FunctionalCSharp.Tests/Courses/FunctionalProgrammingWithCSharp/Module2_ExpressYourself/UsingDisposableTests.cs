@@ -1,10 +1,4 @@
-﻿using System.Net;
-using FluentAssertions;
-using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
-using static System.Xml.Linq.XDocument;
-using static FunctionalCSharp.Extensions.UsingExtended;
-
-namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
+﻿namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {
 
 
@@ -12,7 +6,7 @@ namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2
     
     public class UsingDisposableTests
     {
-        private const string JsonPlaceholderPhotos = @"https://jsonplaceholder.typicode.com/photos";
+        // private const string JsonPlaceholderPhotos = @"https://jsonplaceholder.typicode.com/photos";
 
         // [Fact]
         // public async Task UsingTheOldWay_Should_Return_A_Correct_Value()
@@ -57,7 +51,7 @@ namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2
         // }
 
 
-        private static string? GetTotalPages(WebClient client)
-            => Parse(client.DownloadString(JsonPlaceholderPhotos)).Root?.Element("total_pages")?.Value;
+        // private static string? GetTotalPages(WebClient client)
+        //     => Parse(client.DownloadString(JsonPlaceholderPhotos)).Root?.Element("total_pages")?.Value;
     }
 }

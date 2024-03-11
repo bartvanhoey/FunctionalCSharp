@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using static System.Linq.Enumerable;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.Functions.FunctionFactories.FunctionFactory;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_ThinkingInFunctions.Functions.FunctionFactories.FunctionFactory;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.Functions.FunctionFactories
 {
