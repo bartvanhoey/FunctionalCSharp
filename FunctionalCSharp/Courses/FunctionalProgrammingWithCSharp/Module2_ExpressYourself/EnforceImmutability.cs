@@ -1,4 +1,4 @@
-﻿namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+﻿namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {
     public class DateRange
     {

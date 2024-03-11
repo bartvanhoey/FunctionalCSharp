@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself;
+using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
 
 namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using static FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself.MySingleton;
+using static FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself.MySingleton;
 
 namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
 {

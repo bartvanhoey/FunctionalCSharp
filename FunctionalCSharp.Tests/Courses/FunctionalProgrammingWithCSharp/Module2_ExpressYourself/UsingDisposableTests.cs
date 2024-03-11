@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using FluentAssertions;
-using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself;
+using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
 using static System.Xml.Linq.XDocument;
 using static FunctionalCSharp.Extensions.UsingExtended;
 
