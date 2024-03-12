@@ -1,32 +1,11 @@
-﻿using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Orders;
-using FunctionalCSharp.Extensions;
+﻿using FunctionalCSharp.Extensions;
 using static System.Linq.Enumerable;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity
 {
-    // Try always structuring your code in a way that functions never mutate their input arguments.
-    // It would be ideal to enforce this by always using immutable types for input arguments.
-    public class Chap03
+   
+    public static class Chap03AvoidingStateMutation
     {
-        
-
-
-        // the method below has a side effect as it changes the linesToDelete argument
-        public decimal ComputeOrderTotal(Order order, List<OrderLine> linesToDelete)
-        {
-            var result = 0m;
-            foreach (var line in order.OrderLines)
-                if (line.Quantity == 0) linesToDelete.Add(line);
-                else
-                    result += line.Product.Price * line.Quantity;
-            return result;
-        }
-
-        // Same method as above but without side effects
-        public (decimal total, IEnumerable<OrderLine> linesToDelete) ComputeOrderTotalFunctional(Order order) =>
-            (order.OrderLines.Sum(l => l.Product.Price * l.Quantity), order.OrderLines.Where(l => l.Quantity == 0));
-
-
         // Pure functions can be run in parallel
         // The AsParallel() method is an extension method on IEnumerable<T> that allows you to run a query in parallel.
         // You need to explicitly specify that you want to run the query in parallel by calling AsParallel()
@@ -38,7 +17,6 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
         public static IEnumerable<string> ZipInEnglish(IEnumerable<int> ints, IEnumerable<string> strings) 
             => ints.Zip(strings, (number, name) => $"In English, {number} is: {name}");
         
-        
         public static List<string> FormatList(List<string> list)
         {
             var left = list.Select(x => x.CapitalizeFirstCharacterRestLowerCase());
@@ -46,7 +24,6 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
             var zipped = left.Zip(right, (s, i) => $"{i}. {s}"); 
             return zipped.ToList();
         }
-        
         
         public static List<string> FormatListFunctional(List<string> list) 
             => list

@@ -3,7 +3,7 @@ using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Ch
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Orders;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Chap03;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Chap03AvoidingStateMutation;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity
 {
@@ -13,27 +13,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         private const string CSharpForDummies = "1. C# for dummies";
         private const string ApplyingFunctionalPrinciples = "3. Applying functional principles";
 
-        [Fact]
-        public void Method_ComputeOrderTotal_Should_Calculate_Correct_Result()
-        {
-            var chap3 = new Chap03();
 
-            var linesToDelete = new List<OrderLine>();
-            var result = chap3.ComputeOrderTotal(GetOrder(), linesToDelete);
-            
-            result.Should().Be(30);
-        }
-        
-        [Fact]
-        public void Method_ComputeOrderTotalFunctional_Should_Calculate_Correct_Result()
-        {
-            var chap3 = new Chap03();
-
-            var result = chap3.ComputeOrderTotalFunctional(GetOrder());
-            
-            result.total.Should().Be(30);
-            result.linesToDelete.Count().Should().Be(1);
-        }
 
         [Fact]
         public void EnumerableZip_Should_Return_Correct_Result()
