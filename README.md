@@ -59,10 +59,8 @@ In FP, you write a lot of simple functions, many of them one-liners
 
 ```
 
-
-
 ### Taming Side effects
-### Taming Side Effects
+
 ### Favoring Expressions over Statements
 
 ```csharp
@@ -77,6 +75,7 @@ else
     posOrNeg = "negative"
 }
 var message = $"{value} is {posOrNeg}"
+```
 
 ### Emphasis expressions
 
@@ -123,11 +122,19 @@ Data that changes over time. An immutable class doesn't have any state.
 A function is pure if it has no side effects and always returns the same output/result for the same input (arguments).
 Increases the readability and predictability of a program.
 
-Side effects : Mutates global state/Mutates its input arguments/throws exception/performs any I/O operations
+Make pure functions static! As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
+
+## Impure functions
+
+Are functions that have side effects 
+* Mutates global state
+* Mutates its input arguments
+* throws exception
+* performs any I/O operations
+
 A function should never mutate its input arguments. (you can use immutable objects)
 
 ## Command-Query Separation Principle
-
 
 * A **command** is a method that **performs an action but does not return a value**. Has Side effects.
 * A **query** is a method that **returns a value but does not perform an action**. Has no Side effects.
@@ -478,13 +485,7 @@ Return is a function that takes a regular value and lifts it into an elevated va
 
 A predicate function is a function that returns True or False
 
-## General Guidelines for Pure Functions
 
-* Make pure functions static
-* Avoid mutable static fields
-* avoid direct calls to static methods that perform I/O
-
-As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
 
 ## Guarding against NullReferenceExceptions
 

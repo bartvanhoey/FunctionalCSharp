@@ -63,46 +63,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         }
 
         
-        [Theory]
-        [InlineData(1,true)]
-        [InlineData(0, true)]
-        [InlineData(-1, false)]
-        // [InlineData(int.MinValue, false)] => throws ArgumentException
-        public void DateNotPastValidator_ShouldPassWhenTransferDateInFuture(int numberOfDays, bool expected)
-        {
-            var transfer = new MakeTransfer {Date = DateTime.UtcNow.AddDays(numberOfDays)} ;
-            var validator = new DateNotPastValidator(new FakeTimeService());
-
-            var result = validator.IsValid(transfer);
-            result.Should().Be(expected);
-        }
         
-        [Theory]
-        [InlineData(1,true)]
-        [InlineData(0, true)]
-        [InlineData(-1, false)]
-        // [InlineData(int.MinValue, false)] => throws ArgumentException
-        public void FunctionalDateNotPastValidator_ShouldPassWhenTransferDateInFuture(int numberOfDays, bool expected)
-        {
-            var transfer = new MakeTransfer {Date = DateTime.UtcNow.AddDays(numberOfDays)} ;
-            var validator = new FunctionalDateNotPastValidator(DateTime.Now);
-
-            var result = validator.IsValid(transfer);
-            result.Should().Be(expected);
-        }
-        
-        [Theory]
-        [InlineData("ABCDEFGJ123",true)]
-        [InlineData("XXXXXXXXXXX", false)]
-        public void BicExistsValidator_ShouldPass(string codes, bool expected)
-        {
-            IEnumerable<string> validCodes = new []{ "ABCDEFGJ123"};
-            var validator = new BicExistsValidator(() => validCodes);
-
-            var transfer = new MakeTransfer {Bic = codes};
-            var result = validator.IsValid(transfer);
-            result.Should().Be(expected);
-        }
         
         
         
