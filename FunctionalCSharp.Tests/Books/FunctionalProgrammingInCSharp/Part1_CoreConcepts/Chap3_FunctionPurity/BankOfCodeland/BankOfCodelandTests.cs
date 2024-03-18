@@ -6,7 +6,6 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
 
 public class BankOfCodelandTests
 {
-    
 
     [Fact]
     public void WhenTransferDateIsFuture_ThenValidationPasses()
@@ -15,10 +14,22 @@ public class BankOfCodelandTests
 
         var transfer = MakeTransfer.Dummy with
         {
-            Date = new DateTime(2024, 3, 19)
+            Date =DateTime.Now.AddDays(1)
+        };
+        sut.IsValid(transfer).Should().BeTrue();
+    }
+    
+    [Fact]
+    public void WhenTransferDateIsPast_ThenValidationDoesNotPass()
+    {
+        var sut = new DateNotPastValidator();
+
+        var transfer = MakeTransfer.Dummy with
+        {
+            Date = DateTime.Now.AddDays(-1)
         };
 
-        sut.IsValid(transfer).Should().BeTrue();
+        sut.IsValid(transfer).Should().BeFalse();
     }
     
     

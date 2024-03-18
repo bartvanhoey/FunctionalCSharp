@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
@@ -30,7 +30,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Articles\" />
       <Folder Include="Books" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_FunctionalDesigns\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module1_Introduction\" />
