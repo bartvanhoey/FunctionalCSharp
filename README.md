@@ -134,6 +134,9 @@ Are functions that have side effects
 
 A function should never mutate its input arguments. (you can use immutable objects)
 
+Impure functions have implicit inputs other than
+its arguments or implicit outputs other than its return value or both
+
 ## Command-Query Separation Principle
 
 * A **command** is a method that **performs an action but does not return a value**. Has Side effects.
