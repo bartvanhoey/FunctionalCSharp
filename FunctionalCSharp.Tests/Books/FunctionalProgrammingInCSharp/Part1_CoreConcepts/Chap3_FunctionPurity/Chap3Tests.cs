@@ -80,8 +80,5 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         }
     }
 
-    public class FakeTimeService : ITimeService
-    {
-        public DateTime UtcNow { get; } = DateTime.UtcNow;
-    }
+
 }

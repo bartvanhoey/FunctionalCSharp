@@ -21,7 +21,12 @@ public class DateNotPastValidator : IValidator<MakeTransfer>
         => DateTime.UtcNow.Date <= makeTransfer.Date.Date;
 }
 
-public class DateNotInPastValidator(DateTime Today) : IValidator<MakeTransfer>
+public class DateNotInPastValidator(DateTime today) : IValidator<MakeTransfer>
 {
-    public bool IsValid(MakeTransfer makeTransfer) => Today <= makeTransfer.Date.Date;
+    public bool IsValid(MakeTransfer makeTransfer) => today <= makeTransfer.Date.Date;
+}
+
+public class FunctionalDateNotPastValidator(Func<DateTime> clock) : IValidator<MakeTransfer>
+{
+    public bool IsValid(MakeTransfer makeTransfer) => clock().Date <= makeTransfer.Date.Date;
 }

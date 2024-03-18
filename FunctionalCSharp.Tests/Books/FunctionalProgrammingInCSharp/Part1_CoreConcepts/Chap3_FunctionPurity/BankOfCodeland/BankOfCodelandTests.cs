@@ -32,35 +32,35 @@ public class BankOfCodelandTests
         sut.IsValid(transfer).Should().BeFalse();
     }
     
+    [Fact]
+    public void DateNotPastFuncValidator_WhenTransferDateIsFuture_ThenValidationPasses()
+    {
+        var dateTimeNow = DateTime.Now;
+       
+        var sut = new FunctionalDateNotPastValidator(() => dateTimeNow);
+
+        var transfer = MakeTransfer.Dummy with
+        {
+            Date = dateTimeNow
+        };
+
+        sut.IsValid(transfer).Should().BeTrue();
+    }
+
     
+    [Theory]
+    [InlineData(1,true)]
+    [InlineData(0, true)]
+    [InlineData(-1, false)]
+    public void FunctionalDateNotPastValidator_ShouldPassWhenTransferDateInFuture(int numberOfDays, bool expected)
+    {
+        var transfer = MakeTransfer.Dummy with {Date = DateTime.UtcNow.AddDays(numberOfDays)} ;
+        var validator = new FunctionalDateNotPastValidator(() => DateTime.Now);
     
-    // [Theory]
-    // [InlineData(1,true)]
-    // [InlineData(0, true)]
-    // [InlineData(-1, false)]
-    // // [InlineData(int.MinValue, false)] => throws ArgumentException
-    // public void DateNotPastValidator_ShouldPassWhenTransferDateInFuture(int numberOfDays, bool expected)
-    // {
-    //     var transfer = new MakeTransfer {Date = DateTime.UtcNow.AddDays(numberOfDays)} ;
-    //     var validator = new DateNotPastValidator(new FakeTimeService());
-    //
-    //     var result = validator.IsValid(transfer);
-    //     result.Should().Be(expected);
-    // }
-    //     
-    // [Theory]
-    // [InlineData(1,true)]
-    // [InlineData(0, true)]
-    // [InlineData(-1, false)]
-    // // [InlineData(int.MinValue, false)] => throws ArgumentException
-    // public void FunctionalDateNotPastValidator_ShouldPassWhenTransferDateInFuture(int numberOfDays, bool expected)
-    // {
-    //     var transfer = new MakeTransfer {Date = DateTime.UtcNow.AddDays(numberOfDays)} ;
-    //     var validator = new FunctionalDateNotPastValidator(DateTime.Now);
-    //
-    //     var result = validator.IsValid(transfer);
-    //     result.Should().Be(expected);
-    // }
+        var result = validator.IsValid(transfer);
+        result.Should().Be(expected);
+    }
+    
     //     
     // [Theory]
     // [InlineData("ABCDEFGJ123",true)]
@@ -75,3 +75,4 @@ public class BankOfCodelandTests
     //     result.Should().Be(expected);
     // }
 }
+
