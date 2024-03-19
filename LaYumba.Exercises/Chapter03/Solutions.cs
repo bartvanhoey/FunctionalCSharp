@@ -9,7 +9,7 @@ namespace LaYumba.Exercises.Chapter03
 
    static class BmiSolution
    {
-      public static void StartBmiProgramSolution() => Run(Read, Write);
+      public static void StartChap03BmiSolution() => Run(Read, Write);
 
       internal static void Run(Func<string, double> read, Action<BmiRange> write)
       {
