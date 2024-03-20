@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Unit = System.ValueTuple;
 
 namespace LaYumba.Functional;
@@ -8,8 +6,8 @@ using static F;
 
 public static class ActionExt
 {
-    public static Func<Unit> ToFunc(this Action action)
-        => () => { action(); return default; };
+    public static Func<Unit> ToFunc(this Action action) =>
+        () => { action(); return default; };
 
     public static Func<T, Unit> ToFunc<T>(this Action<T> action)
         => t => { action(t); return default; };

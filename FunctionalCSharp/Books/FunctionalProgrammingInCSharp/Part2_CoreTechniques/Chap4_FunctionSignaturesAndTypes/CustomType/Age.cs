@@ -12,6 +12,7 @@ public class Age : ValueObject<Age>
         return new Age(age);
     }
 
+    // Comparison operators
     public static bool operator <(Age l, Age r) => l.Value < r.Value;
     public static bool operator >(Age l, Age r) => l.Value > r.Value;
     public static bool operator <(Age l, int r) => l.Value < r;

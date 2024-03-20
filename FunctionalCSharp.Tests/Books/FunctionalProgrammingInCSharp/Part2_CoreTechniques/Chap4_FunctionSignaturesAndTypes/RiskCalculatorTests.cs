@@ -1,17 +1,12 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.CustomType;
-using static System.IO.File;
-using static System.IO.Path;
-using static System.Reflection.Assembly;
-using static System.Text.Encoding;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.Instrumentation;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.RiskCalculator;
 using static Xunit.Assert;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes;
 
-public class Chap4Tests
+public class RiskCalculatorTests
 {
     [Theory]
     [InlineData(0, Risk.Low)]
@@ -29,22 +24,6 @@ public class Chap4Tests
     public void RiskProfileCalculator1(int age, Risk risk) 
         => Throws<ArgumentOutOfRangeException>(() => CalculateRiskProfile(Age.CreateAge(age)).Should().Be(risk));
 
-
-    [Fact]
-    public void MethodTime_When_Executing_FileReadAllText_ShouldReturn_NotNull()
-    {
-        var file = GetFilePath("file.txt");
-        var result = WriteTimeTakenToConsole("Reading from file.txt", () => ReadAllText(file));
-        result.Should().NotBeNull();
-    }
-        
-    [Fact]
-    public void MethodTime_When_Executing_FileAppendText_ShouldReturn_NotNull()
-    {
-        var file = GetFilePath("file.txt");
-        WriteTimeTakenToConsole("Reading from file.txt", () => AppendAllText(file, "Hello World", UTF8));
-    }
-        
     [Theory]
     [InlineData("ABCDEFGJ123",true)]
     [InlineData(null, false)]
@@ -55,6 +34,5 @@ public class Chap4Tests
     }
         
 
-    private static string GetFilePath(string fileName) 
-        => Combine(GetDirectoryName(GetExecutingAssembly().Location) ?? throw new InvalidOperationException(), fileName);
+    
 }

@@ -83,10 +83,42 @@ var message = $"{value} is {posOrNeg}"
 
 ## Honest vs Dishonest Functions
 
-* An honest function always does what its signature says, and given an input of the expected type, it yields an output
-  of the expected type—no Exceptions, no nulls
+A Dishonest function doesn't abide by its signature
 
-* a Dishonest function doesn't abide by its signature
+Signature: int -> Risk (should return Risk, but can throw an ArgumentException)
+
+```csharp
+  public static Risk CalculateRiskProfile(int age)
+  {
+      if (age is < 0 or >= 120)
+         throw new ArgumentException($"{age} is not a valid age");
+          
+         return age < 60 ? Risk.Low : Risk.High;
+   }
+         
+```
+
+An honest function always does what its signature says, and given an input of the expected type. 
+A function is honest when
+  * returns an output of the expected type
+  * does not not throw Exceptions
+  * never returns null
+
+Signature: Age -> Risk
+
+```csharp
+    public static Risk CalculateRiskProfile(Age age) 
+        => age < 60 ? Risk.Low : Risk.Medium;
+```
+
+ATTENTION: an Honest function can still be impure. 
+The function abides it's signature, but still can perform I/O operations
+
+
+  
+  
+
+
 
 ## Difference between OO Programming and FP Programming
 
