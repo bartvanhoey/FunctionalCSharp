@@ -1,6 +1,5 @@
-namespace FunctionalCSharp.Extensions
+namespace FunctionalCSharp.Extensions;
+
+public class CannotConvertNullToTypeException : Exception
 {
-    public class CannotConvertNullToTypeException : Exception
-    {
-    }
 }

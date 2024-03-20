@@ -1,13 +1,12 @@
 using Fupr.Functional.ResultClass.Errors;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.ResultErrors
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.ResultErrors;
+
+public class EmailInvalidResultError : BaseResultError
 {
-    public class EmailInvalidResultError : BaseResultError
-    {
       
-        public EmailInvalidResultError()
-        {
+    public EmailInvalidResultError()
+    {
             
-        }
     }
 }

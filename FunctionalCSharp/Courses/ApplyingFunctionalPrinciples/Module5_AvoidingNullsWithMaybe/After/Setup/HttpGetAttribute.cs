@@ -1,6 +1,5 @@
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup;
+
+public class HttpGetAttribute : Attribute
 {
-    public class HttpGetAttribute : Attribute
-    {
-    }
 }

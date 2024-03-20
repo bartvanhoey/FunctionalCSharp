@@ -7,36 +7,36 @@ using Fupr.Functional.ResultClass.Extensions;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
 
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Controllers
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Controllers;
+
+public class CustomerController : ControllerBase
 {
-    public class CustomerController : ControllerBase
+    private readonly CustomerRepository _customerRepository;
+    private readonly IEmailGateway _emailGateway;
+
+    public CustomerController(UnitOfWork unitOfWork, IEmailGateway emailGateway) : base(unitOfWork)
     {
-        private readonly CustomerRepository _customerRepository;
-        private readonly IEmailGateway _emailGateway;
+        _customerRepository = new CustomerRepository(UnitOfWork);
+        _emailGateway = emailGateway;
+    }
 
-        public CustomerController(UnitOfWork unitOfWork, IEmailGateway emailGateway) : base(unitOfWork)
-        {
-            _customerRepository = new CustomerRepository(UnitOfWork);
-            _emailGateway = emailGateway;
-        }
+    [HttpPost]
+    [Route("customers")]
+    public HttpResponseMessage Create(CreateCustomerModel model)
+    {
+        var customerName = CustomerName.Create(model.Name);
+        var industry = Industry.Get(model.Industry);
+        var primaryEmail = Email.CreateEmail(model.PrimaryEmail);
+        var secondaryEmail = model.GetSecondaryEmail();
 
-        [HttpPost]
-        [Route("customers")]
-        public HttpResponseMessage Create(CreateCustomerModel model)
-        {
-            var customerName = CustomerName.Create(model.Name);
-            var industry = Industry.Get(model.Industry);
-            var primaryEmail = Email.CreateEmail(model.PrimaryEmail);
-            var secondaryEmail = model.GetSecondaryEmail();
+        var combinedResult = Result.Combine(customerName, primaryEmail, secondaryEmail, industry);
+        if (combinedResult.IsFailure) return HttpError(combinedResult.Error);
 
-            var combinedResult = Result.Combine(customerName, primaryEmail, secondaryEmail, industry);
-            if (combinedResult.IsFailure) return HttpError(combinedResult.Error);
+        var customer = new Customer(customerName.Value, primaryEmail.Value, secondaryEmail.Value, industry.Value);
+        _customerRepository.Save(customer);
 
-            var customer = new Customer(customerName.Value, primaryEmail.Value, secondaryEmail.Value, industry.Value);
-            _customerRepository.Save(customer);
-
-            return HttpOk();
-        }
+        return HttpOk();
+    }
 
     
 
@@ -95,6 +95,4 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllToget
             .Tap(customer => customer.Promote())
             .Tap(customer => _emailGateway.SendPromotionNotification(customer.PrimaryEmail, customer.Status))
             .Finally(result => result.IsSuccess ? HttpOk() : HttpError(result.Error));
-    }
-
 }

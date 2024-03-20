@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace LaYumba.Functional
-{
-   using static F;
+namespace LaYumba.Functional;
 
-   public static class Date
+using static F;
+
+public static class Date
+{
+   public static Option<DateTime> Parse(string s)
    {
-      public static Option<DateTime> Parse(string s)
-      {
-         DateTime d;
-         return DateTime.TryParse(s, out d) ? Some(d) : None;
-      }
+      DateTime d;
+      return DateTime.TryParse(s, out d) ? Some(d) : None;
    }
 }

@@ -1,14 +1,13 @@
 ﻿using FunctionalCSharp.Courses.BeginningFunctionalProgramming;
 
-namespace FunctionalCSharp.Tests.Courses.BeginningFunctionalProgramming
-{
-    public class FirstClassTests
-    {
+namespace FunctionalCSharp.Tests.Courses.BeginningFunctionalProgramming;
 
-        [Fact]
-        public void Test()
-        {
-            FirstClass.Go();
-        }
+public class FirstClassTests
+{
+
+    [Fact]
+    public void Test()
+    {
+        FirstClass.Go();
     }
 }

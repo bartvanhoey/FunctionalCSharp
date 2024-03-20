@@ -1,14 +1,13 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After;
+
+public class TheaterApiClient
 {
-    public class TheaterApiClient
+    /// <summary>
+    ///     Throws:
+    ///     HttpRequestException if unable to connect to the API;
+    ///     InvalidOperationException if no tickets are available
+    /// </summary>
+    public void Reserve(DateTime date, string customerName)
     {
-        /// <summary>
-        ///     Throws:
-        ///     HttpRequestException if unable to connect to the API;
-        ///     InvalidOperationException if no tickets are available
-        /// </summary>
-        public void Reserve(DateTime date, string customerName)
-        {
-        }
     }
 }

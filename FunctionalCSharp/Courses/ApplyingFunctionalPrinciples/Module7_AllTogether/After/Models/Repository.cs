@@ -1,22 +1,21 @@
 ﻿using Fupr.Functional.MaybeClass;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
+
+public class Repository<T>
+    where T : Entity
 {
-    public class Repository<T>
-        where T : Entity
+    protected readonly UnitOfWork Uow;
+
+    protected Repository(UnitOfWork uow) => Uow = uow;
+
+    public Maybe<T>  GetById(long id)
     {
-        protected readonly UnitOfWork Uow;
+        return Uow.Get<T>(id);
+    }
 
-        protected Repository(UnitOfWork uow) => Uow = uow;
-
-        public Maybe<T>  GetById(long id)
-        {
-            return Uow.Get<T>(id);
-        }
-
-        public void Save(T entity)
-        {
-            Uow.SaveOrUpdate(entity);
-        }
+    public void Save(T entity)
+    {
+        Uow.SaveOrUpdate(entity);
     }
 }

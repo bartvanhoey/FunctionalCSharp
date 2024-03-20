@@ -1,28 +1,27 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.Before
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.Before;
+
+public class Customer
 {
-    public class Customer
+    public Customer(CustomerName customerName, Email email)
     {
-        public Customer(CustomerName customerName, Email email)
-        {
-            // if (customerName == null) throw new ArgumentNullException(nameof(customerName));
-            // if (email == null) throw new ArgumentNullException(nameof(email));
-            CustomerName = customerName;
-            Email = email;
-        }
-
-        public CustomerName CustomerName { get; set; }
-        public Email Email { get; set; }
-
-        // public void ChangeName(CustomerName name)
-        // {
-        //     // if (name == null) throw new ArgumentNullException(nameof(name));
-        //     CustomerName = name;
-        // }
-        //
-        // public void ChangeEmail(Email email)
-        // {
-        //     // if (email == null) throw new ArgumentNullException(nameof(email));
-        //     Email = email;
-        // }
+        // if (customerName == null) throw new ArgumentNullException(nameof(customerName));
+        // if (email == null) throw new ArgumentNullException(nameof(email));
+        CustomerName = customerName;
+        Email = email;
     }
+
+    public CustomerName CustomerName { get; set; }
+    public Email Email { get; set; }
+
+    // public void ChangeName(CustomerName name)
+    // {
+    //     // if (name == null) throw new ArgumentNullException(nameof(name));
+    //     CustomerName = name;
+    // }
+    //
+    // public void ChangeEmail(Email email)
+    // {
+    //     // if (email == null) throw new ArgumentNullException(nameof(email));
+    //     Email = email;
+    // }
 }

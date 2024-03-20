@@ -1,6 +1,5 @@
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before;
+
+public class ChargedFailedException : Exception
 {
-    public class ChargedFailedException : Exception
-    {
-    }
 }

@@ -1,11 +1,10 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators;
+
+public class TimeService : ITimeService
 {
-    public class TimeService : ITimeService
+    public TimeService()
     {
-        public TimeService()
-        {
-            UtcNow = DateTime.UtcNow;
-        }
-        public DateTime UtcNow { get; }
+        UtcNow = DateTime.UtcNow;
     }
+    public DateTime UtcNow { get; }
 }

@@ -1,9 +1,8 @@
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
+
+public enum ActionType
 {
-    public enum ActionType
-    {
-        Create,
-        Update,
-        Delete
-    }
+    Create,
+    Update,
+    Delete
 }

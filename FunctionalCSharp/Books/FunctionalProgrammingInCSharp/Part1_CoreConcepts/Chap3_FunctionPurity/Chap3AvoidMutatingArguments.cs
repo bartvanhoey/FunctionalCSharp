@@ -2,7 +2,7 @@ using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Ch
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity;
 
-public static class Chap03AvoidMutatingArguments
+public static class Chap3AvoidMutatingArguments
 {
     // Try always structuring your code in a way that functions never mutate their input arguments.
     // It would be ideal to enforce this by always using immutable types for input arguments.

@@ -1,8 +1,7 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.Before.Setup
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.Before.Setup;
+
+public interface IDatabase
 {
-    public interface IDatabase
-    {
-        void Save(Customer customer);
-        Customer? GetById(int id);
-    }
+    void Save(Customer customer);
+    Customer? GetById(int id);
 }

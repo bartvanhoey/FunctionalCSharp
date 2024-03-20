@@ -1,36 +1,35 @@
 ﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before;
+
+public class CustomerController : Controller
 {
-    public class CustomerController : Controller
+    private readonly IDatabase _database;
+
+    public CustomerController(IDatabase database)
     {
-        private readonly IDatabase _database;
+        _database = database;
+    }
 
-        public CustomerController(IDatabase database)
+
+    [HttpPost]
+    public ActionResult CreateCustomer(CustomerModel customerModel)
+    {
+        ModelState.SetIsValidToTrue();
+        if (!ModelState.IsValid)
         {
-            _database = database;
+            return View(customerModel);
         }
 
+        var customer = new Customer(customerModel.Name, customerModel.Email);
+        _database.Save(customer);
 
-        [HttpPost]
-        public ActionResult CreateCustomer(CustomerModel customerModel)
-        {
-            ModelState.SetIsValidToTrue();
-            if (!ModelState.IsValid)
-            {
-                return View(customerModel);
-            }
+        return RedirectToAction("Index");
+    }
 
-            var customer = new Customer(customerModel.Name, customerModel.Email);
-           _database.Save(customer);
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult Index(int id)
-        {
-            return View();
-        }
+    [HttpGet]
+    public ActionResult Index(int id)
+    {
+        return View();
     }
 }

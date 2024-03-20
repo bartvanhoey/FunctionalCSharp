@@ -1,7 +1,6 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Before.Models
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Before.Models;
+
+public interface IEmailGateway
 {
-    public interface IEmailGateway
-    {
-        void SendPromotionNotification(string email, CustomerStatus newStatus);
-    }
+    void SendPromotionNotification(string email, CustomerStatus newStatus);
 }

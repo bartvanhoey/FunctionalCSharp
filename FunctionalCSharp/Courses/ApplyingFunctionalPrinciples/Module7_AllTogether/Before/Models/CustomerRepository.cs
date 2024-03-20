@@ -1,16 +1,15 @@
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Before.Models
-{
-    public class CustomerRepository : Repository<Customer>
-    {
-        public CustomerRepository(UnitOfWork unitOfWork)
-            : base(unitOfWork)
-        {
-        }
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Before.Models;
 
-        public Customer GetByName(string name)
-        {
-            return _unitOfWork.Query<Customer>()
-                .SingleOrDefault(x => x.Name == name);
-        }
+public class CustomerRepository : Repository<Customer>
+{
+    public CustomerRepository(UnitOfWork unitOfWork)
+        : base(unitOfWork)
+    {
+    }
+
+    public Customer GetByName(string name)
+    {
+        return _unitOfWork.Query<Customer>()
+            .SingleOrDefault(x => x.Name == name);
     }
 }

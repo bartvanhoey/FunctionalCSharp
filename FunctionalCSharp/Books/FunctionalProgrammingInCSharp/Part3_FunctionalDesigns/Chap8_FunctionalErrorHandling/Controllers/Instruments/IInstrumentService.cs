@@ -1,9 +1,8 @@
 using LaYumba.Functional;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Controllers.Instruments
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Controllers.Instruments;
+
+public interface IInstrumentService
 {
-    public interface IInstrumentService
-    {
-        Option<InstrumentDetails> GetInstrumentDetails(string ticker);
-    }
+    Option<InstrumentDetails> GetInstrumentDetails(string ticker);
 }

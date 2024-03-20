@@ -1,9 +1,8 @@
 ﻿
 
-namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module6Laziness
+namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module6Laziness;
+
+public class LazinessTest
 {
-    public class LazinessTest
-    {
      
-    }
 }

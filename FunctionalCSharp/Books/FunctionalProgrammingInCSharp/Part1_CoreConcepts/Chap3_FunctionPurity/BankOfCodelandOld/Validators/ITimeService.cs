@@ -1,7 +1,6 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators;
+
+public interface ITimeService
 {
-    public interface ITimeService
-    {
-        DateTime UtcNow { get; }
-    }
+    DateTime UtcNow { get; }
 }

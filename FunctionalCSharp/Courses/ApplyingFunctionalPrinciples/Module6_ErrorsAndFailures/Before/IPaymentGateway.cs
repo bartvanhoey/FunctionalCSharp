@@ -1,8 +1,7 @@
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before;
+
+public interface IPaymentGateway
 {
-    public interface IPaymentGateway
-    {
-        void ChargePayment(string billingInfo, decimal amount);
-        void RollbackLastTransaction();
-    }
+    void ChargePayment(string billingInfo, decimal amount);
+    void RollbackLastTransaction();
 }
