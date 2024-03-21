@@ -3,35 +3,33 @@ using System.Text.Json;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using static System.Xml.Linq.XDocument;
-using static FunctionalCSharp.Extensions.UsingExtended;
+using FunctionalCSharp.Extensions;
 
-namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself
+namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
+
+public static class ConvertingStatementsToExpressions
 {
-    public static class ConvertingStatementsToExpressions
+    private const string JsonPlaceholderPhotos = @"https://jsonplaceholder.typicode.com/photos";
+
+    public  static async Task<string?> GetTotalPages_NonFunctional()
     {
-        private const string JsonPlaceholderPhotos = @"https://jsonplaceholder.typicode.com/photos";
-
-        public  static async Task<string?> GetTotalPages_NonFunctional()
+        XDocument xDocument;
+        using (var client = new HttpClient())
         {
-            XDocument xDocument;
-            using (var client = new HttpClient())
-            {
-                var photosJson = await client.GetStringAsync(JsonPlaceholderPhotos);
-                var photosXml = JsonToXmlHelper.JsonToXml(photosJson);
-                xDocument = Parse(photosXml);
-            }
-
-            var totalPages = xDocument.Root?.Element("total_pages")?.Value;
-            return totalPages;
+            var photosJson = await client.GetStringAsync(JsonPlaceholderPhotos);
+            var photosXml = JsonToXmlHelper.JsonToXml(photosJson);
+            xDocument = XDocument.Parse(photosXml);
         }
-        
-        public  static async Task<string?> GetTotalPages_Functional() =>
-            (await await UsingAsync(
-                () => new HttpClient(),
-                async client => Parse(await client.GetStringAsync(JsonPlaceholderPhotos))))
-            .Root?.Element("total_pages")?.Value;
+
+        var totalPages = xDocument.Root?.Element("total_pages")?.Value;
+        return totalPages;
     }
+        
+    public  static async Task<string?> GetTotalPages_Functional() =>
+        (await await UsingExtended.UsingAsync(
+            () => new HttpClient(),
+            async client => XDocument.Parse(await client.GetStringAsync(JsonPlaceholderPhotos))))
+        .Root?.Element("total_pages")?.Value;
 }
 
 public static class JsonToXmlHelper

@@ -35,8 +35,8 @@ public struct Option<T> : IEquatable<NoneType>, IEquatable<Option<T>>
    public static implicit operator Option<T>(T t)
       => t is null ? None : new Option<T>(t);
 
-   public R Match<R>(Func<R> None, Func<T, R> Some)
-      => isSome ? Some(value!) : None();
+   public R Match<R>(Func<R> none, Func<T, R> some)
+      => isSome ? some(value!) : none();
 
    public IEnumerable<T> AsEnumerable()
    {

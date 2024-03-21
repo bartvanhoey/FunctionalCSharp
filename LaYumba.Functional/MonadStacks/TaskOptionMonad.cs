@@ -12,8 +12,8 @@ public static class TaskOptionMonad
             t.Status == TaskStatus.Faulted
                ? fallback()
                : t.Result.Match(
-                  None: fallback,
-                  Some: val => Async(t.Result))
+                  none: fallback,
+                  some: val => Async(t.Result))
          )
          .Unwrap();
 

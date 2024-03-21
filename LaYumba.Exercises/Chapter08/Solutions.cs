@@ -18,8 +18,8 @@ static class Chapter08Solutions
    // ToEither : (Option<R>, Func<L>) -> Either<L, R>
    static Either<L, R> ToEither<L, R>(this Option<R> @this, Func<L> left)
       => @this.Match<Either<L, R>>(
-         None: () => left(), 
-         Some: r => r);
+         none: () => left(), 
+         some: r => r);
 
    // 2. Take a workflow where 2 or more functions that return an `Option`
    // are chained using `Bind`. 
@@ -45,8 +45,8 @@ static class Chapter08Solutions
 
    public static Option<RR> Bind<L, R, RR>(this Option<R> @this, Func<R, Either<L, RR>> func)
       => @this.Match(
-         None: () => None,
-         Some: v => func(v).ToOption());
+         none: () => None,
+         some: v => func(v).ToOption());
 
    static Func<string, Option<Age>> parseAge2 = s
       => s.ParseIntVerbose().Bind(Age.Create);

@@ -1,11 +1,14 @@
 using FluentAssertions;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.MethodChaining;
 using LaYumba.Functional;
 using static System.Linq.Enumerable;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap5_DesigningProgramsWithFunctionComposition;
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition;
 
 public class Chap05
 {
+
+    
     private readonly Func<Person, string> _emailFor = p => AppendDomain(AbbreviateName(p));
     private static string AbbreviateName(Person p) => Abbreviate(p.FirstName) + Abbreviate(p.LastName);
     private static string AppendDomain(string localPart) => $"{localPart}@manning.com";
@@ -15,7 +18,7 @@ public class Chap05
     {
         var joe = new Person("Joe", "Blogs");
         var joeEmail = _emailFor(joe);
-        var joeEmailFunctional = joe.AbbreviateName().AppendDomain();
+        var joeEmailFunctional = joe.AbbreviateName().AppendAtManningDotCom();
     }
 
     public void CompositionInElevatedWorld()
@@ -55,4 +58,10 @@ public static class ReadOnlyCollectionExtensions
         => people.OrderByDescending(p => p.Earnings).Take(people.Count / 4).Select(p => p.Earnings).Average();
     
     
+}
+
+public static class MyStringExtensions
+{
+    public static string AppendAtManningDotCom(this string localPart) 
+        => $"{localPart}@manning.com";
 }

@@ -38,6 +38,8 @@ solution. - Alan Perlis
 
 ### Importing Static Members with the Using static Directive
 
+use static to access static members without a class name
+
 ```csharp
     using static System.Math;
 
@@ -46,11 +48,16 @@ solution. - Alan Perlis
 
 ### More Concise Functions with Expression-Bodied Members 
 
-In FP, you write a lot of simple functions, many of them one-liners
+In FP you write lots of simple functions, many of them one-liners, and then
+compose them into more complex workflows.
 
 ```csharp
     public double Circumference => PI * 2 * Radius;
 ```
+
+### Getter-only auto-properties can only be set in the constructor
+
+### Local functions
 
 ### Language Support for tuples
 ```csharp
@@ -110,15 +117,8 @@ Signature: Age -> Risk
     public static Risk CalculateRiskProfile(Age age) 
         => age < 60 ? Risk.Low : Risk.Medium;
 ```
-
-ATTENTION: an Honest function can still be impure. 
-The function abides it's signature, but still can perform I/O operations
-
-
-  
-  
-
-
+ATTENTION: an honest function can still be impure. 
+An honest function abides it's signature, but still can perform I/O operations
 
 ## Difference between OO Programming and FP Programming
 

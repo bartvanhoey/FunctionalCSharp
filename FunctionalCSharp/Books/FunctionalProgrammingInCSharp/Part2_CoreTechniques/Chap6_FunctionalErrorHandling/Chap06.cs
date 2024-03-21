@@ -1,7 +1,7 @@
 using LaYumba.Functional;
 using static System.Math;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_BecomingFunctional.Chap6_FunctionalErrorHandling;
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_FunctionalErrorHandling;
 
 public class Chap06
 {

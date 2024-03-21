@@ -17,7 +17,7 @@ public class Chap7FunctionCompositionTests
 
         var option = opt.Map(GenerateEmail);
 
-        var email = option.Match(None: () => "none", Some: x => x);
+        var email = option.Match(none: () => "none", some: x => x);
         email.Should().Be("bava@manning.com");
     }
         
@@ -30,7 +30,7 @@ public class Chap7FunctionCompositionTests
 
         var option = opt.Map(ExtensionsC7.AbbreviateName).Map(ExtensionsC7.AddDomain);
 
-        var email = option.Match(None: () => "none", Some: x => x);
+        var email = option.Match(none: () => "none", some: x => x);
         email.Should().Be("bava@manning.com");
     }
         
