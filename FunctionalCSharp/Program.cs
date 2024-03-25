@@ -1,27 +1,38 @@
 ﻿using FluentAssertions;
-using FluentNHibernate.MappingModel.Collections;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.MyOption;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_FunctionalErrorHandling;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Controllers.BookTransfers;
+using Shouldly;
 using static System.Console;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.MyOption.MyF;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass.MyF;
 
+
+var optiono = MyInt.Parse("hello world");
+var match = optiono.Match(() => "no value" , x => x.ToString());
+match.ShouldBe("no value");
+
+
+var optiono123456 = MyInt.Parse("123456");
+var match123456 = optiono123456.Match(() => "no value" , x => x.ToString());
+match123456.ShouldBe("123456");
 
 IndexerIdiosyncrasy.WriteColorToScreen();
 
-MyOptionUseCases.MyOptionGreetMatch(new MyNone<string>());
+IndexerLookupReturnsOption.WriteColorToScreen();
 
-var sorryWho = MyOptionUseCases.MyOptionGreetMatch(MyNone);
+OptionoUseCases.OptionoGreet(Nono);
+
+var sorryWho = OptionoUseCases.OptionoGreet(Nono);
 sorryWho.Should().Be("Sorry, Who?");
 
-var helloJohn = MyOptionUseCases.MyOptionGreetMatch(MySome("John"));
+var helloJohn = OptionoUseCases.OptionoGreet(Somo("John"));
 helloJohn.Should().Be("Hello, John");
 
 // you CANNOT assign null here
-// var helloNull = MyOptionUseCases.MyOptionGreetMatch(MySome(null));
+// var helloNull = OptionoUseCases.OptionoGreetMatch(MySome(null));
 
-var helloJohnImplicit = MyOptionUseCases.MyOptionGreetMatch("John");
+var helloJohnImplicit = OptionoUseCases.OptionoGreet("John");
 helloJohnImplicit.Should().Be("Hello, John");
 
 

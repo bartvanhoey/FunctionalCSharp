@@ -14,13 +14,13 @@ public static class RiskCalculator
     // * CalculateRiskProfile no longer causes run-time errors
     // * validating age is captured in the Creation of an Age object => removes Age Validation Duplication
     // * Signature is more explicit ... you know surely know Age is a correct number 
-    public static Risk CalculateRiskProfile(Age age) => age < 60 ? Risk.Low : Risk.Medium;
+    public static Risk CalculateRiskProfile(AgeChap4 ageChap4) => ageChap4 < 60 ? Risk.Low : Risk.Medium;
     
     // (Age, Gender) -> Risk
-    public static Risk CalculateRiskProfile(Age age, Gender gender)
+    public static Risk CalculateRiskProfile(AgeChap4 ageChap4, Gender gender)
     {
         var threshold = gender == Gender.Female ? 62 : 60;
-        return age < threshold ? Risk.Low : Risk.Medium;
+        return ageChap4 < threshold ? Risk.Low : Risk.Medium;
     }
 
     // OLD Dishonest method with primitive types as input => dishonest

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes;
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.CustomType;
+using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.CustomType.AgeChap4;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.RiskCalculator;
 using static Xunit.Assert;
 
@@ -15,14 +15,14 @@ public class RiskCalculatorTests
     [InlineData(60, Risk.Medium)]
     [InlineData(120, Risk.Medium)]
     public void RiskProfileCalculator(int age, Risk risk) 
-        => CalculateRiskProfile(Age.CreateAge(age)).Should().Be(risk);
+        => CalculateRiskProfile(CreateAge(age)).Should().Be(risk);
 
     [Theory]
     [InlineData(200, Risk.Medium)]
     [InlineData(-1, Risk.Medium)]
     [InlineData(121, Risk.Medium)]
     public void RiskProfileCalculator1(int age, Risk risk) 
-        => Throws<ArgumentOutOfRangeException>(() => CalculateRiskProfile(Age.CreateAge(age)).Should().Be(risk));
+        => Throws<ArgumentOutOfRangeException>(() => CalculateRiskProfile(CreateAge(age)).Should().Be(risk));
 
     [Theory]
     [InlineData("ABCDEFGJ123",true)]

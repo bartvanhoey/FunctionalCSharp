@@ -33,7 +33,6 @@
 
     <ItemGroup>
       <Folder Include="Books" />
-      <Folder Include="Books\FunctionalProgrammingInCSharp\Part2_CoreTechniques\Chap5_ModellingDataAbsence\" />
       <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1_Introduction\" />
       <Folder Include="Functional" />
     </ItemGroup>
