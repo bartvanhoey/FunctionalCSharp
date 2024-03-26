@@ -1,4 +1,4 @@
-using Fupr.Extensions;
+using Fupr;
 using Fupr.Functional.MaybeClass.Extensions;
 using Fupr.Functional.ResultClass;
 using Fupr.Functional.ResultClass.Extensions;

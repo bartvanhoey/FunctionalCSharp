@@ -1,4 +1,4 @@
-﻿using Fupr.Extensions;
+﻿using Fupr;
 using Fupr.Functional.ResultClass;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
 using static Fupr.Functional.ResultClass.Result;

@@ -1,4 +1,4 @@
-using Fupr.Extensions;
+using Fupr;
 using LaYumba.Functional;
 using Shouldly;
 using Xunit;
