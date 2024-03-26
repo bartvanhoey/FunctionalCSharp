@@ -146,13 +146,17 @@ Combining 2 or more functions into a new function. The output from one function 
 Start to look at your program in terms of data flow (workflow). 
 Your program is a pipeline of functions and data flows through one function into the next.
 
-## Pipelining // Railway-oriented approach
+## Pipelining vs Nested Method Calls // Railway-oriented approach
 
 Pipelining allows data to flow between functions
 
-## Method chaining
+## Method chaining is the OO version of pipelining 
 
-Method chaining is the OO version of pipelining.
+````csharp
+    // LINQ, is a good example of method chaining
+    Enumerable.Range(1, 100).Where(i => i % 2 == 0).Reverse();
+````
+
 Extension methods appear in the order in which they will be executed and significantly improves readability.
 
 var joe = new Person("Joe", "Bloggs");

@@ -29,8 +29,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Books" />
       <Folder Include="Books\FunctionalProgrammingInCSharp\Part3_FunctionalDesigns\" />
+      <Folder Include="Books\FunctionalProgrammingWithCSharp_SimonPainter\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module1_Introduction\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module2_ImmutableArchitecture\" />
       <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1_WhatIsFunctionalProgramming\" />
