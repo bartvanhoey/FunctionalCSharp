@@ -139,7 +139,7 @@
 //             ))
 //          ));
 //
-//          Assert.AreEqual(expected, localizedTree);
+//          Assert.Assert.Equals(expected, localizedTree);
 //       }
 //    } 
 // }

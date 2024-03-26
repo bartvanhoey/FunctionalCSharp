@@ -1,6 +1,5 @@
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Infrastructure
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Infrastructure;
+
+public class ApiController
 {
-    public class ApiController
-    {
-    }
 }

@@ -1,19 +1,18 @@
 using Fupr.Functional.ResultClass.Errors;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.Before.Setup
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.Before.Setup;
+
+public class ModelState
 {
-    public class ModelState
+    public static bool IsValid { get; private set; } = true;
+
+    public static void AddModelError(string name, BaseResultError? error)
     {
-        public static bool IsValid { get; private set; } = true;
+        IsValid = false;
+    }
 
-        public static void AddModelError(string name, BaseResultError? error)
-        {
-            IsValid = false;
-        }
-
-        public static void Init()
-        {
-            IsValid = true;
-        }
+    public static void Init()
+    {
+        IsValid = true;
     }
 }

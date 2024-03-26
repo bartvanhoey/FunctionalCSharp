@@ -46,26 +46,6 @@ mutate the given IEnumerable, but return a new IEnumerable instead.
   Enumerable.Range(1, 3).Select(i => i * 3) // => [3, 6, 9]
  ```
 
-##### C# 6 and C# 7 Features relevant for FP
-
-* using static to access static members without a class name
-
-```csharp
-    using static System.Math;
-    public double Circumference(double radius) => 2 * PI * radius;
-```
-
-These methods are implemented as static methods, a functional library in C# will contain mainly of static methods.
-* 
-* expression-bodied properties (Conciseness)
-
-  In FP, we tend to write lots of simple functions, many of them one-liners, and then
-  compose them into more complex workflows. 
-
-* getter-only auto-properties can only be set in the constructor
-* local functions
-* C# 7 tuples syntax with named elements (better syntax for returning multiple values)
-* pattern matching (switch expressions)
 
 
 ### Thinking in functions

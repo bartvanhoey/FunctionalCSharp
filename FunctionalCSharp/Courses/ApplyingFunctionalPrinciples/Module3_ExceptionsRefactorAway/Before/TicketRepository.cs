@@ -1,9 +1,8 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.Before
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.Before;
+
+public class TicketRepository
 {
-    public class TicketRepository
+    public void Save(Ticket ticket)
     {
-        public void Save(Ticket ticket)
-        {
-        }
     }
 }

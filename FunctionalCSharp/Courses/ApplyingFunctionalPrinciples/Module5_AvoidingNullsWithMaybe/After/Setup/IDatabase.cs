@@ -1,10 +1,9 @@
 ﻿using Fupr.Functional.MaybeClass;
 
-namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup;
+
+public interface IDatabase
 {
-    public interface IDatabase
-    {
-        void Save(Customer customer);
-        Maybe<Customer?> GetById(int id);
-    }
+    void Save(Customer customer);
+    Maybe<Customer?> GetById(int id);
 }

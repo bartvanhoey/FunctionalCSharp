@@ -1,7 +1,6 @@
-﻿namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether
+﻿namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether;
+
+public class AllTogetherTests
 {
-    public class AllTogetherTests
-    {
         
-    }
 }

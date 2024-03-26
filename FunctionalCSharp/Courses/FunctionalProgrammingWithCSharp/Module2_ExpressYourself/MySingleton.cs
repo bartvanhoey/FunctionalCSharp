@@ -1,12 +1,9 @@
-﻿namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+﻿namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
+
+public sealed class MySingleton
 {
-    public sealed class MySingleton
-    {
-        private static MySingleton? _instance;
-        public static MySingleton MySingletonInstance => _instance ??= new(); // ??= is the null-coalescing assignment operator
+    private static MySingleton? _instance;
+    public static MySingleton MySingletonInstance => _instance ??= new(); // ??= is the null-coalescing assignment operator
 
-        public override string ToString() => $"Type Name: {GetType().Name.Split('+')[0]}";
-    }
+    public override string ToString() => $"Type Name: {GetType().Name.Split('+')[0]}";
 }
-
-

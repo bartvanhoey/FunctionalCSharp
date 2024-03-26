@@ -1,6 +1,5 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.Before.Setup;
+
+public class HttpPostAttribute : Attribute
 {
-    public class HttpPostAttribute : Attribute
-    {
-    }
 }

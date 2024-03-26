@@ -1,7 +1,6 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
+
+public interface IDatabase
 {
-    public interface IDatabase
-    {
-        void Save(Customer customer);
-    }
+    void Save(Customer customer);
 }

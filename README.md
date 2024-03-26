@@ -9,8 +9,9 @@ Code on average is read 15-20 times more often than it's written.
 
 ## What is Functional Programming
 
-... a paradigm which concentrates on computing results
-rather than on performing actions
+Functional programming (FP) is a powerful paradigm that can help you make
+your code more concise, maintainable, expressive, robust, testable, and
+concurrency-friendly.
 
 ## Why Functional Programming
 
@@ -24,15 +25,49 @@ Complexity slows downs the development process or even introduces new bugs or ca
 Applying **Functional Programming Principles** helps reducing Code Complexity and results in more Predictable, Reliable and
 Maintainable and Testable code. 
 
-FP is a powerful paradigm that can help you write code that is more concise, expressive, robust, more reliable, more
-maintainable, more testable and concurrency-friendly.
 
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
 
 The more angles from which you can approach a problem, the more likely you are to find an optimal
 solution. - Alan Perlis
 
-### Taming Side Effects
+
+## C# Functional
+
+### LINQ
+
+### Importing Static Members with the Using static Directive
+
+use static to access static members without a class name
+
+```csharp
+    using static System.Math;
+
+    public double Circumference => PI * 2 * Radius;
+```
+
+### More Concise Functions with Expression-Bodied Members 
+
+In FP you write lots of simple functions, many of them one-liners, and then
+compose them into more complex workflows.
+
+```csharp
+    public double Circumference => PI * 2 * Radius;
+```
+
+### Getter-only auto-properties can only be set in the constructor
+
+### Local functions
+
+### Language Support for tuples
+```csharp
+    public static (string BaseCurrency, string QuoteCurrency) AsPair(this string currencyPair) 
+        => currencyPair.SplitAt(3);
+
+```
+
+### Taming Side effects
+
 ### Favoring Expressions over Statements
 
 ```csharp
@@ -47,27 +82,43 @@ else
     posOrNeg = "negative"
 }
 var message = $"{value} is {posOrNeg}"
-
-// Expression
-    
-var message = $"{value} is {(value > 0 ? "positive" : "negative")}";
-    
 ```
-### Treating Functions as Data
 
-Functions are first-class citizens
+### Emphasis expressions
 
-#### Higher-order functions (HOFs)
-
-HOFs are functions that take other functions as inputs,
-or return other functions as output, or both
+### Treating functions as data
 
 ## Honest vs Dishonest Functions
 
-* An honest function always does what its signature says, and given an input of the expected type, it yields an output
-  of the expected type—no Exceptions, no nulls
+A Dishonest function doesn't abide by its signature
 
-* a Dishonest function doesn't abide by its signature
+Signature: int -> Risk (should return Risk, but can throw an ArgumentException)
+
+```csharp
+  public static Risk CalculateRiskProfile(int age)
+  {
+      if (age is < 0 or >= 120)
+         throw new ArgumentException($"{age} is not a valid age");
+          
+         return age < 60 ? Risk.Low : Risk.High;
+   }
+         
+```
+
+An honest function always does what its signature says, and given an input of the expected type. 
+A function is honest when
+  * returns an output of the expected type
+  * does not not throw Exceptions
+  * never returns null
+
+Signature: Age -> Risk
+
+```csharp
+    public static Risk CalculateRiskProfile(Age age) 
+        => age < 60 ? Risk.Low : Risk.Medium;
+```
+ATTENTION: an honest function can still be impure. 
+An honest function abides it's signature, but still can perform I/O operations
 
 ## Difference between OO Programming and FP Programming
 
@@ -103,11 +154,22 @@ Data that changes over time. An immutable class doesn't have any state.
 A function is pure if it has no side effects and always returns the same output/result for the same input (arguments).
 Increases the readability and predictability of a program.
 
-Side effects : Mutates global state/Mutates its input arguments/throws exception/performs any I/O operations
+Make pure functions static! As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
+
+## Impure functions
+
+Are functions that have side effects 
+* Mutates global state
+* Mutates its input arguments
+* throws exception
+* performs any I/O operations
+
 A function should never mutate its input arguments. (you can use immutable objects)
 
-## Command-Query Separation Principle
+Impure functions have implicit inputs other than
+its arguments or implicit outputs other than its return value or both
 
+## Command-Query Separation Principle
 
 * A **command** is a method that **performs an action but does not return a value**. Has Side effects.
 * A **query** is a method that **returns a value but does not perform an action**. Has no Side effects.
@@ -249,6 +311,12 @@ without changing the program's behavior, or Replace a function with its return v
 
 ## Referentially Opaque
 
+## Functions are first-class citizens
+
+## Higher-order functions (HOFs)
+
+HOFs are functions that take other functions as inputs,
+or return other functions as output, or both
 
 ## Parallelization
 
@@ -323,11 +391,8 @@ f: int -> string = Func<int, string>
 |()  -> ()           | Action | () => Console.WriteLine("Hello world")        |
 |(int,int) -> int | Func<int, int, int>       | (int i, int j) => i + j |
 
-[//]: # (IEnumerable<T>, &#40;T -> bool&#41;&#41; -> IEnumerable<T> // Could be Enumerable.Where)
-
-[//]: # (&#40;IEnumerable<A>, IEnumerable<B>, &#40;&#40;A, B&#41; -> C&#41;&#41; -> IEnumerable<C> Could be Enumerable.Zip)
-
-
+IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
+(IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
 
 ## Monads and Functors
 
@@ -459,13 +524,7 @@ Return is a function that takes a regular value and lifts it into an elevated va
 
 A predicate function is a function that returns True or False
 
-## General Guidelines for Pure Functions
 
-* Make pure functions static
-* Avoid mutable static fields
-* avoid direct calls to static methods that perform I/O
-
-As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
 
 ## Guarding against NullReferenceExceptions
 
@@ -535,3 +594,8 @@ Don't repeat yourself
 Do one thing
 Avoid side-effects
 Functions should not accept more than 3 parameters
+
+## Defensive Null-Checking
+
+Too prevent the NullReferenceException occurring, developers add null checks. 
+These null checks are definitely needed, but they create a lot of noise in the codebase.

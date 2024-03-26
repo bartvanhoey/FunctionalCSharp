@@ -1,25 +1,18 @@
-﻿// workaround to enable C# 9 syntax
-
+﻿
 using static LaYumba.Exercises.Chapter03.BmiExcercise;
 using static LaYumba.Exercises.Chapter03.BmiSolution;
 
-namespace System.Runtime.CompilerServices { public class IsExternalInit { } }
+namespace LaYumba.Exercises;
 
-namespace Exercises
+public class Program
 {
-   public class Program
+   public static void Main(string[] args)
    {
-      public static void Main(string[] args)
-      {
-         // run the program you've written, for example:
-         //StartBmiProgramSolution();
-         StartBmiProgramExcercise();
+      // run the program you've written, for example:
+      StartChap03BmiSolution();
+      // StartChap03BmiExcercise();
 
-         Console.ReadLine();
+      Console.ReadLine();
 
-      }
    }
 }
-
-
-

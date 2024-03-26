@@ -1,29 +1,65 @@
-﻿using System.Xml.Linq;
-using static System.Xml.Linq.XDocument;
-using static FunctionalCSharp.Extensions.UsingExtended;
+﻿using System.Text;
+using System.Text.Json;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using FunctionalCSharp.Extensions;
 
-namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2ExpressYourself
+namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
+
+public static class ConvertingStatementsToExpressions
 {
-    public static class ConvertingStatementsToExpressions
+    private const string JsonPlaceholderPhotos = @"https://jsonplaceholder.typicode.com/photos";
+
+    public  static async Task<string?> GetTotalPages_NonFunctional()
     {
-        private const string TravelApiUrl = @"http://restapi.adequateshop.com/api/Traveler";
-
-        public  static async Task<string?> GetTotalPages_NonFunctional()
+        XDocument xDocument;
+        using (var client = new HttpClient())
         {
-            XDocument xDocument;
-            using (var client = new HttpClient())
-            {
-                xDocument = Parse(await client.GetStringAsync(TravelApiUrl));
-            }
-
-            var totalPages = xDocument.Root?.Element("total_pages")?.Value;
-            return totalPages;
+            var photosJson = await client.GetStringAsync(JsonPlaceholderPhotos);
+            var photosXml = JsonToXmlHelper.JsonToXml(photosJson);
+            xDocument = XDocument.Parse(photosXml);
         }
-        
-        public  static async Task<string?> GetTotalPages_Functional() =>
-            (await await UsingAsync(
-                () => new HttpClient(),
-                async client => Parse(await client.GetStringAsync(TravelApiUrl))))
-            .Root?.Element("total_pages")?.Value;
+
+        var totalPages = xDocument.Root?.Element("total_pages")?.Value;
+        return totalPages;
     }
+        
+    public  static async Task<string?> GetTotalPages_Functional() =>
+        (await await UsingExtended.UsingAsync(
+            () => new HttpClient(),
+            async client => XDocument.Parse(await client.GetStringAsync(JsonPlaceholderPhotos))))
+        .Root?.Element("total_pages")?.Value;
+}
+
+public static class JsonToXmlHelper
+{
+    public static string JsonToXml(string json)
+    {
+        var obj = JsonSerializer.Deserialize<PhotoObject[]>(json)!;
+
+        return ObjectToXml(obj);
+    }
+
+    static string ObjectToXml<T>(T obj)
+    {
+        var xmlSerializer = new XmlSerializer(typeof(T));
+
+        var sb = new StringBuilder();
+        using var xmlWriter = XmlWriter.Create(sb);
+
+        var ns = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+        xmlSerializer.Serialize(xmlWriter, obj, ns);
+
+        return sb.ToString();
+    }
+}
+
+public class PhotoObject
+{
+    public int albumId { get; set; }
+    public int id { get; set; }
+    public string title { get; set; }
+    public string url { get; set; }
+    public string thumbnailUrl { get; set; }
 }

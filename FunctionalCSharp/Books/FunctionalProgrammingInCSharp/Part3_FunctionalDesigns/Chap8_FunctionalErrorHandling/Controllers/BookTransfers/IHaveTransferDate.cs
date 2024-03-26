@@ -1,7 +1,6 @@
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Controllers.BookTransfers
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Controllers.BookTransfers;
+
+public interface IHaveTransferDate
 {
-    public interface IHaveTransferDate
-    {
-        DateTime TransferDate { get; set; }
-    }
+    DateTime TransferDate { get; set; }
 }

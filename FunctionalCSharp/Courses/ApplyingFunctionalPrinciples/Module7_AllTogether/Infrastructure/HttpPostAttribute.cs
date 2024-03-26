@@ -1,6 +1,5 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Infrastructure
+﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Infrastructure;
+
+public class HttpPostAttribute : Attribute
 {
-    public class HttpPostAttribute : Attribute
-    {
-    }
 }
