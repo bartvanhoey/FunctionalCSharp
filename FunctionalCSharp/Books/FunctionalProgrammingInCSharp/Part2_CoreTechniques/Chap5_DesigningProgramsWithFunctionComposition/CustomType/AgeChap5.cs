@@ -11,8 +11,8 @@ public class AgeChap5 : ValueObject<AgeChap5>
     public static Optiono<AgeChap5> CreateAge(int age) 
         => IsValid(age) ? MyF.Somo(new AgeChap5(age)) : MyF.Nono;
 
-    private static bool IsValid(int age) => age is > 120 or < 0;
-
+    private static bool IsValid(int age) => age is >= 0 and < 120;
+    
     // Comparison operators
     public static bool operator <(AgeChap5 l, AgeChap5 r) => l.Value < r.Value;
     public static bool operator >(AgeChap5 l, AgeChap5 r) => l.Value > r.Value;
@@ -21,4 +21,7 @@ public class AgeChap5 : ValueObject<AgeChap5>
     
     protected override bool EqualsCore(AgeChap5 other) => Value == other.Value;
     protected override int GetHashCodeCore() => Value.GetHashCode();
+    
+    // public static explicit operator AgeChap5(int age) => CreateAge(age).Match(() => throw new ArgumentException(), x => x);
+    public static implicit operator int(AgeChap5 age) => age.Value;
 }

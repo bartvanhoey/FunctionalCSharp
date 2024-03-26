@@ -10,10 +10,3 @@ public static class MyNameValueCollectionExtensions
     public static Optiono<string> Lookup(this NameValueCollection collection, string key) 
         => collection[key];
 }
-
-public static class MyDictionaryExtensions
-{
-    // (IDictionary<K, R>, K) -> Option<R>
-    public static Optiono<R> Lookup<K, R>(this Dictionary<K, R> dictionary, K key) where K : notnull
-        => dictionary.TryGetValue(key, out var value) ? MyF.Somo(value) : MyF.Nono;
-}

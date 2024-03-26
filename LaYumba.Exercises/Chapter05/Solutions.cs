@@ -39,14 +39,14 @@ public static class Solutions
 
    public class Email
    {
-      static readonly Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+      static readonly Regex Regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
       private string Value { get; }
 
       private Email(string value) => Value = value;
 
       public static Option<Email> Create(string s)
-         => regex.IsMatch(s) 
+         => Regex.IsMatch(s) 
             ? Some(new Email(s)) 
             : None;
 

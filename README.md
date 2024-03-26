@@ -590,3 +590,8 @@ Don't repeat yourself
 Do one thing
 Avoid side-effects
 Functions should not accept more than 3 parameters
+
+## Defensive Null-Checking
+
+Too prevent the NullReferenceException occurring, developers add null checks. 
+These null checks are definitely needed, but they create a lot of noise in the codebase.
