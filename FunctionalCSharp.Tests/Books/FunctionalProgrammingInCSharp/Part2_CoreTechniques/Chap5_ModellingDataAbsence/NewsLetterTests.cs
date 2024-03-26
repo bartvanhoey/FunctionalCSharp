@@ -25,7 +25,7 @@ public class NewsLetterTests
     {
         var subscriber = new Subscriber(name, email);
         
-        Throws<ArgumentOutOfRangeException>(() =>NewsLetterService.GreetingFor(subscriber));
+        Throws<NullReferenceException>(() =>NewsLetterService.GreetingFor(subscriber));
     }
 
     

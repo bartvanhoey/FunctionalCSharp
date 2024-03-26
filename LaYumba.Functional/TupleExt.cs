@@ -1,5 +1,3 @@
-using System;
-
 namespace LaYumba.Functional;
 
 public static class TupleExt

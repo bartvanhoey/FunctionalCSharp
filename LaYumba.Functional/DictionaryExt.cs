@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace LaYumba.Functional;
 
 using static F;

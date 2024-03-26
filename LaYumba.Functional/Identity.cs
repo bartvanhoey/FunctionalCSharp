@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LaYumba.Functional;
+﻿namespace LaYumba.Functional;
 // The book describes `Func<T>` as a monad over `T`.
 
 // This is sometimes referred to as "the identity monad", hence here I

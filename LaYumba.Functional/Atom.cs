@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-namespace LaYumba.Functional;
+﻿namespace LaYumba.Functional;
 
 public sealed class Atom<T>
    where T : class

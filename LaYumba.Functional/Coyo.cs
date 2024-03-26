@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LaYumba.Functional;
+﻿namespace LaYumba.Functional;
 
 public record Coyo<V, T>(V Value, Func<object, T> Func);
 

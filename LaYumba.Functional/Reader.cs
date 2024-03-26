@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LaYumba.Functional;
+﻿namespace LaYumba.Functional;
 
 public delegate T Reader<in Env, out T>(Env env);
 

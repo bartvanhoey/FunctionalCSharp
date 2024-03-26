@@ -1,7 +1,4 @@
-﻿using System;
-using static LaYumba.Functional.F;
-
-namespace LaYumba.Functional;
+﻿namespace LaYumba.Functional;
 
 public delegate Exceptional<T> Try<T>();
 

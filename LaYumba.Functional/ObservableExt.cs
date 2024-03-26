@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using LaYumba.Functional;
-using static LaYumba.Functional.F;
+﻿using static LaYumba.Functional.F;
 
 using System.Reactive.Linq;
 
