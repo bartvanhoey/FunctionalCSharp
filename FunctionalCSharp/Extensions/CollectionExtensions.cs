@@ -40,9 +40,9 @@ public static class AppCollectionExtensions
 
     public static bool AddIfNotContains<T>(this ICollection<T> source,Func<T,bool> predicate, Func<T> itemFactory)
     {
-            
-        if (predicate == null) throw new ArgumentNullException(nameof(predicate));
-        if (itemFactory == null) throw new ArgumentNullException(nameof(itemFactory));
+
+        ArgumentNullException.ThrowIfNull(predicate);
+        ArgumentNullException.ThrowIfNull(itemFactory);
 
         if (source.Any(predicate))
         {

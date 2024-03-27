@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using FunctionalCSharp.Extensions;
+using Fupr;
 using static System.Console;
 using static System.Linq.Enumerable;
 using static System.Text.RegularExpressions.Regex;
@@ -21,7 +22,7 @@ public static class DebuggingLinq
         var list = sites
             .TrySelect(DownloadAsString, ex => WriteLine($"Error downloading: {ex.Message}"))
             .Where(html => Match(html, "azure").Success).ToList();
-        return list;
+        return list; 
     }
         
     static  string DownloadAsString(string url)

@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using FunctionalCSharp.Extensions;
+using Fupr;
 using Fupr.Functional.ResultClass;
 using Fupr.Functional.ValueObjectClass;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.ResultErrors.Factory.ResultErrorFactory;

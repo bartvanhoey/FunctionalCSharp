@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using FunctionalCSharp.Extensions;
+using Fupr;
 using static System.Environment;
 using static System.StringSplitOptions;
 using static System.Text.Encoding;
