@@ -18,6 +18,7 @@ public static class OptionoExtensions {
 
 
     // BIND takes an Option-returning function and applies the function to the inner value of the option
+    // in FP, a type for which a Bind function is defined is a Monad
     public static Optiono<R> YBind<T, R>(this Optiono<T> optiono, Func<T, Optiono<R>> func) 
         => optiono.YMatch(() => Nono, func);
 }

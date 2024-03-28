@@ -27,4 +27,6 @@ public class Chap6Age : ValueObject<Chap6Age>
     protected override int GetHashCodeCore() => Value.GetHashCode();
     
     public static implicit operator int(Chap6Age age) => age.Value;
+
+    public override string ToString() => Value.ToString();
 }

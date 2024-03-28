@@ -4,8 +4,8 @@ namespace FunctionalCSharp.MyYumba;
 
 public static class YInt
 {
-    public static Optiono<int> YParse(string s)
-        => int.TryParse(s, out int result)
+    public static Optiono<int> YParse(string? s)
+        => int.TryParse(s, out var result)
             ? Somo(result) : Nono;
 
     public static bool YIsOdd(int i) => i % 2 == 1;

@@ -1,9 +1,12 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
+using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
 using Shouldly;
 using static System.Console;
 using static FunctionalCSharp.MyYumba.Y;
+
+Chap6AgeReader.StartProgram();
 
 
 var optiono = MyInt.Parse("hello world");
