@@ -1,6 +1,4 @@
-﻿
-using static LaYumba.Exercises.Chapter03.BmiExcercise;
-using static LaYumba.Exercises.Chapter03.BmiSolution;
+﻿using static LaYumba.Exercises.Chapter03.BmiSolution;
 
 namespace LaYumba.Exercises;
 

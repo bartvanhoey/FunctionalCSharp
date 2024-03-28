@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors;
-using FunctionalCSharp.Extensions;
 using Fupr;
 using Fupr.Functional.ResultClass;
 using Fupr.Functional.ValueObjectClass;

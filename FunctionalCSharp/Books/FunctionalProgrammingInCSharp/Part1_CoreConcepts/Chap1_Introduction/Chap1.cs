@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using LaYumba.Functional;
+﻿using LaYumba.Functional;
 using static System.Enum;
 using static System.Linq.Enumerable;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap1_Introduction.
