@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\FunctionalCSharp.MyYumba\FunctionalCSharp.MyYumba.csproj" />
         <ProjectReference Include="..\FunctionalCSharp\FunctionalCSharp.csproj" />
         <ProjectReference Include="..\LaYumba.Functional\LaYumba.Functional.csproj" />
     </ItemGroup>

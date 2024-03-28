@@ -1,8 +1,8 @@
 ﻿namespace FunctionalCSharp.Courses.MoreEffectiveLinq.Module3PowerOfPipelines;
 
-public class MyFileInfo
+public class YileInfo
 {
-    public MyFileInfo(string? file, string? text, int lineNumber)
+    public YileInfo(string? file, string? text, int lineNumber)
     {
         File = file;
         Text = text;

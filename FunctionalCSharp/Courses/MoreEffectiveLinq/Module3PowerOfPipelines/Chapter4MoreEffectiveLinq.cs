@@ -10,11 +10,11 @@ public static class Chapter4MoreEffectiveLinq
         .Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)!,
             "MoreEffectiveLinq", "Module3PowerOfPipelines").Replace(".Tests", "");
 
-    public static IEnumerable<MyFileInfo> SearchInCsvFile(string searchTerm, string fileType)
+    public static IEnumerable<YileInfo> SearchInCsvFile(string searchTerm, string fileType)
     {
         return EnumerateFiles(GetFilePath(), fileType)
             .SelectMany(file =>
-                ReadAllLines(file).Select((line, index) => new MyFileInfo(file, line, index + 1)))
+                ReadAllLines(file).Select((line, index) => new YileInfo(file, line, index + 1)))
             .Where(line => IsMatch(line.Text ?? string.Empty, searchTerm)).ToList();
     }
 

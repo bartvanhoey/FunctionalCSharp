@@ -1,6 +1,6 @@
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass.MyF;
+using static FunctionalCSharp.MyYumba.Y;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
+namespace FunctionalCSharp.MyYumba;
 
 public struct Optiono<T>
 {
@@ -17,6 +17,8 @@ public struct Optiono<T>
     public static implicit operator Optiono<T>(T? value) 
         => value is null ? Nono : Somo(value);
 
-    public R Match<R>(Func<R> none, Func<T, R> some) 
+    public R YMatch<R>(Func<R> none, Func<T, R> some) 
         => _isSome ? some(_value!) : none();
+
+
 }

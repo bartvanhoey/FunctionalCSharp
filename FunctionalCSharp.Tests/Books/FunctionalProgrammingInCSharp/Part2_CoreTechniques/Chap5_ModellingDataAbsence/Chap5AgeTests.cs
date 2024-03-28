@@ -5,7 +5,7 @@ using static Xunit.Assert;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_ModellingDataAbsence;
 
-public class AgeChap5Tests
+public class Chap5AgeTests
 {
     [Theory]
     [InlineData(200)]
@@ -13,9 +13,9 @@ public class AgeChap5Tests
     [InlineData(121)]
     public void AgeChap5_CreateAge_Should_Not_Create_Valid_Ages_When_Invalid_Inputs_Provided(int age)
     {
-        var optiono = AgeChap5.CreateAge(age);
+        var optiono = Chap5Age.CreateAge(age);
         Throws<ArgumentOutOfRangeException>(() =>
-            optiono.Match<int>(() => throw new ArgumentOutOfRangeException(), x => x));
+            optiono.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x));
     }
 
     [Theory]
@@ -26,9 +26,9 @@ public class AgeChap5Tests
     [InlineData(119, 119)]
     public void AgeChap5_CreateAge_Should_Create_Valid_Ages_When_Valid_Inputs_Provided(int age, int resultAge)
     {
-        var optiono = AgeChap5.CreateAge(age);
+        var optiono = Chap5Age.CreateAge(age);
 
-        var result = optiono.Match<int>(() => throw new ArgumentOutOfRangeException(), x => x);
+        var result = optiono.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x);
         
         result.ShouldBe(resultAge);
     }

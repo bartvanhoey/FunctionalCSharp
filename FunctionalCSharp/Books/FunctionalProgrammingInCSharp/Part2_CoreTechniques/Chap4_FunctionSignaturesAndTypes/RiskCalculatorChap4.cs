@@ -1,9 +1,6 @@
-using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes.
-    CustomType;
-
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes;
 
-public static class RiskCalculator
+public static class RiskCalculatorChap4
 {
     // Avoid the use of primitive types (primitive obsession)
     // Because CalculateRisk takes a Custom Type (Value Object) it is impossible to enter an invalid age as parameter
@@ -14,27 +11,21 @@ public static class RiskCalculator
     // * CalculateRiskProfile no longer causes run-time errors
     // * validating age is captured in the Creation of an Age object => removes Age Validation Duplication
     // * Signature is more explicit ... you know surely know Age is a correct number 
-    public static Risk CalculateRiskProfile(AgeChap4 ageChap4) => ageChap4 < 60 ? Risk.Low : Risk.Medium;
+    public static RiskChap4 CalculateRiskProfileChap4(Chap4Age chap4Age) => chap4Age < 60 ? RiskChap4.Low : RiskChap4.Medium;
     
     // (Age, Gender) -> Risk
-    public static Risk CalculateRiskProfile(AgeChap4 ageChap4, Gender gender)
+    public static RiskChap4 CalculateRiskProfileChap4(Chap4Age chap4Age, GenderChap4 genderChap4)
     {
-        var threshold = gender == Gender.Female ? 62 : 60;
-        return ageChap4 < threshold ? Risk.Low : Risk.Medium;
+        var threshold = genderChap4 == GenderChap4.Female ? 62 : 60;
+        return chap4Age < threshold ? RiskChap4.Low : RiskChap4.Medium;
     }
 
     // OLD Dishonest method with primitive types as input => dishonest
-    public static Risk CalculateRiskProfile(int age)
+    public static RiskChap4 CalculateRiskProfileChap4(int age)
     {
         if (age is < 0 or >= 120)
             throw new ArgumentException($"{age} is not a valid age");
 
-        return age < 60 ? Risk.Low : Risk.High;
+        return age < 60 ? RiskChap4.Low : RiskChap4.High;
     }
-}
-
-public enum Gender
-{
-    Male,
-    Female
 }

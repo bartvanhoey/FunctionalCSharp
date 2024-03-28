@@ -1,4 +1,6 @@
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
+using FunctionalCSharp.MyYumba;
+
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.Newsletter;
 
@@ -11,7 +13,7 @@ public static class NewsLetterService
         => $"Dear {subscriber.Name.ToUpper()},";
 
     public static string OptGreetingFor(OptSubscriber subscriber) 
-        => subscriber.Name.Match(
+        => subscriber.Name.YMatch(
             () => "Dear Subscriber,", 
             x => $"Dear {x.ToUpper()},");
 }

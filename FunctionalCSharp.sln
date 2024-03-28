@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaYumba.Exercises", "LaYumb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.Workshop", "FunctionalCSharp.Workshop\FunctionalCSharp.Workshop.csproj", "{3A45510B-BD3B-422E-AAC5-EFC40F65CC7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.MyYumba", "FunctionalCSharp.MyYumba\FunctionalCSharp.MyYumba.csproj", "{AD14B914-7A2A-4F9D-B3EF-688E04668435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3A45510B-BD3B-422E-AAC5-EFC40F65CC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A45510B-BD3B-422E-AAC5-EFC40F65CC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A45510B-BD3B-422E-AAC5-EFC40F65CC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

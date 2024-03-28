@@ -3,15 +3,15 @@ using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
 using Shouldly;
 using static System.Console;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass.MyF;
+using static FunctionalCSharp.MyYumba.Y;
 
 
 var optiono = MyInt.Parse("hello world");
-var match = optiono.Match(() => "no value" , x => x.ToString());
+var match = optiono.YMatch(() => "no value" , x => x.ToString());
 match.ShouldBe("no value");
 
 var optiono123456 = MyInt.Parse("123456");
-var match123456 = optiono123456.Match(() => "no value" , x => x.ToString());
+var match123456 = optiono123456.YMatch(() => "no value" , x => x.ToString());
 match123456.ShouldBe("123456");
 
 IndexerIdiosyncrasy.WriteColorToScreen();
