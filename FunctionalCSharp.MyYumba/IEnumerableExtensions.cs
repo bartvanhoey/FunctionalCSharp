@@ -26,5 +26,6 @@ public static class EnumerableExtensions
     // foreach (T t in items)
     // foreach (R r in func(t))
     // yield return r;
-    
+
+    public static IEnumerable<T> YList<T>(params T[] items) => items.ToImmutableList();
 }

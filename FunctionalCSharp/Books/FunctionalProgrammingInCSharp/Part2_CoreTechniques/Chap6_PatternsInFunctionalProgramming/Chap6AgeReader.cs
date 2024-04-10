@@ -11,7 +11,7 @@ public static class Chap6AgeReader
         => WriteLine($"Only {ReadAge()}! That's young!");
 
     private static Chap6Age ReadAge() // use recursion to call itself again
-        => ParseAge(AskUserAge("Please enter your age")).YMatch(ReadAge, x => x);
+        => ParseAge(AskUserAge("Please enter your age:")).YMatch(ReadAge, x => x);
 
     private static string? AskUserAge(string message)
     {
@@ -20,5 +20,8 @@ public static class Chap6AgeReader
     }
 
     private static Optiono<Chap6Age> ParseAge(string? age) 
-        => YParse(age).YBind(CreateAge);
+        => YIntParse(age).YBind(CreateAge);
+    
+    
+    
 }

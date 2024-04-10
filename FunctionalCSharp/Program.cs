@@ -8,7 +8,6 @@ using static FunctionalCSharp.MyYumba.Y;
 
 Chap6AgeReader.StartProgram();
 
-
 var optiono = MyInt.Parse("hello world");
 var match = optiono.YMatch(() => "no value" , x => x.ToString());
 match.ShouldBe("no value");

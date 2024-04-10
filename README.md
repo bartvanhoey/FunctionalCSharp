@@ -396,7 +396,19 @@ IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 
 ## Monads and Functors
 
-### Monads (have Bind and Return functions defined, every monad is also a functor)
+### Functors (must have a Map function defined)
+
+Functors are types for which a suitable **Map function** is defined.
+Map should apply a function to the functor's inner value and do nothing else.
+
+Map: (C<T>, (T -> R)) -> C(R)
+Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
+Map: (Option<T>, (T -> R)) -> Option<R>)
+
+When using functors and monads, try to use function that stay within the abstraction, like Map and Bind.
+Use the downward-crossing Match function as little or as late as possible
+
+### Monads (must have Bind and Return functions defined)
 
 Monads are types for which a **Bind function** and a **Return function** is defined. that lifts a normal value T into a monadic value C<T>
 A Monad is a type C<T> for which the following functions are defined:
@@ -409,17 +421,6 @@ Certain rules must be implemented for the type to be considered as a proper mona
 In LaYumba, the Return function for Option is the Some function
 In LaYumba, the Return function for List is the List function
 
-### Functors (have a Map function defined)
-
-Functors are types for which a suitable **Map function** is defined.
-Map should apply a function to the functor's inner value and do nothing else.
-
-Map: (C<T>, (T -> R)) -> C(R)
-Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
-Map: (Option<T>, (T -> R)) -> Option<R>)
-
-When using functors and monads, try to use function that stay within the abstraction, like Map and Bind.
-Use the downward-crossing Match function as little or as late as possible
 
 ### Monad Laws
 
@@ -493,8 +494,8 @@ Option<string> optionEmailAddress = optionPerson.Map(generateEmailAddress);
 
 ### Bind (=SelectMany in Linq) 
 
-Bind is a function that takes a container C<T> and a function f with signature (T -> R) 
-and returns a container C<R>
+Bind takes a container C<T> and a Container-returning-function f with signature (T -> C<R>) and applies the function to the inner value,
+and flattens the result (returns a C<R>) to avoid producing a nested container
 
 Bind: (C<T>, (T -> C<R>)) -> C<R>
 
@@ -518,7 +519,7 @@ which it performs for each of the container's inner values, so it’s used to pe
 
 ### Return
 
-Return is a function that takes a regular value and lifts it into an elevated value
+Return is a function that wraps a normal value T and lifts it into an elevated value
 
 ## Predicate functions (aka boolean functions)
 

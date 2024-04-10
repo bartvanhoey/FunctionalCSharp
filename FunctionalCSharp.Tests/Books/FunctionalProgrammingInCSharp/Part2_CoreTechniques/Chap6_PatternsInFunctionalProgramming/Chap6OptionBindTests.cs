@@ -13,7 +13,7 @@ public class Chap6OptionBindTests
     {
         var age = "20";
 
-        var optInteger = YInt.YParse(age);
+        var optInteger = YInt.YIntParse(age);
         
         // YMap Optiono<R> YMap<T, R>(this Optiono<T> optiono, Func<T, R> func)
         // Map takes a regular function
