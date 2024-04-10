@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using FunctionalCSharp.Extensions;
 using Fupr;
 using static System.Console;
 using static System.Linq.Enumerable;

@@ -1,4 +1,3 @@
-using FluentAssertions;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
 using FunctionalCSharp.MyYumba;
 using Shouldly;

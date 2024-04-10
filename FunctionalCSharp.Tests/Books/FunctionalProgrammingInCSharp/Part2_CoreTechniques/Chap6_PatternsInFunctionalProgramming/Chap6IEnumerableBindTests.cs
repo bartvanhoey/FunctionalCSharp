@@ -16,8 +16,6 @@ public  class Chap6IEnumerableBindTests
             new(Name: "Carl", Pets: new[] { "Sybil" })
         };
 
-        IEnumerable<Pet> GetPets(Neighbor n) => n.Pets;
-
         // MAP yields a nested IEnumerable => [["Fluffy", "Thor"],[],["Sybil"]]
         // var nestedPets = neighbors.YMap(n => n.Pets);
         var nestedPets = neighbors.YMap(GetPetsOfNeighbor);

@@ -1,5 +1,4 @@
-﻿using FunctionalCSharp.Extensions;
-using Fupr;
+﻿using Fupr;
 using static System.Linq.Enumerable;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity;
