@@ -6,7 +6,7 @@ namespace FunctionalCSharp.MyYumba;
 public static class YDictionaryExtensions
 {
     // (IDictionary<K, R>, K) -> Option<R>
-    public static YOption<R> YLookup<K, R>(this Dictionary<K, R> dictionary, K key) where K : notnull
+    public static YOption<T> YLookup<K, T>(this Dictionary<K, T> dictionary, K key) where K : notnull
         => dictionary.TryGetValue(key, out var value) ? YSome(value) : YNone;
     
     // (IDictionary<K, T>, (T, R)) -> IDictionary<K, R>

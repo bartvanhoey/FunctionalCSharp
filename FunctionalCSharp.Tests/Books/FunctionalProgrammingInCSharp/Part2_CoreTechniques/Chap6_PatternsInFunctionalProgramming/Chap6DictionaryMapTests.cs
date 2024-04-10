@@ -1,6 +1,5 @@
 using FunctionalCSharp.MyYumba;
 using Shouldly;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming.Chap6Age;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.
     Chap6_PatternsInFunctionalProgramming;
@@ -12,7 +11,7 @@ public class Chap6DictionaryMapTests
     {
         var range = Enumerable.Range(1, 10);
 
-        var dicT = new Dictionary<string, int>()
+        var dicT = new Dictionary<string, int>
         {
             { "John", 50 },
             { "Marie", 40 },
@@ -20,7 +19,7 @@ public class Chap6DictionaryMapTests
         };
 
         var dicR = dicT.YMap(i => $"Is {i} years old");
-        dicR.ShouldBe(new Dictionary<string, string>()
+        dicR.ShouldBe(new Dictionary<string, string>
         {
             { "John", "Is 50 years old" },
             { "Marie", "Is 40 years old" },

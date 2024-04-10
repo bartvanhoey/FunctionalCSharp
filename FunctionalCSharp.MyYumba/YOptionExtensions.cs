@@ -21,12 +21,13 @@ public static class YOptionExtensions {
     // in FP, a type for which a Bind function is defined is a Monad
     public static YOption<R> YBind<T, R>(this YOption<T> yOption, Func<T, YOption<R>> func) 
         => yOption.YMatch(() => YNone, func);
+    
 
     public static YOption<T> YWhere<T>(this YOption<T> yOption, Func<T, bool> predicate) 
         => yOption.YMatch(() => YNone,  t => predicate(t) ? yOption : YNone );
     
-    public static IEnumerable<R> YBind<T, R>(this YOption<T> option, Func<T, IEnumerable<R>> func) 
-        => option.YAsEnumerable().YBind(func);
+    // public static IEnumerable<R> YBind<T, R>(this YOption<T> option, Func<T, IEnumerable<R>> func) 
+    //     => option.YAsEnumerable().YBind(func);
 
     
 }

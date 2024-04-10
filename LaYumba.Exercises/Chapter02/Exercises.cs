@@ -1,26 +1,25 @@
 ﻿using FluentAssertions;
+using FunctionalCSharp.MyYumba;
 using NUnit.Framework;
 
 namespace LaYumba.Exercises.Chapter02;
 
 public static class ExercisesChapter02
 {
-    // 1. Write a function  that negates a given predicate: whenvever the given predicate
+    // 1. Write a function  that negates a given predicate: whenever the given predicate
     // evaluates to `true`, the resulting function evaluates to `false`, and vice versa.
-    private static Func<T, bool> MyNegate<T>(this Func<T, bool> isTrueOrFalse) => t => !isTrueOrFalse(t);
-
+    
+    // Find YNegate in YFuncExtensions.cs
+    
     [Test]
-    public static void MyNegateFunction()
+    public static void Test_YNegate_Function()
     {
         Func<int, bool> isEven = x => x % 2 == 0;
             
         var isEvenResult = isEven(10);
         isEvenResult.Should().BeTrue();
-            
 
-        var myNegate = isEven.MyNegate();
-            
-        var isNegateResult = myNegate(10);
+        var isNegateResult = isEven.YNegate()(10);
         isNegateResult.Should().BeFalse();
     }
 

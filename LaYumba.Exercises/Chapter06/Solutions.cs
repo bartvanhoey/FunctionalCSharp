@@ -50,32 +50,33 @@ static class Solutions
    // 3 Use Bind and an Option-returning Lookup function (such as the one we defined
    // in chapter 3) to implement GetWorkPermit, shown below. 
 
-   static Option<WorkPermit> GetWorkPermit(Dictionary<string, Employee> employees, string employeeId)
+   static Option<Chap6WorkPermit> GetWorkPermit(Dictionary<string, Chap6Employee> employees, string employeeId)
       => employees.Lookup(employeeId).Bind(e => e.WorkPermit);
 
 
    // Then enrich the implementation so that `GetWorkPermit`
    // returns `None` if the work permit has expired.
 
-   static Option<WorkPermit> GetValidWorkPermit(Dictionary<string, Employee> employees, string employeeId)
+   static Option<Chap6WorkPermit> GetValidWorkPermit(Dictionary<string, Chap6Employee> employees, string employeeId)
       => employees
          .Lookup(employeeId)
          .Bind(e => e.WorkPermit)
          .Where(HasExpired.Negate());
 
-   static Func<WorkPermit, bool> HasExpired => permit => permit.Expiry < DateTime.Now.Date;
+   static Func<Chap6WorkPermit, bool> HasExpired => permit 
+      => permit.Expiry < DateTime.Now.Date;
 
 
    // 4 Use Bind to implement AverageYearsWorkedAtTheCompany, shown below (only
    // employees who have left should be included).
 
-   static double AverageYearsWorkedAtTheCompany(List<Employee> employees)
+   static double AverageYearsWorkedAtTheCompany(List<Chap6ExEmployee> employees)
       => employees
          .Bind(e => Map(e.LeftOn, leftOn => YearsBetween(e.JoinedOn, leftOn)))
          .Average();
 
    // a more elegant solution, which will become clear in Chapter 9
-   static double AverageYearsWorkedAtTheCompany_LINQ(List<Employee> employees)
+   static double AverageYearsWorkedAtTheCompany_LINQ(List<Chap6ExEmployee> employees)
       => (from e in employees
             from leftOn in e.LeftOn
             select YearsBetween(e.JoinedOn, leftOn)
