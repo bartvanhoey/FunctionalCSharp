@@ -6,7 +6,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreT
 public class Chap06IEnumerableMapTests
 {
     [Fact]
-    public void TestMyMap()
+    public void YMap_IEnumerable_Should_Return_Correct_Values()
     {
         var range = Enumerable.Range(1,10);
 
