@@ -1,6 +1,6 @@
 using FunctionalCSharp.MyYumba;
 using static System.Console;
-using static FunctionalCSharp.MyYumba.StringExtensions;
+using static FunctionalCSharp.MyYumba.YStringExtensions;
 using static FunctionalCSharp.MyYumba.Y;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;

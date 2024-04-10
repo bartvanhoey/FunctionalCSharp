@@ -3,7 +3,7 @@ using Unit = System.ValueTuple;
 
 namespace FunctionalCSharp.MyYumba;
 
-public static class EnumerableExtensions
+public static class YiEnumerableExtensions
 {
     // Map maps a list of T's to a list of R's by applying a function T-> R to each element in the source list
     // FP Map == LINQ Select
@@ -23,7 +23,7 @@ public static class EnumerableExtensions
     public static IEnumerable<R> YBind<T, R>(this IEnumerable<T> items, Func<T, IEnumerable<R>> func) 
         => items.SelectMany(func);
     // ==
-    // foreach (T t in items)
+    // foreach (T item in items)
     // foreach (R r in func(t))
     // yield return r;
 
@@ -31,4 +31,5 @@ public static class EnumerableExtensions
 
     public static IEnumerable<R> YBind<T, R>(this IEnumerable<T> items, Func<T, YOption<R>> func) 
         => items.YBind(t => func(t).YAsEnumerable());
+    
 }

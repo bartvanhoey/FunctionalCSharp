@@ -460,7 +460,7 @@ var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : 
 
 ### Map (=Select in Linq) : Takes a regular function
 
-Map takes a structure and a function and applies the function to the inner value of the structure.
+Map takes a structure and a regular function and applies the function to the inner value of the structure.
 
 It takes a container C<T> and a function f of type (T -> R) and returns a container C<R> 
 wrapping the value(s) resulting from applying f to the container's inner value(s).
@@ -493,7 +493,7 @@ Option<string> optionEmailAddress = optionPerson.Map(generateEmailAddress);
 
 ### Filter (=Where in Linq)
 
-### Bind (=SelectMany in Linq) 
+### Bind (=SelectMany in Linq) : Takes an upward-crossing function
 
 Bind takes a container C<T> and a Container-returning-function f with signature (T -> C<R>) and applies the function to the inner value,
 and flattens the result (returns a C<R>) to avoid producing a nested container
@@ -598,10 +598,19 @@ Zip in FP is the operation of paring up the elements of two parallel lists into 
 Keep functions small
 Don't repeat yourself
 Do one thing
-Avoid side-effects
+Avoid side effects
 Functions should not accept more than 3 parameters
 
 ## Defensive Null-Checking
 
-Too prevent the NullReferenceException occurring, developers add null checks. 
+To prevent the NullReferenceException occurring, developers add null checks. 
 These null checks are definitely needed, but they create a lot of noise in the codebase.
+
+## World-crossing functions (upward-crossing functions)
+
+World-crossing functions are functions that go from the world of **normal values T** to the world of **elevated values (C<T>)**
+
+## downward-crossing functions
+
+Goes from an elevated value to a normal value. Average, Sum and count for IEnumerable.
+Match for Option

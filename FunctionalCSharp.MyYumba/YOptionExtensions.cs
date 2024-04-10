@@ -3,7 +3,7 @@ using Unit = System.ValueTuple;
 
 namespace FunctionalCSharp.MyYumba;
 
-public static class yOptionExtensions {
+public static class YOptionExtensions {
     
     // MAP (C<T>, (T -> R)) -> C<R>
     // in FP, a type for which a Map function is defined is a Functor
@@ -24,4 +24,9 @@ public static class yOptionExtensions {
 
     public static YOption<T> YWhere<T>(this YOption<T> yOption, Func<T, bool> predicate) 
         => yOption.YMatch(() => YNone,  t => predicate(t) ? yOption : YNone );
+    
+    public static IEnumerable<R> YBind<T, R>(this YOption<T> option, Func<T, IEnumerable<R>> func) 
+        => option.YAsEnumerable().YBind(func);
+
+    
 }

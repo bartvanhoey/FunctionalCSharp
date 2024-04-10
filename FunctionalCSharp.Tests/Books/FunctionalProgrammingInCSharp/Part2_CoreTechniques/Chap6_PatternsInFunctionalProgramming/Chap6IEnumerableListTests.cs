@@ -1,5 +1,5 @@
 using Shouldly;
-using static FunctionalCSharp.MyYumba.EnumerableExtensions;
+using static FunctionalCSharp.MyYumba.YiEnumerableExtensions;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
 

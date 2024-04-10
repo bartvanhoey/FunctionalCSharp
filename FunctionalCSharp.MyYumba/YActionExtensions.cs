@@ -3,7 +3,7 @@ using Unit = System.ValueTuple;
 
 namespace FunctionalCSharp.MyYumba;
 
-public static class ActionExtensions
+public static class YActionExtensions
 {
     public static Func<Unit> YToFunc(this Action action) =>
         () => { action(); return default; };

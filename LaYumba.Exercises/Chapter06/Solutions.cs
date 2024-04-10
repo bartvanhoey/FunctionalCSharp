@@ -17,6 +17,15 @@ static class Solutions
          rs.Add(f(t));
       return rs;
    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
 
    // Map : IDictionary<K, T> -> (T -> R) -> IDictionary<K, R>
    static IDictionary<K, R> Map<K, T, R>
