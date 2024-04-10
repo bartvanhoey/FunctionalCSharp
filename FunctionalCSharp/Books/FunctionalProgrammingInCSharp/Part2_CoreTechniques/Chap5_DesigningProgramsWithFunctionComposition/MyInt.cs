@@ -8,6 +8,6 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniq
 
 public static class MyInt
 {
-    public static Optiono<int> Parse(string text) 
-        => TryParse(text, out var result) ? Somo(result) : Nono;
+    public static YOption<int> Parse(string text) 
+        => TryParse(text, out var result) ? YSome(result) : YNone;
 }

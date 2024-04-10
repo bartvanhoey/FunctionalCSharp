@@ -13,9 +13,9 @@ public class Chap5AgeTests
     [InlineData(121)]
     public void AgeChap5_CreateAge_Should_Not_Create_Valid_Ages_When_Invalid_Inputs_Provided(int age)
     {
-        var optiono = Chap5Age.CreateAge(age);
+        var yOption = Chap5Age.CreateAge(age);
         Throws<ArgumentOutOfRangeException>(() =>
-            optiono.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x));
+            yOption.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x));
     }
 
     [Theory]
@@ -26,9 +26,9 @@ public class Chap5AgeTests
     [InlineData(119, 119)]
     public void AgeChap5_CreateAge_Should_Create_Valid_Ages_When_Valid_Inputs_Provided(int age, int resultAge)
     {
-        var optiono = Chap5Age.CreateAge(age);
+        var yOption = Chap5Age.CreateAge(age);
 
-        var result = optiono.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x);
+        var result = yOption.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x);
         
         result.ShouldBe(resultAge);
     }

@@ -2,9 +2,9 @@
 
 using FunctionalCSharp.MyYumba;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.yOptionClass;
 
-public static class OptionoUseCases
+public static class yOptionUseCases
 {
     // MAP Option
     // (Option<T>, (T -> R)) -> Option<R>
@@ -13,12 +13,12 @@ public static class OptionoUseCases
     // MAP IEnumerable
     // (IEnumerable<T>, (T -> R)) -> IEnumerable<R>
     
-    public static string OptionoGreet(Optiono<string> greetee) =>
+    public static string yOptionGreet(YOption<string> greetee) =>
         greetee.YMatch(
             () => "Sorry, Who?",
             name => $"Hello, {name}"
         );
 
-    // public static string OptionoGreetMatch(Optiono<string> greetee) 
+    // public static string yOptionGreetMatch(yOption<string> greetee) 
     //     => greetee.MyMatch(() => "Sorry, Who?", (name) => $"Hello, {name}");
 }

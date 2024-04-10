@@ -7,6 +7,6 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniq
 public static class MyNameValueCollectionExtensions
 {
     // (NameValueCollection, string) -> Option<string>
-    public static Optiono<string> Lookup(this NameValueCollection collection, string key) 
+    public static YOption<string> Lookup(this NameValueCollection collection, string key) 
         => collection[key];
 }

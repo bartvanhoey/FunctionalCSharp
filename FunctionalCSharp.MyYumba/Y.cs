@@ -2,10 +2,10 @@
 
 namespace FunctionalCSharp.MyYumba;
 
-public class Y
+public static class Y
 {
     public static Unit Unit() => default;
     
-    public static Optiono<T> Somo<T>(T value) => new(value);
-    public static NonoType Nono => default;
+    public static YOption<T> YSome<T>(T value) => new(value);
+    public static YNoneType YNone => default;
 }

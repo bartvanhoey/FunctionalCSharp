@@ -19,7 +19,7 @@ public static class Chap6AgeReader
         return ReadLine();
     }
 
-    private static Optiono<Chap6Age> ParseAge(string? age) 
+    private static YOption<Chap6Age> ParseAge(string? age) 
         => YIntParse(age).YBind(CreateAge);
     
     

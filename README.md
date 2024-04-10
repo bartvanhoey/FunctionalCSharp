@@ -410,17 +410,16 @@ Use the downward-crossing Match function as little or as late as possible
 
 ### Monads (must have Bind and Return functions defined)
 
-Monads are types for which a **Bind function** and a **Return function** is defined. that lifts a normal value T into a monadic value C<T>
-A Monad is a type C<T> for which the following functions are defined:
+A Monad is a type C<T> for which  a **Bind function** and a **Return function** is defined.
+**Return** is a function that lifts a normal value T into a monadic value C<T>
 
 * Return: T -> C<T>
 * Bind: (C<T>, (T -> C<R>)) -> C<R>
 
 Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
 
-In LaYumba, the Return function for Option is the Some function
-In LaYumba, the Return function for List is the List function
-
+In LaYumba, the Return function for **Option** is the **Some** function
+In LaYumba, the Return function for **IEnumerable** is the **List** function
 
 ### Monad Laws
 
@@ -445,6 +444,8 @@ and storing their solutions.
 * do one thing
 * avoid side effects
 * function should accept no more than 3 parameters
+* try to avoid indentation
+* go for the positive if instead of the negative
 
 ## Core Methods in Functional Programming
 
@@ -519,7 +520,11 @@ which it performs for each of the container's inner values, so it’s used to pe
 
 ### Return
 
-Return is a function that wraps a normal value T and lifts it into an elevated value
+Return is a function lifts a normal value T into an elevated value C<T> and nothing else.
+
+In LaYumba, the Return function for **Option** is the **Some** function
+In LaYumba, the Return function for **IEnumerable** is the **List** function
+
 
 ## Predicate functions (aka boolean functions)
 

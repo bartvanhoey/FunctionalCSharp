@@ -12,17 +12,17 @@ public class Chap6OptionBindTests
 
         var optInteger = YInt.YIntParse(age);
         
-        // YMap Optiono<R> YMap<T, R>(this Optiono<T> optiono, Func<T, R> func)
+        // YMap yOption<R> YMap<T, R>(this yOption<T> yOption, Func<T, R> func)
         // Map takes a regular function
-        // YMap (Optiono<T>, (T -> R)) -> Optiono<R>
-        // YMap and CreateAge both create an Optiono => Optiono<Optiono<Chap6Age>>
+        // YMap (yOption<T>, (T -> R)) -> yOption<R>
+        // YMap and CreateAge both create an yOption => yOption<yOption<Chap6Age>>
         
-        var optionoOptionoChap6Age = optInteger.YMap(CreateAge);
+        var yOptionyOptionChap6Age = optInteger.YMap(CreateAge);
         
         // In this case use YBind
         // Bind takes an Option-returning function
         // (Option<T>, (T -> Option<R>)) -> Option<R>
 
-        var optionoChap6Age = optInteger.YBind(CreateAge);
+        var yOptionChap6Age = optInteger.YBind(CreateAge);
     }
 }

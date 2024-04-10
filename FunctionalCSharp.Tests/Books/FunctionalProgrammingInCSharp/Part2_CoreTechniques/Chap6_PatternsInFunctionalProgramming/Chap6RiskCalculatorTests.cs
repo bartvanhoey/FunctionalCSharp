@@ -18,7 +18,7 @@ public class Chap6RiskCalculatorTests
     [Fact]
     public void Test_RiskOf_Method1()
     {
-        var subject1 = new Chap6Subject(Y.Nono, Chap6Gender.Female);
+        var subject1 = new Chap6Subject(Y.YNone, Chap6Gender.Female);
         var riskOf = Chap6RiskCalculator.RiskOf(subject1);
         var risk = riskOf.YMatch(() => "" , x => x.ToString());
         risk.ShouldBe("");

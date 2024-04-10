@@ -10,13 +10,13 @@ public class Chap6OptionMapTests
     {
         var greet = (string name) => $"Hello, {name}";
 
-        Optiono<string> empty = Y.Nono;
-        Optiono<string> john = Y.Somo("John");
+        YOption<string> empty = Y.YNone;
+        YOption<string> john = Y.YSome("John");
 
         var emptyGreet = empty.YMap(greet);
-        emptyGreet.ShouldBe(Y.Nono);
+        emptyGreet.ShouldBe(Y.YNone);
         
         var johnGreet = john.YMap(greet);
-        johnGreet.ShouldBe(Y.Somo("Hello, John"));
+        johnGreet.ShouldBe(Y.YSome("Hello, John"));
     }
 }

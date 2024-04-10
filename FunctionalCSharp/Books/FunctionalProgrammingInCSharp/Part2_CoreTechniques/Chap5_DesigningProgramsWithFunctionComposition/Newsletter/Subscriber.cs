@@ -4,7 +4,7 @@ using FunctionalCSharp.MyYumba;
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.Newsletter;
 
 public record Subscriber(string Name, string Email);
-public record OptSubscriber(Optiono<string> Name, string Email);
+public record OptSubscriber(YOption<string> Name, string Email);
 
 public static class NewsLetterService
 {

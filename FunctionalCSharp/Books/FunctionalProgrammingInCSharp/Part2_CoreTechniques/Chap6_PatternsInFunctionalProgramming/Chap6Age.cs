@@ -6,13 +6,13 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniq
 
 public class Chap6Age : ValueObject<Chap6Age>
 {
-    private int Value { get; }
+    public int Value { get; }
     private Chap6Age(int age) => Value = age;
 
-    public static Optiono<Chap6Age> CreateAge(int age) 
-        => IsValid(age) ? Somo(new Chap6Age(age)) : Nono;
+    public static YOption<Chap6Age> CreateAge(int age) 
+        => IsValid(age) ? YSome(new Chap6Age(age)) : YNone;
     
-    // public static Optiono<Chap6Age> CreateAge(Optiono<int> ageOpt) 
+    // public static yOption<Chap6Age> CreateAge(yOption<int> ageOpt) 
     //     => ageOpt.YMatch(() => Y.Nono, age => IsValid(age) ? Somo(new Chap6Age(age)) : Nono)  ;
 
     private static bool IsValid(int age) => age is >= 0 and < 120;

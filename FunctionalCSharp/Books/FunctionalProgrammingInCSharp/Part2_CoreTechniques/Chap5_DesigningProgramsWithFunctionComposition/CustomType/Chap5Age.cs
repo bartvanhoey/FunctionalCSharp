@@ -9,8 +9,8 @@ public class Chap5Age : ValueObject<Chap5Age>
     private int Value { get; }
     private Chap5Age(int age) => Value = age;
 
-    public static Optiono<Chap5Age> CreateAge(int age) 
-        => IsValid(age) ? Y.Somo(new Chap5Age(age)) : Y.Nono;
+    public static YOption<Chap5Age> CreateAge(int age) 
+        => IsValid(age) ? Y.YSome(new Chap5Age(age)) : Y.YNone;
 
     private static bool IsValid(int age) => age is >= 0 and < 120;
     

@@ -10,8 +10,8 @@ public class Chap6OptionForEachTests
     [Fact]
     public void Test_OptionYForEach()
     {
-        Optiono<string> empty = Nono;
-        var john = Somo("John");
+        YOption<string> empty = YNone;
+        var john = YSome("John");
 
         var emptyGreet = empty.YForEach(WriteLine); // does not write anything
         var johnGreet = john.YForEach(WriteLine); // writes John
@@ -20,8 +20,8 @@ public class Chap6OptionForEachTests
     [Fact]
     public void Test_YMap_And_YForEach_For_Option_And_IEnumerable()
     {
-        Optiono<string> empty = Nono;
-        var john = Somo("John");
+        YOption<string> empty = YNone;
+        var john = YSome("John");
         
         empty.YMap(x => x.ToUpper()).YForEach(WriteLine);
         john.YMap(x => x.ToUpper()).YForEach(WriteLine); // JOHN

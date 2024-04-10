@@ -28,4 +28,7 @@ public static class EnumerableExtensions
     // yield return r;
 
     public static IEnumerable<T> YList<T>(params T[] items) => items.ToImmutableList();
+
+    public static IEnumerable<R> YBind<T, R>(this IEnumerable<T> items, Func<T, YOption<R>> func) 
+        => items.YBind(t => func(t).YAsEnumerable());
 }

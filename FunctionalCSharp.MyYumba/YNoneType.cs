@@ -1,3 +1,3 @@
 namespace FunctionalCSharp.MyYumba;
 
-public struct NonoType;
+public struct YNoneType;
