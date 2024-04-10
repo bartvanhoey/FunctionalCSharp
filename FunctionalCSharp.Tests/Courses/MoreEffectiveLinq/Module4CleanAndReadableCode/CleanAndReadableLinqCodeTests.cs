@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using static FunctionalCSharp.Courses.MoreEffectiveLinq.Module4CleanAndReadableCode.CleanAndReadableLinqCode;
 
 namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module4CleanAndReadableCode;
@@ -12,6 +12,6 @@ public class CleanAndReadableLinqCodeTests
             "Jason Puncheon, 26/06/1986; Jos Hooiveld, 22/04/1983; Kelvin Davis, 29/09/1976; Luke Shaw, 12/07/1995; Gaston Ramirez, 02/12/1990; Adam Lallana, 10/05/1988";
 
         var playerAges = GetPlayerAge(players);
-        playerAges.First().Name.Should().Be("Luke Shaw");
+        playerAges.First().Name.ShouldBe("Luke Shaw");
     }
 }

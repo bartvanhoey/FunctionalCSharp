@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 
 namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Lambda;
 
@@ -14,8 +14,8 @@ public class LambdasTests
             
         var dayOfWeeks = DaysStartingWith("S").ToList();
             
-        dayOfWeeks.Should().Contain(DayOfWeek.Sunday);
-        dayOfWeeks.Should().Contain(DayOfWeek.Saturday);
+        dayOfWeeks.ShouldContain(DayOfWeek.Sunday);
+        dayOfWeeks.ShouldContain(DayOfWeek.Saturday);
 
 
     }  

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup;
 
@@ -18,7 +18,7 @@ public class CustomerControllerTests
         var customerModel = new CustomerModel(ValidName, ValidEmailAddress);
         var actionResult = controller.CreateCustomer(customerModel);
 
-        actionResult.RedirectTo.Should().Be("Index");
+        actionResult.RedirectTo.ShouldBe("Index");
     }
 
     [Fact]
@@ -29,7 +29,7 @@ public class CustomerControllerTests
         var customerModel = new CustomerModel(ValidName, InValidEmailAddress);
         var actionResult = controller.CreateCustomer(customerModel);
 
-        actionResult.RedirectTo.Should().Be("ErrorPage");
+        actionResult.RedirectTo.ShouldBe("ErrorPage");
     }
 
     [Fact]
@@ -40,7 +40,7 @@ public class CustomerControllerTests
         var customerModel = new CustomerModel("", ValidEmailAddress);
         var actionResult = controller.CreateCustomer(customerModel);
 
-        actionResult.RedirectTo.Should().Be("ErrorPage");
+        actionResult.RedirectTo.ShouldBe("ErrorPage");
     }
 
         
@@ -53,7 +53,7 @@ public class CustomerControllerTests
         var customerModel = new CustomerModel(" ", InValidEmailAddress);
         var actionResult = controller.CreateCustomer(customerModel);
 
-        actionResult.RedirectTo.Should().Be("ErrorPage");
+        actionResult.RedirectTo.ShouldBe("ErrorPage");
     }
 
     private CustomerController GetCustomerController()

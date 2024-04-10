@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
 using Fupr.Functional.ResultClass;
 using static System.String;
@@ -18,7 +18,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
     {
         var emailProcessor = new EmailProcessor();
         var result = emailProcessor.ProcessEmailWithPrimitiveObsession(OldEmailAddress, NewEmailAddress);
-        result.Should().Be(NewEmailAddress);
+        result.ShouldBe(NewEmailAddress);
     }
         
     [Fact]
@@ -26,7 +26,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
     {
         var emailProcessor = new EmailProcessor();
         var result = emailProcessor.ProcessEmailWithPrimitiveObsession(OldEmailAddress, InvalidNewEmailAddress);
-        result.Should().Be(Empty);
+        result.ShouldBe(Empty);
     }
         
     [Fact]
@@ -34,7 +34,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
     {
         var emailProcessor = new EmailProcessor();
         var result = emailProcessor.ProcessEmailWithPrimitiveObsession(InvalidOldEmailAddress, NewEmailAddress);
-        result.Should().Be(Empty);
+        result.ShouldBe(Empty);
     }
         
     [Fact]
@@ -46,7 +46,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
         var newMail = Create(NewEmailAddress);
             
         var result = processor.ProcessEmailWithValueObjects(oldMail, newMail);
-        result.Should().Be(NewEmailAddress);
+        result.ShouldBe(NewEmailAddress);
     }
         
     [Fact]
@@ -58,7 +58,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
         var newMail = Create(InvalidNewEmailAddress);
             
         var result = processor.ProcessEmailWithValueObjects(oldMail, newMail);
-        result.Should().Be(Empty);
+        result.ShouldBe(Empty);
     }
 }
 

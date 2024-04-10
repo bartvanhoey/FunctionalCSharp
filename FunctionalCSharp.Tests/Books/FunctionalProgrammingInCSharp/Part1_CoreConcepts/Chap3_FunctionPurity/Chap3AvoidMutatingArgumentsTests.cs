@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Orders;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Chap3AvoidMutatingArguments;
 
@@ -11,15 +11,15 @@ public class Chap3AvoidMutatingArgumentsTests
     {
         var linesToDelete = new List<OrderLine>();
         var result = ComputeOrderTotal(GetOrder(), linesToDelete);
-        result.Should().Be(30);
+        result.ShouldBe(30);
     }
 
     [Fact]
     public void Method_ComputeOrderTotalFunctional_Should_Calculate_Correct_Result()
     {
         var result = ComputeOrderTotalFunctional(GetOrder());
-        result.total.Should().Be(30);
-        result.linesToDelete.Count().Should().Be(1);
+        result.total.ShouldBe(30);
+        result.linesToDelete.Count().ShouldBe(1);
     }
 
     private static Order GetOrder()

@@ -1,4 +1,7 @@
-﻿using FluentAssertions;
+﻿
+
+using Shouldly;
+
 using static System.Linq.Enumerable;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_ThinkingInFunctions.Functions.FunctionFactories.FunctionFactory;
 
@@ -13,8 +16,8 @@ public class FunctionFactoryTests
         var divisibleBy3 = Range(1, 20).Where(IsDivisibleBy(3)).ToList();
 
 
-        divisibleBy2.Should().Contain(4);
-        divisibleBy3.Should().Contain(9);
+        divisibleBy2.ShouldContain(4);
+        divisibleBy3.ShouldContain(9);
 
     }
 }

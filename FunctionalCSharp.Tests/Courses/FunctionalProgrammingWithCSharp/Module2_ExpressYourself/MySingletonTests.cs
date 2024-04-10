@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using static FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself.MySingleton;
 
 namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module2_ExpressYourself;
@@ -16,7 +16,7 @@ public class MySingletonTests
         var strInstance1 = instance1.ToString();
         var strInstance2 = instance1.ToString();
             
-        isMySingletonEqual.Should().BeTrue();
-        strInstance1.Should().Be(strInstance2);
+        isMySingletonEqual.ShouldBeTrue();
+        strInstance1.ShouldBe(strInstance2);
     }
 }

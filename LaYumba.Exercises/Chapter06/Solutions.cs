@@ -70,13 +70,13 @@ static class Solutions
    // 4 Use Bind to implement AverageYearsWorkedAtTheCompany, shown below (only
    // employees who have left should be included).
 
-   static double AverageYearsWorkedAtTheCompany(List<Chap6ExEmployee> employees)
+   static double AverageYearsWorkedAtTheCompany(List<Chap6Employee> employees)
       => employees
          .Bind(e => Map(e.LeftOn, leftOn => YearsBetween(e.JoinedOn, leftOn)))
          .Average();
 
    // a more elegant solution, which will become clear in Chapter 9
-   static double AverageYearsWorkedAtTheCompany_LINQ(List<Chap6ExEmployee> employees)
+   static double AverageYearsWorkedAtTheCompany_LINQ(List<Chap6Employee> employees)
       => (from e in employees
             from leftOn in e.LeftOn
             select YearsBetween(e.JoinedOn, leftOn)

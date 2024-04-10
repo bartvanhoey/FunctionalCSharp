@@ -6,7 +6,7 @@ using static FunctionalCSharp.MyYumba.YInt;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
 
-public class Chap6yOptionWhereTests
+public class Chap6YOptionWhereTests
 {
     private static  bool IsNatural(int i) => i >= 0;
     private static YOption<int> ToNatural(string s) => YIntParse(s).YWhere(IsNatural);

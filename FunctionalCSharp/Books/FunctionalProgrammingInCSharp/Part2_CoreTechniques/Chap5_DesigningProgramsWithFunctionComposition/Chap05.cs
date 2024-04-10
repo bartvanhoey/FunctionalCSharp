@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using LaYumba.Functional;
 using static System.Linq.Enumerable;
 
@@ -27,7 +27,7 @@ public class Chap05
         var a = optJoe.Map(_emailFor);
         var b = optJoe.Map(AbbreviateName).Map(AppendDomain);
         
-        a.Should().Be(b);
+        a.ShouldBe(b);
     }
 
     public void CalculateAverage()
@@ -36,7 +36,7 @@ public class Chap05
         var average1 = population.AverageEarningsOfRichestQuartile();
         var average2 = population.RichestQuartile().AverageEarnings();
         
-        average1.Should().Be(average2);
+        average1.ShouldBe(average2);
         
     }
 }

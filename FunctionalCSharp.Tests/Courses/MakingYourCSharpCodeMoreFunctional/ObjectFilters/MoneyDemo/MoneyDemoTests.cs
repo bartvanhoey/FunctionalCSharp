@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo;
 
 namespace FunctionalCSharp.Tests.Courses.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo;
@@ -20,7 +20,7 @@ public class MoneyDemoTests
 
         var charge = wallet.Charge(Currency.Eur, new Amount(Currency.Eur, 100));
 
-        charge.Value.Should().Be(100);
+        charge.Value.ShouldBe(100);
 
     }
 }

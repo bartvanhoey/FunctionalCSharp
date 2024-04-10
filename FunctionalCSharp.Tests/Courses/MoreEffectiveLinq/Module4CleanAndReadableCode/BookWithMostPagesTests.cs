@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using static FunctionalCSharp.Courses.MoreEffectiveLinq.Module4CleanAndReadableCode.BookWithMostPagesChallenge;
 
 namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module4CleanAndReadableCode;
@@ -10,7 +10,7 @@ public class BookWithMostPagesTests
     public void Method_FindBookWithMostPages_Should_Return_Book_With_Most_Pages()
     {
         var result = FindBookWithMostPages();
-        result.Should().Be("Patterns of Enterprise Application Architecture");
+        result.ShouldBe("Patterns of Enterprise Application Architecture");
 
     }
 

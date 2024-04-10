@@ -21,8 +21,7 @@ public class AuditManagerTests
 
         action.Type.Should().Be(Update);
         action.FileName.Should().Be(file.FileName);
-        action.Content.Should()
-            .BeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00", "2;Jane Doe;2016-04-06T17:00:00");
+        action.Content.Should().BeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00", "2;Jane Doe;2016-04-06T17:00:00");
     }
 
     [Fact]
@@ -100,9 +99,9 @@ public class AuditManagerTests
         var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] {file});
 
         actions.Count.Should().Be(0);
-        // actions.FirstOrDefault().FileName.Should().Be("Audit_1.txt");
-        // actions.FirstOrDefault().Action.Should().Be(Update);
+        // actions.FirstOrDefault().FileName.ShouldBe("Audit_1.txt");
+        // actions.FirstOrDefault().Action.ShouldBe(Update);
         // actions.FirstOrDefault().Lines
-        //     .Should().BeEquivalentTo("1;Jane Doe;2016-04-06T17:00:00", "2;Jack Rich;2016-04-06T17:40:00");
+        //     .ShouldBeEquivalentTo("1;Jane Doe;2016-04-06T17:00:00", "2;Jack Rich;2016-04-06T17:40:00");
     }
 }

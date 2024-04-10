@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Shouldly;
 using Fupr.Functional.MaybeClass;
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType;
@@ -10,8 +11,8 @@ public class MaybeTypeBasicTests
     {
         Maybe<MyClass> maybe = null;
 
-        maybe.HasValue.Should().BeFalse();
-        maybe.HasNoValue.Should().BeTrue();
+        maybe.HasValue.ShouldBeFalse();
+        maybe.HasNoValue.ShouldBeTrue();
     }
 
     [Fact]
@@ -19,8 +20,8 @@ public class MaybeTypeBasicTests
     {
         var maybe = Maybe<MyClass>.None;
 
-        maybe.HasValue.Should().BeFalse();
-        maybe.HasNoValue.Should().BeTrue();
+        maybe.HasValue.ShouldBeFalse();
+        maybe.HasNoValue.ShouldBeTrue();
     }
 
     [Fact]
@@ -29,7 +30,7 @@ public class MaybeTypeBasicTests
         Maybe<MyClass> nullableMaybe = null;
         var maybeNone = Maybe<MyClass>.None;
 
-        nullableMaybe.Should().Be(maybeNone);
+        nullableMaybe.ShouldBe(maybeNone);
     }
 
     [Fact]
@@ -42,7 +43,7 @@ public class MaybeTypeBasicTests
             var myClass = maybe.Value;
         };
 
-        action.Should().Throw<InvalidOperationException>();
+        action.ShouldThrow<InvalidOperationException>();
     }
 
     [Fact]
@@ -52,9 +53,9 @@ public class MaybeTypeBasicTests
 
         Maybe<MyClass> maybe = instance;
 
-        maybe.HasValue.Should().BeTrue();
-        maybe.HasNoValue.Should().BeFalse();
-        maybe.Value.Should().Be(instance);
+        maybe.HasValue.ShouldBeTrue();
+        maybe.HasNoValue.ShouldBeFalse();
+        maybe.Value.ShouldBe(instance);
     }
 
     [Fact]
@@ -64,7 +65,7 @@ public class MaybeTypeBasicTests
 
         var str = maybe.ToString();
 
-        str.Should().Be("No value");
+        str.ShouldBe("No value");
     }
 
     [Fact]
@@ -74,44 +75,44 @@ public class MaybeTypeBasicTests
 
         var str = maybe.ToString();
 
-        str.Should().Be("My custom class");
+        str.ShouldBe("My custom class");
     }
 
     [Fact]
     public void Maybe_None_has_no_value()
     {
-        Maybe<string>.None.HasValue.Should().BeFalse();
-        Maybe<int>.None.HasValue.Should().BeFalse();
+        Maybe<string>.None.HasValue.ShouldBeFalse();
+        Maybe<int>.None.HasValue.ShouldBeFalse();
     }
 
     [Fact]
     public void Maybe_None_Tuples_has_no_value_is_true()
     {
-        Maybe<(Array, Exception)>.None.HasNoValue.Should().BeTrue();
-        Maybe<(double, int, byte)>.None.HasNoValue.Should().BeTrue();
+        Maybe<(Array, Exception)>.None.HasNoValue.ShouldBeTrue();
+        Maybe<(double, int, byte)>.None.HasNoValue.ShouldBeTrue();
     }
 
     [Fact]
     public void Maybe_None_Tuples_has_value_is_false()
     {
-        Maybe<(DateTime, bool, char)>.None.HasValue.Should().BeFalse();
-        Maybe<(string, TimeSpan)>.None.HasValue.Should().BeFalse();
+        Maybe<(DateTime, bool, char)>.None.HasValue.ShouldBeFalse();
+        Maybe<(string, TimeSpan)>.None.HasValue.ShouldBeFalse();
     }
 
     // [Fact]
     // public void Maybe_None_Select_from_class_to_struct_retains_None()
     // {
-    //     Maybe<string>.None.Select(_ => 42).HasValue.Should().BeFalse();
+    //     Maybe<string>.None.Select(_ => 42).HasValue.ShouldBeFalse();
     // }
 
     // [Fact]
     // public void Maybe_None_Where_respects_structs()
     // {
-    //     Maybe<int>.From(0).Where(_ => true).HasValue.Should().BeTrue();
-    //     Maybe<int>.From(0).Where(_ => false).HasValue.Should().BeFalse();
+    //     Maybe<int>.From(0).Where(_ => true).HasValue.ShouldBeTrue();
+    //     Maybe<int>.From(0).Where(_ => false).HasValue.ShouldBeFalse();
     //
-    //     Maybe<int>.None.Where(_ => true).HasValue.Should().BeFalse();
-    //     Maybe<int>.None.Where(_ => false).HasValue.Should().BeFalse();
+    //     Maybe<int>.None.Where(_ => true).HasValue.ShouldBeFalse();
+    //     Maybe<int>.None.Where(_ => false).HasValue.ShouldBeFalse();
     // }
 
     [Fact]
@@ -121,8 +122,8 @@ public class MaybeTypeBasicTests
         var withTypeParam = Maybe<string>.From("test");
         var differentValueTypeParam = Maybe<string>.From("tests");
 
-        withoutTypeParam.Should().Be(withTypeParam);
-        withoutTypeParam.Should().NotBe(differentValueTypeParam);
+        withoutTypeParam.ShouldBe(withTypeParam);
+        withoutTypeParam.ShouldNotBe(differentValueTypeParam);
     }
 
     [Fact]
@@ -130,8 +131,8 @@ public class MaybeTypeBasicTests
     {
         Maybe<int> maybe = Maybe.None;
 
-        maybe.HasValue.Should().BeFalse();
-        maybe.HasNoValue.Should().BeTrue();
+        maybe.HasValue.ShouldBeFalse();
+        maybe.HasNoValue.ShouldBeTrue();
     }
 
     [Fact]
@@ -157,7 +158,7 @@ public class MaybeTypeBasicTests
         const string errorMessage = "Maybe is none";
         var result = maybe.GetValueOrThrow(errorMessage);
 
-        result.Should().Be(value);
+        result.ShouldBe(value);
     }
 
     // [Fact]
@@ -178,8 +179,8 @@ public class MaybeTypeBasicTests
     {
         Maybe<int> maybe = default;
 
-        maybe.HasValue.Should().BeFalse();
-        maybe.HasNoValue.Should().BeTrue();
+        maybe.HasValue.ShouldBeFalse();
+        maybe.HasNoValue.ShouldBeTrue();
     }
 
     [Fact]
@@ -187,8 +188,8 @@ public class MaybeTypeBasicTests
     {
         Maybe<int> maybe = 5;
 
-        maybe.HasValue.Should().BeTrue();
-        maybe.HasNoValue.Should().BeFalse();
+        maybe.HasValue.ShouldBeTrue();
+        maybe.HasNoValue.ShouldBeFalse();
     }
 
     [Fact]
@@ -196,8 +197,8 @@ public class MaybeTypeBasicTests
     {
         Maybe<MyClass> maybe = null;
 
-        maybe.HasValue.Should().BeFalse();
-        maybe.HasNoValue.Should().BeTrue();
+        maybe.HasValue.ShouldBeFalse();
+        maybe.HasNoValue.ShouldBeTrue();
     }
 
     private class MyClass

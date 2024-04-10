@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.yOptionClass;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
@@ -23,16 +23,16 @@ IndexerLookupReturnsOption.WriteColorToScreen();
 yOptionUseCases.yOptionGreet(YNone);
 
 var sorryWho = yOptionUseCases.yOptionGreet(YNone);
-sorryWho.Should().Be("Sorry, Who?");
+sorryWho.ShouldBe("Sorry, Who?");
 
 var helloJohn = yOptionUseCases.yOptionGreet(YSome("John"));
-helloJohn.Should().Be("Hello, John");
+helloJohn.ShouldBe("Hello, John");
 
 // you CANNOT assign null here
 // var helloNull = yOptionUseCases.yOptionGreetMatch(MySome(null));
 
 var helloJohnImplicit = yOptionUseCases.yOptionGreet("John");
-helloJohnImplicit.Should().Be("Hello, John");
+helloJohnImplicit.ShouldBe("Hello, John");
 
 
 

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After;
 
 
@@ -11,7 +11,7 @@ public class TicketControllerTests
     {
         var ticketController = GetTicketController();
         var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "bart");
-        actionResult.IsValid.Should().BeTrue();
+        actionResult.IsValid.ShouldBeTrue();
     }
 
     [Fact]
@@ -19,7 +19,7 @@ public class TicketControllerTests
     {
         var ticketController = GetTicketController();
         var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(1), "");
-        actionResult.Error.Should().Be("Error");
+        actionResult.Error.ShouldBe("Error");
     }
 
     [Fact]
@@ -27,7 +27,7 @@ public class TicketControllerTests
     {
         var ticketController = GetTicketController();
         var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(-1), "Bart");
-        actionResult.Error.Should().Be("Error");
+        actionResult.Error.ShouldBe("Error");
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class TicketControllerTests
     {
         var ticketController = GetTicketController();
         var actionResult = ticketController.BuyTicket(DateTime.Now.AddDays(-1), "");
-        actionResult.Error.Should().Be("Error");
+        actionResult.Error.ShouldBe("Error");
     }
 
 

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Orders;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Chap03AvoidingStateMutation;
 
@@ -18,7 +18,7 @@ public class Chap3Tests
             
         var items = ZipInEnglish(ints, strings);
             
-        items.Should().Contain("In English, 1 is: one");
+        items.ShouldContain("In English, 1 is: one");
     }
         
     [Fact]
@@ -28,9 +28,9 @@ public class Chap3Tests
             
         var result = FormatList(list);
 
-        result.Should().Contain(CSharpForDummies);
-        result.Should().Contain(FunctionalProgrammingInCSharp);
-        result.Should().Contain(ApplyingFunctionalPrinciples);
+        result.ShouldContain(CSharpForDummies);
+        result.ShouldContain(FunctionalProgrammingInCSharp);
+        result.ShouldContain(ApplyingFunctionalPrinciples);
     }
         
     [Fact]
@@ -40,9 +40,9 @@ public class Chap3Tests
             
         var result = FormatListFunctional(list);
 
-        result.Should().Contain(CSharpForDummies);
-        result.Should().Contain(FunctionalProgrammingInCSharp);
-        result.Should().Contain(ApplyingFunctionalPrinciples);
+        result.ShouldContain(CSharpForDummies);
+        result.ShouldContain(FunctionalProgrammingInCSharp);
+        result.ShouldContain(ApplyingFunctionalPrinciples);
     }
         
     [Fact]
@@ -52,9 +52,9 @@ public class Chap3Tests
             
         var result = FormatListFunctionalAsParallel(list);
 
-        result.Should().Contain(CSharpForDummies);
-        result.Should().Contain(FunctionalProgrammingInCSharp);
-        result.Should().Contain(ApplyingFunctionalPrinciples);
+        result.ShouldContain(CSharpForDummies);
+        result.ShouldContain(FunctionalProgrammingInCSharp);
+        result.ShouldContain(ApplyingFunctionalPrinciples);
     }
         
     private static Order GetOrder()

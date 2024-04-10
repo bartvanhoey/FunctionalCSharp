@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.ResultErrors;
 
@@ -13,38 +13,38 @@ public class CustomerTests
         var emailResult = Email.Create(ValidEmailAddress);
         string email = emailResult.Value;
 
-        email.Should().Be(ValidEmailAddress);
+        email.ShouldBe(ValidEmailAddress);
     }
 
     [Fact]
     public void Test_Email_Explicit_Operator_ValidEmailAddress_Should_Return_Valid_Email()
     {
         var email = (Email)ValidEmailAddress;
-        ((string) email).Should().Be(ValidEmailAddress);
+        ((string) email).ShouldBe(ValidEmailAddress);
     }
 
     [Fact]
     public void Create_A_Customer_With_Correct_CustomerName_And_Email_Address_Should_Be_OK()
     {
         var customerNameResult = CustomerName.Create("Bart");
-        customerNameResult.IsFailure.Should().BeFalse();
+        customerNameResult.IsFailure.ShouldBeFalse();
         var customerName = customerNameResult.Value;
 
         var emailResult = Email.Create(ValidEmailAddress);
-        emailResult.IsFailure.Should().BeFalse();
+        emailResult.IsFailure.ShouldBeFalse();
         var email = emailResult.Value;
         var customer = new Customer(customerName, email);
 
-        ((string)customer.Email).Should().Be(ValidEmailAddress);
-        ((string) customer.Name).Should().Be("Bart");
+        ((string)customer.Email).ShouldBe(ValidEmailAddress);
+        ((string) customer.Name).ShouldBe("Bart");
     }
 
     [Fact]
     public void Create_Empty_CustomerName_Should_Fail()
     {
         var customerNameResult = CustomerName.Create("");
-        customerNameResult.IsFailure.Should().BeTrue();
-        customerNameResult.Error.Should().BeOfType<CustomerNameEmptyResultError>();
+        customerNameResult.IsFailure.ShouldBeTrue();
+        customerNameResult.Error.ShouldBeOfType<CustomerNameEmptyResultError>();
     }
 
     [Fact]
@@ -52,8 +52,8 @@ public class CustomerTests
     {
         var customerNameResult = CustomerName.Create(
             "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-        customerNameResult.IsFailure.Should().BeTrue();
-        customerNameResult.Error.Should().BeOfType<CustomerNameTooLongResultError>();
+        customerNameResult.IsFailure.ShouldBeTrue();
+        customerNameResult.Error.ShouldBeOfType<CustomerNameTooLongResultError>();
     }
 
     [Fact]
@@ -61,31 +61,31 @@ public class CustomerTests
     {
         var emailResult = Email.Create(
             "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-        emailResult.IsFailure.Should().BeTrue();
-        emailResult.Error.Should().BeOfType<EmailTooLongResultError>();
+        emailResult.IsFailure.ShouldBeTrue();
+        emailResult.Error.ShouldBeOfType<EmailTooLongResultError>();
     }
 
     [Fact]
     public void Create_Empty_Email_Should_Fail()
     {
         var emailResult = Email.Create("");
-        emailResult.IsFailure.Should().BeTrue();
-        emailResult.Error.Should().BeOfType<EmailEmptyResultError>();
+        emailResult.IsFailure.ShouldBeTrue();
+        emailResult.Error.ShouldBeOfType<EmailEmptyResultError>();
     }
 
     [Fact]
     public void Create_Invalid_Email_Should_Fail()
     {
         var emailResult = Email.Create(InValidEmailAddress);
-        emailResult.IsFailure.Should().BeTrue();
-        emailResult.Error.Should().BeOfType<EmailInvalidResultError>();
+        emailResult.IsFailure.ShouldBeTrue();
+        emailResult.Error.ShouldBeOfType<EmailInvalidResultError>();
     }
 
     [Fact]
     public void Create_Valid_Email_Should_Be_OK()
     {
         var emailResult = Email.Create(ValidEmailAddress);
-        emailResult.IsFailure.Should().BeFalse();
-        ((string) emailResult.Value).Should().Be(ValidEmailAddress);
+        emailResult.IsFailure.ShouldBeFalse();
+        ((string) emailResult.Value).ShouldBe(ValidEmailAddress);
     }
 }

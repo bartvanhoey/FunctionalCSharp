@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.MethodChaining;
 using LaYumba.Functional;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.MethodChaining.FunctionCompC1;
@@ -18,7 +18,7 @@ public class Chap7FunctionCompositionTests
         var option = opt.Map(GenerateEmail);
 
         var email = option.Match(none: () => "none", some: x => x);
-        email.Should().Be("bava@manning.com");
+        email.ShouldBe("bava@manning.com");
     }
         
     [Fact]
@@ -31,7 +31,7 @@ public class Chap7FunctionCompositionTests
         var option = opt.Map(ExtensionsC7.AbbreviateName).Map(ExtensionsC7.AddDomain);
 
         var email = option.Match(none: () => "none", some: x => x);
-        email.Should().Be("bava@manning.com");
+        email.ShouldBe("bava@manning.com");
     }
         
 
@@ -42,7 +42,7 @@ public class Chap7FunctionCompositionTests
         var person = new PersonC7("Bart", "Van Hoey");
         var email = GenerateEmail(person);
 
-        email.Should().Be("bava@manning.com");
+        email.ShouldBe("bava@manning.com");
     }
         
     [Fact]
@@ -51,7 +51,7 @@ public class Chap7FunctionCompositionTests
         var person = new PersonC7("Bart", "Van Hoey");
 
         var email = person.AbbreviateName().AddDomain();
-        email.Should().Be("bava@manning.com");
+        email.ShouldBe("bava@manning.com");
     }
         
         

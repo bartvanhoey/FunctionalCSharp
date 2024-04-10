@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using static System.IO.File;
 using static System.IO.Path;
 using static System.Reflection.Assembly;
@@ -16,7 +16,7 @@ public class InstrumentationTests
     {
         var filePath = GetFilePath("file.txt");
         var result = WriteTimeTakenToConsole("Reading from file.txt", () => ReadAllText(filePath));
-        result.Should().NotBeNull();
+        result.ShouldNotBeNull();
     }
 
     [Fact]

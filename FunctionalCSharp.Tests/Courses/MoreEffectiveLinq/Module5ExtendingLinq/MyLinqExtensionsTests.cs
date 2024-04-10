@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.MoreEffectiveLinq.Module5ExtendingLinq;
 
 namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module5ExtendingLinq;
@@ -11,7 +11,7 @@ public class MyLinqExtensionsTests
         var albumDuration = "2:54,3:48,4:51,3:32,6:15,4:08,5:17,3:13,4:16,3:55,4:53,5:35,4:24"
             .Split(',')
             .Select(t => TimeSpan.Parse("0:" + t)).Sum();
-        albumDuration.Should().Be(new TimeSpan(0, 57, 01));
+        albumDuration.ShouldBe(new TimeSpan(0, 57, 01));
     }
         
     [Fact]
@@ -20,7 +20,7 @@ public class MyLinqExtensionsTests
         var list = new List<string> {"6","1","3","2","4"};
 
         var result = list.StringConcat(",");
-        result.Should().Be("6,1,3,2,4");
+        result.ShouldBe("6,1,3,2,4");
     }
         
     [Fact]
@@ -34,7 +34,7 @@ public class MyLinqExtensionsTests
         };
 
         var result = books.MaxBy(x => x.Pages);
-        result?.Title.Should().Be("Patterns of Enterprise Application Architecture");
+        result?.Title.ShouldBe("Patterns of Enterprise Application Architecture");
     }
         
     [Fact]
@@ -43,7 +43,7 @@ public class MyLinqExtensionsTests
         var result = "Dog,Cat,Rabbit,Dog,Dog,Lizard,Cat,Cat,Dog,Rabbit,Guinea Pig,Dog".Split(",")
             .CountBy(x => x == "Dog" ? x : "other");
 
-        result.Where(x => x.Key == "Dog").Select(x => x.Value).First().Should().Be(5);
+        result.Where(x => x.Key == "Dog").Select(x => x.Value).First().ShouldBe(5);
     }
 
         
@@ -53,9 +53,9 @@ public class MyLinqExtensionsTests
         var result = "Dog,Cat,Rabbit,Dog,Dog,Lizard,Cat,Cat,Dog,Rabbit,GuineaPig,Dog".Split(",")
             .CountBy(x => x != "Dog" && x != "Cat" ? "Other" : x).ToList();
 
-        result.Where(x => x.Key == "Dog").Select(x => x.Value).First().Should().Be(5);
-        result.Where(x => x.Key == "Cat").Select(x => x.Value).First().Should().Be(3);
-        result.Where(x => x.Key == "Other").Select(x => x.Value).First().Should().Be(4);
+        result.Where(x => x.Key == "Dog").Select(x => x.Value).First().ShouldBe(5);
+        result.Where(x => x.Key == "Cat").Select(x => x.Value).First().ShouldBe(3);
+        result.Where(x => x.Key == "Other").Select(x => x.Value).First().ShouldBe(4);
     }
 
     [Fact]
@@ -73,8 +73,8 @@ public class MyLinqExtensionsTests
                 }
             ).ToList();
 
-        swimLengthTimes.LastOrDefault()?.Start.Should().Be(new TimeSpan(0, 6, 47));
-        swimLengthTimes.LastOrDefault()?.End.Should().Be(new TimeSpan(0, 7, 35));
+        swimLengthTimes.LastOrDefault()?.Start.ShouldBe(new TimeSpan(0, 6, 47));
+        swimLengthTimes.LastOrDefault()?.End.ShouldBe(new TimeSpan(0, 7, 35));
     }
         
         

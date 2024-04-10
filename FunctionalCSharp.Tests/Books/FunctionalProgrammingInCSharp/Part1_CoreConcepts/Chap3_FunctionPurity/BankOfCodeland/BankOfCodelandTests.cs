@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.BankOfCodeland.Validators;
 
@@ -16,7 +16,7 @@ public class BankOfCodelandTests
         {
             Date =DateTime.Now.AddDays(1)
         };
-        sut.IsValid(transfer).Should().BeTrue();
+        sut.IsValid(transfer).ShouldBeTrue();
     }
     
     [Fact]
@@ -29,7 +29,7 @@ public class BankOfCodelandTests
             Date = DateTime.Now.AddDays(-1)
         };
 
-        sut.IsValid(transfer).Should().BeFalse();
+        sut.IsValid(transfer).ShouldBeFalse();
     }
     
     [Fact]
@@ -44,7 +44,7 @@ public class BankOfCodelandTests
             Date = dateTimeNow
         };
 
-        sut.IsValid(transfer).Should().BeTrue();
+        sut.IsValid(transfer).ShouldBeTrue();
     }
 
     
@@ -58,7 +58,7 @@ public class BankOfCodelandTests
         var validator = new FunctionalDateNotPastValidator(() => DateTime.Now);
     
         var result = validator.IsValid(transfer);
-        result.Should().Be(expected);
+        result.ShouldBe(expected);
     }
     
     //     
@@ -72,7 +72,7 @@ public class BankOfCodelandTests
     //
     //     var transfer = new MakeTransfer {Bic = codes};
     //     var result = validator.IsValid(transfer);
-    //     result.Should().Be(expected);
+    //     result.ShouldBe(expected);
     // }
 }
 

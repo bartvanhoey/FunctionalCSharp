@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using LaYumba.Functional;
 using Shouldly;
 using Xunit;
@@ -28,7 +28,7 @@ public static class Chap5Ex2
     public static void Test_MyLookup_Method()
     {
         var myLookup1 = Enumerable.Range(1, 10).OrderBy(x => x).MyLookup(IsOdd);
-        myLookup1.Should().BeEquivalentTo(Some(1));
+        myLookup1.ShouldBeEquivalentTo(Some(1));
 
         var myLookup2 = new List<int>().OrderBy(x => x).MyLookup(x => x % 2 == 1);
         myLookup2.ShouldBe(None);

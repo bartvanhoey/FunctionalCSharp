@@ -9,8 +9,6 @@ public class Chap6DictionaryMapTests
     [Fact]
     public void YMap_IDictionary_Should_Return_Correct_Values()
     {
-        var range = Enumerable.Range(1, 10);
-
         var dicT = new Dictionary<string, int>
         {
             { "John", 50 },

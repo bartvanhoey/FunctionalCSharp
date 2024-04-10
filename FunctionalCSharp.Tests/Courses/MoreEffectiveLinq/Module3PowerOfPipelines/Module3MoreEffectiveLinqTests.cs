@@ -8,7 +8,7 @@ public class Module3MoreEffectiveLinqTests
     {
         // flaky
         // var fileInfos = SearchInCsvFile( "platform", "*.csv").ToList();
-        // fileInfos.Count.Should().Be(46);
+        // fileInfos.Count.ShouldBe(46);
     }
 
         
@@ -17,7 +17,7 @@ public class Module3MoreEffectiveLinqTests
     {
         // flaky
         // var fileNames = GetDistinctLicenseNamesFromCsvFile().ToList();
-        // fileNames.Count.Should().Be(15);
+        // fileNames.Count.ShouldBe(15);
     }
 
 }

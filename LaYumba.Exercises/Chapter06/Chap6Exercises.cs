@@ -4,7 +4,7 @@ using static LaYumba.Functional.F;
 
 namespace LaYumba.Exercises.Chapter06;
 
-static class Exercises
+static class Chap6Exercises
 {
    // 1 Implement Map for ISet<T> and IDictionary<K, T>. (Tip: start by writing down
    // the signature in arrow notation.)
@@ -27,15 +27,7 @@ static class Exercises
    // Then enrich the implementation so that `GetWorkPermit`
    // returns `None` if the work permit has expired.
    
-   static YOption<Chap6ExWorkPermit> GetWorkPermit(Dictionary<string, Chap6ExEmployee> employees, string employeeId) 
-      => employees.YLookup(employeeId).YBind(e => e.WorkPermit);
    
-   static YOption<Chap6ExWorkPermit> GetValidWorkPermit(Dictionary<string, Chap6ExEmployee> employees, string employeeId) 
-      => employees.YLookup(employeeId)
-         .YBind(e => e.WorkPermit)
-         .YWhere(HasWorkPermitExpired.YNegate());
-
-   private static Func<Chap6ExWorkPermit, bool> HasWorkPermitExpired => permit => permit.Expiry < DateTime.Now.Date;
 
    // // 4 Use Bind to implement AverageYearsWorkedAtTheCompany, shown below (only
    // // employees who have left should be included).
@@ -47,13 +39,7 @@ static class Exercises
    // }
 }
 
-public record Chap6ExEmployee
-(
-   string Id,
-   YOption<Chap6ExWorkPermit> WorkPermit,
-   DateTime JoinedOn,
-   Option<DateTime> LeftOn
-);
+
 
 public record Chap6Employee
 (
@@ -63,11 +49,7 @@ public record Chap6Employee
    Option<DateTime> LeftOn
 );
 
-public record Chap6ExWorkPermit
-(
-   string Number,
-   DateTime Expiry
-);
+
 
 public record Chap6WorkPermit
 (

@@ -1,6 +1,7 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.MyYumba;
 using NUnit.Framework;
+using Shouldly;
 
 namespace LaYumba.Exercises.Chapter02;
 
@@ -17,10 +18,15 @@ public static class ExercisesChapter02
         Func<int, bool> isEven = x => x % 2 == 0;
             
         var isEvenResult = isEven(10);
-        isEvenResult.Should().BeTrue();
-
+        var yIsEvenResult = YInt.YIsEven(10);
+        
+        isEvenResult.ShouldBeTrue();
+        yIsEvenResult.ShouldBeTrue();
+        
         var isNegateResult = isEven.YNegate()(10);
-        isNegateResult.Should().BeFalse();
+        var yIsNegateResult = YInt.YIsEven.YNegate()(10);
+        isNegateResult.ShouldBeFalse();
+        yIsNegateResult.ShouldBeFalse();
     }
 
 

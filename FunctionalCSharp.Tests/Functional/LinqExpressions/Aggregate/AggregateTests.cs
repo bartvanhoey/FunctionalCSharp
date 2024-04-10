@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using static FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate.Employee;
 
 namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Aggregate;
@@ -11,7 +11,7 @@ public class AggregateMethodTests
         var ints = new List<int> { 2, 4, 1, 6 };
 
         var result = ints.Aggregate((sum, val) => sum + val);
-        result.Should().Be(13);
+        result.ShouldBe(13);
     }
         
     [Fact]
@@ -20,7 +20,7 @@ public class AggregateMethodTests
         var ints = new List<int> { 2, 4, 1, 6 };
 
         var result = ints.Aggregate((sum, val) => sum * val);
-        result.Should().Be(48);
+        result.ShouldBe(48);
     }
         
     [Fact]
@@ -29,7 +29,7 @@ public class AggregateMethodTests
         var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
         var result = strings.Aggregate((concat, str) => $"{concat}&{str}");
-        result.Should().Be("a&ab&abc&abcd&z");
+        result.ShouldBe("a&ab&abc&abcd&z");
     }
         
     [Fact]
@@ -38,7 +38,7 @@ public class AggregateMethodTests
         var strings = new List<string> { "C#.NET", "MVC", "WCF", "SQL", "LINQ", "ASP.NET"};
 
         var result = strings.Aggregate((concat, str) => $"{concat},{str}");
-        result.Should().Be("C#.NET,MVC,WCF,SQL,LINQ,ASP.NET");
+        result.ShouldBe("C#.NET,MVC,WCF,SQL,LINQ,ASP.NET");
     }
         
     [Fact]
@@ -47,7 +47,7 @@ public class AggregateMethodTests
         var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
         var result = strings.Aggregate(0, (count, _) => count+1);
-        result.Should().Be(5);
+        result.ShouldBe(5);
     }
         
     [Fact]
@@ -56,7 +56,7 @@ public class AggregateMethodTests
         var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
         var result = strings.Aggregate(0, (count, val) => count + val.Length);
-        result.Should().Be(11);
+        result.ShouldBe(11);
     }
         
     [Fact]
@@ -65,28 +65,28 @@ public class AggregateMethodTests
         var strings = new List<string> { "a", "ab", "abc", "abcd", "z"};
 
         var result = strings.Aggregate(false, (any, val) => any || val.Length > 3);
-        result.Should().BeTrue();
+        result.ShouldBeTrue();
     }
 
     [Fact]
     public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_The_Total_Salary_Of_All()
     {
         var result = GetEmployees().Aggregate(0, (totalSalary, emp) => totalSalary + emp.Salary);
-        result.Should().Be(125000);
+        result.ShouldBe(125000);
     }
         
     [Fact]
     public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_All_The_Employee_Names()
     {
         var result = GetEmployees().Aggregate("Employee Names: ", (names, emp) => names + emp.Name  + ", ");
-        result.Should().Be("Employee Names: Preety, Priyanka, James, Hina, Anurag, ");
+        result.ShouldBe("Employee Names: Preety, Priyanka, James, Hina, Anurag, ");
     }
         
     [Fact]
     public void Method_Aggregate_On_A_List_Of_Employees_Should_Return_Employee_With_Highest_Salary()
     {
         var result = GetEmployees().Aggregate((agg, next) => next.Salary > agg.Salary ? next : agg);
-        result.Name.Should().Be("James");
+        result.Name.ShouldBe("James");
     }
         
         
@@ -98,7 +98,7 @@ public class AggregateMethodTests
             .Select(t => TimeSpan.Parse("0:" + t))
             .Aggregate((t1, t2) => t1 + t2);
 
-        albumDuration.Should().Be(new TimeSpan(0, 57, 01));
+        albumDuration.ShouldBe(new TimeSpan(0, 57, 01));
     }
         
         

@@ -1,5 +1,5 @@
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_ThinkingInFunctions;
-using FluentAssertions;
+using Shouldly;
 using Shouldly;
 using static System.DayOfWeek;
 
@@ -15,11 +15,11 @@ public class Chap2Tests
         var chap3 = new Chap02();
 
         var sunday = chap3.GetDaysStartingWith("Su")?.FirstOrDefault();
-        sunday.Should().Be(Sunday);
+        sunday.ShouldBe(Sunday);
             
         var monday = chap3.GetDaysStartingWith("Mo")?.FirstOrDefault();
-        monday.Should().NotBe(Sunday);
-        monday.Should().Be(Monday);
+        monday.ShouldNotBe(Sunday);
+        monday.ShouldBe(Monday);
             
         var notExisting = chap3.GetDaysStartingWith("Ti")?.FirstOrDefault();
         notExisting.ShouldBeNull();

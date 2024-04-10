@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup;
 
@@ -11,7 +11,7 @@ public class CustomerControllerTests
     {
         var customerController = GetCustomerController();
         var actionResult = customerController.Index(-1);
-        actionResult.RedirectTo.Should().Be("NotFound");
+        actionResult.RedirectTo.ShouldBe("NotFound");
     }
 
     [Fact]
@@ -19,7 +19,7 @@ public class CustomerControllerTests
     {
         var customerController = GetCustomerController();
         var actionResult = customerController.Index(1);
-        actionResult.RedirectTo.Should().Be("MyUserName");
+        actionResult.RedirectTo.ShouldBe("MyUserName");
     }
 
     private CustomerController GetCustomerController() => new(new Database());

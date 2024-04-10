@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using LaYumba.Functional;
 using NUnit.Framework;
 using static LaYumba.Functional.F;
@@ -44,7 +44,7 @@ static class Solutions
       var list = new List<int> {-100, 63, 30, 45, 1, 1000, -23, -67, 1, 2, 56, 75, 975, 432, -600, 193, 85, 12};
       var expected = new List<int> {-600, -100, -67, -23, 1, 1, 2, 12, 30, 45, 56, 63, 75, 85, 193, 432, 975, 1000};
       var actual = list.QuickSort();
-      expected.Should().BeEquivalentTo(actual);
+      expected.ShouldBeEquivalentTo(actual);
    }
 
    [Test]
@@ -54,7 +54,7 @@ static class Solutions
       var expected = new List<int> {-600, -100, -67, -23, 1, 1, 2, 12, 30, 45, 56, 63, 75, 85, 193, 432, 975, 1000};
       var actual = list.QSort();
       // Assert.Equals(expected, actual);
-      expected.Should().BeEquivalentTo(actual);
+      expected.ShouldBeEquivalentTo(actual);
    }
 
    // 3.

@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Shouldly;
 
 namespace FunctionalCSharp.Tests.Functional.LinqExpressions.Cast;
 
@@ -9,6 +10,6 @@ public class CastTests
     {
         var days = Enum.GetValues(typeof(DayOfWeek)).Cast<DayOfWeek>().ToList();
         days.Should().HaveCount(7);
-        days.FirstOrDefault().Should().Be(DayOfWeek.Sunday) ;
+        days.FirstOrDefault().ShouldBe(DayOfWeek.Sunday) ;
     }
 }

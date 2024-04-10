@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module4GoingWithTheFlow.MethodChaining.With;
 
 namespace FunctionalCSharp.Tests.Courses.FunctionalProgrammingWithCSharp.Module4_GoingWithTheFlow.MethodChaining.Before;
@@ -10,8 +10,8 @@ public class WithMethodChainingTests
     {
         var selectBox = WithMethodChaining.GetSelectBoxWithMethodChaining();
 
-        selectBox.Should().NotBeEmpty();
-        selectBox.Should().Be(SelectBox);
+        selectBox.ShouldNotBeEmpty();
+        selectBox.ShouldBe(SelectBox);
     }
 
     private const string SelectBox = "<select id=\"theDoctors\" name=\"theDoctors\">\r\n" +

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.Before;
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures;
@@ -11,7 +11,7 @@ public class BankAccountTests
         var bankAccount = new BankAccount();
         var result = bankAccount.RefillBalance(1, 100);
 
-        // result.Should().Be("OK"); // not always OK as random failures are thrown
-        result.Should().BeOfType<string>();            
+        // result.ShouldBe("OK"); // not always OK as random failures are thrown
+        result.ShouldBeOfType<string>();            
     } 
 }

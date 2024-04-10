@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.MakingYourCSharpCodeMoreFunctional.ObjectFilters.MoneyDemo;
 
 namespace FunctionalCSharp.Tests.Courses.MakingYourCSharpCodeMoreFunctional.ObjectFilters;
@@ -13,14 +13,14 @@ public class BankCardTests
                 
                 
         var availableAmount1 = bankCard.GetAvailableAmount(20, dateTimeNow);
-        availableAmount1.Should().Be(20);
+        availableAmount1.ShouldBe(20);
 
         var availableAmount2 = bankCard.GetAvailableAmount(20, dateTimeNow);
-        availableAmount2.Should().Be(20);
+        availableAmount2.ShouldBe(20);
             
         Thread.Sleep(3000);
         var availableAmount3 = bankCard.GetAvailableAmount(20,dateTimeNow);
-        availableAmount3.Should().Be(20);
+        availableAmount3.ShouldBe(20);
             
             
     }

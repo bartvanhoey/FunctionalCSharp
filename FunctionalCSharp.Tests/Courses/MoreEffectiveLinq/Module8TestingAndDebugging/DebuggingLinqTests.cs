@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Shouldly;
 using static FunctionalCSharp.Courses.MoreEffectiveLinq.Module8TestingAndDebugging.DebuggingLinq;
 
 namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module8TestingAndDebugging;
@@ -9,7 +10,7 @@ public class DebuggingLinqTests
     public void Test_PeekMethodExample()
     {
         var result = PeekMethodExample();
-        result.Should().Be(440);
+        result.ShouldBe(440);
     }
         
     [Fact]
