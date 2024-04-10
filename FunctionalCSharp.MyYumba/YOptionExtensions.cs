@@ -27,7 +27,9 @@ public static class YOptionExtensions {
         => yOption.YMatch(() => YNone,  t => predicate(t) ? yOption : YNone );
     
     // public static IEnumerable<R> YBind<T, R>(this YOption<T> option, Func<T, IEnumerable<R>> func) 
-    //     => option.YAsEnumerable().YBind(func);
+    //      => option.YAsEnumerable().YBind(func);
 
+    
+    
     
 }

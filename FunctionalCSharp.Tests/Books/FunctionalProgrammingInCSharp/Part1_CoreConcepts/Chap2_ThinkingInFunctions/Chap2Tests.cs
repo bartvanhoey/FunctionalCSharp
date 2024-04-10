@@ -1,6 +1,5 @@
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap2_ThinkingInFunctions;
 using Shouldly;
-using Shouldly;
 using static System.DayOfWeek;
 
 

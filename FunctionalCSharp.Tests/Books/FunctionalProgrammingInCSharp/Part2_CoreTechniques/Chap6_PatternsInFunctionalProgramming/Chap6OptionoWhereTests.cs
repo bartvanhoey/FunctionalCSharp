@@ -1,5 +1,4 @@
 using FunctionalCSharp.MyYumba;
-using LaYumba.Functional;
 using Shouldly;
 using static FunctionalCSharp.MyYumba.Y;
 using static FunctionalCSharp.MyYumba.YInt;
