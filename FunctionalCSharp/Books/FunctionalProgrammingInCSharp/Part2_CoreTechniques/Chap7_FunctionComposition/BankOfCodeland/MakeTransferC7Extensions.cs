@@ -2,9 +2,9 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniq
 
 public static class MakeTransferC7Extensions
 {
-    public static MakeTransferC7 Normalize(this MakeTransferC7 makeTransferC7)
+    public static MakeTransferC7 CapitalizeBeneficiary(this MakeTransferC7 makeTransferC7)
     {
-        makeTransferC7.Beneficiary =   makeTransferC7.Beneficiary.ToUpperInvariant();
+        makeTransferC7.Beneficiary =  makeTransferC7.Beneficiary.ToUpperInvariant();
         return makeTransferC7;
     }
 }

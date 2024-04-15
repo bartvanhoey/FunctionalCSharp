@@ -1,6 +1,6 @@
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.MethodChaining;
 
-public static class FunctionCompC1
+public static class FunctionCompC7
 {
 
     public static readonly Func<PersonC7, string> GenerateEmail = person => AppendDomain(AbbreviateName(person));

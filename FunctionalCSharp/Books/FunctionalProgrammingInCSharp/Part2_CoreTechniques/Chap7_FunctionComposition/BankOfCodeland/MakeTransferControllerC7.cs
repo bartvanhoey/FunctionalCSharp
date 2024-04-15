@@ -1,26 +1,21 @@
-using LaYumba.Functional;
-using static LaYumba.Functional.F;
+using FunctionalCSharp.MyYumba;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.
-    BankOfCodeland;
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.BankOfCodeland;
 
-public class MakeTransferControllerC7 : ControllerBaseC7
-{
-    private readonly IValidatorC7<MakeTransferC7> _validator;
-    public MakeTransferControllerC7(IValidatorC7<MakeTransferC7> validator) => _validator = validator;
+public class MakeTransferControllerC7(IValidatorC7<MakeTransferC7> validator) : ControllerBaseC7
+{ 
+    
 
-    public void MakeTransferImperative(MakeTransferC7 makeTransferC7)
+    public void MakeTransferImperative(MakeTransferC7 transfer)
     {
-        if (_validator.IsValid(makeTransferC7))
-        {
-            Book(makeTransferC7);
-        }
+        if (validator.IsValid(transfer)) Book(transfer);
     }
+    
+    public void MakeTransferFunctional(MakeTransferC7 transfer) 
+        => Y.YSome(transfer).YMap(MakeTransferC7Extensions.CapitalizeBeneficiary).YWhere(validator.IsValid).YForEach(Book);
 
-    public void MakeTransferFunctional(MakeTransferC7 makeTransferC7) 
-        => Some(makeTransferC7).Where(_validator.IsValid).Map(_bookTransfer.ToFunc());
 
-    private readonly Action<MakeTransferC7> _bookTransfer = x => Console.WriteLine($"Transfer: {x.Reference} booked!1");
-        
-    public void Book(MakeTransferC7 command) => Console.WriteLine($"Book transfer: {command}");
+
+    private void Book(MakeTransferC7 command) => Console.WriteLine($"Book transfer: {command}");
 }
+

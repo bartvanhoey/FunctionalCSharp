@@ -19,7 +19,7 @@ public class MakeTransferControllerC7EndToEnd : ControllerBaseC7
 
     public void MakeTransfer(MakeTransferC7 makeTransferC7) =>
         F.Some(makeTransferC7)
-            .Map(x => x.Normalize())
+            .Map(x => x.CapitalizeBeneficiary())
             .Where(_validatorC7.IsValid)
             .ForEach(Book);
 
