@@ -125,7 +125,12 @@ An honest function abides it's signature, but still can perform I/O operations
 OO makes code understandable by encapsulating moving parts.
 FP makes code understandable by minimizing moving parts. - Michael Feathers
 
+In OO, data and behavior live in the same object, and methods in the object can typically modify the object’s state. 
+In FP data is captured with “dumb” data objects while behavior is encoded in functions, data and behavior are seperated
+
 ## Imperative vs Functional (Declarative) programming
+
+Imperative code relies on statements (if, for, for each ...), Functional code relies on expressions
 
 ## Software rot
 
@@ -218,7 +223,6 @@ Pipelining allows data to flow between functions
     // LINQ, is a good example of method chaining
     Enumerable.Range(1, 100).Where(i => i % 2 == 0).Reverse();
 ````
-
 Extension methods appear in the order in which they will be executed and significantly improves readability.
 
 var joe = new Person("Joe", "Bloggs");
@@ -231,10 +235,12 @@ Properties that make functions easier to compose:
 * Chainable: (this in extension methods)
 * General: the more specific a method, the less likely it is to be reusable
 * Shape-preserving: the output type should be the same as the input type
-* functions are more composable actions. An action has no output, it is a dead end. A function has an output, it is a
-  pipeline.
+* functions are more composable actions. 
+An action has no output, it is a dead end. A function has an output, it is a pipeline.
 
 ## Extension methods
+
+The extension method syntax in C# allows you to use function composition by chaining methods
 
 ## Programming workflows
 
@@ -244,6 +250,9 @@ perform the workflow.
 
 ## Expressions vs Statements (Expression Composition)
 
+Functional code prefers expressions to statements.
+Relying on expressions leads to more declarative and more readable code.
+
 Expressions return a value. Statements do not return a value.
 
 Statement
@@ -251,19 +260,21 @@ Statement
 ´´´csharp
 string posOrNeg;
 if (value > 0)
-posOrNeg = "positive"
+{
+    posOrNeg = "positive"
+}
 else
-posOrNeg = "negative"
+{
+    posOrNeg = "negative"
+}
 
-    var message = §"{value} is {posOrNeg}"
-
+var message = §"{value} is {posOrNeg}"
 ´´´
 
 Expression
 
 ´´´csharp
-// var posOrNeg = (value > 0) ? "positive" : "negative"
-
+    // var posOrNeg = (value > 0) ? "positive" : "negative"
     // Expression Composition
     var message = $"{value} is {(value > 0 ? "Positivie" :"negative")}"
 

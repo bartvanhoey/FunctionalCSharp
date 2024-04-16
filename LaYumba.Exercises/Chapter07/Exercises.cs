@@ -13,6 +13,18 @@ public static class ChapExercises
          .Select(p => p.Earnings)
          .Average();
 
+   // OrderByDescending
+   // (IEnumerable<T>, (T -> decimal)) -> IEnumerable<T>
+   
+   // Take
+   // (IEnumerable<T>, int) -> IEnumerable<T>
+   
+   // Select
+   // (IEnumerable<T>, (T -> R)) -> IEnumerable<R>
+   
+   // Average
+   // IEnumerable<T> -> decimal
+   
    // 2 Check your answer with the MSDN documentation: https://docs.microsoft.com/
    // en-us/dotnet/api/system.linq.enumerable. How is Average different?
 

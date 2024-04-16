@@ -1,0 +1,3 @@
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap7_FunctionComposition.FunctionalDomainModelling;
+
+public record AccountState(decimal Balance);
