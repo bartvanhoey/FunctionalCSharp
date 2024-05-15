@@ -7,5 +7,5 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniq
 public static class AccountStateExtensions
 {
     public static YOption<AccountState> Debit(this AccountState current, decimal amount)
-        => current.Balance < amount ? YNone : YSome(new AccountState(current.Balance - amount));
+        => current.Balance < amount   ? YNone : YSome(new AccountState(current.Balance - amount));
 }
