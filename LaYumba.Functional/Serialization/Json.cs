@@ -66,6 +66,8 @@ public class OptionConverter : JsonConverterFactory
 
       public OptionConverterInner(JsonSerializerOptions options)
       {
+         
+         
          // For performance, use the existing converter if available
          _valueConverter = (JsonConverter<T>)options.GetConverter(typeof(T));
 
