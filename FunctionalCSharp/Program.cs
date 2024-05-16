@@ -2,11 +2,18 @@
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.yOptionClass;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
+using FunctionalCSharp.MyYumba;
 using static System.Console;
 using static FunctionalCSharp.MyYumba.Y;
 
+var yRight = Y.YRight(12.5);
+var yLeft = Y.YLeft("Ooops");
 
+var rightResult = YEitherExtensions.RenderResult(yRight);
+rightResult.ShouldBe("The result is: 12,5");
 
+var leftResult = YEitherExtensions.RenderResult(yLeft);
+leftResult.ShouldBe("Invalid value: Ooops");
 
 Chap6AgeReader.StartProgram();
 

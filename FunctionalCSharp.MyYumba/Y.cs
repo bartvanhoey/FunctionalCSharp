@@ -2,7 +2,7 @@
 
 namespace FunctionalCSharp.MyYumba;
 
-public static class Y
+public static partial class Y
 {
     public static Unit Unit() => default;
     
