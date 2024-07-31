@@ -5,7 +5,7 @@ Using a functional programming language like Erlang will cut your code size by 7
 On average, 40% of a code base is clutter!
 
 Code on average is read 15-20 times more often than it's written.
-=> deleting unnecessary code now, will give you 15-20 extra time in the future)
+    => deleting unnecessary code now, will give you 15-20 extra time in the future)
 
 ## What is Functional Programming
 
@@ -15,15 +15,16 @@ concurrency-friendly.
 
 ## Why Functional Programming
 
-Biggest problem in software development is complexity. Complexity of  the code base affects Development Speed, Number of Bugs, Agility,
+Biggest problem in software development is complexity. Complexity of a code base affects Development Speed, Number of Bugs, Agility,
 Maintainability, etc. The more complex the software, the more difficult it is to maintain!
 
 A developer/developer team can only deal with a certain amount of complexity!
 If the complexity exceeds this limit, it will be difficult/impossible to maintain the software/to develop new features.
 Complexity slows downs the development process or even introduces new bugs or can even lead to a project failure.
 
-Applying **Functional Programming Principles** helps reducing Code Complexity and results in more Predictable, Reliable and
+Applying **Functional Programming Principles** helps to reduce Code Complexity and results in more Predictable, Reliable and
 Maintainable and Testable code. 
+
 
 
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
@@ -38,13 +39,19 @@ solution. - Alan Perlis
 
 ### Importing Static Members with the Using static Directive
 
-use static to access static members without a class name
+use static enables unqualified access to static members without further qualification (without specifying the class name)
 
 ```csharp
     using static System.Math;
 
     public double Circumference => PI * 2 * Radius;
+    
+    // instead of 
+    public double Circumference => Math.PI * 2 * Radius;
 ```
+
+You can also make use of **global using static** to make functions available throughout your project.
+
 
 ### More Concise Functions with Expression-Bodied Members 
 
@@ -55,16 +62,31 @@ compose them into more complex workflows.
     public double Circumference => PI * 2 * Radius;
 ```
 
+The **expression-bodied syntax** was introduced in C# 6 for methods and property
+getters. It was generalized in C# 7 to also apply to constructors, destructors, getters,
+and setters.
+
+
 ### Getter-only auto-properties can only be set in the constructor
 
 ### Local functions
 
 ### Language Support for tuples
+
+In FP, you often write small functions, where you end up with a data type whose only
+purpose is to capture the information returned by that function, and that’s expected
+as input by another function. 
+
+It’s impractical to define dedicated types for such structures. => Tuples
+
 ```csharp
     public static (string BaseCurrency, string QuoteCurrency) AsPair(this string currencyPair) 
         => currencyPair.SplitAt(3);
 
 ```
+
+The tuple syntax allows you to elegantly write and consume methods that need to return more than one value. 
+There’s no good reason to define a dedicated type to hold together those values.
 
 ### Taming Side effects
 
@@ -159,7 +181,13 @@ Data that changes over time. An immutable class doesn't have any state.
 A function is pure if it has no side effects and always returns the same output/result for the same input (arguments).
 Increases the readability and predictability of a program.
 
-Make pure functions static! As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
+IN FP, we prefer functions whose behavior relies on their input arguments. 
+These pure functions are implemented as static methods in C#!  
+
+As you code more functionally, more of your functions will be pure, so more of your code will be in static classes.
+
+
+
 
 ## Impure functions
 
@@ -326,8 +354,7 @@ without changing the program's behavior, or Replace a function with its return v
 
 ## Higher-order functions (HOFs)
 
-HOFs are functions that take other functions as inputs,
-or return other functions as output, or both
+HOFs are functions that take other functions as inputs, or return other functions as output, or both
 
 ## Parallelization
 
@@ -352,6 +379,9 @@ list.Sort((l, r) => l.ToString().CompareTo(r.ToString()));
 list // => [12, 15, 18, 21, 24, 27, 3, 30, 6, 9]
 
 ## Closure
+
+A closure is the combination of the lambda expression itself along with the context in which that lambda is
+declared (all the variables available in the scope where the lambda appears).
 
 Closures are inline anonymous methods that have the ability to use Parent
 method variables and other anonymous methods which are defined in the parent's scope.
@@ -625,3 +655,67 @@ World-crossing functions are functions that go from the world of **normal values
 
 Goes from an elevated value to a normal value. Average, Sum and count for IEnumerable.
 Match for Option
+
+
+
+## C# New Language Features
+
+### Range Operator
+
+````csharp
+    public static class StringSplitter
+    {
+        public static (string baseCurrency, string quoteCurrency) SplitAt(this string @this, int at) => (@this[..at], @this[at..]);
+    }
+````
+
+### Collection Initializers
+
+### Records
+
+Records—Boilerplate-free immutable types with built-in support for creating modified versions
+
+```csharp
+   record Product(string Name, decimal Price, bool IsFood);
+```
+
+Notice how with a single line, you can define the Product type! The compiler generates
+a constructor, property getters, and several convenience methods such as Equals,
+GetHashCode, and ToString for you.
+
+NOTE Records in C# 9 are reference types, but C# 10 allows you to use
+record syntax to define value types by simply writing record struct rather
+than just record. 
+
+Somewhat surprisingly, record structs are mutable, and you
+have to declare your struct as readonly record struct if you want it to be
+immutable.
+
+### Pattern matching
+
+Pattern matching—Lets you use the switch keyword to match not only on specific
+values but also on the shape of the data, most importantly its type
+
+### Switch expression instead of the Switch statement
+
+```csharp
+  // Switch Expression with Positional Pattern
+  public static decimal GetSalesTax(Order order, Address address) => address switch
+  {
+    // Address("de", _, _, _) => GetGermanSalesTax(order),
+    //  Address(var country, _, _, _) => GetSalesTax(RateByCountry(country), order)
+    ("de", _, _, _) _ => GetGermanSalesTax(order),                  
+    (var country, _, _, _) _ => GetSalesTax(RateByCountry(country), order)
+   };
+  
+  // Switch Expression with Property Pattern
+  public static decimal GetSalesTax(Order order, Address address) => address switch
+  {
+    { Country:  "de" } => GetGermanSalesTax(order),                  
+    { Country:  var country }  => GetSalesTax(RateByCountry(country), order)
+   };
+  
+  public record Address(string Country, string City, string Street, string PostalCode);
+  
+```
+

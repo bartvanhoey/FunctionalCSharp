@@ -9,9 +9,13 @@ public static class Chap03AvoidingStateMutation
     // The AsParallel() method is an extension method on IEnumerable<T> that allows you to run a query in parallel.
     // You need to explicitly specify that you want to run the query in parallel by calling AsParallel()
     // because the runtime does not know if the function is a pure function or not.
-    public static List<string> Format(List<string> list)
-        => list.AsParallel().Select(StringExtensions.CapitalizeFirstCharacterRestLowerCase).Zip(Range(1, list.Count), (s, i) => $"{i}. {s}")
-            .ToList();
+    
+    // public static List<string> Format(List<string> list)
+    //     => list.AsParallel().Select(StringExtensions.CapitalizeFirstCharacterRestLowerCase).Zip(Range(1, list.Count), (s, i) => $"{i}. {s}")
+    //         .ToList();
+    
+    public static List<string> NumberFormat(List<string> list) =>
+        list.AsParallel().Select(x => x.CapitalizeFirstCharacterRestLowerCase()).Zip(Enumerable.Range(1, list.Count).AsParallel(), (s, i) => $"{i}. {s}").ToList();
         
     public static IEnumerable<string> ZipInEnglish(IEnumerable<int> ints, IEnumerable<string> strings) 
         => ints.Zip(strings, (number, name) => $"In English, {number} is: {name}");

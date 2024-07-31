@@ -1,5 +1,6 @@
 ﻿using Shouldly;
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Orders;
+using Fupr;
 using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Chap03AvoidingStateMutation;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity;
@@ -10,6 +11,16 @@ public class Chap3Tests
     private const string CSharpForDummies = "1. C# for dummies";
     private const string ApplyingFunctionalPrinciples = "3. Applying functional principles";
 
+    [Fact]
+    public void EnumerableFormat_Should_Return_Correct_Result()
+    {
+        var strings = new[] { "coffee", "Bananas", "Dates" };
+
+        var items = NumberFormat(strings.ToList());
+       
+        items.ShouldBe(["1. Coffee", "2. Bananas", "3. Dates"]);
+    }
+    
     [Fact]
     public void EnumerableZip_Should_Return_Correct_Result()
     {

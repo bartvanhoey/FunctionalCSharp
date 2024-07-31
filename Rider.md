@@ -1,7 +1,6 @@
 ## Tools Are Important
 Are you using the best tool for the job?
 
-
 ## Code without tests is bad code. 
 It does’nt matter how well written it is; it does ´nt matter how pretty or object-oriented or well-encapsulated it is. With tests, we can change
 the behavior of our code quickly and verifiable. Without them, we really don’t know

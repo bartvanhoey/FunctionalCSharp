@@ -35,8 +35,7 @@ public class Chap1
 
     public static (string, string) SplitAtTupleExample()
     {
-        var currencyPair = "EURUSD";
-        var (baseCurr, quoteCurr) = currencyPair.SplitAt(3);
+        var (baseCurr, quoteCurr) = "EURUSD".SplitAt(3);
         return (baseCurr, quoteCurr);
     }
 

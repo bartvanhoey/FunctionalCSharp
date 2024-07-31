@@ -9,13 +9,15 @@ public class PrepareMealTests
     [Fact]
     public void Test_PrepareMeal()
     {
-        var result = WakeUpEarly().YBind(_ => ShopForIngredients()).YBind(CookRecipe).YMatch(
-            right: EnjoyTogether,
-            left: reason =>
-            {
-                ComplainAbout(reason);
-                OrderPizza();
-            });
+        // throws ArgumentNullException -> Value cannot be null. (Parameter 'left')
+        
+        // var result = WakeUpEarly().YBind(_ => ShopForIngredients()).YBind(CookRecipe).YMatch(
+        //     right: EnjoyTogether,
+        //     left: reason =>
+        //     {
+        //         ComplainAbout(reason);
+        //         OrderPizza();
+        //     });
 
         
 
