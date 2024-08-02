@@ -5,7 +5,7 @@ Using a functional programming language like Erlang will cut your code size by 7
 On average, 40% of a code base is clutter!
 
 Code on average is read 15-20 times more often than it's written.
-    => deleting unnecessary code now, will give you 15-20 extra time in the future)
+    => deleting unnecessary code now, will give you 15-20 extra time in the future
 
 ## What is Functional Programming
 
@@ -55,7 +55,7 @@ You can also make use of **global using static** to make functions available thr
 
 ### More Concise Functions with Expression-Bodied Members 
 
-In FP you write lots of simple functions, many of them one-liners, and then
+In FP, you write lots of simple functions, many of them one-liners, and then
 compose them into more complex workflows.
 
 ```csharp
@@ -112,9 +112,10 @@ var message = $"{value} is {posOrNeg}"
 
 ## Honest vs Dishonest Functions
 
-A Dishonest function doesn't abide by its signature
+A Dishonest function doesn't abide by its signature: int -> Risk (should return Risk, but can throw an ArgumentException)
 
-Signature: int -> Risk (should return Risk, but can throw an ArgumentException)
+Make your functions honest. An honest function always does what its signature says, 
+and given an input of the expected type, it yields an output of the expected type—no Exceptions, no nulls.
 
 ```csharp
   public static Risk CalculateRiskProfile(int age)
@@ -130,17 +131,20 @@ Signature: int -> Risk (should return Risk, but can throw an ArgumentException)
 An honest function always does what its signature says, and given an input of the expected type. 
 A function is honest when
   * returns an output of the expected type
-  * does not not throw Exceptions
+  * does not throw Exceptions
   * never returns null
 
 Signature: Age -> Risk
+
+Attention: An Impure Function, has for example an I/O operation, can still be an Honest Function!
+
 
 ```csharp
     public static Risk CalculateRiskProfile(Age age) 
         => age < 60 ? Risk.Low : Risk.Medium;
 ```
 ATTENTION: an honest function can still be impure. 
-An honest function abides it's signature, but still can perform I/O operations
+An honest function abides its signature, but still can perform I/O operations
 
 ## Difference between OO Programming and FP Programming
 
@@ -304,7 +308,7 @@ Expression
 ´´´csharp
     // var posOrNeg = (value > 0) ? "positive" : "negative"
     // Expression Composition
-    var message = $"{value} is {(value > 0 ? "Positivie" :"negative")}"
+    var message = $"{value} is {(value > 0 ? "Positive" :"negative")}"
 
 ´´´
 
@@ -320,7 +324,7 @@ it's usually better to use a custom type. (int age vs Age age)
 
 ## Partial Application
 
-You give a function some arguments and it returns a new function that takes the remaining arguments.
+You give a function some arguments, and it returns a new function that takes the remaining arguments.
 Partial Application allows you to fix a function's arguments.This lets you derive new function with specific behavior
 from other, more general functions.
 
@@ -425,14 +429,14 @@ By preferring expressions to statements, your code becomes more declarative, and
 
 f: int -> string = Func<int, string>
 
-|Function signature | C# type|Example | Example |
-|int -> string | Func<int, string>         | (int i) => i.ToString()                       |
-|() -> string | Func<string>              | () => "Hello"                                 |
-|int -> ()           | Action<int>               | (int i) => Console.WriteLine($"gimme "{i}")   |
-|()  -> ()           | Action | () => Console.WriteLine("Hello world")        |
-|(int,int) -> int | Func<int, int, int>       | (int i, int j) => i + j |
+|Function signature                 | C# type|Example           | Example                                       |
+|int -> string                      | Func<int, string>         | (int i) => i.ToString()                       |
+|() -> string                       | Func<string>              | () => "Hello"                                 |
+|int -> ()                          | Action<int>               | (int i) => Console.WriteLine($"gimme "{i}")   |
+|()  -> ()                          | Action                    | () => Console.WriteLine("Hello world")        |
+|(int,int) -> int                   | Func<int, int, int>       | (int i, int j) => i + j                       |
 
-IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
+(IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 (IEnumerable<A>, IEnumerable<B>, ((A, B) -> C)) -> IEnumerable<C> //Could be Enumerable.Zip
 
 ## Monads and Functors
@@ -440,7 +444,7 @@ IEnumerable<T>, (T -> bool)) -> IEnumerable<T> // Could be Enumerable.Where
 ### Functors (must have a Map function defined)
 
 Functors are types for which a suitable **Map function** is defined.
-Map should apply a function to the functor's inner value and do nothing else.
+Map should apply a function to the container's inner value and do nothing else (no side effects).
 
 Map: (C<T>, (T -> R)) -> C(R)
 Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
@@ -448,6 +452,12 @@ Map: (Option<T>, (T -> R)) -> Option<R>)
 
 When using functors and monads, try to use function that stay within the abstraction, like Map and Bind.
 Use the downward-crossing Match function as little or as late as possible
+
+In FP, a type for which such a Map function is defined is called a functor.2 IEnumerable
+and Option are functors, as you’ve just seen, and you’ll meet many more in the book.
+For practical purposes, we can say that anything that has a reasonable implementation
+of Map is a functor. But what’s a reasonable implementation? Essentially, 3
+
 
 ### Monads (must have Bind and Return functions defined)
 
@@ -474,7 +484,7 @@ In LaYumba, the Return function for **IEnumerable** is the **List** function
 
 ## Dynamic Programming
 
-Dynamic Programming (a.k.a dynamic optimization) is a method for solving a complex problem
+Dynamic Programming (a.k.a. dynamic optimization) is a method for solving a complex problem
 by breaking it down into a collection of simpler sub problems, solving each of those just once,
 and storing their solutions.
 
@@ -516,8 +526,8 @@ or
 Map takes a structure and a function and applies the function to every element in the structure, returning a new
 structure with the results.
 Map: (C<T>, (T -> R)) -> C(R)
-Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
-Map: (Option<T>, (T -> R)) -> Option<R>)
+Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>
+Map: (Option<T>, (T -> R)) -> Option<R>
 
 **Option.Map : (Option<T>, (T -> R)) -> Option<T>)**
 
@@ -581,7 +591,7 @@ them. [Fody NullGuard]
 ## Smart constructors
 
 Is a function that takes a primitive type as input and returns Some or None to indicate the successful creation of a
-custom type. By providing a smart constructor, you can make the constructor private and you can ensure that the custom type is always
+custom type. By providing a smart constructor, you can make the constructor private, and you can ensure that the custom type is always
 created with valid data.
 
 ## Option type
@@ -593,11 +603,10 @@ When coding functionally, you never use null—ever. Instead, FP uses the Option
 An Option can be in one of two states:
 
 * None: the absence of a value. The Option is None.
-* Some(T): a simple container wrapping a a non-null value. The Option is Some.
+* Some(T): a simple container wrapping a non-null value. The Option is Some.
 
-An important thing to realize is that Option abstracts away the question of
-whether a value is present or not. If you Map a function onto an Option, 
-you don't care whether the value is there or not.
+An important thing to realize is that Option abstracts away whether a value is present or not. 
+If you Map a function onto an Option, you don't care whether the value is there or not.
 
 #### Separate pure logic from side effects
 
@@ -606,9 +615,9 @@ You should aim to separate pure logic from side effects =>  use Map for logic an
 Option<string> optJohn = Some("John");
 optJohn.ForEach(name => WriteLine($"Hello {name}"))
 
-becomes (logic separated from side effects
+becomes (logic separated from side effects)
 
-optJohn.Map(name => $"Hello {name}".ForEach(WriteLine)
+optJohn.Map(name => $"Hello {name}".ForEach(WriteLine))
 
 ## Validation vs Exception
 

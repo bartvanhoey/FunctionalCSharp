@@ -19,17 +19,20 @@ public class Chap5AgeTests
     }
 
     [Theory]
+    [InlineData(-1000, -1)]
     [InlineData(0, 0)]
     [InlineData(30, 30)]
     [InlineData(60, 60)]
     [InlineData(90, 90)]
     [InlineData(119, 119)]
-    public void AgeChap5_CreateAge_Should_Create_Valid_Ages_When_Valid_Inputs_Provided(int age, int resultAge)
+    [InlineData(10000, -1)]
+    public void AgeChap5_CreateAge_Should_Create_Valid_Ages_When_Valid_Inputs_Provided(int age, int expectedResult)
     {
         var yOption = Chap5Age.CreateAge(age);
 
-        var result = yOption.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x);
+        // var result = yOption.YMatch<int>(() => throw new ArgumentOutOfRangeException(), x => x);
+        var result = yOption.YMatch(() => -1, x => x);
         
-        result.ShouldBe(resultAge);
+        result.ShouldBe(expectedResult);
     }
 }

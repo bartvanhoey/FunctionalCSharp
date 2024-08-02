@@ -9,6 +9,7 @@ public class Chap5Age : ValueObject<Chap5Age>
     private int Value { get; }
     private Chap5Age(int age) => Value = age;
 
+    // Smart constructor that returns None Option when invalid, Some when valid
     public static YOption<Chap5Age> CreateAge(int age) 
         => IsValid(age) ? Y.YSome(new Chap5Age(age)) : Y.YNone;
 

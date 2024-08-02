@@ -1,6 +1,6 @@
 namespace FunctionalCSharp.MyYumba;
 
-public static class YStringExtensions
+public static class YString
 {
     public static Func<string, string> YTrim = s => s.Trim();
     public static Func<string, string> YToLower = s => s.ToLower();
