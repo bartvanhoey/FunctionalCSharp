@@ -5,7 +5,7 @@ Using a functional programming language like Erlang will cut your code size by 7
 On average, 40% of a code base is clutter!
 
 Code on average is read 15-20 times more often than it's written.
-    => deleting unnecessary code now, will give you 15-20 extra time in the future
+=> deleting unnecessary code now, will give you 15-20 extra time in the future
 
 ## What is Functional Programming
 
@@ -16,6 +16,7 @@ concurrency-friendly.
 ## Why Functional Programming
 
 Biggest problem in software development is complexity. Complexity of a code base affects Development Speed, Number of Bugs, Agility,
+Biggest problem in software development is complexity. Complexity of  the code base affects Development Speed, Number of Bugs, Agility,
 Maintainability, etc. The more complex the software, the more difficult it is to maintain!
 
 A developer/developer team can only deal with a certain amount of complexity!
@@ -257,7 +258,7 @@ Pipelining allows data to flow between functions
 ````
 Extension methods appear in the order in which they will be executed and significantly improves readability.
 
-var joe = new Person("Joe", "Bloggs");
+var joe = new Person("Joe", "Blogs");
 var email = joe.AbbreviateName().AppendDomain();
 // => jobl@manning.com
 
@@ -318,7 +319,7 @@ Expression
 
 Primitive obsession stands for the use of primitive types instead for domain modeling.
 Primitives types are often used too liberally. If you need to constrain the inputs of a function,
-it's usually better to use a custom type. (int age vs Age age)
+it's usually better to use a custom type. (int age vs AgeType age)
 
 ## Railway-oriented programming
 
@@ -447,8 +448,8 @@ Functors are types for which a suitable **Map function** is defined.
 Map should apply a function to the container's inner value and do nothing else (no side effects).
 
 Map: (C<T>, (T -> R)) -> C(R)
-Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>)
-Map: (Option<T>, (T -> R)) -> Option<R>)
+Map: (IEnumerable<T>, (T -> R)) -> IEnumerable<R>
+Map: (Option<T>, (T -> R)) -> Option<R>
 
 When using functors and monads, try to use function that stay within the abstraction, like Map and Bind.
 Use the downward-crossing Match function as little or as late as possible
@@ -552,7 +553,7 @@ and flattens the result (returns a C<R>) to avoid producing a nested container
 Bind: (C<T>, (T -> C<R>)) -> C<R>
 
 **Option.Bind : (Option<T>, (T -> Option<R>)) -> Option<R>**
-vs Option.Map : (Option<T>, (T -> R)) -> Option<R>)
+vs Option.Map : (Option<T>, (T -> R)) -> Option<R>
 
 Bind takes and **Option** and an **Option-returning function** and applies the function to the inner value if the Option is Some,
 otherwise returns None and flattens the result to avoid producing a nested Option.
