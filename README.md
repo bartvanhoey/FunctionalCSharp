@@ -9,15 +9,15 @@ Code on average is read 15-20 times more often than it's written.
 
 ## What is Functional Programming
 
-Functional programming (FP) is a powerful paradigm that can help you make
-your code more concise, maintainable, expressive, robust, testable, and
-concurrency-friendly.
+Functional programming (FP) is a powerful paradigm that can help you make your code 
+more concise, maintainable, expressive, robust, testable, and concurrency-friendly.
 
 ## Why Functional Programming
 
 Biggest problem in software development is complexity. Complexity of a code base affects Development Speed, Number of Bugs, Agility,
-Biggest problem in software development is complexity. Complexity of  the code base affects Development Speed, Number of Bugs, Agility,
-Maintainability, etc. The more complex the software, the more difficult it is to maintain!
+Maintainability, etc. 
+
+The more complex the software, the more difficult it is to maintain!
 
 A developer/developer team can only deal with a certain amount of complexity!
 If the complexity exceeds this limit, it will be difficult/impossible to maintain the software/to develop new features.
@@ -26,13 +26,9 @@ Complexity slows downs the development process or even introduces new bugs or ca
 Applying **Functional Programming Principles** helps to reduce Code Complexity and results in more Predictable, Reliable and
 Maintainable and Testable code. 
 
-
-
 If the only tool you have is a hammer, every problem looks like a nail. - Abraham Maslow
 
-The more angles from which you can approach a problem, the more likely you are to find an optimal
-solution. - Alan Perlis
-
+The more angles from which you can approach a problem, the more likely you are to find an optimal solution. - Alan Perlis
 
 ## C# Functional
 
@@ -52,7 +48,6 @@ use static enables unqualified access to static members without further qualific
 ```
 
 You can also make use of **global using static** to make functions available throughout your project.
-
 
 ### More Concise Functions with Expression-Bodied Members 
 
@@ -107,9 +102,8 @@ else
 var message = $"{value} is {posOrNeg}"
 ```
 
-### Emphasis expressions
-
 ### Treating functions as data
+
 
 ## Honest vs Dishonest Functions
 
