@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Extensions;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models.ActionType;
 
@@ -47,41 +48,39 @@ public class AuditManagerTests
     [Fact]
     public void RemoveMentionsAbout_removes_whole_file_if_not_contains_entries()
     {
-        var manager = new AuditManager(10);
-
         var file = new FileContent("Audit_1.txt", new[]
         {
             "1;Peter Peterson;2016-04-06T16:30:00"
         });
 
 
-        var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] {file});
+        var fileContents = new[] {file};
+        var actions = fileContents.RemoveMentionsAbout( "Peter Peterson");
 
         actions.Count.Should().Be(1);
-        actions.FirstOrDefault().Type.Should().Be(Delete);
-        actions.FirstOrDefault().FileName.Should().Be("Audit_1.txt");
-        actions.FirstOrDefault().Content.Length.Should().Be(0);
+        actions.FirstOrDefault()?.Type.Should().Be(Delete);
+        actions.FirstOrDefault()?.FileName.Should().Be("Audit_1.txt");
+        actions.FirstOrDefault()?.Content.Length.Should().Be(0);
     }
 
     [Fact]
     public void RemoveMentionsAbout_remove_mentions_from_file_in_the_directory()
     {
-        var manager = new AuditManager(10);
-
         var file = new FileContent("Audit_1.txt", new[]
         {
             "1;Peter Peterson;2016-04-06T16:30:00",
             "2;Jane Doe;2016-04-06T17:00:00",
             "3;Jack Rich;2016-04-06T17:40:00",
         });
+        var fileContents = new[] {file};
+        var actions = fileContents.RemoveMentionsAbout( "Peter Peterson");
 
-
-        var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] {file});
-
+       
         actions.Count.Should().Be(1);
-        actions.FirstOrDefault().FileName.Should().Be("Audit_1.txt");
-        actions.FirstOrDefault().Type.Should().Be(Update);
-        actions.FirstOrDefault().Content
+        actions.FirstOrDefault()?.FileName.Should().Be("Audit_1.txt");
+        actions.FirstOrDefault()?.Type.Should().Be(Update);
+        actions.FirstOrDefault()
+            ?.Content
             .Should().BeEquivalentTo("1;Jane Doe;2016-04-06T17:00:00", "2;Jack Rich;2016-04-06T17:40:00");
     }
         
@@ -95,8 +94,9 @@ public class AuditManagerTests
             "2;Jane Doe;2016-04-06T17:00:00",
         });
 
-
-        var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] {file});
+        var fileContents = new[] {file};
+        var actions = fileContents.RemoveMentionsAbout( "Peter Peterson");
+       
 
         actions.Count.Should().Be(0);
         // actions.FirstOrDefault().FileName.ShouldBe("Audit_1.txt");

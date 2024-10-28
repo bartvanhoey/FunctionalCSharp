@@ -31,4 +31,11 @@ public static class FileContentExtensions
 
         return new FileAction(fileContent.FileName, ActionType.Update, newContent.ConvertToCsv());
     }
+    
+    public static IReadOnlyList<FileAction> RemoveMentionsAbout(this FileContent[] fileContents, string visitorName) 
+        => fileContents
+            .Select(file => file.RemoveVisitor(visitorName))
+            .Where(action => action != null)
+            .Select(action => action!)
+            .ToList();
 }

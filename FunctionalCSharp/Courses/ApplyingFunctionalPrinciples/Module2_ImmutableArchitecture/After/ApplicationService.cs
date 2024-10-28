@@ -1,4 +1,6 @@
-﻿namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Extensions;
+
+namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
 
 public class ApplicationService
 {
@@ -16,7 +18,7 @@ public class ApplicationService
     public void RemoveMentionsAbout(string visitorName)
     {
         var files = _persister.ReadDirectory(_directoryName);
-        var actions = _auditManager.RemoveMentionsAbout(visitorName, files);
+        var actions = files.RemoveMentionsAbout( visitorName);
         _persister.ApplyChanges(actions);
     }
 
