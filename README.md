@@ -239,27 +239,56 @@ sequence ordered according to the key (in LINQ, OrderBy and OrderByDescending).
 
 Enumerable.Range(1, 5).OrderBy(i => -i) // => [5, 4, 3, 2, 1]
 
-## Function composition
-
-Combining 2 or more functions into a new function. The output from one function is used as input for another function.
-Start to look at your program in terms of data flow (workflow). 
-Your program is a pipeline of functions and data flows through one function into the next.
-
 ## Pipelining vs Nested Method Calls // Railway-oriented approach
 
 Pipelining allows data to flow between functions
 
-## Method chaining is the OO version of pipelining 
+
+
+
+## Method chaining vs Function Composition
+
+### Function Composition
+
+Function Composition means combining 2 or more functions into a new function.
+
+In C# functions appear in the reverse order in which they’re executed.
+AbbreviateName (most right) gets executed first, AppendDomain after ... not good for readability.
 
 ````csharp
-    // LINQ, is a good example of method chaining
-    Enumerable.Range(1, 100).Where(i => i % 2 == 0).Reverse();
+// Function Composition
+var joe = new Person("Joe", "Bloggs"); 
+string EmailFor(Person p) => AppendDomain(AbbreviateName(p));
+// => jobl@manning.com
 ````
-Extension methods appear in the order in which they will be executed and significantly improves readability.
 
+### Method Chaining
+**Method Chaining**, chaining several method with **the . operator**, provides a more readable way of function composition in C#
+The **Extension Methods** appear in the order in which they will be executed and significantly improves readability.
+
+````csharp
+// Method Chaining
 var joe = new Person("Joe", "Bloggs");
 var email = joe.AbbreviateName().AppendDomain();
 // => jobl@manning.com
+
+````
+
+````csharp
+    // LINQ, is  a good example of method chaining
+    Enumerable.Range(1, 100).Where(i => i % 2 == 0).Reverse();
+````
+
+### Data Flows
+
+Start to look at your program in terms of data flow (workflow).
+Your program is a pipeline of functions and data flows through one function into the next.
+
+In the snippet below, the input data flows through four transformative steps to return the output
+
+````csharp
+var average =List<Person> => OrderBy() => Take() => Select() => Average(): 
+````
 
 Properties that make functions easier to compose:
 
@@ -268,17 +297,25 @@ Properties that make functions easier to compose:
 * General: the more specific a method, the less likely it is to be reusable
 * Shape-preserving: the output type should be the same as the input type
 * functions are more composable actions. 
-An action has no output, it is a dead end. A function has an output, it is a pipeline.
+ 
+An action has no output, it is a dead end and can only come at the end of pipeline. 
+A function has an output, it is a pipeline.
 
-## Extension methods
+### Extension methods
 
-The extension method syntax in C# allows you to use function composition by chaining methods
+Extension methods in C# are a way to add new methods to existing types without modifying the original type,
+or creating a new derived type. 
+They allow you to "extend" existing types with new functionality in a static, reusable, and organized way.
 
 ## Programming workflows
 
 A workflow is a meaningful sequence of operations leading to a desired result.
-Each operation in the workflow can be a function. These functions can be chained together to form a pipeline that
-perform the workflow.
+
+Each **operation in the workflow** can be performed by a **function**, 
+and these functions can be composed into **Function Pipelines** that perform the workflow.
+
+ 
+
 
 ## Expressions vs Statements (Expression Composition)
 
@@ -421,9 +458,14 @@ Refers to the number of arguments that a function accepts:
 ## Declarative (functional) programming vs imperative programming
 
 The difference between the functional and imperative style is that
-imperative code relies on statements; functional code relies on expressions
+imperative code relies on statements; functional code relies on expressions 
 
 By preferring expressions to statements, your code becomes more declarative, and hence more readable.
+
+=> Some(transfer).Map(Normalize).Where(validator.IsValid).ForEach(Book);
+
+This Functional Code reads much like a bullet-point definition of a workflow. 
+The code is closer to the spoken language and, easier to understand and to maintain. 
 
 ## Arrow Notation
 
@@ -460,21 +502,45 @@ of Map is a functor. But what’s a reasonable implementation? Essentially, 3
 
 
 ### Monads (must have Bind and Return functions defined)
+A **Monad** is a type C<T> for which  a **Bind function** and a **Return function** is defined.
 
-A Monad is a type C<T> for which  a **Bind function** and a **Return function** is defined.
-**Return** is a function that lifts a normal value T into a monadic value C<T>
+**Return** is a (upward-crossing) function that lifts/wraps a normal value T into a **monadic value C<T>**
 
 * Return: T -> C<T>
+
+    In LaYumba, the Return function for **Option** is the **Some** function
+    In LaYumba, the Return function for **IEnumerable** is the **List** function
+
+**Bind** takes a **container C<T>** and a **Container-returning-function f with signature (T -> C<R>)** and applies the function to the inner value,
+and flattens the result (returns a C<R>) to avoid producing a nested container
+
 * Bind: (C<T>, (T -> C<R>)) -> C<R>
 
 Certain rules must be implemented for the type to be considered as a proper monad (monad laws)
 
-In LaYumba, the Return function for **Option** is the **Some** function
-In LaYumba, the Return function for **IEnumerable** is the **List** function
+**ATTENTION: Every monad is also a functor!**
 
 ### Monad Laws
 
 ### Relation between Monads and Functors
+
+### Natural Transformation 
+
+Functions that map between functors, such as AsEnumerable, are called **Natural Transformations**
+If the Option is Some, its results an IEnumerable with one item. If None, an empty IEnumerable. 
+
+```csharp
+public struct Option<T>
+{
+    public IEnumerable<T> AsEnumerable()
+    {
+        if (isSome) yield return value!;
+    }
+}
+
+// example
+optInt.AsEnumerable() returns an IEnumerable of integers
+```
 
 ## Higher-kinded types
 
@@ -498,7 +564,7 @@ and storing their solutions.
 * try to avoid indentation
 * go for the positive if instead of the negative
 
-## Core Methods in Functional Programming
+## Core Functions in Functional Programming
 
 ### Fold/Reduce (=Aggregate in Linq)
 
@@ -511,10 +577,7 @@ var oldestAge = people.Fold(0, (age, person) => person.Age > age ? person.Age : 
 
 ### Map (=Select in Linq) : Takes a regular function
 
-Map takes a structure and a regular function and applies the function to the inner value of the structure.
-
-It takes a container C<T> and a function f of type (T -> R) and returns a container C<R> 
-wrapping the value(s) resulting from applying f to the container's inner value(s).
+Map takes an container C<T> (elevated value) and a regular function (T -> R) and returns a container C<R> 
 
 Map should apply a function to the container’s inner value(s) and should do nothing else. 
 Map should have no side effects.
@@ -544,10 +607,12 @@ Option<string> optionEmailAddress = optionPerson.Map(generateEmailAddress);
 
 ### Filter (=Where in Linq)
 
+Where, filters the inner value(s) of a structure according to a given predicate
+
 ### Bind (=SelectMany in Linq) : Takes an upward-crossing function
 
-Bind takes a container C<T> and a Container-returning-function f with signature (T -> C<R>) and applies the function to the inner value,
-and flattens the result (returns a C<R>) to avoid producing a nested container
+Bind takes a container C<T> (elevated value) and a container-returning-function (upward-crossing function) (T -> C<R>) 
+and applies the function to the inner value, and flattens the result (returns a C<R>) to avoid producing a nested container
 
 Bind: (C<T>, (T -> C<R>)) -> C<R>
 
@@ -566,12 +631,12 @@ It supports writing whatever it is given from standard input to standard output 
 
 ### ForEach
 
-ForEach is similar to Map, but it takes an Action rather than a Function, 
-which it performs for each of the container's inner values, so it’s used to perform side effects.
+ForEach is used for its side-effect. Foreach is similar to Map, but it takes an Action rather than a Function, 
+which it performs for each of the container's inner values.
 
 ### Return
 
-Return is a function lifts a normal value T into an elevated value C<T> and nothing else.
+Return is a function that takes a normal value T and lifts it into an elevated value C<T> .
 
 In LaYumba, the Return function for **Option** is the **Some** function
 In LaYumba, the Return function for **IEnumerable** is the **List** function
@@ -624,11 +689,18 @@ optJohn.Map(name => $"Hello {name}".ForEach(WriteLine))
 * Validation indicates that some business rule has been violated.
 * Exception denotes an unexpected technical error
 
-## Either type
+## Error Handling in Function Programming
 
-to represent a value that can have 2 possible outcomes: success or failure
-Left: represents a failure
-Right: represents a success
+Functional Programming strives to minimize side effects, throwing exceptions is generally avoided.
+
+If an operation fails, it includes an indication of Success or Failure, as well as its result (successful) or some error data (unsuccessful)
+Errors  in FP are just payload.
+
+### Either type
+
+to represent a value that can have 2 possible outcomes: Success or Failure
+Left: something went wrong
+Right: all right
 
 Either is rather abstract, so it's often more useful tos use a more specific type, such as Exceptional or Validation
 
@@ -656,15 +728,23 @@ Functions should not accept more than 3 parameters
 To prevent the NullReferenceException occurring, developers add null checks. 
 These null checks are definitely needed, but they create a lot of noise in the codebase.
 
-## World-crossing functions (upward-crossing functions)
+## Function Types in Functional Programming
 
-World-crossing functions are functions that go from the world of **normal values T** to the world of **elevated values (C<T>)**
+### downward-crossing functions
 
-## downward-crossing functions
+Functions mapping elevated values to a regular values. 
+* Average, Sum and count for IEnumerable.
+* Match for Option
 
-Goes from an elevated value to a normal value. Average, Sum and count for IEnumerable.
-Match for Option
+### upward-crossing functions (World-crossing functions)
 
+Functions mapping regular values to a elevated values. Some("apple"), Int.Parse("5"),   
+World-crossing functions are functions that go 
+    from the world of **normal values T** to the world of **elevated values (C<T>)**
+
+### Functions mapping Elevated values
+
+These functions remain within the abstraction (elevated world), like Map, Bind, Where, OrderBy, ...
 
 
 ## C# New Language Features
