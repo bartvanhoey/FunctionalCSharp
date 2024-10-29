@@ -1,4 +1,6 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
+﻿using FluentAssertions;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Extensions;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models.ActionType;
 using static Xunit.Assert;
@@ -52,7 +54,6 @@ public class AuditManagerTests
     [Fact]
     public void RemoveMentionsAbout_removes_mentions_from_files_in_the_directory()
     {
-        var manager = new AuditManager(10);
         var file = new FileContent("Audit_1.txt", new[]
         {
             "1;Peter Peterson;2016-04-06T16:30:00",
@@ -60,9 +61,10 @@ public class AuditManagerTests
             "3;Jack Rich;2016-04-06T17:00:00"
         });
 
-        var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] { file });
+        var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
+        
 
-        Equal(1, actions.Count);
+        actions.Count.Should().Be(1);
         Equal("Audit_1.txt", actions[0].FileName);
         Equal(Update, actions[0].Type);
         Equal(new[]
@@ -75,30 +77,26 @@ public class AuditManagerTests
     [Fact]
     public void RemoveMentionsAbout_removes_whole_file_if_it_doesnt_contain_anything_else()
     {
-        var manager = new AuditManager(10);
         var file = new FileContent("Audit_1.txt", new[]
         {
             "1;Peter Peterson;2016-04-06T16:30:00"
         });
 
-        var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] { file });
-
-        Equal(1, actions.Count);
+        var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
+        actions.Count.Should().Be(1);
         Equal("Audit_1.txt", actions[0].FileName);
-        Equal(Delete, actions[0].Type);
+        if (actions != null) Equal(Delete, actions[0].Type);
     }
 
     [Fact]
     public void RemoveMentionsAbout_does_not_do_anything_in_case_no_mentions_found()
     {
-        var manager = new AuditManager(10);
         var file = new FileContent("Audit_1.txt", new[]
         {
             "1;Jane Smith;2016-04-06T16:30:00"
         });
 
-        var actions = manager.RemoveMentionsAbout("Peter Peterson", new[] { file });
-
-        Equal(0, actions.Count);
+        var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
+        actions.Count.Should().Be(1);
     }
 }

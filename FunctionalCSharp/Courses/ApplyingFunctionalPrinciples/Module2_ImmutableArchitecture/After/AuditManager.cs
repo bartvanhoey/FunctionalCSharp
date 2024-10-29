@@ -1,32 +1,24 @@
 ﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Extensions;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
+using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models.ActionType;
+using String = LaYumba.Functional.String;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
 
-public class AuditManager
+public class AuditManager(int maxEntriesPerFile)
 {
-    private readonly int _maxEntriesPerFile;
-
-    public AuditManager(int maxEntriesPerFile) => _maxEntriesPerFile = maxEntriesPerFile;
-
     public FileAction AddRecord(FileContent currentFile, string visitorName, DateTime timeOfVisit)
     {
         var entries = currentFile.GetAuditEntries();
-        if (entries.Count < _maxEntriesPerFile)
+        if (entries.Count < maxEntriesPerFile)
         {
             entries.Add(new AuditEntry(entries.Count + 1, visitorName, timeOfVisit));
-            return new FileAction(currentFile.FileName, ActionType.Update, entries.ConvertToCsv());
+            return new FileAction(currentFile.FileName, Update, entries.ConvertToCsv());
         }
 
-        var entry = new AuditEntry(1, visitorName, timeOfVisit);
-        return new FileAction(currentFile.GetNewFileName(), ActionType.Create,
-            new List<AuditEntry> { entry }.ConvertToCsv());
+        return new FileAction(currentFile.GetNewFileName(), Create, new List<AuditEntry> { new(1, visitorName, timeOfVisit) }.ConvertToCsv());
+        
     }
 
-    public IReadOnlyList<FileAction> RemoveMentionsAbout(string visitorName, FileContent[] directoryFiles) 
-        => directoryFiles
-            .Select(file => file.RemoveVisitor(visitorName))
-            .Where(action => action != null)
-            .Select(action => action!)
-            .ToList();
+    
 }
