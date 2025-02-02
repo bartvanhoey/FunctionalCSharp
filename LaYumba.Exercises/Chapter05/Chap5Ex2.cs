@@ -1,6 +1,5 @@
 using Shouldly;
 using LaYumba.Functional;
-using Shouldly;
 using Xunit;
 using static LaYumba.Functional.F;
 

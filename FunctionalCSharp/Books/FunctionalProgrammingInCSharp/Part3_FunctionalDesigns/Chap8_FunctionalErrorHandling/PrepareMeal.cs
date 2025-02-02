@@ -1,4 +1,3 @@
-using FluentAssertions.Execution;
 using FunctionalCSharp.MyYumba;
 using Unit = System.ValueTuple;
 

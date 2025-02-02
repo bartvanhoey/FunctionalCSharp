@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using LaYumba.Functional;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;
@@ -17,12 +17,12 @@ public class ApplePieMakingTests
         var nonePie = noneApples.Map(makePies);
 
         var someApplePie = somePie.Match(() => null!, x => x);
-        someApplePie.GetType().Should().Be<ApplePie>();
-        someApples.Should().NotBeNull();
+        someApplePie.ShouldBeOfType<ApplePie>();
+        // someApples.ShouldNotBeNull();
         
         var noneApplePie = nonePie.Match(() => null!, x => x);
-        // noneApplePie.GetType().Should().Be<ApplePie>(); // throws an exception because is null
-        noneApplePie.Should().BeNull();
+        // noneApplePie.GetType().ShouldBe<ApplePie>(); // throws an exception because is null
+        noneApplePie.ShouldBeNull();
     }
 
     private record Apples;

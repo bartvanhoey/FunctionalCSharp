@@ -13,6 +13,9 @@ Functional programming (FP) is a powerful paradigm that can help you make
 your code more concise, maintainable, expressive, robust, testable, and
 concurrency-friendly.
 
+Functional Programming is like a philosophy of transparency. In doing so, we
+create code that other developers can trust, understand, and build upon.
+
 ## Why Functional Programming
 
 Biggest problem in software development is complexity. Complexity of a code base affects Development Speed, Number of Bugs, Agility,

@@ -1,7 +1,5 @@
-﻿using Fupr;
-using Fupr.Functional.ResultClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
-using static Fupr.Functional.ResultClass.Result;
+﻿using CSharpFunctionalExtensions;
+using FunctionalCSharp.Shared.Extensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After;
 
@@ -20,10 +18,10 @@ public class TicketController : Controller
     public ActionResult BuyTicket(DateTime date, string customerName)
     {
         var validationResult = Validate(date, customerName);
-        if (validationResult.IsFailure) return View("Error", validationResult.Error?.Message);
+        if (validationResult.IsFailure) return View("Error", validationResult.Error);
 
         var reserveResult = _gateway.Reserve(date, customerName);
-        if (reserveResult.IsFailure) return View("Error", reserveResult.Error?.Message);
+        if (reserveResult.IsFailure) return View("Error", reserveResult.Error);
 
         var ticket = new Ticket(date, customerName);
         _repository.Save(ticket);
@@ -32,11 +30,11 @@ public class TicketController : Controller
 
     private Result Validate(DateTime date, string customerName)
     {
-        if (date.Date < DateTime.Now.Date) return Fail(CannotReserveOnAPastDate);
+        if (date.Date < DateTime.Now.Date) return Result.Failure("Cannot reserve on a past date");
 
         if (customerName.IsNullOrWhiteSpace() || customerName.Length > 200)
-            return Fail(IncorrectCustomerName);
+            return Result.Failure("Incorrect customer name");
 
-        return Ok();
+        return Result.Success();
     }
 }

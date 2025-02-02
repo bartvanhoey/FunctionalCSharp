@@ -1,5 +1,5 @@
-using Fupr.Functional.ResultClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
+
+using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After;
 
@@ -13,11 +13,11 @@ public class PaymentGateway : IPaymentGateway
             var randomValue = random.Next(0, 2);
             if (randomValue == 1) throw new ChargedFailedException();
             Console.WriteLine($"Charged {amount} to {billingInfo}");
-            return Result.Ok();
+            return Result.Success();
         }
-        catch (ChargedFailedException exception)
+        catch (ChargedFailedException)
         {
-            return Result.Fail(ChargedFailed);
+            return Result.Failure("Charged failed");
         }
     }
 

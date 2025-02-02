@@ -25,7 +25,7 @@
 //
 //         public static Result Fail(BaseResultError resultError) => new(false, resultError);
 //
-//         public static Result<T> Fail<T>(BaseResultError? resultError) => new(default!, false, resultError);
+//         public static Result<T> Failure<T>(BaseResultError? resultError) => new(default!, false, resultError);
 //
 //         public static Result Ok() => new(true);
 //

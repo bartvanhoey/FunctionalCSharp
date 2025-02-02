@@ -1,4 +1,5 @@
-using Fupr;
+
+using FunctionalCSharp.Shared.Extensions;
 using LaYumba.Functional;
 using Shouldly;
 using Xunit;

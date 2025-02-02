@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Extensions;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
@@ -64,7 +64,7 @@ public class AuditManagerTests
         var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
         
 
-        actions.Count.Should().Be(1);
+        actions.Count.ShouldBe(1);
         Equal("Audit_1.txt", actions[0].FileName);
         Equal(Update, actions[0].Type);
         Equal(new[]
@@ -83,7 +83,7 @@ public class AuditManagerTests
         });
 
         var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
-        actions.Count.Should().Be(1);
+        actions.Count.ShouldBe(1);
         Equal("Audit_1.txt", actions[0].FileName);
         if (actions != null) Equal(Delete, actions[0].Type);
     }
@@ -97,6 +97,6 @@ public class AuditManagerTests
         });
 
         var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
-        actions.Count.Should().Be(1);
+        actions.Count.ShouldBe(1);
     }
 }

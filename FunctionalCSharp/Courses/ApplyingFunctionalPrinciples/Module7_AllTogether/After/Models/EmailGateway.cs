@@ -1,6 +1,5 @@
 ﻿using System.Net.Mail;
-using Fupr.Functional.ResultClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ResultErrors.Factory.ErrorFactory;
+using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
 
@@ -16,11 +15,11 @@ public class EmailGateway : IEmailGateway
         try
         {
             client.Send(message);
-            return Result.Ok(true);
+            return Result.Success(true);
         }
         catch (SmtpException smtpException)
         {
-            return Result.Fail(SmtpException(smtpException.Message));
+            return Result.Failure(smtpException.Message);
         }
     }
 }

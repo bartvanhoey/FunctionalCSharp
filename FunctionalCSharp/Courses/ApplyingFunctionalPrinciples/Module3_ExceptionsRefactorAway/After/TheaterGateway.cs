@@ -1,6 +1,4 @@
-﻿using Fupr.Functional.ResultClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
-using static Fupr.Functional.ResultClass.Result;
+﻿using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After;
 
@@ -13,14 +11,15 @@ public class TheaterGateway
             var client = new TheaterApiClient();
             client.Reserve(date, customerName);
         }
-        catch (HttpRequestException httpRequestException)
+        catch (HttpRequestException)
         {
-            return Fail(UnableToConnectToTheTheater);
+            return Result.Failure("Theater is currently unavailable");
         }
-        catch (InvalidOperationException invalidOperationException)
+        catch (InvalidOperationException)
         {
-            return Fail(TicketsOnThisDateNoLongerAvailable);
+            return Result.Failure("Tickets not available");
         }
-        return Ok();
+
+        return Result.Success();
     }
 }

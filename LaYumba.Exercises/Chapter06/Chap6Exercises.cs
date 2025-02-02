@@ -1,6 +1,4 @@
-﻿using FunctionalCSharp.MyYumba;
-using LaYumba.Functional;
-using static LaYumba.Functional.F;
+﻿using LaYumba.Functional;
 
 namespace LaYumba.Exercises.Chapter06;
 

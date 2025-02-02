@@ -7,11 +7,11 @@
 //     public static partial class ResultExtensions
 //     {
 //         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class 
-//             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value);
+//             => maybe.HasNoValue ? Result.Failure<T>(resultError) : Ok(maybe.Value);
 //
 //         public static Result<T> ToResult<T>(this Maybe<T> maybe, string? errorMessage = null) where T : class?
 //             => maybe.HasNoValue
-//                 ? Fail<T>(new ResultError(errorMessage ?? "No error message provided"))
+//                 ? Result.Failure<T>(new ResultError(errorMessage ?? "No error message provided"))
 //                 : Ok(maybe.Value)!;
 //         
 //         public static Result OnSuccess(this Result result, Action action)
@@ -31,7 +31,7 @@
 //         }
 //
 //         public static Result<TK> OnSuccess<T,TK>(this Result<T> result, Func<T,TK> func) 
-//             => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Value));
+//             => result.IsFailure ? Result.Failure<TK>(result.Error) : Ok(func(result.Value));
 //
 //
 //         public static Result OnSuccess(this Result result, Func<Result> func) 
@@ -56,12 +56,12 @@
 //             => logger.Log(result.IsFailure ? result.Error?.Message! : "OK");
 //         
 //         public static Result<R> Map<T, R>(this Result<T> result, Func<T, R> func) 
-//             => result.IsFailure ? Fail<R>(result.Error) : Ok(func(result.Value));
+//             => result.IsFailure ? Result.Failure<R>(result.Error) : Ok(func(result.Value));
 //         
 //         public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> func, BaseResultError baseResultError)
 //         {
 //             if (result.IsFailure) return result;
-//             return func(result.Value) ? result : Fail<T>(baseResultError);
+//             return func(result.Value) ? result : Failure<T>(baseResultError);
 //         }
 //
 //         

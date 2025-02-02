@@ -1,4 +1,4 @@
-﻿using Fupr.Functional.ValueObjectClass;
+﻿using FunctionalCSharp.Shared.ValueObjectClass;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap4_FunctionSignaturesAndTypes;
 

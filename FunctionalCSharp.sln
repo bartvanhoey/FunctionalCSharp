@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.Workshop",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.MyYumba", "FunctionalCSharp.MyYumba\FunctionalCSharp.MyYumba.csproj", "{AD14B914-7A2A-4F9D-B3EF-688E04668435}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalCSharp.Shared", "FunctionalCSharp.Shared\FunctionalCSharp.Shared.csproj", "{3750C9A2-E2A4-4525-8ECE-D4E30D267306}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD14B914-7A2A-4F9D-B3EF-688E04668435}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3750C9A2-E2A4-4525-8ECE-D4E30D267306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3750C9A2-E2A4-4525-8ECE-D4E30D267306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3750C9A2-E2A4-4525-8ECE-D4E30D267306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3750C9A2-E2A4-4525-8ECE-D4E30D267306}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

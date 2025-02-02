@@ -1,7 +1,4 @@
-﻿using Fupr.Functional.MaybeClass;
-using Fupr.Functional.ResultClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ResultErrors.Factory.ErrorFactory;
-using static Fupr.Functional.ResultClass.Result;
+﻿using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
 
@@ -22,13 +19,13 @@ public class Industry : Entity
 
     public static Result<Industry> Get(Maybe<string?> maybeIndustryName)
     {
-        if (maybeIndustryName.HasNoValue) return Fail<Industry>(IndustryNameNotSpecified);
+        if (maybeIndustryName.HasNoValue) return Result.Failure<Industry>("Industry not specified");
         return maybeIndustryName.Value switch
         {
-            "Cars" => Ok(CarsIndustry),
-            "Pharmacy" => Ok(PharmaIndustry),
-            "Other" => Ok(OtherIndustry),
-            _ => Fail<Industry>(IndustryNotSpecified)
+            "Cars" => Result.Success(CarsIndustry),
+            "Pharmacy" => Result.Success(PharmaIndustry),
+            "Other" => Result.Success(OtherIndustry),
+            _ => Result.Failure<Industry>("Industry not found")
         };
     }
 }

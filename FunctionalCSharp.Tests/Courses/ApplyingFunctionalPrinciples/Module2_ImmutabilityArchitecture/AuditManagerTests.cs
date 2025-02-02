@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Extensions;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
@@ -20,9 +20,9 @@ public class AuditManagerTests
 
         var action = manager.AddRecord(file, "Jane Doe", new DateTime(2016, 4, 6, 17, 0, 0));
 
-        action.Type.Should().Be(Update);
-        action.FileName.Should().Be(file.FileName);
-        action.Content.Should().BeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00", "2;Jane Doe;2016-04-06T17:00:00");
+        action.Type.ShouldBe(Update);
+        action.FileName.ShouldBe(file.FileName);
+        action.Content.ShouldBeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00", "2;Jane Doe;2016-04-06T17:00:00");
     }
 
     [Fact]
@@ -39,9 +39,9 @@ public class AuditManagerTests
 
         var action = manager.AddRecord(file, "Tom Tomson", new DateTime(2016, 4, 6, 17, 30, 0));
 
-        action.Type.Should().Be(Create);
-        action.FileName.Should().Be("Audit_2.txt");
-        action.Content.Should().BeEquivalentTo(
+        action.Type.ShouldBe(Create);
+        action.FileName.ShouldBe("Audit_2.txt");
+        action.Content.ShouldBeEquivalentTo(
             "1;Tom Tomson;2016-04-06T17:30:00");
     }
 
@@ -57,10 +57,10 @@ public class AuditManagerTests
         var fileContents = new[] {file};
         var actions = fileContents.RemoveMentionsAbout( "Peter Peterson");
 
-        actions.Count.Should().Be(1);
-        actions.FirstOrDefault()?.Type.Should().Be(Delete);
-        actions.FirstOrDefault()?.FileName.Should().Be("Audit_1.txt");
-        actions.FirstOrDefault()?.Content.Length.Should().Be(0);
+        actions.Count.ShouldBe(1);
+        actions.FirstOrDefault()?.Type.ShouldBe(Delete);
+        actions.FirstOrDefault()?.FileName.ShouldBe("Audit_1.txt");
+        actions.FirstOrDefault()?.Content.Length.ShouldBe(0);
     }
 
     [Fact]
@@ -76,12 +76,12 @@ public class AuditManagerTests
         var actions = fileContents.RemoveMentionsAbout( "Peter Peterson");
 
        
-        actions.Count.Should().Be(1);
-        actions.FirstOrDefault()?.FileName.Should().Be("Audit_1.txt");
-        actions.FirstOrDefault()?.Type.Should().Be(Update);
+        actions.Count.ShouldBe(1);
+        actions.FirstOrDefault()?.FileName.ShouldBe("Audit_1.txt");
+        actions.FirstOrDefault()?.Type.ShouldBe(Update);
         actions.FirstOrDefault()
             ?.Content
-            .Should().BeEquivalentTo("1;Jane Doe;2016-04-06T17:00:00", "2;Jack Rich;2016-04-06T17:40:00");
+            .ShouldBeEquivalentTo("1;Jane Doe;2016-04-06T17:00:00", "2;Jack Rich;2016-04-06T17:40:00");
     }
         
     [Fact]
@@ -98,7 +98,7 @@ public class AuditManagerTests
         var actions = fileContents.RemoveMentionsAbout( "Peter Peterson");
        
 
-        actions.Count.Should().Be(0);
+        actions.Count.ShouldBe(0);
         // actions.FirstOrDefault().FileName.ShouldBe("Audit_1.txt");
         // actions.FirstOrDefault().Action.ShouldBe(Update);
         // actions.FirstOrDefault().Lines

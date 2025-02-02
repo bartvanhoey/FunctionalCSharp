@@ -1,7 +1,6 @@
-using Fupr.Functional.MaybeClass;
-using Fupr.Functional.ResultClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
-using static Fupr.Functional.ResultClass.Result;
+
+
+using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After;
 
@@ -32,9 +31,9 @@ public class Database : IDatabase
         }
         catch (Exception e)
         {
-            return Fail(UnableToConnectToDatabase);
+            return Result.Failure("");
         }
-        return Ok();
+        return Result.Success();
             
     }
 }

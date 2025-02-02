@@ -1,5 +1,5 @@
 ﻿using FunctionalCSharp.MyYumba;
-using Fupr.Functional.ValueObjectClass;
+using FunctionalCSharp.Shared.ValueObjectClass;
 using static FunctionalCSharp.MyYumba.Y;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap6_PatternsInFunctionalProgramming;

@@ -1,11 +1,9 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory;
-using Fupr.Functional.ResultClass;
-using Fupr.Functional.ValueObjectClass;
+﻿using CSharpFunctionalExtensions;
 using static System.String;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After;
 
-public class CustomerName : ValueObject<CustomerName>
+public class CustomerName : Shared.ValueObjectClass.ValueObject<CustomerName>
 {
     private CustomerName(string value)
     {
@@ -17,12 +15,12 @@ public class CustomerName : ValueObject<CustomerName>
     public static Result<CustomerName> Create(string customerName)
     {
         if (IsNullOrWhiteSpace(customerName))
-            return Result.Fail<CustomerName>(ResultErrorFactory.CustomerNameEmpty);
+            return Result.Failure<CustomerName>("Customer name is required");
 
         customerName = customerName.Trim();
         return customerName.Length > 100
-            ? Result.Fail<CustomerName>( ResultErrorFactory.CustomerNameTooLong)
-            : Result.Ok(new CustomerName(customerName));
+            ? Result.Failure<CustomerName>("Customer name is too long")
+            : new CustomerName(customerName);
     }
 
     protected override bool EqualsCore(CustomerName other) => Value == other.Value;

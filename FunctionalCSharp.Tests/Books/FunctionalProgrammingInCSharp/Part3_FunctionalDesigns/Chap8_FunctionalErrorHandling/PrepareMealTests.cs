@@ -1,6 +1,3 @@
-using FunctionalCSharp.MyYumba;
-using static FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.PrepareMeal;
-
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling;
 
 public class PrepareMealTests

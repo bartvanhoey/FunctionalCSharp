@@ -1,4 +1,6 @@
-﻿using Fupr.Functional.ResultClass;
+﻿
+
+using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
 

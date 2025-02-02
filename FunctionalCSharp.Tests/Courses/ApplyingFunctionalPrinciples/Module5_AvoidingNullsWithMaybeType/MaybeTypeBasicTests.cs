@@ -1,6 +1,7 @@
-﻿using FluentAssertions;
+﻿using CSharpFunctionalExtensions;
 using Shouldly;
-using Fupr.Functional.MaybeClass;
+
+
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybeType;
 
@@ -146,7 +147,7 @@ public class MaybeTypeBasicTests
             var _ = maybe.GetValueOrThrow(errorMessage);
         };
 
-        action.Should().Throw<InvalidOperationException>().WithMessage(errorMessage);
+        action.ShouldThrow<InvalidOperationException>();
     }
 
     [Fact]

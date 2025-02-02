@@ -1,4 +1,6 @@
-using Fupr.Functional.MaybeClass;
+
+
+using CSharpFunctionalExtensions;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup;
 

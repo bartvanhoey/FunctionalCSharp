@@ -1,7 +1,4 @@
 using FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling.Models;
-using FunctionalCSharp.MyYumba;
-using LaYumba.Functional;
-using static System.Math;
 
 namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part3_FunctionalDesigns.Chap8_FunctionalErrorHandling;
 

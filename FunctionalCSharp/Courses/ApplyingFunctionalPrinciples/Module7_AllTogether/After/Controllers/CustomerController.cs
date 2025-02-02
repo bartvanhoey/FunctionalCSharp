@@ -1,10 +1,7 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
+﻿using CSharpFunctionalExtensions;
+using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ValueObjects;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Infrastructure;
-using Fupr.Functional.MaybeClass.Extensions;
-using Fupr.Functional.ResultClass;
-using Fupr.Functional.ResultClass.Extensions;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors.Factory.ResultErrorFactory;
 
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Controllers;
@@ -27,7 +24,7 @@ public class CustomerController : ControllerBase
         var customerName = CustomerName.Create(model.Name);
         var industry = Industry.Get(model.Industry);
         var primaryEmail = Email.CreateEmail(model.PrimaryEmail);
-        var secondaryEmail = model.GetSecondaryEmail();
+        var secondaryEmail = Email.CreateEmail(model.PrimaryEmail);
 
         var combinedResult = Result.Combine(customerName, primaryEmail, secondaryEmail, industry);
         if (combinedResult.IsFailure) return HttpError(combinedResult.Error);
@@ -45,7 +42,7 @@ public class CustomerController : ControllerBase
     [Route("customers/{id}")]
     public HttpResponseMessage Update(UpdateCustomerModel model)
     {
-        var customerResult = _customerRepository.GetById(model.Id).ToResult(CustomerByIdNotFound(model.Id));
+        var customerResult = _customerRepository.GetById(model.Id).ToResult("Customer not found");
         var industryResult = Industry.Get(model.Industry);
         
         return Result.Combine(customerResult, industryResult)
@@ -90,8 +87,8 @@ public class CustomerController : ControllerBase
     [Route("customers/{id}/promotion")]
     public HttpResponseMessage Promote(long id) =>
         _customerRepository.GetById(id)
-            .ToResult(CustomerByIdNotFound(id))
-            .Ensure(customer => customer.CanBePromoted(), CustomerHasHighestStatusPossible())
+            .ToResult("Customer not found")
+            .Ensure(customer => customer.CanBePromoted(), "The customer has the highest status possible")
             .Tap(customer => customer.Promote())
             .Tap(customer => _emailGateway.SendPromotionNotification(customer.PrimaryEmail, customer.Status))
             .Finally(result => result.IsSuccess ? HttpOk() : HttpError(result.Error));

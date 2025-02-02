@@ -27,7 +27,7 @@
 //         }
 //
 //         public static Result<TK> Tap<T, TK>(this Result<T> result, Func<T, TK> func)
-//             => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Value));
+//             => result.IsFailure ? Result.Failure<TK>(result.Error) : Ok(func(result.Value));
 //
 //
 //         public static Result Tap(this Result result, Func<Result> func)

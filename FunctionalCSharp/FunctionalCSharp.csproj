@@ -2,21 +2,22 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <LangVersion>12</LangVersion>
+        <LangVersion>13</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="CSharpFunctionalExtensions" Version="3.4.3" />
         <PackageReference Include="Dapper" Version="2.1.35" />
-        <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" />
-        <PackageReference Include="FluentNHibernate" Version="3.3.0" />
-        <PackageReference Include="Fupr" Version="1.0.4-preview41" />
-        <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-        <PackageReference Include="xunit" Version="2.7.0" />
+        <PackageReference Include="FluentNHibernate" Version="3.4.0" />
+        <PackageReference Include="JetBrains.Annotations" Version="2025.1.0-eap1" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+        <PackageReference Include="Shouldly" Version="4.3.0" />
+        <PackageReference Include="xunit" Version="2.9.3" />
+        <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
 
     </ItemGroup>
 
@@ -39,6 +40,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\FunctionalCSharp.MyYumba\FunctionalCSharp.MyYumba.csproj" />
+      <ProjectReference Include="..\FunctionalCSharp.Shared\FunctionalCSharp.Shared.csproj" />
       <ProjectReference Include="..\LaYumba.Functional\LaYumba.Functional.csproj" />
     </ItemGroup>
 

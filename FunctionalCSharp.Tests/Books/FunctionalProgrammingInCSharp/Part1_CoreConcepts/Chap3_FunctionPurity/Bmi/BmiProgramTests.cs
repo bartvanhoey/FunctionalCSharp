@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using static FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Bmi.BmiProgram;
 
 namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreConcepts.Chap3_FunctionPurity.Bmi
@@ -9,13 +9,13 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
         [InlineData(1.8, 77, 23.77)]
         [InlineData(1.6, 77, 30.08)]
         public void Test_CalculateBmi_Method(double height, double weight, double expectedResult) 
-            => CalculateBmi(height, weight).Should().Be(expectedResult);
+            => CalculateBmi(height, weight).ShouldBe(expectedResult);
 
         [Theory]
         [InlineData(23.77, BmiRange.Healthy)]
         [InlineData(30.08, BmiRange.Overweight)]
         public void Test_ToBmiRange_Method(double bmi, BmiRange expectedResult) 
-            => bmi.ToBmiRange().Should().Be(expectedResult);
+            => bmi.ToBmiRange().ShouldBe(expectedResult);
 
 
         [Theory]
@@ -26,7 +26,7 @@ namespace FunctionalCSharp.Tests.Books.FunctionalProgrammingInCSharp.Part1_CoreC
             var result = default(BmiRange);
 
             RunBmiCalculator(Read, Write);
-            result.Should().Be(expectedResult);
+            result.ShouldBe(expectedResult);
             return;
 
             // Action write becomes a BmiRange as parameter, 

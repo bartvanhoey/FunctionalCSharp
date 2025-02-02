@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Fupr.Functional.MaybeClass;
+using CSharpFunctionalExtensions;
 using NHibernate;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;

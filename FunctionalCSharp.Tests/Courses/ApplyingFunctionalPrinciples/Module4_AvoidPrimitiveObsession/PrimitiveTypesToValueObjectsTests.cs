@@ -1,6 +1,7 @@
-﻿using Shouldly;
+﻿using CSharpFunctionalExtensions;
+using Shouldly;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
-using Fupr.Functional.ResultClass;
+
 using static System.String;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Email;
 

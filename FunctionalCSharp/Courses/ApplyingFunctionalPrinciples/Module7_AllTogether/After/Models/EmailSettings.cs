@@ -1,4 +1,4 @@
-﻿using Fupr.Functional.ValueObjectClass;
+﻿using FunctionalCSharp.Shared.ValueObjectClass;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models.Industry;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;

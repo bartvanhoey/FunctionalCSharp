@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Shouldly;
+﻿using Shouldly;
 using static FunctionalCSharp.Courses.MoreEffectiveLinq.Module8TestingAndDebugging.DebuggingLinq;
 
 namespace FunctionalCSharp.Tests.Courses.MoreEffectiveLinq.Module8TestingAndDebugging;
@@ -30,6 +29,6 @@ public class DebuggingLinqTests
     public void Test_ConvertNumbers(int[] inputSequence, int[] outputSequence)
     {
         var result = ConvertNumbers(inputSequence);
-        result.Should().Equal(outputSequence);
+        result.ShouldBe(outputSequence);
     }
 }

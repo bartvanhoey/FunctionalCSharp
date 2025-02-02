@@ -1,15 +1,11 @@
 ﻿using System.Text.RegularExpressions;
-using Fupr;
-using Fupr.Functional.ResultClass;
-using Fupr.Functional.ValueObjectClass;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.ResultErrors.
-    Factory.ResultErrorFactory;
-using static Fupr.Functional.ResultClass.Result;
+using CSharpFunctionalExtensions;
+using FunctionalCSharp.Shared.Extensions;
 
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
 
-public class Email : ValueObject<Email>
+public class Email : Shared.ValueObjectClass.ValueObject<Email>
 {
     private string Value { get; }
 
@@ -17,10 +13,10 @@ public class Email : ValueObject<Email>
 
     public static Result<Email> Create(string email)
     {
-        if (email.IsNullOrWhiteSpace()) return Fail<Email>(EmailEmpty);
+        if (email.IsNullOrWhiteSpace()) return Result.Failure<Email>("Email is required");
         email = email.Trim();
-        if (email.Length > 256) return Fail<Email>(EmailTooLong);
-        return Regex.IsMatch(email, @"^(.+)@(.+)$") ? Ok(new Email(email)) : Fail<Email>(EmailInvalid);
+        if (email.Length > 256) return Result.Failure<Email>("Email is too long");
+        return Regex.IsMatch(email, @"^(.+)@(.+)$") ? new Email(email) : Result.Failure<Email>("Email is invalid");
     }
 
     protected override bool EqualsCore(Email other) => Value == other.Value;

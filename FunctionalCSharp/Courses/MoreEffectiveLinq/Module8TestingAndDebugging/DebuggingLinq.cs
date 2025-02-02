@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using Fupr;
+using FunctionalCSharp.Shared.Extensions;
 using static System.Console;
 using static System.Linq.Enumerable;
 using static System.Text.RegularExpressions.Regex;

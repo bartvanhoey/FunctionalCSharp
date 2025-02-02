@@ -1,12 +1,10 @@
-﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module3_ExceptionsRefactorAway.After.ResultErrors;
-using Fupr;
-using Fupr.Functional.ResultClass;
-using Fupr.Functional.ValueObjectClass;
+﻿using CSharpFunctionalExtensions;
+using FunctionalCSharp.Shared.Extensions;
 using static System.String;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After;
 
-public class Email : ValueObject<Email>
+public class Email : Shared.ValueObjectClass.ValueObject<Email>
 {
     private Email(string value) => Value = value;
 
@@ -14,14 +12,14 @@ public class Email : ValueObject<Email>
 
     public static Result<Email> CreateEmail(string? email)
     {
-        if (IsNullOrWhiteSpace(email)) return Result.Fail<Email>(new EmailEmptyResultError());
+        if (IsNullOrWhiteSpace(email)) return Result.Failure<Email>("Email is required");
 
         email = email.Trim();
-        if (email.Length > 256) return Result.Fail<Email>(new EmailTooLongResultError());
+        if (email.Length > 256) return Result.Failure<Email>("Email is too long");
 
         return email.IsValidEmailAddress()
-            ? Result.Ok(new Email(email))
-            : Result.Fail<Email>(new EmailInvalidResultError());
+            ? new Email(email)
+            : Result.Failure<Email>("Email is invalid");
     }
 
     protected override bool EqualsCore(Email other) => Value == other.Value;

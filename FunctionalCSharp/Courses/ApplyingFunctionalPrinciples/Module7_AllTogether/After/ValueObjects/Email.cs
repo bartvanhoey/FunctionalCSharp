@@ -1,27 +1,27 @@
-﻿using Fupr;
-using Fupr.Functional.MaybeClass;
-using Fupr.Functional.MaybeClass.Extensions;
-using Fupr.Functional.ResultClass;
-using Fupr.Functional.ResultClass.Extensions;
-using Fupr.Functional.ValueObjectClass;
+﻿using CSharpFunctionalExtensions;
+using FunctionalCSharp.Shared.Extensions;
 using static System.String;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ResultErrors.Factory.ErrorFactory;
+
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ValueObjects;
 
-public class Email : ValueObject<Email>
+public class Email : Shared.ValueObjectClass.ValueObject<Email>
 {
     public string Value { get; }
 
     private Email(string value) => Value = value;
 
-    public static Result<Email> CreateEmail(Maybe<string?> maybeEmail) =>
-        maybeEmail.ToResult(EmailEmpty)
-            .Tap(email => email!.Trim())
-            .Ensure(email => email != Empty, EmailEmpty)
-            .Ensure(email => email.Length <= 256, EmailTooLong)
-            .Ensure(email => email.IsValidEmailAddress(), EmailTooLong)
-            .Map(result =>  new Email(result));
+    public static Result<Email> CreateEmail(Maybe<string?> maybeEmail)
+    {
+        var map = maybeEmail.ToResult("Email cannot be empty")
+            .Tap(email => email?.Trim())
+            .Ensure(email => email != Empty, "Email cannot be empty")
+            .Ensure(email => email is { Length: <= 256 }, "Email cannot be longer than 256 characters")
+            .Ensure(email => email != null && email.IsValidEmailAddress(), "Email is not valid")
+            .Map(result => result != null ? new Email(result) : Result.Failure<Email>("Email cannot be empty"));
+        
+        return map.Value;
+    }
 
     protected override bool EqualsCore(Email other) => Value == other.Value;
     protected override int GetHashCodeCore() => Value.GetHashCode();

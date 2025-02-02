@@ -1,7 +1,7 @@
 ﻿using Shouldly;
 using FunctionalCSharp.MyYumba;
 using NUnit.Framework;
-using Shouldly;
+
 
 namespace LaYumba.Exercises.Chapter02;
 
