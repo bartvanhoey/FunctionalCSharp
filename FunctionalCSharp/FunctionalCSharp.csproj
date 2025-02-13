@@ -33,7 +33,6 @@
 
     <ItemGroup>
       <Folder Include="Books" />
-      <Folder Include="Courses\ApplyingFunctionalPrinciples\Module1_Introduction\" />
       <Folder Include="Courses\ApplyingFunctionalPrinciples\Module2_ImmutableArchitecture\" />
       <Folder Include="Courses\FunctionalProgrammingWithCSharp\Module1_WhatIsFunctionalProgramming\" />
     </ItemGroup>

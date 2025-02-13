@@ -1,5 +1,4 @@
 ﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module2_ImmutableArchitecture.After.Models;
-using static System.Array;
 using static System.Int32;
 using static System.IO.Path;
 
@@ -30,10 +29,10 @@ public static class FileContentExtensions
             : new FileAction(fileContent.FileName, ActionType.Update, newContent.ConvertToCsv());
     }
 
-    public static IReadOnlyList<FileAction> RemoveMentionsAbout(this FileContent[] fileContents, string visitorName)
+    public static List<FileAction?> RemoveMentionsAbout(this FileContent[] fileContents, string visitorName)
         => fileContents
             .Select(file => file.RemoveVisitor(visitorName))
             .Where(action => action != null)
-            .Select(action => action!)
+            .Select(action => action)
             .ToList();
 }
