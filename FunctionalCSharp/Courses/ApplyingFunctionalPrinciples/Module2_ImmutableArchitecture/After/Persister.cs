@@ -13,8 +13,9 @@ public class Persister
     public void ApplyChange(FileAction fileAction) 
         => ApplyChanges(new List<FileAction> {fileAction});
 
-    public void ApplyChanges(IReadOnlyList<FileAction> fileActions)
+    public void ApplyChanges(IReadOnlyList<FileAction>? fileActions)
     {
+        if (fileActions == null) return;
         foreach (var action in fileActions)
         {
             switch (action.Type)
