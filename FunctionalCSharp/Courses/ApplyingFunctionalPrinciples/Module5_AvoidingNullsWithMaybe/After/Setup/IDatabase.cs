@@ -7,5 +7,5 @@ namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_Avoiding
 public interface IDatabase
 {
     void Save(Customer customer);
-    Maybe<Customer?> GetById(int id);
+    Maybe<Customer> GetById(int id);
 }

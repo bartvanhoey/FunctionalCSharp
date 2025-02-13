@@ -12,7 +12,7 @@ public class Database : IDatabase
             $"Saving customer {customer.CustomerName.Value} with email {customer.Email.Value} to database");
     }
 
-    public Maybe<Customer?> GetById(int id)
+    public Maybe<Customer> GetById(int id)
     {
         if (id == -1) return null;
 
