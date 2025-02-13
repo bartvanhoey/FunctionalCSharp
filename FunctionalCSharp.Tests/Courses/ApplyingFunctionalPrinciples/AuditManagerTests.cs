@@ -91,12 +91,11 @@ public class AuditManagerTests
     [Fact]
     public void RemoveMentionsAbout_does_not_do_anything_in_case_no_mentions_found()
     {
-        var file = new FileContent("Audit_1.txt", new[]
-        {
+        var file = new FileContent("Audit_1.txt", [
             "1;Jane Smith;2016-04-06T16:30:00"
-        });
+        ]);
 
         var actions = new[] {file}.RemoveMentionsAbout( "Peter Peterson");
-        actions.Count.ShouldBe(1);
+        actions.Count.ShouldBe(0);
     }
 }

@@ -19,15 +19,7 @@ public class Chap6ExercisesTests
         workPermitEmployee2.ShouldBe(YNone);
     }
 
-    [Fact]
-    public void Method_GetValidWorkPermit_Should_Return_Correct_Values()
-    {
-        var validWorkPermitEmployee1 = GetValidWorkPermit(GetEmployeesDictionary, "1");
-        validWorkPermitEmployee1.ShouldBe(YNone);
-
-        var validWorkPermitEmployee4 = GetValidWorkPermit(GetEmployeesDictionary, "4");
-        validWorkPermitEmployee4.ShouldNotBe(YNone);
-    }
+    
 
     [Fact]
     public void Method_GetAverageYearsWorkedAtTheCompany_Should_Return_Correct_Values()

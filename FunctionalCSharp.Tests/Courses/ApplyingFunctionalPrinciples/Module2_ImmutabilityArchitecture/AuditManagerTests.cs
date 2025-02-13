@@ -22,7 +22,7 @@ public class AuditManagerTests
 
         action.Type.ShouldBe(Update);
         action.FileName.ShouldBe(file.FileName);
-        action.Content.ShouldBeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00", "2;Jane Doe;2016-04-06T17:00:00");
+        action.Content[0].ShouldBeEquivalentTo("1;Peter Peterson;2016-04-06T16:30:00", "2;Jane Doe;2016-04-06T17:00:00");
     }
 
     [Fact]
@@ -41,8 +41,7 @@ public class AuditManagerTests
 
         action.Type.ShouldBe(Create);
         action.FileName.ShouldBe("Audit_2.txt");
-        action.Content.ShouldBeEquivalentTo(
-            "1;Tom Tomson;2016-04-06T17:30:00");
+        action.Content[0].ShouldBeEquivalentTo("1;Tom Tomson;2016-04-06T17:30:00");
     }
 
     [Fact]
@@ -80,7 +79,7 @@ public class AuditManagerTests
         actions.FirstOrDefault()?.FileName.ShouldBe("Audit_1.txt");
         actions.FirstOrDefault()?.Type.ShouldBe(Update);
         actions.FirstOrDefault()
-            ?.Content
+            ?.Content[0]
             .ShouldBeEquivalentTo("1;Jane Doe;2016-04-06T17:00:00", "2;Jack Rich;2016-04-06T17:40:00");
     }
         

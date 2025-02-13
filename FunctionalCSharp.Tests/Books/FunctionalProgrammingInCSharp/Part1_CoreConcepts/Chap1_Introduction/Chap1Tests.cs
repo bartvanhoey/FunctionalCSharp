@@ -10,7 +10,7 @@ public class Chap1Tests
     {
         var chap1 = new Chap1();
         var result = chap1.GetNumbersMultipliedByThree();
-        result.ShouldBeEquivalentTo(new[] { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 });
+        result.ShouldBe([3, 6, 9, 12, 15, 18, 21, 24, 27, 30]);
     }
 
     [Fact]
@@ -18,7 +18,7 @@ public class Chap1Tests
     {
         var chap1 = new Chap1();
         var result = chap1.GetNumbersMultipliedByThreeWithLocalFunction();
-        result.ShouldBeEquivalentTo(new[] { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 });
+        result.ShouldBe([3, 6, 9, 12, 15, 18, 21, 24, 27, 30]);
     }
 
     [Fact]
@@ -43,7 +43,7 @@ public class Chap1Tests
         var chap1 = new Chap1();
         // var result = chap1.GetNamesOfDaysStartWithS();
         var result = chap1.GetNamesOfDaysStartWithS();
-        result.ShouldBeEquivalentTo("Sunday", "Saturday");
+        result.ShouldContain("Sunday", "Saturday");
     }
 
     [Fact]
@@ -51,8 +51,8 @@ public class Chap1Tests
     {
         var chap1 = new Chap1();
         var (even, odd) = chap1.GetEvensAndOdds();
-        // even.Should().ContainInOrder(0, 2, 4, 6, 8);
-        // odd.Should().ContainInOrder(1, 3, 5, 7, 9);
+         even.ShouldBe([0, 2, 4, 6, 8]);
+         odd.ShouldBe([1, 3, 5, 7, 9]);
     }
 
     [Fact]
@@ -60,7 +60,8 @@ public class Chap1Tests
     {
         var chap1 = new Chap1();
         var result = chap1.GetOddNumbersWithMyWhereFunctional();
-        result.ShouldBeEquivalentTo(new[] { 1, 3, 5, 7, 9 });
+        // result.ShouldBe([1, 3, 5, 7, 9], ignoreOrder: true);
+        result.ShouldBe([1, 3, 5, 7, 9]);
     }
 
     [Fact]
@@ -68,7 +69,7 @@ public class Chap1Tests
     {
         var chap1 = new Chap1();
         var result = chap1.GetOddNumbersWithMyWhere();
-        result.ShouldBeEquivalentTo(new[] { 1, 3, 5, 7, 9 });
+        result.ShouldBe([1, 3, 5, 7, 9]);
     }
 
     [Fact]
@@ -86,7 +87,7 @@ public class Chap1Tests
         var result = chap1.DivideSwappedArgs();
         result.ShouldBe(5);
     }
-        
+
     [Fact]
     public void CalculateVat_Should_Return_The_Correct_Values()
     {
@@ -95,17 +96,14 @@ public class Chap1Tests
         var germanAddress = new Address("de");
         var auto = new Product("auto", 100, false);
         var potato = new Product("potato", 10, true);
-            
+
         var japanAutoResult = chap1.CalculateVat(japanAddress, new Order(auto, 5));
         japanAutoResult.ShouldBe(40);
-            
+
         var germanAutoResult = chap1.CalculateVat(germanAddress, new Order(auto, 5));
         germanAutoResult.ShouldBe(100);
-            
+
         var germanPotatoResult = chap1.CalculateVat(germanAddress, new Order(potato, 5));
         germanPotatoResult.ShouldBe(4);
     }
-        
-        
-        
 }

@@ -15,7 +15,7 @@ public static class FileContentExtensions
     public static string GetNewFileName(this FileContent fileContent)
         => "Audit_" + (Parse(GetFileNameWithoutExtension(fileContent.FileName).Split('_')[1]) + 1) + ".txt";
 
-    public static FileAction? RemoveVisitor(this FileContent fileContent, string visitorName)
+    private static FileAction? RemoveVisitor(this FileContent fileContent, string visitorName)
     {
         var auditEntries = fileContent.GetAuditEntries();
         var newContent = auditEntries
@@ -23,16 +23,14 @@ public static class FileContentExtensions
             .Select((x, i) => new AuditEntry(i + 1, x.VisitorName, x.TimeOfVisit))
             .ToList();
 
-        if (newContent.Count == auditEntries.Count) return default;
-            
-        if (newContent.Count==0)
-            return new FileAction(fileContent.FileName, ActionType.Delete, Empty<string>());
+        if (newContent.Count == auditEntries.Count) return null;
 
-
-        return new FileAction(fileContent.FileName, ActionType.Update, newContent.ConvertToCsv());
+        return newContent.Count == 0
+            ? new FileAction(fileContent.FileName, ActionType.Delete, [])
+            : new FileAction(fileContent.FileName, ActionType.Update, newContent.ConvertToCsv());
     }
-    
-    public static IReadOnlyList<FileAction> RemoveMentionsAbout(this FileContent[] fileContents, string visitorName) 
+
+    public static IReadOnlyList<FileAction> RemoveMentionsAbout(this FileContent[] fileContents, string visitorName)
         => fileContents
             .Select(file => file.RemoveVisitor(visitorName))
             .Where(action => action != null)
