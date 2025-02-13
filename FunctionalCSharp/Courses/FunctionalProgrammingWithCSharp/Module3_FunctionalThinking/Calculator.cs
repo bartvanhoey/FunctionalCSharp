@@ -17,7 +17,7 @@ namespace FunctionalCSharp.Courses.FunctionalProgrammingWithCSharp.Module3_Funct
 
         public static decimal Eval(string expressions)
         {
-            var elements = expressions.Split(new[] { ' ' }, 3);
+            var elements = expressions.Split([' '], 3);
             var l = decimal.Parse(elements[0]);
             var r = decimal.Parse(elements[1]);
             var operand = elements[2][0];

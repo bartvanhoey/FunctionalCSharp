@@ -53,7 +53,7 @@ public class OptionConverter : JsonConverterFactory
             .MakeGenericType(new Type[] { type.GetGenericArguments()[0] }),
          BindingFlags.Instance | BindingFlags.Public,
          binder: null,
-         args: new object[] { options },
+         args: [options],
          culture: null
       ) as JsonConverter;
 

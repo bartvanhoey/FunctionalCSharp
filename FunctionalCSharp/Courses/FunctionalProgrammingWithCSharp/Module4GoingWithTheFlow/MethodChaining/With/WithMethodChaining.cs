@@ -13,7 +13,7 @@ public static class WithMethodChaining
     public static string GetSelectBoxWithMethodChaining() =>
         Using(GetDoctors, s => new byte[s.Length].Tee(b => s.Read(b, 0, (int) s.Length)))
             .Map(UTF8.GetString)
-            .Split(new[] {NewLine}, RemoveEmptyEntries)
+            .Split([NewLine], RemoveEmptyEntries)
             .Select((s, ix) => Tuple.Create(ix, s))
             .ToDictionary(k => k.Item1, v => v.Item2)
             .Map(BuildSelectBox("theDoctors", true))

@@ -25,7 +25,7 @@ public class Chap1
         // Func<int, bool> isOdd = x => x % 2 == 1;
         // bool IsOdd(int x) => x % 2 == 1; local function 
 
-        int[] original = { 7, 6, 1 };
+        int[] original = [7, 6, 1];
 
         var sorted = original.OrderBy(x => x).ToList();
         var filtered = original.Where(IsOdd).ToList();

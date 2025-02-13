@@ -19,7 +19,7 @@ public static class WithoutMethodChaining
             Encoding
                 .UTF8
                 .GetString(buffer)
-                .Split(new[] { Environment.NewLine, }, StringSplitOptions.RemoveEmptyEntries)
+                .Split([Environment.NewLine], StringSplitOptions.RemoveEmptyEntries)
                 .Select((s, ix) => Tuple.Create(ix, s))
                 .ToDictionary(k => k.Item1, v => v.Item2);
 

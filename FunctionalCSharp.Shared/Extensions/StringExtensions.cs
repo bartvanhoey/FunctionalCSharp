@@ -33,8 +33,8 @@ namespace FunctionalCSharp.Shared.Extensions
 
         // Extension method by Symon Painter
         public static IEnumerable<IEnumerable<string>> Parser(this string input, string lineSplit, string fieldSplit) =>
-            input.Split(new[] { lineSplit }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(line => line.Split(new[] { fieldSplit }, StringSplitOptions.RemoveEmptyEntries));
+            input.Split([lineSplit], StringSplitOptions.RemoveEmptyEntries)
+                .Select(line => line.Split([fieldSplit], StringSplitOptions.RemoveEmptyEntries));
 
 
         // Modified Extension method by the ABP Framework

@@ -2,5 +2,5 @@ namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part1_CoreConcept
 
 public class Order
 {
-    public List<OrderLine> OrderLines = new();
+    public List<OrderLine> OrderLines = [];
 }

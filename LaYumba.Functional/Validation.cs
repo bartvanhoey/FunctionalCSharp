@@ -33,10 +33,10 @@ public struct Validation<T>
       => (IsValid, Errors, Value) = (false, errors, default);
 
    internal Validation(T t)
-      => (IsValid, Errors, Value) = (true, Enumerable.Empty<Error>(), t);
+      => (IsValid, Errors, Value) = (true, [], t);
 
    public static implicit operator Validation<T>(Error error)
-      => new Validation<T>(new[] { error });
+      => new Validation<T>([error]);
    public static implicit operator Validation<T>(Validation.Invalid left)
       => new Validation<T>(left.Errors);
    public static implicit operator Validation<T>(T right) => Valid(right);

@@ -11,9 +11,9 @@ public  class Chap6IEnumerableBindTests
     {
         var neighbors = new Neighbor[]
         {
-            new(Name: "John", Pets: new[] { "Fluffy", "Thor" }),
-            new(Name: "Tim", Pets: new Pet[] { }),
-            new(Name: "Carl", Pets: new[] { "Sybil" })
+            new(Name: "John", Pets: ["Fluffy", "Thor"]),
+            new(Name: "Tim", Pets: []),
+            new(Name: "Carl", Pets: ["Sybil"])
         };
 
         // MAP yields a nested IEnumerable => [["Fluffy", "Thor"],[],["Sybil"]]

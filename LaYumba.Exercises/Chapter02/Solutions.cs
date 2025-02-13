@@ -14,7 +14,7 @@ static class Solutions
    // 2.
    static List<int> QuickSort(this List<int> list)
    {
-      if (list.Count == 0) return new List<int>();
+      if (list.Count == 0) return [];
 
       var pivot = list[0];
       var rest = list.Skip(1);
@@ -60,7 +60,7 @@ static class Solutions
    // 3.
    static List<T> QuickSort<T>(this List<T> list, Comparison<T> compare)
    {
-      if (list.Count == 0) return new List<T>();
+      if (list.Count == 0) return [];
 
       var pivot = list[0];
       var rest = list.Skip(1);

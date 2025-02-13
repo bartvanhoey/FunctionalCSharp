@@ -17,13 +17,13 @@ public class AuditManagerBeforeRefactoring
         {
             int lastIndex = int.Parse(lines.Last().Split(';')[0]);
             string newLine = (lastIndex + 1) + ";" + visitorName + ';' + timeOfVisit.ToString("s");
-            File.AppendAllLines(currentFile, new[] { newLine });
+            File.AppendAllLines(currentFile, [newLine]);
         }
         else
         {
             string newLine = "1;" + visitorName + ';' + timeOfVisit.ToString("s");
             string newFileName = GetNewFileName(currentFile);
-            File.WriteAllLines(newFileName, new[] { newLine });
+            File.WriteAllLines(newFileName, [newLine]);
         }
     }
 
