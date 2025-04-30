@@ -1,5 +1,6 @@
-﻿using CSharpFunctionalExtensions;
+﻿
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ValueObjects;
+using FunctionalCSharp.Shared.MaybeClass;
 
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;

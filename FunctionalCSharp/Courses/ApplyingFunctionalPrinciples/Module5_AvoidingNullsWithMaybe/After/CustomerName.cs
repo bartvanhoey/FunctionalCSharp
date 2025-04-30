@@ -1,4 +1,4 @@
-﻿using CSharpFunctionalExtensions;
+﻿using FunctionalCSharp.Shared.ResultClass;
 using static System.String;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After;

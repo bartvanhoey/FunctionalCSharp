@@ -2,7 +2,7 @@
 
 using FunctionalCSharp.MyYumba;
 
-namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.yOptionClass;
+namespace FunctionalCSharp.Books.FunctionalProgrammingInCSharp.Part2_CoreTechniques.Chap5_DesigningProgramsWithFunctionComposition.OptionoClass;
 
 public static class yOptionUseCases
 {

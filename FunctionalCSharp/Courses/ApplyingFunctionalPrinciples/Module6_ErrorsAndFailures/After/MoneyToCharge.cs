@@ -1,4 +1,6 @@
-﻿using CSharpFunctionalExtensions;
+﻿
+
+using FunctionalCSharp.Shared.ResultClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After;
 

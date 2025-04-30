@@ -293,7 +293,7 @@
 //
 //     public static string ToMd5(this string str)
 //     {
-//         using (var md5 = MD5.Create())
+//         using (var md5 = MD5.CreateCustomerName())
 //         {
 //             var inputBytes = Encoding.UTF8.GetBytes(str);
 //             var hashBytes = md5.ComputeHash(inputBytes);

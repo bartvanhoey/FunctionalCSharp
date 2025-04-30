@@ -1,6 +1,8 @@
 ﻿
 
-using CSharpFunctionalExtensions;
+
+
+using FunctionalCSharp.Shared.MaybeClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup;
 

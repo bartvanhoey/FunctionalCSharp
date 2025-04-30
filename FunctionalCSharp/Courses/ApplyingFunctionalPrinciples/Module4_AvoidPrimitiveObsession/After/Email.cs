@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
-using CSharpFunctionalExtensions;
 using FunctionalCSharp.Shared.Extensions;
+using FunctionalCSharp.Shared.ResultClass;
 
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;

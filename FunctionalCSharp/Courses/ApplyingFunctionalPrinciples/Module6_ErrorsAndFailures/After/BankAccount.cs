@@ -1,9 +1,5 @@
-
-using CSharpFunctionalExtensions;
 using FunctionalCSharp.Shared.Extensions;
-
-
-
+using FunctionalCSharp.Shared.ResultClass;
 using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After.MoneyToCharge;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module6_ErrorsAndFailures.After;

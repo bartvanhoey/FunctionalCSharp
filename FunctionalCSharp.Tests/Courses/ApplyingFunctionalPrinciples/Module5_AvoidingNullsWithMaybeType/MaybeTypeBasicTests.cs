@@ -1,4 +1,4 @@
-﻿using CSharpFunctionalExtensions;
+﻿using FunctionalCSharp.Shared.MaybeClass;
 using Shouldly;
 
 

@@ -1,6 +1,8 @@
 
 
-using CSharpFunctionalExtensions;
+
+
+using FunctionalCSharp.Shared.MaybeClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module5_AvoidingNullsWithMaybe.After.Setup;
 
@@ -9,7 +11,7 @@ public class Database : IDatabase
     public void Save(Customer customer)
     {
         Console.WriteLine(
-            $"Saving customer {customer.CustomerName.Value} with email {customer.Email.Value} to database");
+            $"Saving customer {customer.CustomerName} with email {customer.Email} to database");
     }
 
     public Maybe<Customer> GetById(int id)

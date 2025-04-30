@@ -1,5 +1,7 @@
-using CSharpFunctionalExtensions;
 
+
+
+using FunctionalCSharp.Shared.MaybeClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Setup;
 

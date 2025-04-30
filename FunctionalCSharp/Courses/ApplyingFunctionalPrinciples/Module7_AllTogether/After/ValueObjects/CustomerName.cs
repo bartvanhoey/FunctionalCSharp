@@ -1,5 +1,5 @@
-﻿using CSharpFunctionalExtensions;
-
+﻿using FunctionalCSharp.Shared.MaybeClass;
+using FunctionalCSharp.Shared.ResultClass;
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ValueObjects;
 
@@ -9,19 +9,18 @@ public class CustomerName : Shared.ValueObjectClass.ValueObject<CustomerName>
 
     private CustomerName(string value) => Value = value;
 
-    public static Result<CustomerName> Create(Maybe<string?> customerName)
+    public static Result<CustomerName> CreateCustomerName(Maybe<string?> customerName)
     {
         var result = customerName.ToResult("Customer name cannot be empty")
             .Tap(name => name?.Trim())
             .Ensure(name => name != string.Empty, "Customer name cannot be empty")
             .Ensure(name => name is { Length: <= 200 }, "Customer name cannot be longer than 200 characters")
-            .Finally(name => name.IsSuccess ? new CustomerName(name.Value) : Result.Failure<CustomerName>("Customer name cannot be empty"));
+            .Finally(name => name is { IsSuccess: true, Value: not null } ? Result.Success(new CustomerName(name.Value))  : Result.Failure<CustomerName>("Customer name cannot be empty")  );
         
-        return result.Value;
+        return result;
     }
 
     protected override bool EqualsCore(CustomerName other) => Value == other.Value;
     protected override int GetHashCodeCore() => Value.GetHashCode();
-    public static explicit operator CustomerName(string customerName) => Create(customerName!).Value;
-    public static implicit operator string(CustomerName customerName) => customerName.Value;
-}
+    public static explicit operator CustomerName(string customerName) => CreateCustomerName(customerName).Value;
+    public static implicit operator string(CustomerName customerName) => customerName.Value;}

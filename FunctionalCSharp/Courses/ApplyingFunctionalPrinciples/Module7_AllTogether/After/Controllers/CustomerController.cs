@@ -1,7 +1,8 @@
-﻿using CSharpFunctionalExtensions;
+﻿
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Models;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.ValueObjects;
 using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.Infrastructure;
+using FunctionalCSharp.Shared.ResultClass;
 
 
 namespace FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module7_AllTogether.After.Controllers;
@@ -21,13 +22,13 @@ public class CustomerController : ControllerBase
     [Route("customers")]
     public HttpResponseMessage Create(CreateCustomerModel model)
     {
-        var customerName = CustomerName.Create(model.Name);
+        var customerName = CustomerName.CreateCustomerName(model.Name);
         var industry = Industry.Get(model.Industry);
         var primaryEmail = Email.CreateEmail(model.PrimaryEmail);
         var secondaryEmail = Email.CreateEmail(model.PrimaryEmail);
 
         var combinedResult = Result.Combine(customerName, primaryEmail, secondaryEmail, industry);
-        if (combinedResult.IsFailure) return HttpError(combinedResult.Error);
+        if (combinedResult.IsFailure) return HttpError(combinedResult.Error ?? "unknown error");
 
         var customer = new Customer(customerName.Value, primaryEmail.Value, secondaryEmail.Value, industry.Value);
         _customerRepository.Save(customer);

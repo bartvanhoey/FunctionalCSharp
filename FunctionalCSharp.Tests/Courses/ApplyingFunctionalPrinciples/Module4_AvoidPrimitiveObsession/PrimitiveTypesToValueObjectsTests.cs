@@ -1,9 +1,7 @@
-﻿using CSharpFunctionalExtensions;
+﻿using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
+using FunctionalCSharp.Shared.ResultClass;
 using Shouldly;
-using FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After;
-
 using static System.String;
-using static FunctionalCSharp.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession.After.Email;
 
 namespace FunctionalCSharp.Tests.Courses.ApplyingFunctionalPrinciples.Module4_AvoidPrimitiveObsession;
 
@@ -21,7 +19,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
         var result = emailProcessor.ProcessEmailWithPrimitiveObsession(OldEmailAddress, NewEmailAddress);
         result.ShouldBe(NewEmailAddress);
     }
-        
+
     [Fact]
     public void TestProcessEmailWithPrimitiveObsession_InvalidNewEmailAddress()
     {
@@ -29,7 +27,7 @@ public class ConvertPrimitiveTypesInValueObjectsTests
         var result = emailProcessor.ProcessEmailWithPrimitiveObsession(OldEmailAddress, InvalidNewEmailAddress);
         result.ShouldBe(Empty);
     }
-        
+
     [Fact]
     public void TestProcessEmailWithPrimitiveObsession_InvalidOldEmailAddress()
     {
@@ -37,27 +35,27 @@ public class ConvertPrimitiveTypesInValueObjectsTests
         var result = emailProcessor.ProcessEmailWithPrimitiveObsession(InvalidOldEmailAddress, NewEmailAddress);
         result.ShouldBe(Empty);
     }
-        
+
     [Fact]
     public void TestProcessEmailWithValueObjects()
     {
         var processor = new EmailProcessor();
-            
-        var oldMail = Create(OldEmailAddress);
-        var newMail = Create(NewEmailAddress);
-            
+
+        var oldMail = Email.Create(OldEmailAddress);
+        var newMail = Email.Create(NewEmailAddress);
+
         var result = processor.ProcessEmailWithValueObjects(oldMail, newMail);
         result.ShouldBe(NewEmailAddress);
     }
-        
+
     [Fact]
     public void TestProcessEmailWithValueObjects_WithInvalidNewEmailAddress()
     {
         var processor = new EmailProcessor();
-            
-        var oldMail = Create(OldEmailAddress);
-        var newMail = Create(InvalidNewEmailAddress);
-            
+
+        var oldMail = Email.Create(OldEmailAddress);
+        var newMail = Email.Create(InvalidNewEmailAddress);
+
         var result = processor.ProcessEmailWithValueObjects(oldMail, newMail);
         result.ShouldBe(Empty);
     }
@@ -65,7 +63,6 @@ public class ConvertPrimitiveTypesInValueObjectsTests
 
 public class EmailProcessor
 {
-
     // with value objects - better approach
     public string ProcessEmailWithValueObjects(Result<Email> oldEmailResult, Result<Email> newEmailResult)
     {
@@ -74,12 +71,12 @@ public class EmailProcessor
         customer.Email = newEmailResult.Value;
         return customer.Email;
     }
-        
+
     // with primitive obsession
     public string ProcessEmailWithPrimitiveObsession(string oldEmail, string newEmail)
     {
-        var oldEmailResult = Create(oldEmail);
-        var newEmailResult = Create(newEmail);
+        var oldEmailResult = Email.Create(oldEmail);
+        var newEmailResult = Email.Create(newEmail);
 
         if (oldEmailResult.IsFailure || newEmailResult.IsFailure) return Empty;
 
@@ -89,10 +86,8 @@ public class EmailProcessor
 
         return customer.Email;
     }
-        
-    private MyCustomer GetCustomerByEmail(string oldEmailValue) => new() {Email = oldEmailValue};
 
-        
+    private MyCustomer GetCustomerByEmail(string oldEmailValue) => new() { Email = oldEmailValue };
 }
 
 internal class MyCustomer
